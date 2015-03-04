@@ -139,15 +139,15 @@ Apache config files will also need creating for them. EG
 
   # Index file and Document Root (where the public files are located)
   DirectoryIndex index.php
-  DocumentRoot /path/to/project/root/
+  DocumentRoot "/path/to/project/root/"
 
   # Log file locations
   LogLevel warn
-  ErrorLog  /path/to/log/folder/log/error.log
-  CustomLog /path/to/log/folder/access.log combined
+  ErrorLog  "/path/to/log/folder/log/error.log"
+  CustomLog "/path/to/log/folder/access.log" combined
 
-  SSLCertificateFile /etc/apache2/ssl/streambed.localhost.cert
-  SSLCertificateKeyFile /etc/apache2/ssl/streambed.localhost.key
+  SSLCertificateFile "/path/to/certificate/streambed.localhost.cert"
+  SSLCertificateKeyFile "/path/to/key/streambed.localhost.key"
 </VirtualHost>
 ```
 
