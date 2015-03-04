@@ -1,0 +1,194 @@
+/**
+ * Copyright 2015 Sky Wickenden
+ * 
+ * This file is part of StreamBed.
+ * An implementation of the Babbling Brook Protocol.
+ * 
+ * StreamBed is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option any later version.
+ * 
+ * StreamBed is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+/*
+    Document   : main
+    Created on : 13-Feb-2014, 10:53:40
+    Author     : Sky
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body {
+    font-size: 100%; /* 14px */
+    color: #2d2d2d;
+    font-family: tahoma,verdana,arial,sans-serif;
+    background-color: #E2F5FF;
+}
+
+a {
+    text-decoration: none;
+    color: #1F8BCC;
+}
+
+a:visited {
+    color: #1F8BCC;
+}
+
+#page {
+    width: 960px;
+    margin: 0 auto;
+    background-color: #232141;
+}
+
+footer {
+    background-color: #E2F5FF;
+    color: #707E9E;
+    text-align: center;
+    padding-top: 0.5em;
+    font-size: 0.75em;
+}
+
+#top_nav {
+    letter-spacing: 0.1em;
+    color : #4F628E;
+    background-color: #E2F5FF;
+    height: 2.25em;
+}
+
+#top_nav a{
+    color : #4F628E;
+    font-size: 0.875em;
+    text-decoration: none;
+}
+
+#top_nav li {
+    float: right;
+    padding: 0.5em 1em;
+}
+
+article {
+    background-color: #EDF7FF;
+    padding: 0 2em 2em 2em;
+    font-size: 1.25em;
+    line-height: 1.2em;
+}
+
+.content-indent {
+}
+
+.hide {
+    display: none;
+}
+
+#email_help, #username_help {
+    font-size: 0.75em;
+    line-height: 1em;
+    background-color: #D9EAF7;
+    padding: 1em;
+}
+
+.footer {
+    background-color: #E2F5FF;
+    color: #AAAAAA;
+    text-align: center;
+}
+
+.no-page-padding {
+    margin-left:-2em;
+}
+
+#home_page_text {
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    font-size: 0.8em;
+}
+
+h2 {
+    font-size: 2em;
+    padding-top: 0.75em;
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    font-size: 1.75em;
+}
+
+
+a.big-button {
+   display: inline-block;
+   width: 420px;
+   background-color: #4476cc;
+   height: 100px;
+   line-height: 100px;
+   vertical-align: text-middle;
+   text-align: center;
+   color: #ffffff;
+   font-family: Calibri;
+   font-size: 56px;
+   font-weight: bold;
+   font-style: normal;
+   text-shadow: #222222 1px 1px 0;
+   border-radius: 5px;
+   text-decoration: none;
+}
+
+.float-right {
+    float: right;
+}
+
+.extra-top-padding {
+    padding-top: 30px;
+}
+
+.extra-bottom-padding {
+    padding-bottom: 30px;
+}
+
+.image-container {
+    position: relative;
+}
+
+.no-page-padding .image-container a.copyright {
+    bottom: 0.2em;
+    position: absolute;
+    right: -1.8em;
+}
+
+.error {
+    color : #ff0000;
+}
+
+#messages {
+    display: none;
+}
+
+h4 {
+    font-size: 1.5em;
+    margin-bottom:0.25em;
+}
+
+.content-block-2 {
+   background-color : #E3EDF7;
+   padding: 1em;
+   margin: 1em;
+}
+
+#top_warning {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffff00;
+    padding: 4px 2px;
+    background-color: #ffff66;
+}
+
+strong {
+    font-weight: bold;
+}
