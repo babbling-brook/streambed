@@ -46,7 +46,7 @@ return
                 'cookieParams' => array(
                     'path' => '/',
                     // There is a period before the domain name so that the cookie will work on all subdomains.
-                    'domain' => '.cobaltcascade.localhost',
+                    'domain' => '.' . HOST,
                     'httpOnly' => true,
                 ),
             ),
