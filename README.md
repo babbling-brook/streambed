@@ -126,16 +126,16 @@ If you have multiple sites running on Apache then you will want to tighten the s
 
 #### SSL certificates.
 
-SSL certificates will need creating and installing for streambed.localhost, domus.streambed.localhost and scientia.streambed.localhost
+SSL certificates will need creating and installing for streambed.localhost, domus.streambed.localhost and scientia.streambed.localhost. Alternatively you can create a single wildcard certificate for *.streambed.localhost
 
 Self signed certificates are fine for dev work. (You may need to use the --ignore-certificate-errors command line flag in Chrome).
 
-Apache config files will also need creating for them. A seperate vituralhost will need creating for each certificate, E.G:
+Apache config files will also need creating for them. A seperate vituralhost will need creating for each certificate if a wildcard certificate is not used.
 ```
 <VirtualHost *:443>
   # Admin email, Server Name (domain name), and any aliases
   ServerAdmin admin@streambed.localhost
-  ServerName  streambed.localhost
+  ServerName  *.streambed.localhost
 
   # Index file and Document Root (where the public files are located)
   DirectoryIndex index.php
