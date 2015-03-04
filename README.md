@@ -117,10 +117,8 @@ Here is an example virtual host for the base domain. Duplicate this for each sub
 ```
 
 Notes: 
-* If you already have any Apache VirtualHost settings that point directly at 127.0.0.1 then you will need to use 
+* If you already have any Apache VirtualHost settings that point directly at 127.0.0.1 then you will need to use <VirtualHost 127.0.0.1:80>
 * If you have multiple sites running on Apache then you will want to tighten the security of the Directory Allow directive.
-```
-<VirtualHost 127.0.0.1:80>
 ```
 
 #### SSL certificates.
