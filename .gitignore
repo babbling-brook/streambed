@@ -2,4 +2,5 @@ assets/*
 !assets/.gitignore
 protected/runtime/*
 !protected/runtime/.gitignore
+protected/config/server.php
 nbproject
