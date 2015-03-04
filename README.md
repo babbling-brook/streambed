@@ -35,10 +35,10 @@ along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
 
 ### Requirements
 
-PHP 5.5.5
-MySql 5.6
+* PHP 5.5.5
+* MySql 5.6
 (Marai DB Note: Uses Innodb with foreign keys which requires 5.6, equivalent to MariaDB 10.1 which is currently in alpha).
-Apache 2.4.6 (Should work on earlier versions.)
+* Apache 2.4.6 (Should work on earlier versions.)
 
 
 ### Installation
@@ -51,15 +51,17 @@ Place this root folder in your servers public directory.
 
 On Linux systems ensure that the following folders are chmod to 770:
 The best way to achieve this is to give the apache user (www-data) ownership of the files with :
-'''
+
+```
 sudo chown -R www-data folder-location
 sudo chmod 770 folder-location
-'''
+```
 
-'''
+```
 /protected/runtime
 /assets
 /protected/cookiepath
+/protected/log
 /css/Minified/
 /css/Minified/Client
 /css/Minified/Public
@@ -67,7 +69,7 @@ sudo chmod 770 folder-location
 /js/Minified/Client
 /js/Minified/Public
 /images/user
-'''
+```
 
 #### Domains and Hosts file
 
@@ -75,7 +77,7 @@ If setting live then you will need a domain name. Otherwise you will need to cho
 'localhost' will not work. Your domain must have a tld. EG streambed.localhost
 
 From this base domain you will need to setup your hosts file to direct the following seven sub domains to localhost.
-'''
+```
 127.0.0.1       streambed.localhost
 127.0.0.1       domus.streambed.localhost
 127.0.0.1       scientia.streambed.localhost
@@ -83,13 +85,13 @@ From this base domain you will need to setup your hosts file to direct the follo
 127.0.0.1       filter.streambed.localhost
 127.0.0.1       suggestion.streambed.localhost
 127.0.0.1       ring.streambed.localhost
-'''
+```
 
 #### Apache
 
 Apache will need setting up to direct these to the installation folder.
 Here is an example virtual host.
-'''
+```
 <VirtualHost *:80>
   # Admin email, Server Name (domain name), and any aliases
   ServerAdmin admin@streambed.localhost
@@ -104,8 +106,7 @@ Here is an example virtual host.
   ErrorLog  /path/to/log/folder/log/error.log
   CustomLog /path/to/log/folder/access.log combined
 </VirtualHost>
-
-'''
+```
 
 #### SSL certificates.
 
@@ -114,7 +115,7 @@ SSL certificates will need creating and installing for streambed.localhost, domu
 Self signed certificates are fine for dev work. (You may need to use the --ignore-certificate-errors command line flag in Chrome).
 
 Apache config files will also need creating for them. EG
-'''
+```
 <VirtualHost *:443>
   # Admin email, Server Name (domain name), and any aliases
   ServerAdmin admin@streambed.localhost
@@ -132,23 +133,23 @@ Apache config files will also need creating for them. EG
   SSLCertificateFile /etc/apache2/ssl/streambed.localhost.cert
   SSLCertificateKeyFile /etc/apache2/ssl/streambed.localhost.key
 </VirtualHost>
-'''
+```
 
 #### Edit config files.
 
 Edit /index.php
 
 Edit the following line:
-'''
+```
 define("CLIENT_TYPE", "cascade");
-'''
+```
 to the kind of client website type you want to create.
 (Currently the only option is 'cascade').
 
 Edit the following line:
-'''
+```
 define("HOST", "streambed.localhost");
-'''
+```
 to be the domain you are hosting this on.
 
 
