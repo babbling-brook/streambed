@@ -36,4 +36,4 @@ There are plans to reintroduce unit testing to a few specific classes that could
 
 ### Refactoring
 
-The main problem with this methodology is that it is hard to refactor across the codebase as there are no test suite. The plan here is to create a set of protocol tests that can be applied to any Babbling Brook domain. This will not only make refactoring easier, but will also double as a method to test that other datastores in the network are behaving properly.
+The main problem with this methodology is that it is hard to refactor across the codebase as there is no test suite. The plan is to create a set of protocol tests that can be applied to any Babbling Brook domain. This will not only make refactoring easier, but will also double as a method to test that other datastores in the network are behaving properly.
