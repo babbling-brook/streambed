@@ -105,8 +105,7 @@ Here is an example virtual host for the base domain. Duplicate this for each sub
     SSLOptions +StdEnvVars
     Options Indexes FollowSymLinks
     Order Deny,Allow
-    Deny from all
-    Allow from cobaltcascade.localhost
+    Allow from all
     AllowOverride All
   </Directory>  
 
@@ -117,7 +116,9 @@ Here is an example virtual host for the base domain. Duplicate this for each sub
 </VirtualHost>
 ```
 
-N.B. If you already have any Apache VirtualHost settings that point directly at 127.0.0.1 then you will need to use 
+Notes: 
+* If you already have any Apache VirtualHost settings that point directly at 127.0.0.1 then you will need to use 
+* If you have multiple sites running on Apache then you will want to tighten the security of the Directory Allow directive.
 ```
 <VirtualHost 127.0.0.1:80>
 ```
