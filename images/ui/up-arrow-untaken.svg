@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="30"
+   height="20"
+   viewBox="0 0 30 20"
+   preserveAspectRatio="none">
+
+    <path
+	   vector-effect="non-scaling-stroke"
+	   style="fill:#95bbd9;fill-opacity:1;stroke:#4b72a7;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+	   d="M1 14 L15 1 L29 14 L24 14 L24 19 L6 19 L6 14 z" />	   
+	   
+</svg>
+
