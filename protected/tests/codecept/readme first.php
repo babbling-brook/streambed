@@ -9,7 +9,7 @@
  *
  * EG
  *
- * java -jar C:\Users\Sky\Documents\WebSites\BabblingBrook\svn\trunk\www\protected\tests\codecept\selenium-server-standalone-2.44.0.jar
+ * java -jar path/to/jar
  *
  * To run tests. Open another command prompt, CD into this directory and then run
  *
