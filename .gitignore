@@ -3,4 +3,8 @@ assets/*
 protected/runtime/*
 !protected/runtime/.gitignore
 protected/config/server.php
+protected/cookiepath/
+!protected/cookiepath/.gitignore
+protected/log/
+!protected/log/.gitignore
 nbproject
