@@ -1,0 +1,1728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--Test the private offer pages.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--Check that the link to the private offers section is working-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul:nth(0)&gt;li:nth(4)</td>
+	<td>Private Posts</td>
+</tr>
+<!--... Check that the message count does not show, as it should be zero.-->
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#top_nav&gt;ul:nth(0)&gt;li:nth(4)&gt;a&gt;#message_count@class</td>
+	<td>*hide*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#top_nav&gt;ul:nth(0)&gt;li:nth(4)&gt;a&gt;#message_count@class</td>
+	<td>*checking*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul:nth(0)&gt;li:nth(4)</td>
+	<td>Private Posts</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#top_nav&gt;ul:nth(0)&gt;li:nth(4)&gt;a@href</td>
+	<td>/test/private</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#top_nav&gt;ul:nth(0)&gt;li:nth(4)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2:nth(0)</td>
+	<td>Local Inbox</td>
+</tr>
+<!--Check the empty page, before and after offers have loaded.-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;h2:nth(0) + div</td>
+	<td>Posts that have been sent from other users on Cobalt Cascade*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#no_offers_message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#no_offers_message</td>
+	<td>No posts to display</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#end_of_offers</td>
+	<td>No more offers to display</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#end_of_offers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td>Loading offers...</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td></td>
+</tr>
+<!--Check no messages are returned.-->
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#no_offers_message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#end_of_offers</td>
+	<td></td>
+</tr>
+<!--Check the navigation to other offer boxes-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#sidebar&gt;ul#sidebar_extra&gt;li:nth(0)</td>
+	<td>Private offers</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=ul#sidebar_extra&gt;li:nth(1)&gt;a</td>
+	<td>Local Inbox</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=ul#sidebar_extra&gt;li:nth(1)&gt;a@href</td>
+	<td>/test/private/localpost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=ul#sidebar_extra&gt;li:nth(2)&gt;a</td>
+	<td>Global Inbox</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=ul#sidebar_extra&gt;li:nth(2)&gt;a@href</td>
+	<td>/test/private/globalpost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=ul#sidebar_extra&gt;li:nth(3)&gt;a</td>
+	<td>Local Sent Items</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=ul#sidebar_extra&gt;li:nth(3)&gt;a@href</td>
+	<td>/test/private/localsent</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=ul#sidebar_extra&gt;li:nth(4)&gt;a</td>
+	<td>Global Sent Items</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=ul#sidebar_extra&gt;li:nth(4)&gt;a@href</td>
+	<td>/test/private/globalsent</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=ul#sidebar_extra&gt;li:nth(5)&gt;a</td>
+	<td>Compose</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=ul#sidebar_extra&gt;li:nth(5)&gt;a@href</td>
+	<td>/test/private/compose</td>
+</tr>
+<!--Check the other pages are empty-->
+<!--... global inbox-->
+<tr>
+	<td>click</td>
+	<td>css=ul#sidebar_extra&gt;li:nth(2)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2:nth(0) + div</td>
+	<td>Messages that have been sent from other users on all sites in the*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#no_offers_message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#no_offers_message</td>
+	<td>No offers to display</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#end_of_offers</td>
+	<td>No more offers to display</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#end_of_offers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td>Loading offers...</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#no_offers_message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#end_of_offers</td>
+	<td></td>
+</tr>
+<!--... local sent items-->
+<tr>
+	<td>click</td>
+	<td>css=ul#sidebar_extra&gt;li:nth(3)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2:nth(0) + div</td>
+	<td>Posts that you have made*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#no_offers_message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#no_offers_message</td>
+	<td>No offers to display</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#end_of_offers</td>
+	<td>No more offers to display</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#end_of_offers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td>Loading offers...</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(1)&gt;div.title&gt;span</td>
+	<td></td>
+</tr>
+<!--... global sent items-->
+<tr>
+	<td>click</td>
+	<td>css=ul#sidebar_extra&gt;li:nth(4)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2:nth(0) + div</td>
+	<td>Posts that you have made on all sites in the *</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#no_offers_message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#no_offers_message</td>
+	<td>No offers to display</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#end_of_offers</td>
+	<td>No more offers to display</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#end_of_offers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td>Loading offers...</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(1)&gt;div.title&gt;span</td>
+	<td></td>
+</tr>
+<!--Create some offers-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>test offer 1</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>A first test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A first test private offer from test to test2</td>
+</tr>
+<!---->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_1_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_1_field_1_text</td>
+	<td>A second test private offer from test to test2 and test3</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(1)&gt;.address</td>
+	<td>cobaltcascade.localhost/test3</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(1)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(1)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_1 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A second test private offer from test to test2 and test3</td>
+</tr>
+<!---->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_2_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_1_text</td>
+	<td>A third test private offer from test to test3</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_2&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_2&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_2&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_2&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_2&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_2 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A third test private offer from test to test3</td>
+</tr>
+<!---->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_3_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_3_field_1_text</td>
+	<td>A fourth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_3&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_3&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_3&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_3&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_3&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_3 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A fourth test private offer from test to test2</td>
+</tr>
+<!---->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_4_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_4_field_1_text</td>
+	<td>A fith test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_4&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_4&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_4&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_4&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_4&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_4 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A fith test private offer from test to test2</td>
+</tr>
+<!---->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_5_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_5_field_1_text</td>
+	<td>A sixth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_5&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_5&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_5&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_5&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_5&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_5 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A sixth test private offer from test to test2</td>
+</tr>
+<!---->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_6_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_6_field_1_text</td>
+	<td>A seventh test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_6&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_6&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_6&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_6&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_6&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_6 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A seventh test private offer from test to test2</td>
+</tr>
+<!---->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_7_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_7_field_1_text</td>
+	<td>A eighth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_7&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_7&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_7&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_7&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_7&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_7 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A eighth test private offer from test to test2</td>
+</tr>
+<!---->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_8_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_8_field_1_text</td>
+	<td>A ninth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_8&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_8&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_8&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_8&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_8&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_8 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A ninth test private offer from test to test2</td>
+</tr>
+<!---->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_9_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_9_field_1_text</td>
+	<td>A tenth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_9&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_9&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_9&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_9&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_9&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_9 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A tenth test private offer from test to test2</td>
+</tr>
+<!---->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_10_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_10_field_1_text</td>
+	<td>A eleventh test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_10&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_10&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_10&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_10&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_10&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_10 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A eleventh test private offer from test to test2</td>
+</tr>
+<!---->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_11_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_11_field_1_text</td>
+	<td>A twelfth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_11&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_11&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_11&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_11&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_11&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_11 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A twelfth test private offer from test to test2</td>
+</tr>
+<!---->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_12_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_12_field_1_text</td>
+	<td>A thirteenth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_12&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_12&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_12&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_12&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_12&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_12 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A thirteenth test private offer from test to test2</td>
+</tr>
+<!--Wait for cooldowns to pass-->
+<tr>
+	<td>pause</td>
+	<td>30000</td>
+	<td></td>
+</tr>
+<!--Check the local inbox-->
+<tr>
+	<td>open</td>
+	<td>/test/private/localsent</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(0)&gt;div.title&gt;span</td>
+	<td>A thirteenth test private offer from test to test2</td>
+</tr>
+<!--...No way to know how many fit on the screen, so scroll after each one to ensure it is present. But first pause and make sure one that is not loaded in the first batch is missing.-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(1)&gt;div.title&gt;span</td>
+	<td>A twelfth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(2)&gt;div.title&gt;span</td>
+	<td>A eleventh test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(3)&gt;div.title&gt;span</td>
+	<td>A tenth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(4)&gt;div.title&gt;span</td>
+	<td>A ninth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(5)&gt;div.title&gt;span</td>
+	<td>A eighth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(6)&gt;div.title&gt;span</td>
+	<td>A seventh test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(7)&gt;div.title&gt;span</td>
+	<td>A sixth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(8)&gt;div.title&gt;span</td>
+	<td>A fith test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(9)&gt;div.title&gt;span</td>
+	<td>A fourth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(10)&gt;div.title&gt;span</td>
+	<td>A third test private offer from test to test3</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(11)&gt;div.title&gt;span</td>
+	<td>A second test private offer from test to test2 and test3</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(12)&gt;div.title&gt;span</td>
+	<td>A first test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(13)&gt;div.title&gt;span</td>
+	<td></td>
+</tr>
+<!--Check the local inbox-->
+<tr>
+	<td>open</td>
+	<td>/test/private/localpost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#no_offers_message</td>
+	<td></td>
+</tr>
+<!--Log in as 2nd test user and check their inbox-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<!--... check message count-->
+<tr>
+	<td>open</td>
+	<td>/test2/private/globalsent</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#top_nav&gt;ul&gt;li:nth(4)&gt;a&gt;#message_count@class</td>
+	<td>*checking*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#top_nav&gt;ul&gt;li:nth(4)&gt;a&gt;#message_count@class</td>
+	<td>*hide*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#top_nav&gt;ul&gt;li:nth(4)&gt;a&gt;#message_count</td>
+	<td>(13)</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#local_message_count@class</td>
+	<td>*checking*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#local_message_count@class</td>
+	<td>*hide*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#local_message_count</td>
+	<td>(13)</td>
+</tr>
+<!--... check the local inbox-->
+<tr>
+	<td>open</td>
+	<td>/test2/private/localpost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(0)&gt;div.title&gt;span</td>
+	<td>A thirteenth test private offer from test to test2</td>
+</tr>
+<!--... check the message count has reset-->
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#local_message_count@class</td>
+	<td>*checking*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#local_message_count@class</td>
+	<td>*hide*</td>
+</tr>
+<!--...No way to know how many fit on the screen, so scroll after each one to ensure it is present. But first pause and make sure one that is not loaded in the first batch is missing.-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(1)&gt;div.title&gt;span</td>
+	<td>A twelfth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(2)&gt;div.title&gt;span</td>
+	<td>A eleventh test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(3)&gt;div.title&gt;span</td>
+	<td>A tenth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(4)&gt;div.title&gt;span</td>
+	<td>A ninth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(5)&gt;div.title&gt;span</td>
+	<td>A eighth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(6)&gt;div.title&gt;span</td>
+	<td>A seventh test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(7)&gt;div.title&gt;span</td>
+	<td>A sixth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(8)&gt;div.title&gt;span</td>
+	<td>A fith test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(9)&gt;div.title&gt;span</td>
+	<td>A fourth test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(10)&gt;div.title&gt;span</td>
+	<td>A third test private offer from test to test3</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(11)&gt;div.title&gt;span</td>
+	<td>A second test private offer from test to test2 and test3</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(12)&gt;div.title&gt;span</td>
+	<td>A first test private offer from test to test2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>selenium.browserbot.getCurrentWindow().scrollTo(0, 10000);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(13)&gt;div.title&gt;span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#end_of_offers</td>
+	<td></td>
+</tr>
+<!--... and the test 3 account.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<!--... check the local inbox-->
+<tr>
+	<td>open</td>
+	<td>/test3/private/localpost</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#load_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(0)&gt;div.title&gt;span</td>
+	<td>A second test private offer from test to test2 and test3</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#content&gt;.private-offers&gt;#post_list&gt;div.offer:nth(1)&gt;div.title&gt;span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;.private-offers&gt;#end_of_offers</td>
+	<td></td>
+</tr>
+<!--Compose a message-->
+<tr>
+	<td>open</td>
+	<td>/test3/private/compose</td>
+	<td>/test3/private/compose</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#make_offer_0 #offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#make_offer_0 .private-offer .private-offer-to-line:nth(0) .address</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>A test composed private message</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#recent_offers_container</td>
+	<td>A test composed private message</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#recent_offers&gt;.offer:nth(0)&gt;.title</td>
+	<td>A test composed private message</td>
+</tr>
+<!--.. check that form is still visible to make anoter offer.-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#make_offer_1 #offer_1_field_1_text</td>
+	<td></td>
+</tr>
+<!--@todo global sent inbox and global inbox when multisites are working-->
+</tbody></table>
+</body>
+</html>

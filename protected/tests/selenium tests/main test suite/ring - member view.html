@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>ring - member view</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">ring - member view</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--Check that navigation link is present-->
+<tr>
+	<td>open</td>
+	<td>http://cobaltcascade.localhost/site/index</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#top_nav&gt;ul&gt;li:nth(3)&gt;a</td>
+	<td>Rings</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#top_nav&gt;ul&gt;li:nth(3)&gt;a@href</td>
+	<td>/test/ring/index</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#top_nav&gt;ul&gt;li:nth(3)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Rings</td>
+</tr>
+<!--Search for rings-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div#member_rings&gt;a#join_rings</td>
+	<td>Search for rings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;div#member_rings&gt;a#join_rings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#selector_member_ring_user.block-loading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#content&gt;div#member_rings&gt;div#search_rings&gt;table#selector_member_ring_user&gt;thead&gt;tr.search&gt;td.site</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div#member_rings&gt;a#join_rings</td>
+	<td>Close ring search</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#selector_member_ring_user@class</td>
+	<td>*block-loading*</td>
+</tr>
+<!--Check the first row-->
+<tr>
+	<td>type</td>
+	<td>css=table#selector_member_ring_user&gt;thead&gt;tr.search&gt;td.site&gt;input#site_member_ring_user</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=table#selector_member_ring_user&gt;thead&gt;tr.search&gt;td.user&gt;input#user_member_ring_user</td>
+	<td>test </td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=table#selector_member_ring_user&gt;tbody&gt;tr:nth(0)&gt;td.domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=table#selector_member_ring_user&gt;tbody&gt;tr:nth(0)&gt;td.user</td>
+	<td>test ring</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_member_ring_user&gt;tbody&gt;tr:nth(0)&gt;td.action&gt;a.action</td>
+	<td>View</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_member_ring_user&gt;tbody&gt;tr:nth(0)&gt;td:nth(0)@class</td>
+	<td>*domain*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_member_ring_user&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)@class</td>
+	<td>*user*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_member_ring_user&gt;tbody&gt;tr:nth(0)&gt;td:nth(2)@class</td>
+	<td>*action*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_member_ring_user&gt;tbody&gt;tr:nth(0)&gt;td.domain</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_member_ring_user&gt;tbody&gt;tr:nth(0)&gt;td.user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_member_ring_user&gt;tbody&gt;tr:nth(0)&gt;td.action&gt;a.action</td>
+	<td></td>
+</tr>
+<!--Help Icon-->
+<tr>
+	<td>click</td>
+	<td>css=#selector_member_ring_user&gt;thead&gt;tr.search&gt;td.action&gt;div#help_member_ring_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Filter your results</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Type and press return in*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--The Close button-->
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;div#member_rings&gt;a#join_rings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#content&gt;div#find_rings&gt;div#search_rings&gt;table#selector_member_ring_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div#member_rings&gt;a#join_rings</td>
+	<td>Search for rings to join</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;div#member_rings&gt;a#join_rings</td>
+	<td></td>
+</tr>
+<!--View a ring that the test user is a member of.-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=table#selector_member_ring_user&gt;tbody&gt;tr:nth(0)&gt;td.action&gt;a.action</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=table#selector_member_ring_user&gt;tbody&gt;tr:nth(0)&gt;td.action&gt;a.action@href</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Ring profile for test ring</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#profile&gt;#edit_link&gt;a@href</td>
+	<td>*/test ring/editprofile</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#profile&gt;#edit_link&gt;a@href</td>
+	<td>*/test ring/editprofile</td>
+</tr>
+<!--... Test is also an admin of this ring and so should se an edit link.-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;#profile&gt;#edit_link&gt;a</td>
+	<td>Edit this ring profile</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;#profile&gt;#edit_link&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;#profile&gt;#join_ring&gt;a</td>
+	<td></td>
+</tr>
+<!--View the rings members area-->
+<tr>
+	<td>assertText</td>
+	<td>css=#profile&gt;#ring_members&gt;a</td>
+	<td>Members area</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#profile&gt;#ring_members&gt;a</td>
+	<td>Members area</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#profile&gt;#ring_members&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Members area for the test ring Ring</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#sidebar&gt;.portlet-decoration&gt;div.portlet-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;.portlet-decoration&gt;div.portlet-title</td>
+	<td>Member pages</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;.portlet-content&gt;ul&gt;li:nth(0)&gt;a</td>
+	<td>Membership Area</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;.portlet-content&gt;ul&gt;li:nth(1)&gt;a</td>
+	<td>Leave Ring</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;.portlet-content&gt;ul&gt;li:nth(0)&gt;a@href</td>
+	<td>/test ring/ring/members</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;.portlet-content&gt;ul&gt;li:nth(1)&gt;a@href</td>
+	<td>/test ring/ring/leave</td>
+</tr>
+<!--View a ring not a member of-->
+<tr>
+	<td>open</td>
+	<td>/test/ring/index</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div#member_rings&gt;a#join_rings</td>
+	<td>Search for rings</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;div#member_rings&gt;a#join_rings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=table#selector_member_ring_user&gt;thead&gt;tr.search&gt;td.site&gt;input#site_member_ring_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=table#selector_member_ring_user&gt;thead&gt;tr.search&gt;td.site&gt;input#site_member_ring_user</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=table#selector_member_ring_user&gt;thead&gt;tr.search&gt;td.user&gt;input#user_member_ring_user</td>
+	<td>test </td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=table#selector_member_ring_user&gt;tbody&gt;tr:nth(1)&gt;td.domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=table#selector_member_ring_user&gt;tbody&gt;tr:nth(1)&gt;td.user</td>
+	<td>test suggested ring</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=table#selector_member_ring_user&gt;tbody&gt;tr:nth(1)&gt;td.action&gt;a.action@href</td>
+	<td></td>
+</tr>
+<!--Join Ring-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#profile&gt;#join_ring&gt;a</td>
+	<td>Join Ring</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#profile&gt;#join_ring&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#profile&gt;#join_ring</td>
+	<td>You are now a member of this ring.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#profile&gt;#ring_members&gt;a</td>
+	<td>Members area</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#profile&gt;#ring_members&gt;a</td>
+	<td>Members area</td>
+</tr>
+<!--Check ring membership page displays new ring membership-->
+<tr>
+	<td>click</td>
+	<td>css=#top_nav&gt;ul&gt;li:nth(3)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#content&gt;div#member_rings&gt;h3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#member_rings&gt;h3</td>
+	<td>Ring membership</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#member_rings&gt;ul&gt;li:nth(0)&gt;.ring-name</td>
+	<td>test ring</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#member_rings&gt;ul&gt;li:nth(1)&gt;.ring-name</td>
+	<td>test suggested ring</td>
+</tr>
+<!--... first ring membership line-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(0)&gt;span</td>
+	<td>test ring</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(0)&gt;span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(0)&gt;span@title</td>
+	<td>cobaltcascade.localhost/test ring</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(0)&gt;a:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(0)&gt;a:nth(0)</td>
+	<td>profile</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(0)&gt;a:nth(0)@href</td>
+	<td>http://cobaltcascade.localhost/test ring</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(0)&gt;a:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(0)&gt;a:nth(1)</td>
+	<td>members area</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(0)&gt;a:nth(1)@href</td>
+	<td>http://cobaltcascade.localhost/test ring/ring/members</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(0)&gt;span@title</td>
+	<td>cobaltcascade.localhost/test ring</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(0)&gt;a:nth(2)</td>
+	<td></td>
+</tr>
+<!--... second ring membership line-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(1)&gt;span</td>
+	<td>test suggested ring</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(1)&gt;span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(1)&gt;span@title</td>
+	<td>cobaltcascade.localhost/test suggested ring</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(1)&gt;a:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(1)&gt;a:nth(0)</td>
+	<td>profile</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(1)&gt;a:nth(0)@href</td>
+	<td>http://cobaltcascade.localhost/test suggested ring</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(1)&gt;a:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(1)&gt;a:nth(1)</td>
+	<td>members area</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(1)&gt;a:nth(1)@href</td>
+	<td>http://cobaltcascade.localhost/test suggested ring/ring/members</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(1)&gt;span@title</td>
+	<td>cobaltcascade.localhost/test suggested ring</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(1)&gt;a:nth(2)</td>
+	<td></td>
+</tr>
+<!--Leave Ring-->
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;div#member_rings&gt;ul&gt;li:nth(1)&gt;a:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#sidebar&gt;.portlet-content&gt;ul&gt;li:nth(1)&gt;a</td>
+	<td>Leave Ring</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sidebar&gt;.portlet-content&gt;ul&gt;li:nth(1)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Leave the test suggested ring Ring</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div&gt;form&gt;div.form&gt;div.row:nth(0)</td>
+	<td>Please confirm that you want to leave the test suggested ring Ring.</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div&gt;form&gt;div.form&gt;div.row:nth(1)&gt;input#ring_name@value</td>
+	<td>test suggested ring</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;div&gt;form&gt;div.form&gt;div.row:nth(1)&gt;input#confirm_leave_button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#messages_inner</td>
+	<td>You have resigned your membership of the &quot;test suggested ring&quot; ring.</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#message_buttons&gt;span.standard-button</td>
+	<td>ok</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#message_buttons&gt;span.standard-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#messages_inner</td>
+	<td>No Messages</td>
+</tr>
+<!--Ascertain that the suggested ring has been removed from the users list.-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#member_rings&gt;ul&gt;li:nth(0)&gt;.ring-name</td>
+	<td>test ring</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#member_rings&gt;ul&gt;li:nth(1)</td>
+	<td>test ring</td>
+</tr>
+<!--Check create new ring link-->
+<tr>
+	<td>open</td>
+	<td>/test/ring/index</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div#admin_rings&gt;h3</td>
+	<td>Rings you administer</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#admin_rings&gt;a</td>
+	<td>Create a new ring</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div#admin_rings&gt;a@href</td>
+	<td>create</td>
+</tr>
+</tbody></table>
+</body>
+</html>

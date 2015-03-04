@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>offer top comment</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">offer top comment</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#sub_offers&gt;#suboffer_13&gt;div.content&gt;div.inner-content&gt;div.field-count-0</td>
+	<td>*test offer 13 - comment 5*</td>
+</tr>
+<!--Test new comment open/close-->
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-main-shell&gt;div.input-offer-main&gt;div.offer-field-container&gt;div.offer-field-0-title&gt;em</td>
+	<td>Title</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-main-shell&gt;a.open-offer</td>
+	<td>+</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0&gt;div.input-offer-main-shell&gt;a.open-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;button.make-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;button.cancel-offer</td>
+	<td></td>
+</tr>
+<!--Cancel a new comment (at the top)-->
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_0_text</td>
+	<td>test new comment</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;button.cancel-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offer_0_field_0_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail</td>
+	<td></td>
+</tr>
+<!--Test new comment error message-->
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_field_0_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;button.make-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;button.make-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-main-shell&gt;div.input-offer-main&gt;div.offer-field-container&gt;div.offer-field-0-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-submit-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_0_text</td>
+	<td>test new comment</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;button.make-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;button.make-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#sub_offers&gt;li.suboffer:first&gt;div.content&gt;div.inner-content&gt;div.field-count-0</td>
+	<td>*test new comment*</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;button.make-offer</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

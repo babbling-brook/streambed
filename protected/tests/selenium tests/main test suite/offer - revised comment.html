@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>offer - revised comment</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">offer - revised comment</td></tr>
+</thead><tbody>
+<!--make a comment, revise it, refresh the page and check that the comment is revised.-->
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#make_offer_0 .open-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .open-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_0_text</td>
+	<td>a comment</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 button.make-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#sub_offers&gt;li:nth(0)&gt;div.content&gt;div.inner-content&gt;div.offer-details</td>
+	<td>a comment</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sub_offers&gt;li:nth(0)&gt;div.content&gt;div.foot&gt;.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offer_1_field_0_text</td>
+	<td>a comment</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_1_field_0_text</td>
+	<td>a revised comment</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#make_offer_1 button.make-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_1 button.make-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#sub_offers&gt;li.suboffer&gt;h3&gt;span.revision</td>
+	<td>revision 2</td>
+</tr>
+<!--Check main value is present - it was dissapearing.-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#sub_offers&gt;li&gt;div.content&gt;div.inner-content&gt;div.offer-details&gt;div.updown&gt;.up-arrow</td>
+	<td></td>
+</tr>
+<!--Check all ok after a refresh-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#sub_offers&gt;li.suboffer&gt;h3&gt;span.revision</td>
+	<td>revision 2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#sub_offers&gt;li.suboffer&gt;div.content&gt;div.inner-content&gt;div.offer-details</td>
+	<td>a revised comment</td>
+</tr>
+</tbody></table>
+</body>
+</html>

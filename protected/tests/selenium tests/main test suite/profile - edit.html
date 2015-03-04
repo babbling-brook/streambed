@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>profile - edit</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">profile - edit</td></tr>
+</thead><tbody>
+<!--Edit users profile-->
+<!--Log in to the main test account.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--Check relationship message-->
+<tr>
+	<td>open</td>
+	<td>/test/profile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;h2:nth(0)</td>
+	<td>Profile for test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#profile&gt;h3:nth(2)</td>
+	<td>Relationship score: ∞</td>
+</tr>
+<!--Check edit button-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#profile&gt;div:nth(1)&gt;a</td>
+	<td>Edit your profile</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#profile&gt;div:nth(1)&gt;a@href</td>
+	<td>/test/editprofile</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#profile&gt;div:nth(1)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2:nth(0)</td>
+	<td>Edit Profile</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#edit_profile&gt;#profile_form&gt;div:nth(0)@id</td>
+	<td>view_profile</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#view_profile&gt;a@href</td>
+	<td>profile</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#view_profile&gt;a</td>
+	<td>View your profile</td>
+</tr>
+<!--username-->
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_profile&gt;form#profile_form&gt;#profile_username</td>
+	<td>Username: test</td>
+</tr>
+<!--image-->
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#profile_form&gt;#select_image&gt;div.internal-row:nth(1)&gt;img#profile_image@src</td>
+	<td>/images/user/profile-small/test.png</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#profile_form&gt;#select_image&gt;div.internal-row:nth(0)&gt;label</td>
+	<td>Profile image*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#profile_form&gt;#select_image&gt;div.internal-row:nth(0)&gt;label&gt;.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Profile Image</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>The selected image will be cropped to fit and saved at a resolution of 500 by 500 pixels.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--Note Security restriction makes it not possible to test file upload-->
+<!--real name-->
+<tr>
+	<td>assertText</td>
+	<td>css=#profile_form&gt;#real_name&gt;div.internal-row:nth(0)&gt;label</td>
+	<td>Real Name*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#profile_form&gt;#real_name&gt;div.internal-row:nth(0)&gt;label&gt;.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Real Name</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>You can optionaly include your realname in your profile.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#profile_form&gt;#real_name&gt;div.internal-row:nth(1)&gt;#UserProfile_real_name</td>
+	<td>A new real name</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#profile_form&gt;#real_name&gt;div.internal-row:nth(1)&gt;#UserProfile_real_name</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#profile_form&gt;#real_name&gt;div.internal-row:nth(1)&gt;#UserProfile_real_name@class</td>
+	<td>*textbox-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#profile_form&gt;#real_name&gt;div.internal-row:nth(1)&gt;#UserProfile_real_name@class</td>
+	<td>*textbox-loading*</td>
+</tr>
+<!--about-->
+<tr>
+	<td>assertText</td>
+	<td>css=#profile_form&gt;#about&gt;div.internal-row:nth(0)&gt;label</td>
+	<td>About*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#profile_form&gt;#about&gt;div.internal-row:nth(0)&gt;label&gt;.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>About</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Let the world know anything you want it to know about you.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#profile_form&gt;#about&gt;div.internal-row:nth(1)&gt;#UserProfile_about</td>
+	<td>Some about text</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#profile_form&gt;#about&gt;div.internal-row:nth(1)&gt;#UserProfile_about</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#profile_form&gt;#about&gt;div.internal-row:nth(1)&gt;#UserProfile_about@class</td>
+	<td>*textbox-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#profile_form&gt;#about&gt;div.internal-row:nth(1)&gt;#UserProfile_about@class</td>
+	<td>*textbox-loading*</td>
+</tr>
+</tbody></table>
+</body>
+</html>

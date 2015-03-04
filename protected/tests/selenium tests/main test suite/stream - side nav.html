@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream - side nav</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream - side nav</td></tr>
+</thead><tbody>
+<!--Check the side nav is working. Loading indicator tests are done in the stream-empty test-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--Open the empty occillating test stream-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test oscillating 1/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#sidebar&gt;#side_nav_extra&gt;li.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#sidebar&gt;#side_nav_extra&gt;li.title</td>
+	<td>test oscillating 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;#side_nav_extra&gt;li.description</td>
+	<td>An stream for making oscillating comments</td>
+</tr>
+</tbody></table>
+</body>
+</html>

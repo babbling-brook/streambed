@@ -1,0 +1,4713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream admin - update - fields</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream admin - update - fields</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/test stream/0/0/0/update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#version</td>
+	<td>0/1/0</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#new_version</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#actions_plane&gt;div:nth(0)&gt;div#new_version_success</td>
+	<td>New version created. Edit it here.</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/test stream/0/1/0/update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_fields_tab</td>
+	<td></td>
+</tr>
+<!--Test first field. This is a textfield or linkfield with some special conditions-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#stream_fields&gt;div.list-view&gt;div.items&gt;div.field-container:nth(0)&gt;div.inner-field-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#stream_fields&gt;div.list-view&gt;div.items&gt;div.field-container:nth(1)&gt;div.inner-field-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#stream_fields&gt;div.list-view&gt;div.items&gt;div.field-container:nth(0)&gt;h4.stream_field_header</td>
+	<td>test-title</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type</td>
+	<td>textbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(0)</td>
+	<td>Textbox</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(0)</td>
+	<td>textbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(1)</td>
+	<td>Link</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(1)</td>
+	<td>link</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(2)</td>
+	<td></td>
+</tr>
+<!--... textbox help icon-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;span.title-help&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Title</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>This is the main*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... label-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;label</td>
+	<td>Label*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>test-title</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. </td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(0)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(0)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>something very long. something very long. something very long. something very long. something very long. something very long. so</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(0)&gt;h4.stream_field_header</td>
+	<td>something very long. something very long. something very long. something very long. something very long. something very long. so</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(0)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(0)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td>Label cannot be blank.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(0)&gt;h4.stream_field_header</td>
+	<td>something very long. something very long. something very long. something very long. something very long. something very long. so</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>a test label</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(0)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(0)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<!--... change to a linkfield.-->
+<tr>
+	<td>select</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select</td>
+	<td>value=link</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(0)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(0)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<!--... ... link label-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;label</td>
+	<td>Label*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>a test label</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. </td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(0)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(0)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>something very long. something very long. something very long. something very long. something very long. something very long. so</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(0)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(0)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td>Label cannot be blank.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>a test label</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(0)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(0)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<!--... ... link required-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-required&gt;label</td>
+	<td>Required*</td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-required&gt;input.link-required</td>
+	<td>Required*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-required&gt;input.link-required@disabled</td>
+	<td>disabled</td>
+</tr>
+<!--Test Second field. This is a value field with some special conditions.-->
+<tr>
+	<td>assertText</td>
+	<td>css=#stream_fields&gt;div.list-view&gt;div.items&gt;div.field-container:nth(1)&gt;h4.stream_field_header</td>
+	<td>Main Value</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#stream_fields&gt;div.list-view&gt;div.items&gt;div.field-container:nth(1)&gt;h4.stream_field_header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#stream_fields&gt;div.list-view&gt;div.items&gt;div.field-container:nth(0)&gt;div.inner-field-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#stream_fields&gt;div.list-view&gt;div.items&gt;div.field-container:nth(1)&gt;div.inner-field-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(0)</td>
+	<td>Value</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(0)</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(1)</td>
+	<td></td>
+</tr>
+<!--... value help icon-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;span.title-help&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Main Value</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>This is default value*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... label-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;label</td>
+	<td>Label*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>Main Value</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. something very long. </td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>something very long. something very long. something very long. something very long. something very long. something very long. so</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td>Label cannot be blank.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>a test main value</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<!--... value type drop down. Only has updown due to bing the main vlaue-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;label</td>
+	<td>Select the type of value</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select</td>
+	<td>updown</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select@data-value-id</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select&gt;optgroup@label</td>
+	<td>Select the type of value</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select&gt;optgroup&gt;option:nth(0)</td>
+	<td>updown</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select&gt;optgroup&gt;option:nth(0)</td>
+	<td>Arrows</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select&gt;optgroup&gt;option:nth(0)@data-value-id</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select&gt;optgroup&gt;option:nth(1)</td>
+	<td></td>
+</tr>
+<!--... type dropdown help icon-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;span.title-help&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Value scale</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>The style that is used to present*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... value options-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;label</td>
+	<td>Value Options*</td>
+</tr>
+<!--... ... value options help icon-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(3)&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Value options</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>This defines the kind*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... ... value options drop down-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(0)</td>
+	<td>User can enter any value</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(0)</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(0)@selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(1)</td>
+	<td>Maximum and minimum constraints. Defined here</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(1)</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(2)</td>
+	<td>Maximum and minimum constraints. Defined on the post</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(2)</td>
+	<td>19</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(3)</td>
+	<td>Rhythm constraints. Defined here</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(3)</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(4)</td>
+	<td>Rhythm constraints. Defined on the post</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(4)</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(5)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row</td>
+	<td></td>
+</tr>
+<!--... ... select max/min here-->
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row</td>
+	<td></td>
+</tr>
+<!--... min textbox-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;label</td>
+	<td>Minimum Value*</td>
+</tr>
+<!--... ... value min help icon-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Minimum permited value</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>The minimum value*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... ... initial state of minimum text box and error.-->
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;input.value-min</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;div.value-min-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;div.value-min-error</td>
+	<td>Minimum value must be a whole number.</td>
+</tr>
+<!--... max textbox-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;label</td>
+	<td>Maximum Value*</td>
+</tr>
+<!--... ... value max help icon-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Maximum permited value</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>The maximum value that*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... ... initial state of minimum text box and error.-->
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;input.value-max</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;div.value-max-error</td>
+	<td></td>
+</tr>
+<!--... ... test minimum value-->
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;input.value-min</td>
+	<td>nan</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;div.value-min-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;div.value-min-error</td>
+	<td>Minimum value must be a whole number.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;input.value-min</td>
+	<td>45.3</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;div.value-min-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;div.value-min-error</td>
+	<td>Minimum value must be a whole number.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;input.value-min</td>
+	<td>-935423</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;div.value-min-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;input.value-min</td>
+	<td>-34</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row&gt;div.value-min-error</td>
+	<td></td>
+</tr>
+<!--... ... test maximum value-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;div.value-max-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;div.value-max-error</td>
+	<td>Maximum value must be a whole number.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;input.value-max</td>
+	<td>nan</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;div.value-max-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;div.value-max-error</td>
+	<td>Maximum value must be a whole number.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;input.value-max</td>
+	<td>50.5</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;div.value-max-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;div.value-max-error</td>
+	<td>Maximum value must be a whole number.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;input.value-max</td>
+	<td>-50</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;div.value-max-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;div.value-max-error</td>
+	<td>Maximum value must be greater than the minimum value.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;input.value-max</td>
+	<td>-34</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;div.value-max-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;div.value-max-error</td>
+	<td>Maximum value must be greater than the minimum value.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;input.value-max</td>
+	<td>-33</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;div.value-max-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;input.value-max</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row&gt;div.value-max-error</td>
+	<td></td>
+</tr>
+<!--... ... select max/min defined on offer-->
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options</td>
+	<td>19</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row</td>
+	<td></td>
+</tr>
+<!--... ... select Rhythmdefined here.-->
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row</td>
+	<td></td>
+</tr>
+<!--... rhythm textbox-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;label</td>
+	<td>Rhythm Url*</td>
+</tr>
+<!--... ... value min help icon-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Rhythm Check Url</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>The URL of an Rhythm*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... ... initial state of minimum text box and error.-->
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;input.value-rhythm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td>An Rhythm URL is required.</td>
+</tr>
+<!--... test rhythm url errors-->
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;input.value-rhythm</td>
+	<td>wrong</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td>The Rhythm URL is not valid : Url is malformed.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;input.value-rhythm</td>
+	<td>cobaltcascade.localhost/test/rhythm/json/test datesort</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td>The Rhythm URL is not valid : Major version must be a whole number or &quot;latest&quot;</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;input.value-rhythm</td>
+	<td>cobaltcascade.localhost/test/rhythm/json/test datesort/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td>The Rhythm URL is not valid : Minor version must be a whole number or &quot;latest&quot;</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;input.value-rhythm</td>
+	<td>cobaltcascade.localhost/test/rhythm/json/test datesort/0/0/d</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td>The Rhythm URL is not valid : Patch version must be a whole number or &quot;latest&quot;</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;input.value-rhythm</td>
+	<td>cobaltcascade.localhost/test/rhythm/json/wrong/0/0/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td>The Rhythm URL is not valid : Rhythm does not exist.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;input.value-rhythm</td>
+	<td>cobaltcascade.localhost/test/rhythm/wrong/test datesort/0/0/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td>The Rhythm URL is not valid : Must reference the &quot;json&quot; version of the Rhythm.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;input.value-rhythm</td>
+	<td>cobaltcascade.localhost/test/wrong/json/test datesort/0/0/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td>The Rhythm URL is not valid : This is not an Rhythm URL.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;input.value-rhythm</td>
+	<td>cobaltcascade.localhost/testwrong/rhythm/json/test datesort/0/0/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td>The Rhythm URL is not valid : User does not exist.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;input.value-rhythm</td>
+	<td>notasaltnewsite.com/test/rhythm/json/test datesort/0/0/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td>The Rhythm URL is not valid : Unable to retrieve Rhythm from remote site.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;input.value-rhythm</td>
+	<td>cobaltcascade.localhost/test/rhythm/json/test datesort/0/0/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row&gt;div.rhythm-check-url-error</td>
+	<td></td>
+</tr>
+<!--... ... select Rhythm defined on offer-->
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(1)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row</td>
+	<td></td>
+</tr>
+<!--Insert a field of each type and check-->
+<!--.. textbox : only check what was not checked for main field.-->
+<tr>
+	<td>click</td>
+	<td>css=#fields_container&gt;div#add_new_field</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=div.field-container:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.field-container:nth(2)&gt;h4.stream_field_header</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type</td>
+	<td>textbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(0)</td>
+	<td>Textbox</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(0)</td>
+	<td>textbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(1)</td>
+	<td>Link</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(1)</td>
+	<td>link</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(2)</td>
+	<td>Checkbox</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(2)</td>
+	<td>checkbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(3)</td>
+	<td>List</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(3)</td>
+	<td>list</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(4)</td>
+	<td>Open List</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(4)</td>
+	<td>openlist</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(5)</td>
+	<td>Value</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(5)</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select.type&gt;option:nth(6)</td>
+	<td></td>
+</tr>
+<!--... ... max length-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;label</td>
+	<td>Maximum Length</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;input.text-max</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;input.text-max</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;input.text-max</td>
+	<td>nan</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;div.error</td>
+	<td>Maximum length must be numeric and greater than 0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;input.text-max</td>
+	<td>-5</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;div.error</td>
+	<td>Maximum length must be numeric and greater than 0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;input.text-max</td>
+	<td>6.4</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;div.error</td>
+	<td>Maximum length must be numeric and greater than 0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;input.text-max</td>
+	<td>256</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-max-length&gt;div.error</td>
+	<td></td>
+</tr>
+<!--... ... required-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-required&gt;label</td>
+	<td>Required*</td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-required&gt;input.text-required</td>
+	<td>Required*</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-required&gt;input.text-required</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-required&gt;input.text-required</td>
+	<td>change</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<!--... ... filter-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;label</td>
+	<td>Filter</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;select.text-filter&gt;option:nth(0)</td>
+	<td>None</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;select.text-filter&gt;option:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;select.text-filter&gt;option:nth(1)</td>
+	<td>Whole Number</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;select.text-filter&gt;option:nth(1)</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;select.text-filter&gt;option:nth(2)</td>
+	<td>Email Address</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;select.text-filter&gt;option:nth(2)</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;select.text-filter&gt;option:nth(3)</td>
+	<td>more...</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;select.text-filter&gt;option:nth(3)</td>
+	<td>more</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;select.text-filter&gt;option:nth(4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;select.text-filter</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;div.error</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;select.text-filter</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;div.error</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;select.text-filter</td>
+	<td>more</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(1)</td>
+	<td></td>
+</tr>
+<!--... ... filter regex-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(0)&gt;label</td>
+	<td>Regex</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(0)&gt;input.text-regex</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(1)&gt;label</td>
+	<td>Error message if the regular expression fails</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(1)&gt;input.text-regex-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(0)&gt;input.text-regex</td>
+	<td>$[a-z]^</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(0)&gt;div.error</td>
+	<td>some regex</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(1)&gt;input.text-regex-error</td>
+	<td>An error message</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(1)&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-filter&gt;select.text-filter</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.regex-rows:nth(1)</td>
+	<td></td>
+</tr>
+<!--... A  new link field-->
+<tr>
+	<td>click</td>
+	<td>css=#fields_container&gt;div#add_new_field</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=div.field-container:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.field-container:nth(3)&gt;h4.stream_field_header</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=div.field-container:nth(3)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select</td>
+	<td>value=link</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(3)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(3)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<!--... link help icon-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(3)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;span.title-help&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Link</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Allows a user to add*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... ... label-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(3)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;label</td>
+	<td>Label*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(3)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(3)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(3)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(3)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(3)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(3)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td>Label cannot be blank.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(3)&gt;h4.stream_field_header</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(3)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>a test link field</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(3)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(3)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(3)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<!--... ... required-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(3)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-required&gt;label</td>
+	<td>Required*</td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>css=div.field-container:nth(3)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-required&gt;input.link-required</td>
+	<td>Required*</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=div.field-container:nth(3)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-required&gt;input.link-required</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=div.field-container:nth(3)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-required&gt;input.link-required</td>
+	<td>change</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(3)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(3)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<!--A  new checkbox field-->
+<tr>
+	<td>click</td>
+	<td>css=#fields_container&gt;div#add_new_field</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=div.field-container:nth(4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.field-container:nth(4)&gt;h4.stream_field_header</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select</td>
+	<td>value=checkbox</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(4)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(4)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(4)&gt;h4.stream_field_header</td>
+	<td>New field</td>
+</tr>
+<!--... checkbox help icon-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;span.title-help&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Checkbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Useful for simple yes*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... ... label-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;label</td>
+	<td>Label*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(4)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(4)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td>Label cannot be blank.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(4)&gt;h4.stream_field_header</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>a test checkbox field</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(4)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(4)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<!--... ... checkbox default-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-default&gt;label</td>
+	<td>Default*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-default&gt;select.checkbox-default&gt;option:nth(0)</td>
+	<td>Off</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-default&gt;select.checkbox-default&gt;option:nth(1)</td>
+	<td>On</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-default&gt;select.checkbox-default&gt;option:nth(0)</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-default&gt;select.checkbox-default&gt;option:nth(1)</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-default&gt;select.checkbox-default&gt;option:nth(0)@selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-default&gt;select.checkbox-default</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(4)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(4)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-default&gt;select.checkbox-default</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(4)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(4)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-default&gt;select.checkbox-default</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(4)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(4)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<!--List field-->
+<tr>
+	<td>click</td>
+	<td>css=#fields_container&gt;div#add_new_field</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=div.field-container:nth(5)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.field-container:nth(5)&gt;h4.stream_field_header</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select</td>
+	<td>value=list</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<!--... ... list help icon-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;span.title-help&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>List</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Allows an offer*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... ... label-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;label</td>
+	<td>Label*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td>Label cannot be blank.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;h4.stream_field_header</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>a test list field</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<!--... ... list of items -->
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items@multiple</td>
+	<td>multiple</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;input.remove-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;input.remove-list-item</td>
+	<td>Remove</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.add-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.add-list-item</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.new-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.new-list-item</td>
+	<td></td>
+</tr>
+<!--... ... ... add values-->
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.new-list-item</td>
+	<td>list item 1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.add-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.new-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(0)</td>
+	<td>list item 1</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.new-list-item</td>
+	<td>list item 2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.add-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.new-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(0)</td>
+	<td>list item 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(1)</td>
+	<td>list item 2</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.new-list-item</td>
+	<td>list item 3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.add-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.new-list-item</td>
+	<td>list item 4</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.add-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.new-list-item</td>
+	<td>list item 5</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.add-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.new-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(0)</td>
+	<td>list item 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(1)</td>
+	<td>list item 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(2)</td>
+	<td>list item 3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(3)</td>
+	<td>list item 4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(4)</td>
+	<td>list item 5</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(5)</td>
+	<td></td>
+</tr>
+<!--... ... ... Remove values-->
+<tr>
+	<td>select</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items</td>
+	<td>list item 2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;input.remove-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(0)</td>
+	<td>list item 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(1)</td>
+	<td>list item 3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(2)</td>
+	<td>list item 4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(3)</td>
+	<td>list item 5</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items</td>
+	<td>list item 3</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items</td>
+	<td>list item 4</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;input.remove-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(0)</td>
+	<td>list item 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(1)</td>
+	<td>list item 5</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-items&gt;select.list-items&gt;option:nth(2)</td>
+	<td></td>
+</tr>
+<!--@todo test that clicking remove with nothing selected does nothing (no ajax border)-->
+<!--... ... ... minimum select quantity-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;label</td>
+	<td>Minimum select quantity*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;input.list-select-qty-min</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;input.list-select-qty-min</td>
+	<td>nan</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td>Must be a whole number greater than or equal to zero.</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;input.list-select-qty-min</td>
+	<td>0.5</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td>Must be a whole number greater than or equal to zero.</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;input.list-select-qty-min</td>
+	<td>-4</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td>Minimum select quantiy is too small (minimum is 0).</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;input.list-select-qty-min</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td>Minimum value must be at least one less than the number of items in the list (2).</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;input.list-select-qty-min</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td></td>
+</tr>
+<!--... ... ... maximum select quantity-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;label</td>
+	<td>Maximum select quantity*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;input.list-select-qty-max</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;input.list-select-qty-max</td>
+	<td>nan</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td>Must be a whole number greater than zero.*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;input.list-select-qty-max</td>
+	<td>1.5</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td>Must be a whole number greater than zero.</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;input.list-select-qty-max</td>
+	<td>-4</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td>Maximum select quantity is too small (minimum is 1).*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;input.list-select-qty-max</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td>Maximum value must be less than the number of items in the list (2).</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;input.list-select-qty-max</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(5)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td></td>
+</tr>
+<!--Open list-->
+<tr>
+	<td>click</td>
+	<td>css=#fields_container&gt;div#add_new_field</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=div.field-container:nth(6)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.field-container:nth(6)&gt;h4.stream_field_header</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select</td>
+	<td>value=openlist</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<!--... ... list help icon-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;span.title-help&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Open List</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Allows the user making*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... ... label-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;label</td>
+	<td>Label*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td>Label cannot be blank.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(6)&gt;h4.stream_field_header</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>a test open list field</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<!--... ... ... minimum select quantity-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;label</td>
+	<td>Minimum select quantity*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;input.list-select-qty-min</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;input.list-select-qty-min</td>
+	<td>nan</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td>Must be a whole number greater than or equal to zero.</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;input.list-select-qty-min</td>
+	<td>0.5</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td>Must be a whole number greater than or equal to zero.</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;input.list-select-qty-min</td>
+	<td>-4</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td>Minimum select quantiy is too small (minimum is 0).</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;input.list-select-qty-min</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-min&gt;div.select-qty-min-error</td>
+	<td></td>
+</tr>
+<!--... ... ... maximum select quantity-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;label</td>
+	<td>Maximum select quantity*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;input.list-select-qty-max</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;input.list-select-qty-max</td>
+	<td>nan</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td>Must be a whole number greater than zero.*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;input.list-select-qty-max</td>
+	<td>1.5</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td>Must be a whole number greater than zero.*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;input.list-select-qty-max</td>
+	<td>-4</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td>Maximum select quantity is too small (minimum is 1).*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;input.list-select-qty-max</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(6)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-list-max&gt;div.select-qty-max-error</td>
+	<td></td>
+</tr>
+<!--Value-->
+<tr>
+	<td>click</td>
+	<td>css=#fields_container&gt;div#add_new_field</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=div.field-container:nth(7)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.field-container:nth(7)&gt;h4.stream_field_header</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;select</td>
+	<td>value=value</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<!--... ... list help icon-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;span.title-help&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Value</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Extra values that can be attatched to the main one.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... ... label-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;label</td>
+	<td>Label*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td>Label cannot be blank.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;h4.stream_field_header</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;input.field-label</td>
+	<td>a test value field</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-label&gt;div.error</td>
+	<td></td>
+</tr>
+<!--... ... check all the options on the dropdown-->
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value</td>
+	<td>updown</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select@data-value-id</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select&gt;optgroup@label</td>
+	<td>Select the type of value</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value&gt;optgroup&gt;option:nth(0)</td>
+	<td>updown</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value&gt;optgroup&gt;option:nth(0)</td>
+	<td>Arrows</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select&gt;optgroup&gt;option:nth(0)@data-value-id</td>
+	<td>13</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value&gt;optgroup&gt;option:nth(1)</td>
+	<td>linear</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value&gt;optgroup&gt;option:nth(1)</td>
+	<td>Linear slider</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select&gt;optgroup&gt;option:nth(1)@data-value-id</td>
+	<td>14</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value&gt;optgroup&gt;option:nth(2)</td>
+	<td>logarithmic</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value&gt;optgroup&gt;option:nth(2)</td>
+	<td>Logarithmic slider</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select&gt;optgroup&gt;option:nth(2)@data-value-id</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value&gt;optgroup&gt;option:nth(3)</td>
+	<td>textbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value&gt;optgroup&gt;option:nth(3)</td>
+	<td>Textbox</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select&gt;optgroup&gt;option:nth(3)@data-value-id</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value&gt;optgroup&gt;option:nth(4)</td>
+	<td>stars</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value&gt;optgroup&gt;option:nth(4)</td>
+	<td>Stars</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select&gt;optgroup&gt;option:nth(4)@data-value-id</td>
+	<td>24</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value&gt;optgroup&gt;option:nth(5)</td>
+	<td>button</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value&gt;optgroup&gt;option:nth(5)</td>
+	<td>Button</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select&gt;optgroup&gt;option:nth(5)@data-value-id</td>
+	<td>46</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;dl.value-dd&gt;dd&gt;ul&gt;li:nth(7)</td>
+	<td></td>
+</tr>
+<!--... ... ... linear scale-->
+<tr>
+	<td>select</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value</td>
+	<td>value=linear</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(0)</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(1)</td>
+	<td>19</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(2)</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(3)</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options</td>
+	<td>Maximum and minimum constraints. Defined here</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row</td>
+	<td></td>
+</tr>
+<!--... ... ... log scale-->
+<tr>
+	<td>select</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value</td>
+	<td>value=logarithmic</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(0)</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(1)</td>
+	<td>19</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(2)</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(3)</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(4)</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options</td>
+	<td>Maximum and minimum constraints. Defined here</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row</td>
+	<td></td>
+</tr>
+<!--... ... ... textbox-->
+<tr>
+	<td>select</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value</td>
+	<td>value=textbox</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(0)</td>
+	<td>17</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(1)</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(2)</td>
+	<td>19</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(3)</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(4)</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(5)</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options</td>
+	<td>Maximum and minimum constraints. Defined here</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row</td>
+	<td></td>
+</tr>
+<!--... ... ... stars-->
+<tr>
+	<td>select</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value</td>
+	<td>value=stars</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(0)</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(1)</td>
+	<td>19</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(2)</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(3)</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(4)</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options</td>
+	<td>Maximum and minimum constraints. Defined here</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row</td>
+	<td></td>
+</tr>
+<!--... ... ... button-->
+<tr>
+	<td>select</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value</td>
+	<td>value=button</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(0)</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(1)</td>
+	<td>19</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(2)</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(3)</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options&gt;option:nth(4)</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>assertSelectedLabel</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options&gt;select.value-options</td>
+	<td>Maximum and minimum constraints. Defined here</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-rhythm-row</td>
+	<td></td>
+</tr>
+<!--... ... ... list value-->
+<tr>
+	<td>select</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row:nth(2)&gt;select.value</td>
+	<td>value=list</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-value-options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-max-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-min-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row</td>
+	<td></td>
+</tr>
+<!--... ... ... ... value list help icon-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;span.title-help&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Value</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Extra values that can be*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... ... ... ... check the list box-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items@multiple</td>
+	<td>multiple</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;input.remove-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;input.remove-value-list-item</td>
+	<td>Remove</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.add-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.add-value-list-item</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.new-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.field-row-add&gt;input.new-list-item</td>
+	<td></td>
+</tr>
+<!--... ... ... ... add list items-->
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.new-value-list-item</td>
+	<td>list item 1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.add-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.new-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(0)</td>
+	<td>1 list item 1</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.new-value-list-item</td>
+	<td>list item 2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.add-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.new-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(0)</td>
+	<td>1 list item 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(1)</td>
+	<td>2 list item 2</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.new-value-list-item</td>
+	<td>list item 3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.add-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.new-value-list-item</td>
+	<td>list item 4</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.add-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.new-value-list-item</td>
+	<td>list item 5</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.add-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.new-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(0)</td>
+	<td>1 list item 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(1)</td>
+	<td>2 list item 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(2)</td>
+	<td>3 list item 3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(3)</td>
+	<td>4 list item 4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(4)</td>
+	<td>5 list item 5</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(5)</td>
+	<td></td>
+</tr>
+<!--... ... ... ... Ensure nothing happens if the add textbox is empty.-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.add-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<!--... ... ... Remove values-->
+<tr>
+	<td>select</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items</td>
+	<td>2 list item 2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;input.remove-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(0)</td>
+	<td>1 list item 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(1)</td>
+	<td>3 list item 3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(2)</td>
+	<td>4 list item 4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(3)</td>
+	<td>5 list item 5</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items</td>
+	<td>3 list item 3</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items</td>
+	<td>4 list item 4</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;input.remove-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(0)</td>
+	<td>1 list item 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(1)</td>
+	<td>5 list item 5</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(2)</td>
+	<td></td>
+</tr>
+<!--... ... ... ... add a new item to check it still has the correct value-->
+<tr>
+	<td>type</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.new-value-list-item</td>
+	<td>list item 6</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-add-item-row&gt;input.add-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(2)</td>
+	<td>6 list item 6</td>
+</tr>
+<!--... ... ... ... ... test that clicking remove with nothing selected does nothing (no ajax border)-->
+<tr>
+	<td>addSelection</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items</td>
+	<td>1 list item 1</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items</td>
+	<td>5 list item 5</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items</td>
+	<td>6 list item 6</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;input.remove-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;select.value-list-items&gt;option:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.value-list-remove-item-row&gt;input.remove-value-list-item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=div.field-container:nth(7)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<!--Check accordian-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(1)&gt;h4.stream_field_header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=div.field-container:nth(1)&gt;div.inner-field-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(0)&gt;div.inner-field-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.inner-field-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(3)&gt;div.inner-field-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(4)&gt;div.inner-field-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.inner-field-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.inner-field-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.inner-field-container</td>
+	<td></td>
+</tr>
+<!--Check up, down and delete buttons-->
+<!--... check correct buttons are showing-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(0)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(0)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(1)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(1)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(3)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(3)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(4)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(4)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<!--... move something-->
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(2)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(2)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(3)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<!--... recheck buttons are in the corect places.-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(0)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(0)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(1)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(1)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(3)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(3)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(4)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(4)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.oft_actions&gt;div.sort-up&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.oft_actions&gt;div.sort-down&gt;img</td>
+	<td></td>
+</tr>
+<!--... check the order-->
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(0)&gt;h4.stream_field_header</td>
+	<td>a test label</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;h4.stream_field_header</td>
+	<td>a test main value</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;h4.stream_field_header</td>
+	<td>a test link field</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(3)&gt;h4.stream_field_header</td>
+	<td>New field</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(4)&gt;h4.stream_field_header</td>
+	<td>a test checkbox field</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;h4.stream_field_header</td>
+	<td>a test list field</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(6)&gt;h4.stream_field_header</td>
+	<td>a test open list field</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(7)&gt;h4.stream_field_header</td>
+	<td>a test value field</td>
+</tr>
+<!--... delete a field-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(0)&gt;div.oft_actions&gt;div.delete&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container:nth(1)&gt;div.oft_actions&gt;div.delete&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(2)&gt;div.oft_actions&gt;div.delete&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(3)&gt;div.oft_actions&gt;div.delete&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(4)&gt;div.oft_actions&gt;div.delete&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(5)&gt;div.oft_actions&gt;div.delete&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(6)&gt;div.oft_actions&gt;div.delete&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=div.field-container:nth(7)&gt;div.oft_actions&gt;div.delete&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div.field-container:nth(3)&gt;div.oft_actions&gt;div.delete&gt;img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=div.field-container:nth(3)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=div.field-container:nth(3)@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(0)&gt;h4.stream_field_header</td>
+	<td>a test label</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(1)&gt;h4.stream_field_header</td>
+	<td>a test main value</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(2)&gt;h4.stream_field_header</td>
+	<td>a test link field</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(3)&gt;h4.stream_field_header</td>
+	<td>a test checkbox field</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(4)&gt;h4.stream_field_header</td>
+	<td>a test list field</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(5)&gt;h4.stream_field_header</td>
+	<td>a test open list field</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div.field-container:nth(6)&gt;h4.stream_field_header</td>
+	<td>a test value field</td>
+</tr>
+</tbody></table>
+</body>
+</html>

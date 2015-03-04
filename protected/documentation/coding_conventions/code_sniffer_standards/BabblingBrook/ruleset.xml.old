@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<ruleset name="babbling_brook">
+ <description>The babbling_brook coding standard.</description>
+ 
+ <!-- Some general rules -->
+ <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+ <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
+ <rule ref="Generic.PHP.NoSilencedErrors"/> 
+ <rule ref="babbling_brook.WhiteSpace.ScopeIndent"/> 
+ <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/> 
+ <rule ref="babbling_brook.WhiteSpace.ScopeClosingBrace"/> 
+ 
+ <!-- Lines should be less than 85 chars long, but at most 120 -->
+ <rule ref="Generic.Files.LineLength">
+  <properties>
+   <property name="lineLimit" value="120"/>
+   <property name="absoluteLineLimit" value="120"/>
+  </properties>
+ </rule>
+ 
+  <!-- Use Unix newlines -->
+ <rule ref="Generic.Files.LineEndings">
+  <properties>
+   <property name="eolChar" value="\n"/>
+  </properties>
+ </rule>
+ 
+ <!-- Rules about typing case for variables and keywords -->
+ <rule ref="Generic.PHP.LowerCaseConstant"/>
+ <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+ <rule ref="Generic.NamingConventions.ConstructorName"/>
+ <rule ref="Squiz.ControlStructures.LowercaseDeclaration"/> 
+ 
+ <!-- Rules about functions -->
+ <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
+ <rule ref="babbling_brook.Functions.FunctionCallSignature"/> 
+ <rule ref="PEAR.Functions.ValidDefaultValue"/>
+ <rule ref="babbling_brook.Functions.FunctionDeclarationArgumentSpacing"/>   
+ <rule ref="Squiz.Functions.FunctionDuplicateArgument"/>  
+ <rule ref="babbling_brook.Functions.GlobalFunction"/>    
+ <rule ref="babbling_brook.Functions.FunctionDeclaration"/>   
+ <rule ref="Squiz.Functions.LowercaseFunctionKeywords"/>
+ <rule ref="babbling_brook.Functions.ValidFunctionName"/>   
+ <rule ref="babbling_brook.Functions.ValidVariableName"/>   
+
+ <!-- Rules about classes -->
+ <rule ref="Generic.classes.DuplicateClassName"/>
+ <rule ref="Squiz.classes.ClassDeclaration"/>
+ <rule ref="Squiz.classes.ClassFileName"/>
+ <rule ref="Squiz.classes.ValidClassName"/>
+ 
+ <!-- Rules about code analysis -->
+ <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+ <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
+ <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
+ <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
+ <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+ <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
+ <rule ref="Generic.Formatting.DisallowMultipleStatements"/> 
+ <rule ref="Generic.Formatting.NoSpaceAfterCast"/> 
+ <rule ref="PEAR.Formatting.MultilineAssignment"/>  
+ 
+ <!-- Rules about code structure -->
+ <rule ref="Generic.ControlStructures.InlineControlStructure"/>
+ <rule ref="PEAR.ControlStructures.MultiLineCondition"/> 
+ <rule ref="babbling_brook.ControlStructures.ControlSignature"/> 
+ <rule ref="Squiz.ControlStructures.ElseIfDeclaration"/> 
+ <rule ref="Squiz.ControlStructures.ForLoopDeclaration"/>  
+ <rule ref="Squiz.ControlStructures.ForEachLoopDeclaration"/> 
+ <rule ref="babbling_brook.ControlStructures.SwitchDeclaration"/> 
+ 
+ <!-- Rules about arrays -->
+ <rule ref="babbling_brook.Arrays.ArrayDeclaration"/>
+ <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
+ 
+  <!-- Rules about operators -->
+ <rule ref="Squiz.Operators.ComparisonOperatorUsage"/> 
+ <rule ref="Squiz.Operators.ComparisonOperatorUsage.ImplicitTrue">  
+	<message>Implicit true comparisons prohibited; use === true instead';</message>
+ </rule>
+ <rule ref="Squiz.Operators.ValidLogicalOperators"/> 
+
+  <!-- Rules about comments -->
+ <rule ref="PEAR.Commenting.InlineComment"/> 
+ <rule ref="babbling_brook.Commenting.ClassComment"/> 
+ <rule ref="babbling_brook.Commenting.FileComment"/>  
+ <rule ref="babbling_brook.Commenting.FunctionComment"/>
+ <rule ref="Squiz.Commenting.VariableComment"/>   
+ <rule ref="Squiz.Commenting.DocCommentAlignment"/>   
+</ruleset>

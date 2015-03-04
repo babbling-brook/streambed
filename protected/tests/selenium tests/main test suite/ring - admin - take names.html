@@ -1,0 +1,1020 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test ring/ring/managetakenames</td>
+	<td></td>
+</tr>
+<!--Check initial state-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Manage take names for test ring Ring</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;p:nth(0)</td>
+	<td>These names appear on the offer Ring menu, they are used to take the offer in the name of the Ring.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#create_take_name&gt;div:nth(0)&gt;label</td>
+	<td>Take Name</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#create_take_name&gt;div:nth(0)&gt;input#take_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#take_name@maxlength</td>
+	<td>50</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#take_name@size</td>
+	<td>70</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#create_take_name&gt;div:nth(0)&gt;#take_name_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#create_take_name&gt;div:nth(1)&gt;label</td>
+	<td>Amount</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#create_take_name&gt;div:nth(1)&gt;input#amount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#amount@maxlength</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#amount@size</td>
+	<td>70</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#create_take_name&gt;div:nth(1)&gt;#amount_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#create_take_name&gt;div:nth(2)&gt;label</td>
+	<td>Stream</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#create_take_name&gt;div:nth(2)&gt;input#stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#stream@maxlength</td>
+	<td>1024</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#stream@size</td>
+	<td>70</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#create_take_name&gt;div:nth(2)&gt;#stream_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#create_take_name&gt;div:nth(2)&gt;div#select_div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#create_take_name&gt;div:nth(2)&gt;div#select_stream_selector</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#create_take_name&gt;div:nth(3)&gt;input#ring_take_name_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#create_take_name&gt;div:nth(3)&gt;input#ring_take_name_id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#create_take_name&gt;div:nth(3)&gt;input#create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#create</td>
+	<td>Create</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#create_take_name&gt;div:nth(3)&gt;input#clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#create_take_name&gt;div:nth(3)&gt;input:#delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;h3</td>
+	<td>Edit existing take names</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-ring-take-name-id</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-ring-take-name-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-amount</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-amount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-stream</td>
+	<td>cobaltcascade.localhost/test/stream/json/test comments/0/0/0</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-take-name</td>
+	<td>take comment test</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-take-name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(1)&gt;span.edit-ring-take-name-id</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(1)&gt;span.edit-ring-take-name-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(1)&gt;span.edit-amount</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(1)&gt;span.edit-amount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(1)&gt;span.edit-stream</td>
+	<td>cobaltcascade.localhost/test/stream/json/test stream/0/0/0</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(1)&gt;span.edit-stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(1)&gt;span.edit-take-name</td>
+	<td>take test</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(1)&gt;span.edit-take-name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(2)&gt;span.edit-ring-take-name-id</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(2)&gt;span.edit-ring-take-name-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(2)&gt;span.edit-amount</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(2)&gt;span.edit-amount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(2)&gt;span.edit-stream</td>
+	<td>cobaltcascade.localhost/test/stream/json/test user stream/0/0/0</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(2)&gt;span.edit-stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(2)&gt;span.edit-take-name</td>
+	<td>take user test</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(2)&gt;span.edit-take-name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#delete</td>
+	<td></td>
+</tr>
+<!--Create new take name-->
+<!--... error messages-->
+<tr>
+	<td>type</td>
+	<td>css=#take_name</td>
+	<td>test take name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#amount</td>
+	<td>invalid amount</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#stream</td>
+	<td>invlaid stream</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#create_take_name@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#create_take_name@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#amount_error</td>
+	<td>Amount must be an integer.</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#amount_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#stream_error</td>
+	<td>Not a valid Stream url.</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#stream_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#amount</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#stream</td>
+	<td>cobaltcascade.localhost/test/stream/json/test stream 3/0/0/0</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#take_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#amount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#amount_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#amount_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#amount_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#create</td>
+	<td>Create</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-ring-take-name-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-ring-take-name-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-amount</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-amount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-stream</td>
+	<td>cobaltcascade.localhost/test/stream/json/test stream 3/0/0/0</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-take-name</td>
+	<td>test take name</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)&gt;span.edit-take-name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(4)</td>
+	<td></td>
+</tr>
+<!--Reload the page to check the data inserted correctly.-->
+<tr>
+	<td>open</td>
+	<td>/test ring/ring/managetakenames</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-ring-take-name-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-ring-take-name-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-amount</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-amount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-stream</td>
+	<td>cobaltcascade.localhost/test/stream/json/test stream 3/0/0/0</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-take-name</td>
+	<td>test take name</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-take-name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(4)</td>
+	<td></td>
+</tr>
+<!--Reselect from the list-->
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-take-name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#create</td>
+	<td>Update</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#clear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#create</td>
+	<td>Create</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#take_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#amount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-take-name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#take_name</td>
+	<td>test take name2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#amount</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#stream</td>
+	<td>cobaltcascade.localhost/test/stream/json/test stream 5/0/0/0</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-ring-take-name-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-ring-take-name-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-amount</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-amount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-stream</td>
+	<td>cobaltcascade.localhost/test/stream/json/test stream 5/0/0/0</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-take-name</td>
+	<td>test take name2</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-take-name</td>
+	<td></td>
+</tr>
+<!--Reload the page to recheck the data-->
+<tr>
+	<td>open</td>
+	<td>/test ring/ring/managetakenames</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-ring-take-name-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-ring-take-name-id</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-amount</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-amount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-stream</td>
+	<td>cobaltcascade.localhost/test/stream/json/test stream 5/0/0/0</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-take-name</td>
+	<td>test take name2</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-take-name</td>
+	<td></td>
+</tr>
+<!--Check deletion-->
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)&gt;span.edit-take-name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure you want to delete this take name?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#take_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#amount</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)</td>
+	<td></td>
+</tr>
+<!--Reload the page to recheck the data-->
+<tr>
+	<td>open</td>
+	<td>/test ring/ring/managetakenames</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#content&gt;form&gt;div#edit_take_names&gt;ul&gt;li:nth(3)</td>
+	<td></td>
+</tr>
+<!--check the stream selector-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#create_take_name&gt;div:nth(2)&gt;div:nth(1)&gt;a#select_stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#select_stream</td>
+	<td>Search</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#select_stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#select_stream_selector&gt;#selector_stream_results@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#select_stream_selector&gt;#selector_stream_results@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#create_take_name&gt;div:nth(2)&gt;div:nth(1)&gt;a#select_stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#select_stream</td>
+	<td>Close search</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#select_stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#select_stream_selector&gt;#selector_stream_results</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#select_stream</td>
+	<td>Search</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#select_stream</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#select_stream_selector&gt;#selector_stream_results</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=table#selector_stream_results&gt;thead&gt;tr.search&gt;td.site&gt;input#site_stream_results</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=table#selector_stream_results&gt;thead&gt;tr.search&gt;td.user&gt;input#user_stream_results</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#select_stream_selector&gt;#selector_stream_results@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#select_stream_selector&gt;#selector_stream_results@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td.domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td.user</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td.action&gt;a.action</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td:nth(0)@class</td>
+	<td>*name*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)@class</td>
+	<td>*domain*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td:nth(2)@class</td>
+	<td>*user*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td:nth(3)@class</td>
+	<td>*version*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td:nth(4)@class</td>
+	<td>*type*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)@class</td>
+	<td>*action*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td.name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td.domain</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td.user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td.version</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td.type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td.action&gt;a.action</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td:nth(0)</td>
+	<td>test broken comments</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td:nth(2)</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td:nth(3)</td>
+	<td>0.0.0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;a.action</td>
+	<td>Select</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(5)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(6)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(7)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(8)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(9)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=table#selector_stream_results&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;a.action</td>
+	<td>Select</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=div#select_stream_selector</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#select_stream</td>
+	<td>Search</td>
+</tr>
+</tbody></table>
+</body>
+</html>

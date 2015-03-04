@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>rhythm admin - update fields</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">rhythm admin - update fields</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/rhythm/test ring/0/0/0/update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;h3.form:nth(1)</td>
+	<td>Edit Rhythm</td>
+</tr>
+<!--Description-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div.row-description</td>
+	<td>Description *</td>
+</tr>
+<!--... description help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div.row-description&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>This should describe the purpose of your Rhythm*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... description textbox-->
+<tr>
+	<td>assertValue</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div.row-description&gt;textarea#RhythmExtra_description</td>
+	<td>A test ring url</td>
+</tr>
+<!--Category-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div.row-category</td>
+	<td>Category*</td>
+</tr>
+<!--... category help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div.row-category&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Category</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>The category of an Rhythm*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... category dropdown-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div.row-category&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(0)</td>
+	<td>Choose a category:</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=select#rhythm_cats&gt;option:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=select#rhythm_cats&gt;option:nth(1)</td>
+	<td>sort</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=select#rhythm_cats&gt;option:nth(1)</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=select#rhythm_cats&gt;option:nth(2)</td>
+	<td>kindred</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=select#rhythm_cats&gt;option:nth(2)</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=select#rhythm_cats&gt;option:nth(3)</td>
+	<td>offer group</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=select#rhythm_cats&gt;option:nth(3)</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=select#rhythm_cats&gt;option:nth(4)</td>
+	<td>stream suggestion</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=select#rhythm_cats&gt;option:nth(4)</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=select#rhythm_cats&gt;option:nth(5)</td>
+	<td>stream filter suggestion</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=select#rhythm_cats&gt;option:nth(5)</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=select#rhythm_cats&gt;option:nth(6)</td>
+	<td>user suggestion</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=select#rhythm_cats&gt;option:nth(6)</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=select#rhythm_cats&gt;option:nth(7)</td>
+	<td>ring</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=select#rhythm_cats&gt;option:nth(7)</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=select#rhythm_cats&gt;option:nth(7)@selected</td>
+	<td>selected</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=select#rhythm_cats&gt;option:nth(8)</td>
+	<td>stream moderation ring suggestion</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=select#rhythm_cats&gt;option:nth(8)</td>
+	<td>9</td>
+</tr>
+<!--Javascript-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div.row-javascript</td>
+	<td>Javascript code for the Rhythm *</td>
+</tr>
+<!--... javascript help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div.row-javascript&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Javascript code for the Rhythm</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>This is your Javascript c*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... Javascript textbox-->
+<tr>
+	<td>assertValue</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div.row-javascript&gt;div&gt;textarea#RhythmExtra_full</td>
+	<td>function(){alert(&quot;test ring rhythm&quot;);}</td>
+</tr>
+<!--Save button-->
+<tr>
+	<td>assertValue</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div.buttons&gt;input:nth(1)</td>
+	<td>Save</td>
+</tr>
+<!--Error Messages-->
+<!--... empty errors-->
+<tr>
+	<td>type</td>
+	<td>css=#RhythmExtra_description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>window.BabblingBrook.Client.Component.CodeMirror.setValue(&quot;&quot;);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div.buttons&gt;input:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=.row-description&gt;div.error</td>
+	<td>Description cannot be blank.</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.row-description&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=.row-javascript&gt;div.error</td>
+	<td>Javascript code for the Rhythm cannot be blank.</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.row-javascript&gt;div.error</td>
+	<td></td>
+</tr>
+<!--... correct info-->
+<tr>
+	<td>type</td>
+	<td>css=#RhythmExtra_description</td>
+	<td>A new description</td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>window.BabblingBrook.Client.Component.CodeMirror.setValue(&quot;New javascript&quot;);</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#rhythm_cats</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div.buttons&gt;input:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=.row-description&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=.row-javascript&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#RhythmExtra_description</td>
+	<td>A new description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#RhythmExtra_full</td>
+	<td>New javascript</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_cats&gt;option:nth(2)@selected</td>
+	<td>selected</td>
+</tr>
+</tbody></table>
+</body>
+</html>

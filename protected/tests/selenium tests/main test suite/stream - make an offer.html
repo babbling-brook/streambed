@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream make an offer</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream make an offer</td></tr>
+</thead><tbody>
+<!--Make an offer on the stream page.-->
+<!--Log in to the main test account.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--Open the main test strean.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_0@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#make_offer_0@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.stream-offer:nth(0)&gt;div.title&gt;a</td>
+	<td>test offer 1</td>
+</tr>
+<!--Check if make offer field is present before the details have loaded.-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .cancel-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .offer-submit-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>Make an offer</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .input-offer-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .offer-field-1-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#make_offer_0@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>focus</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0 .input-offer-title</td>
+	<td>Make an offer</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .input-offer-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0 .offer-field-1-title</td>
+	<td>test-title:</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .offer-field-1-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .cancel-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .input-offer-detail</td>
+	<td></td>
+</tr>
+<!--Try cancelling an offer-->
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>A test offer that will be cancelled</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .cancel-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .cancel-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .offer-submit-error</td>
+	<td></td>
+</tr>
+<!--Test making an offer-->
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .cancel-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .offer-submit-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>Make an offer</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .input-offer-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .input-offer-detail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#make_offer_0@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>focus</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>An automated test offer</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#make_offer_0@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_0@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a</td>
+	<td>An automated test offer</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#make_offer_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#make_offer_1@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_1 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_1 .cancel-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_1 .offer-submit-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#offer_1_field_1_text</td>
+	<td>Make an offer</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_1 .input-offer-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_1 .input-offer-detail</td>
+	<td></td>
+</tr>
+<!--Wait for an update and then check it has appeared-->
+<tr>
+	<td>pause</td>
+	<td>20000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers_footer #next_page a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers_footer #next_page a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers_footer #next_page a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers_footer #next_page a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers_footer #next_page a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0) div.title a</td>
+	<td>An automated test offer</td>
+</tr>
+</tbody></table>
+</body>
+</html>

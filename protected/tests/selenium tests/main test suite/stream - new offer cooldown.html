@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream - new offer cooldown</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream - new offer cooldown</td></tr>
+</thead><tbody>
+<!--Check that the correct users can see an offer whilst it is cooling down.-->
+<!--Log in to the main test account.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--Test a new offer shows on the stream page-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offers&gt;div.offer:nth(1)&gt;div.top-value&gt;div.updown&gt;span.up-arrow.up-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>An cooldown test offer</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a</td>
+	<td>An cooldown test offer</td>
+</tr>
+<!--Check the offer shows if the page is reloaded-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)@class</td>
+	<td>sorted</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;dt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title</td>
+	<td>An cooldown test offer</td>
+</tr>
+<!--... Store the offer url for later testing.-->
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a@href</td>
+	<td>offer_url</td>
+</tr>
+<!--Check that the offer is visible on the offer page.-->
+<tr>
+	<td>click</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;div.title&gt;a.field-1</td>
+	<td>An cooldown test offer</td>
+</tr>
+<!--Log on as user 2 and check that they can't see it until the cooldown has passed.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)@class</td>
+	<td>sorted</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;dt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 37</td>
+</tr>
+<!--... check on the offer page-->
+<tr>
+	<td>open</td>
+	<td>${offer_url}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#loading_main_offer</td>
+	<td>Loading offer</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#loading_main_offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#messages_inner</td>
+	<td>This offer does not exist. Error code : GetPost_not_found</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;span:nth(0)</td>
+	<td>Reload Page</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;span:nth(1)</td>
+	<td>Ignore</td>
+</tr>
+<!--... pause for 20 seconds to be sure the cooldown has passed and retry.-->
+<tr>
+	<td>pause</td>
+	<td>25000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)@class</td>
+	<td>sorted</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;dt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title</td>
+	<td>An cooldown test offer</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${offer_url}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;div.title&gt;a.field-1</td>
+	<td>An cooldown test offer</td>
+</tr>
+</tbody></table>
+</body>
+</html>

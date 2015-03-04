@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>offer general test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">offer general test</td></tr>
+</thead><tbody>
+<!--Load the stream page. Then click through to the relevant offer.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer[data-offer-id='1']&gt;.title</td>
+	<td>test offer 1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers&gt;div.offer[data-offer-id='1']&gt;div.title&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>typeof window.BabblingBrook.Client.User.domain</td>
+	<td>string</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>window.BabblingBrook.Client.User.domain</td>
+	<td>user_domain</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>window.BabblingBrook.Client.User.username</td>
+	<td>username</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer@data-offer-domain</td>
+	<td>${user_domain}</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.info&gt;a.username@title</td>
+	<td>Made by : ${user_domain}/${username}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.info&gt;a.username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.info&gt;span.kindred-score</td>
+	<td>∞</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.title&gt;a.field-1</td>
+	<td>test offer 1</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.title&gt;a.field-1@data-offer-link</td>
+	<td>true</td>
+</tr>
+<!--test main value-->
+<!--... up arrow-->
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.down-arrow@class</td>
+	<td>*down-untaken*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.up-arrow@class</td>
+	<td>*up-untaken*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.up-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.up-arrow@class</td>
+	<td>*up-paused*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.down-arrow@class</td>
+	<td>*down-untaken*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.up-arrow@class</td>
+	<td>*up-waiting*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.down-arrow@class</td>
+	<td>*down-untaken*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.up-arrow@class</td>
+	<td>*up-taken*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.down-arrow@class</td>
+	<td>*down-untaken*</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2@title</td>
+	<td>+1</td>
+</tr>
+<!--... down arrow-->
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.down-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.down-arrow@class</td>
+	<td>*down-paused*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.up-arrow@class</td>
+	<td>*up-taken*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.down-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.down-arrow@class</td>
+	<td>*down-waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.up-arrow@class</td>
+	<td>*up-taken*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.down-arrow@class</td>
+	<td>*down-taken*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.up-arrow@class</td>
+	<td>*up-untaken*</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2@title</td>
+	<td>-1</td>
+</tr>
+</tbody></table>
+</body>
+</html>

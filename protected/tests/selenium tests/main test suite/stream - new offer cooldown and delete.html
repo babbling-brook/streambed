@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream - new offer cooldown</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream - new offer cooldown</td></tr>
+</thead><tbody>
+<!--Check that the cooldown feature is working correctly when a new offer is made. and that delete works correctly with the cooldown.-->
+<!--Log in to the main test account.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--Open the main test strean.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<!--Basic test-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offers&gt;div.offer:nth(1)&gt;div.top-value&gt;div.updown&gt;span.up-arrow.up-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>An cooldown test offer</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a</td>
+	<td>An cooldown test offer</td>
+</tr>
+<!--... store the id of the offer-->
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a@href</td>
+	<td>offer_url</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown</td>
+	<td>cooldown</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>15000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown-time</td>
+	<td>0:09</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown-time</td>
+	<td>0:08</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown-time</td>
+	<td>0:07</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown-time</td>
+	<td>0:06</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown-time</td>
+	<td>0:05</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown-time</td>
+	<td>0:04</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown-time</td>
+	<td>0:03</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown-time</td>
+	<td>0:02</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown-time</td>
+	<td>0:01</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown-time</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown</td>
+	<td></td>
+</tr>
+<!--.. test the delete link-->
+<tr>
+	<td>click</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions &gt;.delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete-confirm</td>
+	<td>Confirm deletion Yes / No</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete-confirm&gt;.delete-confirmed</td>
+	<td>Yes</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete-confirm&gt;.delete-canceled</td>
+	<td>No</td>
+</tr>
+<!--... cancel the delete-->
+<tr>
+	<td>click</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete-confirm&gt;.delete-canceled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete-confirm</td>
+	<td></td>
+</tr>
+<!--... do the delete-->
+<tr>
+	<td>click</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete-confirm&gt;.delete-confirmed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete@class</td>
+	<td>*text-loading*</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.deleted</td>
+	<td>This offer has been deleted</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown-time</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete</td>
+	<td></td>
+</tr>
+<!--... reload the page to check that it has deleted.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offers&gt;div.offer:nth(1)&gt;div.top-value&gt;div.updown&gt;span.up-arrow.up-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar dd[value='cobaltcascade.localhost/test/rhythm/json/test reverse datesort/latest/latest/latest']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 37</td>
+</tr>
+<!--... check that it was deleted on the offer page.-->
+<tr>
+	<td>open</td>
+	<td>${offer_url}</td>
+	<td></td>
+</tr>
+<!--This offer is reported as not found because it was not taken or sub offered and so was fully deleted.-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#loading_main_offer</td>
+	<td>Loading offer</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#loading_main_offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#messages_inner</td>
+	<td>This offer does not exist. Error code : GetPost_not_found</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;span:nth(0)</td>
+	<td>Reload Page</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;span:nth(1)</td>
+	<td>Ignore</td>
+</tr>
+<!--... login as test2 to check that no one else can see it.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div.content-indent&gt;div.content-block-2</td>
+	<td>You have logged out</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offers&gt;div.offer:nth(1)&gt;div.top-value&gt;div.updown&gt;span.up-arrow.up-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar dd[value='cobaltcascade.localhost/test/rhythm/json/test reverse datesort/latest/latest/latest']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 37</td>
+</tr>
+<!--... log back in as the main test user-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div.content-indent&gt;div.content-block-2</td>
+	<td>You have logged out</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<!--Delete an offer whilst it is in cooldown-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offers&gt;div.offer:nth(1)&gt;div.top-value&gt;div.updown&gt;span.up-arrow.up-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>An cooldown test offer 2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a</td>
+	<td>An cooldown test offer 2</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a@href</td>
+	<td>offer_url</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>15000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown-time</td>
+	<td>0:09</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a</td>
+	<td>An cooldown test offer 2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions &gt;.delete</td>
+	<td></td>
+</tr>
+<!--... do the delete-->
+<tr>
+	<td>click</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete-confirm&gt;.delete-confirmed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete@class</td>
+	<td>*text-loading*</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.deleted</td>
+	<td>This offer has been deleted</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown-time</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete</td>
+	<td></td>
+</tr>
+<!--... Reload page to check the offer was deleted.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offers&gt;div.offer:nth(1)&gt;div.top-value&gt;div.updown&gt;span.up-arrow.up-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar dd[value='cobaltcascade.localhost/test/rhythm/json/test reverse datesort/latest/latest/latest']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 37</td>
+</tr>
+<!--... check that the offer is not visible on the offer page.-->
+<tr>
+	<td>open</td>
+	<td>${offer_url}</td>
+	<td></td>
+</tr>
+<!--This offer is reported as not found because it was not taken or sub offered and so was fully deleted.-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#loading_main_offer</td>
+	<td>Loading offer</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#loading_main_offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#messages_inner</td>
+	<td>This offer does not exist. Error code : GetPost_not_found</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;span:nth(0)</td>
+	<td>Reload Page</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;span:nth(1)</td>
+	<td>Ignore</td>
+</tr>
+<!--... log on as another user to check that the offer is not visible to others.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div.content-indent&gt;div.content-block-2</td>
+	<td>You have logged out</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offers&gt;div.offer:nth(1)&gt;div.top-value&gt;div.updown&gt;span.up-arrow.up-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar dd[value='cobaltcascade.localhost/test/rhythm/json/test reverse datesort/latest/latest/latest']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 37</td>
+</tr>
+<!--... log back in as the main test user-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div.content-indent&gt;div.content-block-2</td>
+	<td>You have logged out</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<!--Check a new offer is visible in the cooldown if the page is refreshed.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offers&gt;div.offer:nth(1)&gt;div.top-value&gt;div.updown&gt;span.up-arrow.up-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>An cooldown test offer 3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a</td>
+	<td>An cooldown test offer 3</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a@href</td>
+	<td>offer_url</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offers&gt;div.offer:nth(1)&gt;div.top-value&gt;div.updown&gt;span.up-arrow.up-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar dd[value='cobaltcascade.localhost/test/rhythm/json/test reverse datesort/latest/latest/latest']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title</td>
+	<td>An cooldown test offer 3</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.cooldown</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

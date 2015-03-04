@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream admin - update</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream admin - update</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/test stream/0/0/0/update</td>
+	<td></td>
+</tr>
+<!--Check initial state-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Update Stream</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(0)</td>
+	<td>Name: test stream</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(1)</td>
+	<td>Version: 0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(2)</td>
+	<td>Date Created: 2011-11-07 13:30:37</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(3)</td>
+	<td>Status: Public</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(4)</td>
+	<td>Kind of Stream: standard</td>
+</tr>
+<!--... Side nav-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#sidebar&gt;div.portlet-decoration&gt;div.portlet-title</td>
+	<td>Operations</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(0)&gt;a</td>
+	<td>List</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(0)&gt;a@href</td>
+	<td>/test/stream/</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(0)&gt;a@title</td>
+	<td>View a list of all streams by this user</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(1)&gt;a</td>
+	<td>Update</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(1)&gt;a@href</td>
+	<td>/test/stream/test stream/0/0/0/update</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(1)&gt;a@title</td>
+	<td>Update this stream</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(2)&gt;a</td>
+	<td>View</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(2)&gt;a@href</td>
+	<td>/test/stream/view/test stream/0/0/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(2)&gt;a@title</td>
+	<td>View this stream</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(3)&gt;a</td>
+	<td>Create</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(3)&gt;a@href</td>
+	<td>/test/stream/create</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(3)&gt;a@title</td>
+	<td>Create a new stream</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(4)&gt;a</td>
+	<td>Posts</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(4)&gt;a@href</td>
+	<td>/test/stream/offers/test stream/0/0/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(4)&gt;a@title</td>
+	<td>Post and take using this stream</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(5)</td>
+	<td></td>
+</tr>
+<!--... Tabs-->
+<!--... click on all tabs to ensure the class attribute is present, otherwise the following tests fail.-->
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_stream_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_fields_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#actions_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;ul#update_stream_tabs</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#actions_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_stream_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_fields_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#actions_tab@class</td>
+	<td>*active*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_stream_tab@class</td>
+	<td>*active*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_fields_tab@class</td>
+	<td>*active*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#actions_tab&gt;a</td>
+	<td>Actions</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_stream_tab&gt;a</td>
+	<td>Edit Stream</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_fields_tab&gt;a</td>
+	<td>Edit Fields</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;#stream_form&gt;#actions_plane</td>
+	<td>Edit Fields</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;#stream_form&gt;#edit_stream_plane</td>
+	<td>Edit Fields</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;#stream_form&gt;#edit_fields_plane</td>
+	<td>Edit Fields</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_stream_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#actions_tab@class</td>
+	<td>*active*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_stream_tab@class</td>
+	<td>*active*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_fields_tab@class</td>
+	<td>*active*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;#stream_form&gt;#actions_plane</td>
+	<td>Edit Fields</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;#stream_form&gt;#edit_stream_plane</td>
+	<td>Edit Fields</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;#stream_form&gt;#edit_fields_plane</td>
+	<td>Edit Fields</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#edit_stream_plane&gt;div.no-editing</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_stream_plane&gt;div.no-editing</td>
+	<td>Stream details are only editable if they are private. Create a new version or duplicate to return to private mode.</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#edit_stream_plane&gt;div:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_fields_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#actions_tab@class</td>
+	<td>*active*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_stream_tab@class</td>
+	<td>*active*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_fields_tab@class</td>
+	<td>*active*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;#stream_form&gt;#actions_plane</td>
+	<td>Edit Fields</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;#stream_form&gt;#edit_stream_plane</td>
+	<td>Edit Fields</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;#stream_form&gt;#edit_fields_plane</td>
+	<td>Edit Fields</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#edit_fields_plane&gt;div.no-editing</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_fields_plane&gt;div.no-editing</td>
+	<td>Stream details are only editable if they are private. Create a new version or duplicate to return to private mode.</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#edit_fields_plane&gt;div:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#actions_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#actions_tab@class</td>
+	<td>*active*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_stream_tab@class</td>
+	<td>*active*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_fields_tab@class</td>
+	<td>*active*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;#stream_form&gt;#actions_plane</td>
+	<td>Edit Fields</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;#stream_form&gt;#edit_stream_plane</td>
+	<td>Edit Fields</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;#stream_form&gt;#edit_fields_plane</td>
+	<td>Edit Fields</td>
+</tr>
+<!--Actions-->
+<tr>
+	<td>assertText</td>
+	<td>css=#actions_plane&gt;h3:nth(0)</td>
+	<td>Actions</td>
+</tr>
+<!--... create new version-->
+<tr>
+	<td>assertText</td>
+	<td>css=#actions_plane&gt;div:nth(0)&gt;label</td>
+	<td>Create New Version*</td>
+</tr>
+<!--... ... help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#actions_plane&gt;div:nth(0)&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Versions</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>You create a new*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... create new version-->
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#actions_plane&gt;div:nth(0)&gt;select#version@name</td>
+	<td>version</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#version&gt;option:nth(0)</td>
+	<td>0/0/2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#version&gt;option:nth(1)</td>
+	<td>0/1/0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#version&gt;option:nth(2)</td>
+	<td>1/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#version&gt;option:nth(0)</td>
+	<td>0/0/2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#version&gt;option:nth(1)</td>
+	<td>0/1/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#version&gt;option:nth(2)</td>
+	<td>1/0/0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#actions_plane&gt;div:nth(0)&gt;input#new_version</td>
+	<td>New Version</td>
+</tr>
+<!--... change status-->
+<tr>
+	<td>assertText</td>
+	<td>css=#actions_plane&gt;div:nth(1)</td>
+	<td>Change Status*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#actions_plane&gt;div:nth(1)&gt;img.publish@title</td>
+	<td>Publish</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#actions_plane&gt;div:nth(1)&gt;img.publish@src</td>
+	<td>/images/ui/publish.svg</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#actions_plane&gt;div:nth(1)&gt;img.publish</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#actions_plane&gt;div:nth(1)&gt;img.delete@title</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#actions_plane&gt;div:nth(1)&gt;img.delete@src</td>
+	<td>/images/ui/delete.svg</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#actions_plane&gt;div:nth(1)&gt;img.delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#actions_plane&gt;div:nth(1)&gt;img.deprecate@title</td>
+	<td>Deprecate</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#actions_plane&gt;div:nth(1)&gt;img.deprecate@src</td>
+	<td>/images/ui/delete.svg</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#actions_plane&gt;div:nth(1)&gt;img.deprecate</td>
+	<td></td>
+</tr>
+<!--... ... help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#actions_plane&gt;div:nth(1)&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Status</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Private streams*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... Post mode-->
+<tr>
+	<td>assertText</td>
+	<td>css=#actions_plane&gt;div:nth(2)</td>
+	<td>Who can submit offers*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#actions_plane&gt;div:nth(2)&gt;select#offer_mode@name</td>
+	<td>offer_mode</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#offer_mode&gt;option:nth(0)</td>
+	<td>139</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offer_mode&gt;option:nth(0)</td>
+	<td>Anyone</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#offer_mode&gt;option:nth(1)</td>
+	<td>140</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offer_mode&gt;option:nth(1)</td>
+	<td>Only Me</td>
+</tr>
+<!--... ... help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#actions_plane&gt;div:nth(2)&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Post Mode</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Use this to decide who can submit*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... Duplicate-->
+<tr>
+	<td>assertText</td>
+	<td>css=#actions_plane&gt;div:nth(3)</td>
+	<td>Duplicate: New Name*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#actions_plane&gt;div:nth(3)&gt;input#duplicate_name</td>
+	<td>test stream</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#actions_plane&gt;div:nth(3)&gt;input#duplicate</td>
+	<td>Duplicate</td>
+</tr>
+<!--... ... help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#actions_plane&gt;div:nth(3)&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Duplicate</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>You duplicate your*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

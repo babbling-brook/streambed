@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream - comments and hide link</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream - comments and hide link</td></tr>
+</thead><tbody>
+<!--Check that the info line details are correct.-->
+<!--Log in to the main test account.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--Open the main test strean.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.title&gt;a.field-1</td>
+	<td>test offer 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.actions&gt;a.link-to-offer</td>
+	<td>comments</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.actions&gt;a.link-to-offer@href</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.actions&gt;span.hide-offer</td>
+	<td>hide</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.actions&gt;span.hide-offer@class</td>
+	<td>*link*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.actions&gt;span.deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.actions&gt;span.delete-confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.actions&gt;span.cooldown</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.actions&gt;span.cooldown-time</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.actions&gt;span.offer-loading</td>
+	<td></td>
+</tr>
+<!--Test that hide works-->
+<tr>
+	<td>click</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.actions&gt;span.hide-offer</td>
+	<td>hide</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#offers&gt;div.offer:nth(0)</td>
+	<td>hide</td>
+</tr>
+</tbody></table>
+</body>
+</html>

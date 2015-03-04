@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>offer comment updown</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">offer comment updown</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)@data-offer-id</td>
+	<td>14</td>
+</tr>
+<!--Check the initial state.-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.up-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.up-arrow@class</td>
+	<td>*up-untaken*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.down-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.down-arrow@class</td>
+	<td>*down-untaken*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2@title</td>
+	<td>0</td>
+</tr>
+<!--Check the up arrow-->
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.up-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.up-arrow@class</td>
+	<td>*up-paused*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.down-arrow@class</td>
+	<td>*down-untaken*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.up-arrow@class</td>
+	<td>*up-waiting*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.down-arrow@class</td>
+	<td>*down-untaken*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.up-arrow@class</td>
+	<td>*up-taken*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.down-arrow@class</td>
+	<td>*down-untaken*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2@title</td>
+	<td>+1</td>
+</tr>
+<!--Check the down arrow and a double click-->
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.down-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.down-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.down-arrow@class</td>
+	<td>*down-paused*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.up-arrow@class</td>
+	<td>*up-taken*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.down-arrow@class</td>
+	<td>*down-waiting*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.up-arrow@class</td>
+	<td>*up-taken*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.down-arrow@class</td>
+	<td>*down-taken*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.up-arrow@class</td>
+	<td>*up-untaken*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2@title</td>
+	<td>-1</td>
+</tr>
+<!--Reload the page to check the take has stuck-->
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)@data-offer-id</td>
+	<td>14</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.up-arrow@class</td>
+	<td>*up-untaken*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2&gt;.down-arrow@class</td>
+	<td>*down-taken*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;.child-arrows&gt;.field-2@title</td>
+	<td>-1</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,1151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream - delete private offer</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream - delete private offer</td></tr>
+</thead><tbody>
+<!--Create and delete private offers to see that the correct users can see the offer.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--Test that if an offer is taken before being deleted that the taker can still see the offer.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offers&gt;div.offer:nth(1)&gt;div.top-value&gt;div.updown&gt;span.up-arrow.up-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>test a private offer deleted in cooldown</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a</td>
+	<td>test a private offer deleted in cooldown</td>
+</tr>
+<!--... store the url of the offer-->
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a@href</td>
+	<td>offer_url</td>
+</tr>
+<!--... delete the offer before the cooldown has finished-->
+<tr>
+	<td>click</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions &gt;.delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete-confirm&gt;.delete-confirmed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)@class</td>
+	<td>sorted</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;dt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 37</td>
+</tr>
+<!--... check that it is not visible on the offer page.-->
+<tr>
+	<td>open</td>
+	<td>${offer_url}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#loading_main_offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#loading_main_offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#messages_inner</td>
+	<td>This offer does not exist. Error code : GetPost_not_found</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;span:nth(0)</td>
+	<td>Reload Page</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;span:nth(1)</td>
+	<td>Ignore</td>
+</tr>
+<!--... login as test2 to check that the recipient can't see it-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)@class</td>
+	<td>sorted</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;dt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 37</td>
+</tr>
+<!--... check that it is not visible on the offer page.-->
+<tr>
+	<td>open</td>
+	<td>${offer_url}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#loading_main_offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#loading_main_offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#messages_inner</td>
+	<td>This offer does not exist. Error code : GetPost_not_found</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;span:nth(0)</td>
+	<td>Reload Page</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;span:nth(1)</td>
+	<td>Ignore</td>
+</tr>
+<!--... log back on as the main test user-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<!--Create a private message and then delete it after cooldown and see who has access to it.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offers&gt;div.offer:nth(1)&gt;div.top-value&gt;div.updown&gt;span.up-arrow.up-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>test a private offer deleted after cooldown</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a</td>
+	<td>test a private offer deleted after cooldown</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>25000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.actions&gt;.cooldown@class</td>
+	<td>*hide*</td>
+</tr>
+<!--... wait an extra 15 seconds to be sure the full cooldown has passed.-->
+<tr>
+	<td>pause</td>
+	<td>15000</td>
+	<td></td>
+</tr>
+<!--... store the url of the offer-->
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a@href</td>
+	<td>offer_url</td>
+</tr>
+<!--... delete the offer now that the cooldown has finished-->
+<tr>
+	<td>click</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions &gt;.delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.delete-confirm&gt;.delete-confirmed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.actions&gt;.deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)@class</td>
+	<td>sorted</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;dt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 37</td>
+</tr>
+<!--... check that it is not visible on the offer page.-->
+<tr>
+	<td>open</td>
+	<td>${offer_url}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#loading_main_offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#loading_main_offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#messages_inner</td>
+	<td>This offer does not exist. Error code : GetPost_not_found</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;span:nth(0)</td>
+	<td>Reload Page</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;span:nth(1)</td>
+	<td>Ignore</td>
+</tr>
+<!--... login as test2 to check that the recipient can still see it-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)@class</td>
+	<td>sorted</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;dt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title</td>
+	<td>test a private offer deleted after cooldown</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)@class</td>
+	<td>sorted</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;dt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title</td>
+	<td>test a private offer deleted after cooldown</td>
+</tr>
+<!--... check that it is not visible on the offer page.-->
+<tr>
+	<td>open</td>
+	<td>${offer_url}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;.title&gt;.field-1</td>
+	<td>test a private offer deleted after cooldown</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer@class</td>
+	<td>*status-private*</td>
+</tr>
+<!--... now have test2 delete the offer and check that they can no longer see it.-->
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.actions&gt;.delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.actions&gt;.delete-confirm&gt;.delete-confirmed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;div.actions&gt;.deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)@class</td>
+	<td>sorted</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;dt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 37</td>
+</tr>
+<!--... log back on as the main test user-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<!--test makes a private offer to test2, test2 replies, test1 deletes original, check who can see both offers.-->
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#offers&gt;div.offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>focus</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>A test private offer and reply</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>25000</td>
+	<td></td>
+</tr>
+<!--.. wait for the cooldown to timeout-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A test private offer and reply</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a@href</td>
+	<td>offer_url</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a@href</td>
+	<td>offer_url</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>25000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.actions&gt;.cooldown@class</td>
+	<td>*hide*</td>
+</tr>
+<!--... wait an extra 5 seconds to be sure the full cooldown has passed.-->
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--... refresh the page and look for the offer.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)@class</td>
+	<td>sorted</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;dt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;.title&gt;a</td>
+	<td>A test private offer and reply</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#offers&gt;.offer:nth(0)@class</td>
+	<td>*status-private*</td>
+</tr>
+<!--... now log on as test2 and reply to the offer-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${offer_url}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;div.actions&gt;.reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.actions&gt;.reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>test2 replying to test1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>test2 replying to test1</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer&gt;div.title&gt;span</td>
+	<td>test2 replying to test1</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>25000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer&gt;.actions&gt;.cooldown@class</td>
+	<td>*hide*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--... log back on as the main test user-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<!--... check the reply is visible and delete the original.-->
+<tr>
+	<td>open</td>
+	<td>${offer_url}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer&gt;div.title&gt;span</td>
+	<td>test2 replying to test1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.actions&gt;.delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.actions&gt;.delete-confirm&gt;.delete-confirmed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;div.actions&gt;.deleted</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(0)&gt;div.actions&gt;.delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(0)&gt;div.actions&gt;.delete-confirm&gt;.delete-confirmed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(0)&gt;div.actions&gt;.deleted</td>
+	<td></td>
+</tr>
+<!--... log back on as test2 to check they can still see both messages.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>${offer_url}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer&gt;div.title&gt;span</td>
+	<td>test2 replying to test1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;.title&gt;a</td>
+	<td>A test private offer and reply</td>
+</tr>
+</tbody></table>
+</body>
+</html>

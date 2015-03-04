@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>kindred rhythm</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">kindred rhythm</td></tr>
+</thead><tbody>
+<!--Test if the kindred rhythm process is working-->
+<!--log in as user 2.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--Download the takes data  to check that it is empty-->
+<tr>
+	<td>open</td>
+	<td>http://store.cobaltcascade.localhost/data/getkindreddata</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>{}</td>
+	<td></td>
+</tr>
+<!--check that waiting takes is correct.-->
+<tr>
+	<td>open</td>
+	<td>http://store.cobaltcascade.localhost/test2/data/gettakes?form%5Ball_values%5D=true&amp;form%5Buser_rhythm_ids%5D=17</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>[{&quot;take_id&quot;:&quot;7&quot;,&quot;date_taken&quot;:&quot;2011-11-21 14:00:00&quot;,&quot;value&quot;:&quot;1&quot;,&quot;field_id&quot;:&quot;2&quot;,&quot;stream_name&quot;:&quot;test stream&quot;,&quot;stream_username&quot;:&quot;test&quot;,&quot;stream_domain&quot;:&quot;cobaltcascade.localhost&quot;,&quot;stream_version&quot;:&quot;*0*0*0&quot;,&quot;offer_user_id&quot;:&quot;4&quot;,&quot;offer_username&quot;:&quot;test3&quot;,&quot;offer_domain&quot;:&quot;cobaltcascade.localhost&quot;,&quot;o_local_id&quot;:&quot;20&quot;,&quot;date_processed_1&quot;:null,&quot;score_1&quot;:null,&quot;user_rhythm_id_1&quot;:null}]</td>
+	<td></td>
+</tr>
+<!--open a stream a wait a while for takes to process. then recheck -->
+<tr>
+	<td>open</td>
+	<td>http://cobaltcascade.localhost/test/stream/offers/test stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>5000</td>
+	<td></td>
+</tr>
+<!--Download the takes data  again to check that it now has data-->
+<tr>
+	<td>open</td>
+	<td>http://store.cobaltcascade.localhost/data/getkindreddata</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>{&quot;cobaltcascade.localhost\/test3&quot;:&quot;5&quot;}</td>
+	<td></td>
+</tr>
+<!--check that waiting takes is now empty.-->
+<tr>
+	<td>open</td>
+	<td>http://store.cobaltcascade.localhost/test2/data/gettakes?form%5Ball_values%5D=true&amp;form%5Buser_rhythm_ids%5D=17</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertBodyText</td>
+	<td>{}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>rings - admin update type</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">rings - admin update type</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test ring/ring/update/</td>
+	<td></td>
+</tr>
+<!--Nothing selected-->
+<tr>
+	<td>select</td>
+	<td>css=#RingForm_admin_type</td>
+	<td>value=</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form#create_ring&gt;div:nth(11)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#create_ring&gt;div:nth(6)&gt;div.errorMessage</td>
+	<td>Admin Type cannot be blank.</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#create_ring&gt;div:nth(6)&gt;div.errorMessage</td>
+	<td></td>
+</tr>
+<!--By invitation-->
+<tr>
+	<td>select</td>
+	<td>css=#RingForm_admin_type</td>
+	<td>value=59</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#create_ring&gt;div:nth(6)&gt;div#admin_invite</td>
+	<td>You can send invitations from your ring subscriptions page</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#create_ring&gt;div:nth(6)&gt;div#admin_invite&gt;a</td>
+	<td>ring subscriptions page</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#create_ring&gt;div:nth(6)&gt;div#admin_invite&gt;a@href</td>
+	<td>../index</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=form#create_ring&gt;div:nth(11)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#create_ring&gt;div:nth(6)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#admin_super_ring_textfield</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#create_ring&gt;div:nth(6)&gt;div.errorMessage</td>
+	<td></td>
+</tr>
+<!--... Check current admins.-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;#update_ring&gt;#current_admins</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#current_admins&gt;h3</td>
+	<td>Current administrators:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#current_admins&gt;ul&gt;li:nth(0)&gt;a</td>
+	<td>cobaltcascade.localhost/test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#current_admins&gt;ul&gt;li:nth(0)&gt;a@href</td>
+	<td>http://cobaltcascade.localhost/test/profile</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#current_admins&gt;ul&gt;li:nth(1)&gt;a</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#current_admins&gt;ul&gt;li:nth(1)&gt;a@href</td>
+	<td>http://cobaltcascade.localhost/test2/profile</td>
+</tr>
+<!--By another ring-->
+<tr>
+	<td>select</td>
+	<td>css=#RingForm_admin_type</td>
+	<td>value=60</td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>If you select an option here that locks you out then you will no longer be able to edit these options. Please confirm.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#admin_super_ring_textfield&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#admin_super_ring_textfield&gt;label</td>
+	<td>Admin Super Ring*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#admin_super_ring_textfield&gt;input#RingForm_admin_super_ring</td>
+	<td></td>
+</tr>
+<!--... admin super ring help-->
+<tr>
+	<td>click</td>
+	<td>css=#admin_super_ring_textfield&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Admin Super Ring</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>The name of the*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... Empty super ring-->
+<tr>
+	<td>click</td>
+	<td>css=form#create_ring&gt;div:nth(11)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#admin_super_ring_textfield&gt;div.error</td>
+	<td>Admin super ring is empty.</td>
+</tr>
+<!--... select a super ring-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#admin_super_ring_textfield&gt;span.search&gt;a#RingForm_admin_super_ring_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#admin_super_ring_textfield&gt;span.search&gt;a#RingForm_admin_super_ring_search</td>
+	<td>search</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#admin_super_ring_textfield&gt;span.search&gt;a#RingForm_admin_super_ring_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#create_ring&gt;#admin_super_ring_selector&gt;#selector_admin_ring_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#selector_admin_ring_user@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#selector_admin_ring_user@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#admin_super_ring_textfield&gt;span.search&gt;a#RingForm_admin_super_ring_search</td>
+	<td>close search</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#admin_super_ring_textfield&gt;span.search&gt;a#RingForm_admin_super_ring_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#admin_super_ring_textfield&gt;span.search&gt;a#RingForm_admin_super_ring_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#admin_super_ring_textfield&gt;span.search&gt;a#RingForm_admin_super_ring_search</td>
+	<td>search</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#create_ring&gt;#admin_super_ring_selector&gt;#selector_admin_ring_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#admin_super_ring_textfield&gt;span.search&gt;a#RingForm_admin_super_ring_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#create_ring&gt;#admin_super_ring_selector&gt;#selector_admin_ring_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=table#selector_admin_ring_user&gt;thead&gt;tr.search&gt;td.user&gt;input#user_admin_ring_user</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#selector_admin_ring_user@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#selector_admin_ring_user@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=table#selector_admin_ring_user&gt;tbody&gt;tr:nth(0)&gt;td.user</td>
+	<td>test ring</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_admin_ring_user&gt;tbody&gt;tr:nth(0)&gt;td:nth(0)@class</td>
+	<td>*user*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_admin_ring_user&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)@class</td>
+	<td>*action*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_admin_ring_user&gt;tbody&gt;tr:nth(0)&gt;td.user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_admin_ring_user&gt;tbody&gt;tr:nth(0)&gt;td.action&gt;a.action</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_admin_ring_user&gt;tbody&gt;tr:nth(0)&gt;td:nth(0)</td>
+	<td>test ring</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_admin_ring_user&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)&gt;a.action</td>
+	<td>Select</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=table#selector_admin_ring_user&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)&gt;a.action</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#create_ring&gt;div#admin_super_ring_selector</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form#create_ring&gt;div:nth(11)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#membership_super_ring_textfield&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#RingForm_admin_super_ring</td>
+	<td>test ring</td>
+</tr>
+<!--Ensure side menu items have been turned off-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#sidebar&gt;div#sidebar_menu&gt;div.portlet-content&gt;ul&gt;li:nth(4)&gt;a</td>
+	<td>Send Admin Invitation</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#sidebar&gt;div#sidebar_menu&gt;div.portlet-content&gt;ul&gt;li:nth(5)&gt;a</td>
+	<td>Resign</td>
+</tr>
+<!--Ring Rhythm selector-->
+<!--... ring rhythm that does not exist-->
+<!--! Not sure why the pause is neeeded.-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#RingForm_admin_super_ring</td>
+	<td>test ring that does not exist</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form#create_ring&gt;div:nth(11)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#admin_super_ring_textfield&gt;div.error</td>
+	<td>Not a valid user</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#admin_super_ring_textfield&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#RingForm_admin_super_ring</td>
+	<td>test ring</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form#create_ring&gt;div:nth(11)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#RingForm_admin_super_ring</td>
+	<td>test ring</td>
+</tr>
+<!--... ring Rhythm help-->
+<tr>
+	<td>click</td>
+	<td>css=#ring_rhythm_textfield&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Ring Rhythm</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>The location and name*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--The ring Rhythm-->
+<!--... Empty ring-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#RingForm_ring_rhythm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#RingForm_ring_rhythm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form#create_ring&gt;div:nth(11)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#ring_rhythm_textfield&gt;div.error</td>
+	<td></td>
+</tr>
+<!--... ring that does not exist-->
+<!--! Not sure why the pause is neeeded.-->
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#RingForm_ring_rhythm</td>
+	<td>test ring that does not exist</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form#create_ring&gt;div:nth(11)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Update Ring test ring</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#ring_rhythm_textfield&gt;div.error</td>
+	<td>Ring Rhythm is not valid</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#ring_rhythm_textfield&gt;div.error</td>
+	<td></td>
+</tr>
+<!--... select a ring that does exist-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#RingForm_ring_rhythm_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#RingForm_ring_rhythm_search</td>
+	<td>search</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#RingForm_ring_rhythm_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#create_ring&gt;#ring_rhythm_selector&gt;#selector_ring_rhythm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#selector_ring_rhythm@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#selector_ring_rhythm@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#RingForm_ring_rhythm_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#RingForm_ring_rhythm_search</td>
+	<td>close search</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#RingForm_ring_rhythm_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#RingForm_ring_rhythm_search</td>
+	<td>search</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#create_ring&gt;#ring_rhythm_selector&gt;#selector_ring_rhythm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#RingForm_ring_rhythm_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#create_ring&gt;#ring_rhythm_selector&gt;#selector_ring_rhythm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=table#selector_ring_rhythm&gt;thead&gt;tr.search&gt;td.site&gt;input#site_ring_rhythm</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#selector_ring_rhythm@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#selector_ring_rhythm@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=table#selector_ring_rhythm&gt;thead&gt;tr.search&gt;td.user&gt;input#user_ring_rhythm</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#selector_ring_rhythm@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#selector_ring_rhythm@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td.domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td.user</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td.action&gt;a.action</td>
+	<td>View</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td:nth(0)@class</td>
+	<td>*name*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)@class</td>
+	<td>*domain*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td:nth(2)@class</td>
+	<td>*user*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td:nth(3)@class</td>
+	<td>*version*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td:nth(4)@class</td>
+	<td>*type*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)@class</td>
+	<td>*action*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td.name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td.domain</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td.user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td.version</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td.type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td.action&gt;a.action</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td:nth(0)</td>
+	<td>test ring</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td:nth(2)</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td:nth(3)</td>
+	<td>0.0.1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;a.action</td>
+	<td>Select</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=table#selector_ring_rhythm&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;a.action</td>
+	<td>Select</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#create_ring&gt;div#ring_rhythm_selector</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=form#create_ring&gt;div:nth(11)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#membership_rhythm_textfield&gt;div.error</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

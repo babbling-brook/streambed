@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>offer - oscillating comments</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">offer - oscillating comments</td></tr>
+</thead><tbody>
+<!--Check that comments oscilate between the two different child types-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--Set up the top parent-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test oscillating 1/latest/latest/latest</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offers div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>An automated test offer</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a</td>
+	<td>An automated test offer</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a</td>
+	<td></td>
+</tr>
+<!--Make a comment - should be using stream type 'oscilating 2'-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;div.actions&gt;span.reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.actions&gt;span.reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#make_offer_2 .offer-field-1-title</td>
+	<td>oscillating 2:</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#offer_2_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_1_text</td>
+	<td>A second automated test offer</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#make_offer_2 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_2 .create-offer</td>
+	<td></td>
+</tr>
+<!--Make a child comment - should be using stream type 'oscilating 1'-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer&gt;div.title&gt;span.field-1</td>
+	<td>A second automated test offer</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer&gt;div.actions&gt;span.reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer&gt;div.actions&gt;span.reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#make_offer_3 .offer-field-1-title</td>
+	<td>oscillating1:</td>
+</tr>
+</tbody></table>
+</body>
+</html>

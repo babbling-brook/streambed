@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--First need to create a complex offer-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test everything stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>Test complex title</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_3_text</td>
+	<td>something required</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_4_text</td>
+	<td>a title for a link</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=.offer-field-4-link</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_field_5_checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_6 .ui-button-text:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_6 .ui-button-text:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_7 .ui-button-text:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_7 .ui-button-text:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_7 .ui-button-text:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>open list item</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>another item</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>a third item</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_11_value_min</td>
+	<td>-3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_11_value_max</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_13_value_min</td>
+	<td>-20</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_13_value_max</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_15_text</td>
+	<td>195</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_field_16_checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_29_value_min</td>
+	<td>-100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_29_value_max</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_30_value_min</td>
+	<td>-100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_30_value_max</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_32_value_max</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>200</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0) div.title&gt;a</td>
+	<td>Test complex title</td>
+</tr>
+<!--Make a test comment-->
+<tr>
+	<td>click</td>
+	<td>css=#offers&gt;.offer:nth(0) div.title&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;.title&gt;.field-1</td>
+	<td>Test complex title</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;.actions&gt;.reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;.actions&gt;.reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#offer_2_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_1_text</td>
+	<td>Test complex comment title</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_3_text</td>
+	<td>something required</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_4_text</td>
+	<td>a title for a link</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=.offer-field-4-link</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_2_field_5_checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_2_list_6 .ui-button-text:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_2_list_6 .ui-button-text:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_2_list_7 .ui-button-text:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_2_list_7 .ui-button-text:nth(4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_2_list_7 .ui-button-text:nth(5)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>open list item</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_2_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>another item</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_2_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>a third item</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_2_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_11_value_min</td>
+	<td>-3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_11_value_max</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_13_value_min</td>
+	<td>-20</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_13_value_max</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_15_text</td>
+	<td>195</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_2_field_16_checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_29_value_min</td>
+	<td>-100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_29_value_max</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_30_value_min</td>
+	<td>-100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_30_value_max</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_2_field_32_value_max</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(0)&gt;.title&gt;.field-1</td>
+	<td>Test complex comment title</td>
+</tr>
+<!--Test the offer page-->
+<!--... Test the main offer-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<!--@todo Put the complex test offer in the test data so that this pause is not needed.-->
+<tr>
+	<td>pause</td>
+	<td>120000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test everything stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers&gt;.offer:nth(1)&gt;div.title&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.title&gt;a</td>
+	<td>Test complex title</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-3</td>
+	<td>a required textbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-3</td>
+	<td>something required</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-4</td>
+	<td>a link field</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-4&gt;a.offer-field-link</td>
+	<td>a title for a link</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-4&gt;a.offer-field-link@href</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-5</td>
+	<td>a checkbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-5</td>
+	<td>Yes</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-6</td>
+	<td>a short list</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-6&gt;ul.offer-field-list&gt;li:nth(0)</td>
+	<td>first short list item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-6&gt;ul.offer-field-list&gt;li:nth(1)</td>
+	<td>second short list item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-7</td>
+	<td>a long list</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-7&gt;ul.offer-field-list&gt;li:nth(0)</td>
+	<td>long list item 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-7&gt;ul.offer-field-list&gt;li:nth(1)</td>
+	<td>long list item 10</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-7&gt;ul.offer-field-list&gt;li:nth(2)</td>
+	<td>long list item 11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-8</td>
+	<td>an open list</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-8&gt;ul.offer-field-list&gt;li:nth(0)</td>
+	<td>open list item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-8&gt;ul.offer-field-list&gt;li:nth(1)</td>
+	<td>another item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-8&gt;ul.offer-field-list&gt;li:nth(2)</td>
+	<td>a third item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-9</td>
+	<td>an updown value</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-9&gt;.updown&gt;.up-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-9&gt;.updown&gt;.down-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-10</td>
+	<td>an updown value with constraints</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-12</td>
+	<td>a textbox value</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-12&gt;input.text-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-14</td>
+	<td>a button value</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-14&gt;div.take&gt;span.button-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-17</td>
+	<td>a linear scale value</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-17&gt;div.take&gt;div.linear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-18</td>
+	<td>a log scale value</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-18&gt;div.take&gt;div.linear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-32</td>
+	<td>a stars value with constraint on the offer</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars&gt;.star:nth(7)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<!--Test comment-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-3</td>
+	<td>a required textbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-3</td>
+	<td>something required</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-4</td>
+	<td>a link field</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-4&gt;a.offer-field-link</td>
+	<td>a title for a link</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-4&gt;a.offer-field-link@href</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-5</td>
+	<td>a checkbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-5</td>
+	<td>Yes</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-6</td>
+	<td>a short list</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-6&gt;ul.offer-field-list&gt;li:nth(0)</td>
+	<td>first short list item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-6&gt;ul.offer-field-list&gt;li:nth(1)</td>
+	<td>second short list item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-7</td>
+	<td>a long list</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-7&gt;ul.offer-field-list&gt;li:nth(0)</td>
+	<td>long list item 12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-7&gt;ul.offer-field-list&gt;li:nth(1)</td>
+	<td>long list item 13</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-7&gt;ul.offer-field-list&gt;li:nth(2)</td>
+	<td>long list item 14</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-8</td>
+	<td>an open list</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-8&gt;ul.offer-field-list&gt;li:nth(0)</td>
+	<td>open list item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-8&gt;ul.offer-field-list&gt;li:nth(1)</td>
+	<td>another item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-8&gt;ul.offer-field-list&gt;li:nth(2)</td>
+	<td>a third item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-9</td>
+	<td>an updown value</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-9&gt;.updown&gt;.up-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-9&gt;.updown&gt;.down-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-10</td>
+	<td>an updown value with constraints</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-12</td>
+	<td>a textbox value</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-12&gt;input.text-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-14</td>
+	<td>a button value</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-14&gt;div.take&gt;span.button-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-17</td>
+	<td>a linear scale value</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-17&gt;div.take&gt;div.linear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-18</td>
+	<td>a log scale value</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-18&gt;div.take&gt;div.linear</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;span.field-label-32</td>
+	<td>a stars value with constraint on the offer</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#tree_root&gt;li.offer&gt;ul.children&gt;li.offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars&gt;.star:nth(7)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

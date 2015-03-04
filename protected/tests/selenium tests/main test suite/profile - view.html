@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>profile - view</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">profile - view</td></tr>
+</thead><tbody>
+<!--View another users profile with whome there is no connection-->
+<!--Log in to the main test account.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--Open a profile that has no details and no relationship to this user.-->
+<tr>
+	<td>open</td>
+	<td>/test2/profile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;h2:nth(0)</td>
+	<td>Profile for test2</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=img.profile-photo@src</td>
+	<td>/images/default_user_large.png</td>
+</tr>
+<tr>
+	<td>assertElementHeight</td>
+	<td>css=img.profile-photo@src</td>
+	<td>218</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#profile&gt;h3:nth(0)</td>
+	<td>Real Name:</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#name_content</td>
+	<td>This user has not entered their real name.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#profile&gt;h3:nth(1)</td>
+	<td>About Me:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#about_content</td>
+	<td>This user has not entered any details.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#profile&gt;h3:nth(2)</td>
+	<td>Relationship score: 0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rate_user</td>
+	<td>Rate this user</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#invite_title</td>
+	<td>Ring Invite</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#invite&gt;a</td>
+	<td>Invite this user</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#invite&gt;a@href</td>
+	<td>/test/ring/index?to=cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#statements_title</td>
+	<td>Your statements about this user</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#your_statements</td>
+	<td>You have not made any statements about this user.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#kindred_title</td>
+	<td>Kindred statements about this user</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#kindred_statements</td>
+	<td>No kindred statements found.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#global_title</td>
+	<td>Global statements about this user</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#global_statements</td>
+	<td>No global statements found.</td>
+</tr>
+<!--Check short verison of the link-->
+<tr>
+	<td>open</td>
+	<td>/test2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;h2:nth(0)</td>
+	<td>Profile for test2</td>
+</tr>
+<!--Check a user with personal and relationship details.-->
+<tr>
+	<td>open</td>
+	<td>/test3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;h2:nth(0)</td>
+	<td>Profile for test3</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#profile_image@src</td>
+	<td>*/images/user/profile-large/test3.png</td>
+</tr>
+<tr>
+	<td>assertElementHeight</td>
+	<td>css=#profile_image</td>
+	<td>218</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#name_content</td>
+	<td>Test users 3 real name</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#about_content</td>
+	<td>All about test user 3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#profile&gt;h3:nth(2)</td>
+	<td>Relationship score: 0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rate_user</td>
+	<td>Rate this user</td>
+</tr>
+<!--Your statements about this user-->
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#your_statements&gt;div.offer:nth(0)@data-offer-id</td>
+	<td>55</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#your_statements&gt;div.offer:nth(0)@data-offer-domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#your_statements&gt;div.offer:nth(0)&gt;div.top-value&gt;div.field-2@title</td>
+	<td>+1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#your_statements&gt;div.offer:nth(0)&gt;div.info&gt;span.sort-score-title</td>
+	<td>sort score</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#your_statements&gt;div.offer:nth(0)&gt;div.info&gt;span.sort-score</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#your_statements&gt;div.offer:nth(0)&gt;div.top-value&gt;div.field-2@title</td>
+	<td>+1</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#your_statements&gt;div.offer:nth(0)&gt;div.title&gt;a.stream@href</td>
+	<td>http://cobaltcascade.localhost/test/stream/offers/test user stream 6/0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#your_statements&gt;div.offer:nth(0)&gt;div.title&gt;a.stream</td>
+	<td>test user stream 6</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#your_statements&gt;div.offer:nth(0)&gt;div.info&gt;a.link-to-offer@href</td>
+	<td>/offer/cobaltcascade.localhost/55</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#your_statements&gt;div.offer:nth(0)&gt;div.info&gt;a.link-to-offer</td>
+	<td>comments</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#your_statements&gt;div.offer:nth(1)@data-offer-id</td>
+	<td>54</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#your_statements&gt;div.offer:nth(2)@data-offer-id</td>
+	<td>53</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#your_statements&gt;div.offer:nth(3)@data-offer-id</td>
+	<td>52</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#your_statements&gt;div.offer:nth(4)@data-offer-id</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#your_statements&gt;div.offer:nth(5)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#your_statements + #your_statements_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#your_statements_page&gt;a.more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#your_statements_page&gt;a.more</td>
+	<td>more</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#your_statements_page&gt;a.back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#your_statements_page&gt;a.more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#your_statements</td>
+	<td>No further statements about this user found.</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#your_statements_page&gt;a.back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#your_statements_page&gt;a.more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#your_statements_page&gt;a.back</td>
+	<td>back</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#your_statements_page&gt;a.back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#your_statements&gt;div.offer:nth(0)@data-offer-id</td>
+	<td>55</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#your_statements&gt;div.offer:nth(4)@data-offer-id</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#your_statements&gt;div.offer:nth(5)</td>
+	<td></td>
+</tr>
+<!--Kindred statements about this user-->
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(0)@data-offer-id</td>
+	<td>52</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(0)@data-offer-domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(0)&gt;div.top-value&gt;div.field-2@title</td>
+	<td>+2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(0)&gt;div.info&gt;span.sort-score-title</td>
+	<td>sort score</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(0)&gt;div.info&gt;span.sort-score</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(0)&gt;div.top-value&gt;div.field-2@title</td>
+	<td>+2</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(0)&gt;div.title&gt;a.stream@href</td>
+	<td>http://cobaltcascade.localhost/test/stream/offers/test user stream 3/0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(0)&gt;div.title&gt;a.stream</td>
+	<td>test user stream 3</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(0)&gt;div.info&gt;a.link-to-offer@href</td>
+	<td>/offer/cobaltcascade.localhost/52</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(0)&gt;div.info&gt;a.link-to-offer</td>
+	<td>comments</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(1)@data-offer-id</td>
+	<td>55</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(2)@data-offer-id</td>
+	<td>54</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(3)@data-offer-id</td>
+	<td>53</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(4)@data-offer-id</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#kindred_statements&gt;div.offer:nth(5)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#kindred_statements + #kindred_statements_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#kindred_statements_page&gt;a.more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#kindred_statements_page&gt;a.back</td>
+	<td></td>
+</tr>
+<!--Global statements about this user-->
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#global_statements&gt;div.offer:nth(0)@data-offer-id</td>
+	<td>55</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#global_statements&gt;div.offer:nth(0)@data-offer-domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#global_statements&gt;div.offer:nth(0)&gt;div.top-value&gt;div.field-2@title</td>
+	<td>+1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#global_statements&gt;div.offer:nth(0)&gt;div.info&gt;span.sort-score-title</td>
+	<td>sort score</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#global_statements&gt;div.offer:nth(0)&gt;div.info&gt;span.sort-score</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#global_statements&gt;div.offer:nth(0)&gt;div.title&gt;a.stream@href</td>
+	<td>http://cobaltcascade.localhost/test/stream/offers/test user stream 6/0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#global_statements&gt;div.offer:nth(0)&gt;div.title&gt;a.stream</td>
+	<td>test user stream 6</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#global_statements&gt;div.offer:nth(0)&gt;div.info&gt;a.link-to-offer@href</td>
+	<td>/offer/cobaltcascade.localhost/55</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#global_statements&gt;div.offer:nth(0)&gt;div.info&gt;a.link-to-offer</td>
+	<td>comments</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#global_statements&gt;div.offer:nth(1)@data-offer-id</td>
+	<td>53</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#global_statements&gt;div.offer:nth(2)@data-offer-id</td>
+	<td>54</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#global_statements&gt;div.offer:nth(3)@data-offer-id</td>
+	<td>52</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#global_statements&gt;div.offer:nth(4)@data-offer-id</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#global_statements&gt;div.offer:nth(5)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#global_statements + #global_statements_page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#global_statements_page&gt;a.more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#global_statements_page&gt;a.more</td>
+	<td>more</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#global_statements_page&gt;a.back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#global_statements_page&gt;a.more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#global_statements</td>
+	<td>No further global statements found.</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#global_statements_page&gt;a.back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#global_statements_page&gt;a.more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#global_statements_page&gt;a.back</td>
+	<td>back</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#global_statements_page&gt;a.back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#global_statements&gt;div.offer:nth(0)@data-offer-id</td>
+	<td>55</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#global_statements&gt;div.offer:nth(4)@data-offer-id</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#global_statements&gt;div.offer:nth(5)</td>
+	<td></td>
+</tr>
+<!--rate the user-->
+<tr>
+	<td>assertText</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_off</td>
+	<td>List your most popular offers to rate a user</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rate_user_options&gt;#suggestions_make_offer&gt;#suggestions_make_offer_on</td>
+	<td>Suggest more rating types</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rate_user_options&gt;#search_make_offer&gt;#search_make_offer_on</td>
+	<td>Search for rating types</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rate_user_options&gt;#new_make_offer&gt;.new-make-offer</td>
+	<td>Create a new user rating stream</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rate_user_options&gt;#new_make_offer&gt;.new-make-offer@href</td>
+	<td>*/test/stream/create</td>
+</tr>
+<!--search for new rating type-->
+<tr>
+	<td>click</td>
+	<td>css=#rate_user_options&gt;#search_make_offer&gt;#search_make_offer_on</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rate_user_options&gt;#search_make_offer&gt;#search_make_offer_on</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rate_user_options&gt;#search_make_offer&gt;#search_make_offer_off</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rate_user_options&gt;#search_make_offer&gt;#search_make_offer_list&gt;#selector_search_rate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_search_rate&gt;thead&gt;tr.titles&gt;td:nth(0)</td>
+	<td>Name</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_search_rate&gt;thead&gt;tr.titles&gt;td:nth(1)</td>
+	<td>Site</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_search_rate&gt;thead&gt;tr.titles&gt;td:nth(2)</td>
+	<td>User</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#selector_search_rate&gt;thead&gt;tr.titles&gt;td:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_search_rate&gt;thead&gt;tr.titles&gt;td:nth(4)</td>
+	<td>Actions</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#site_search_rate</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#user_search_rate</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#search_make_offer</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#search_make_offer@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#search_make_offer@class</td>
+	<td>clear content-block-3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_0&gt;.name</td>
+	<td>test user stream</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_0&gt;.domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_0&gt;.user</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_0&gt;td.action&gt;a.action</td>
+	<td>rate</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_0&gt;td.action&gt;a.action</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_0&gt;td&gt;div.offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_0&gt;td&gt;div.offer@data-offer-id</td>
+	<td>*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_0&gt;td&gt;div.offer@data-offer-domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_search_rate&gt;tbody&gt;tr#search_rate_row_0&gt;td&gt;div.offer&gt;div.title&gt;a.stream</td>
+	<td>test user stream</td>
+</tr>
+<!--@todo check taking works-->
+<!--.. close the search-->
+<tr>
+	<td>click</td>
+	<td>css=#rate_user_options&gt;#search_make_offer&gt;#search_make_offer_off</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rate_user_options&gt;#search_make_offer&gt;#search_make_offer_on</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rate_user_options&gt;#search_make_offer&gt;#search_make_offer_off</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rate_user_options&gt;#search_make_offer&gt;#search_make_offer_list</td>
+	<td></td>
+</tr>
+<!--List popular streams-->
+<tr>
+	<td>click</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_off</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_off</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_on</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;#my_popular</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;#my_popular&gt;div:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;#my_popular&gt;div:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;#my_popular&gt;div:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;#my_popular&gt;div:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;#my_popular&gt;div:nth(4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;#my_popular&gt;div:nth(5)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;.page-links&gt;a.more</td>
+	<td>more</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;.page-links&gt;a.back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;.page-links&gt;a.more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;.page-links&gt;a.back</td>
+	<td>back</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;.page-links&gt;a.back</td>
+	<td>back</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;.page-links&gt;a.back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;.page-links&gt;a.more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;#my_popular&gt;div:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;#my_popular&gt;div:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;.page-links&gt;a.back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;#my_popular&gt;div:nth(4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;.page-links&gt;a.more</td>
+	<td>more</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#rate_user_options&gt;#popular_make_offer&gt;#popular_make_offer_list&gt;.page-links&gt;a.back</td>
+	<td></td>
+</tr>
+<!--@todo When user takes are sorted out then several takes need to be made, page refreshed and sort order and paging tested for kindred.-->
+</tbody></table>
+</body>
+</html>

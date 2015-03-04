@@ -1,0 +1,33 @@
+phpcs --standard=SaltNet C:\Users\Sky\Documents\websites\GiveSalt\svn\trunk\storesalt\protected\Documentation\PHPCodingConventions.php
+
+Reges to replace functions starting over two lines.
+\)\s+\{
+
+if(
+if (
+
+regex to find in an if
+(if \([$a-zA-Z->_]*\(\$[a-zA-Z'_\[\]]*\))
+$1 === true
+
+(if \()(\$[a-z_$\[\]'->="]*)\)
+$1$2 === true)
+
+regex to find not in an if
+(if \()\!([a-z$A-Z->_]*\(\$[a-zA-Z0-9'_\[\]]*\))
+$1$2 === false
+
+also 
+(if \()\!(\$[a-z_]*)\)
+$1$2 === false)
+
+(if \(.*\)\n)
+
+regex to find => without a space afterwards.
+\=>(?! )
+=> 
+
+
+C:\wamp\bin\php\php5.2.9-2\phpcs --standard=SaltNet C:\Users\Sky\Documents\websites\GiveSalt\svn\trunk\storesalt\protected\components\behaviors\models\OfferBehavior.php
+
+C:\wamp\bin\php\php5.2.9-2\phpcs --extensions=php --standard=SaltNet --ignore=C:/Users/Sky/Documents/websites/GiveSalt/svn/trunk/storesalt/protected/tests/*,C:/Users/Sky/Documents/websites/GiveSalt/svn/trunk/storesalt/components/libraries/* C:/Users/Sky/Documents/websites/GiveSalt/svn/trunk/storesalt/

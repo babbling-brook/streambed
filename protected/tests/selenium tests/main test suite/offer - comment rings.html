@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--Test the rings on a child offer.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;span.ring-title</td>
+	<td>rings</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;span.ring-title@class</td>
+	<td>*link*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;ul</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;span.ring-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;ul</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;ul&gt;li:nth(0)@class</td>
+	<td>*ring-waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;ul&gt;li:nth(0)@class</td>
+	<td>*ring-untaken*</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;ul&gt;li:nth(0)</td>
+	<td>take comment test</td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;ul&gt;li:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;ul&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;ul&gt;li:nth(0)@class</td>
+	<td>*ring-waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;ul&gt;li:nth(0)@class</td>
+	<td>*ring-taken*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;ul&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;ul&gt;li:nth(0)@class</td>
+	<td>*ring-waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)&gt;div.actions&gt;span.offer-rings&gt;ul&gt;li:nth(0)@class</td>
+	<td>*ring-untaken*</td>
+</tr>
+</tbody></table>
+</body>
+</html>

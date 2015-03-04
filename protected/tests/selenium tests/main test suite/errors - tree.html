@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>errors - tree</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">errors - tree</td></tr>
+</thead><tbody>
+<!--@todo this is broken until the error system is reworked to prevent infinite loops.-->
+<!--Test that error messages appear correctly on stream pages.-->
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--test missing sort filter using broken data model in the request for the filter.-->
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/59</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred whilst sorting child offers*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_button_0_0</td>
+	<td>Unsubscribe Stream</td>
+</tr>
+<!--test missing offer data-->
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred whilst fetching an offer*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_button_0_0</td>
+	<td>Reload Page</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>offer - show revision after edit</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">offer - show revision after edit</td></tr>
+</thead><tbody>
+<!--Check that the 'Show update' link apppears for another user after an update has happened. Check that child offers are not lost when the version is replaced-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<!--check that the next offer is 15 before the update runs-->
+<tr>
+	<td>assertAttribute</td>
+	<td>css=.offer[data-offer-id=14]:first + li@data-offer-id</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>$.post('/tests/TriggerCommentsEditTest',{},function(data){console.debug('posted');});</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=.offer[data-offer-id=14]:first&gt;.actions&gt;.update</td>
+	<td></td>
+</tr>
+<!--Check the content has not yet been updated.-->
+<tr>
+	<td>assertText</td>
+	<td>css=.offer[data-offer-id=14]:first&gt;.title</td>
+	<td>test offer 14 - comment 6</td>
+</tr>
+<!--Check that the child is present-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=14]:first&gt;.children&gt;.offer[data-offer-id=16]&gt;.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=.offer[data-offer-id=14]:first&gt;.children&gt;.offer:first@data-offer-id</td>
+	<td>16</td>
+</tr>
+<!--Check that there is only one offer in the offer container-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=.offer[data-offer-id=14]:first&gt;.top-value:nth(1)</td>
+	<td></td>
+</tr>
+<!--Check that the correct offer follows this one.-->
+<tr>
+	<td>assertAttribute</td>
+	<td>css=.offer[data-offer-id=14]:first + li@data-offer-id</td>
+	<td>revised-14</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=.offer[data-offer-id=14]:first + li@class</td>
+	<td>*hide-new-revision*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=.offer[data-offer-id=14]:first + li + li@data-offer-id</td>
+	<td>15</td>
+</tr>
+<!--click the update and recheck everything is in place-->
+<tr>
+	<td>click</td>
+	<td>css=.offer[data-offer-id=14]:first&gt;.actions&gt;.update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=.offer[data-offer-id=14]:first&gt;.title</td>
+	<td>edited text for test 14</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=14]:first&gt;.children&gt;.offer[data-offer-id=16]&gt;.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=.offer[data-offer-id=14]:first&gt;.children&gt;.offer:first@data-offer-id</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=.offer[data-offer-id=14]:first&gt;.top-value:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=.offer[data-offer-id=14]:first + li@data-offer-id</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=14]:first&gt;.children&gt;.offer[data-offer-id=16]&gt;.title</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

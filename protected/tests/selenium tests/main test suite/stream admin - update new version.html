@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream admin - update new version</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream admin - update new version</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/test stream/0/0/0/update</td>
+	<td></td>
+</tr>
+<!--Test New Version-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(0)</td>
+	<td>Name: test stream</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#version</td>
+	<td>0/1/0</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#new_version</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#actions_plane&gt;div:nth(0)&gt;div#new_version_success</td>
+	<td>New version created. Edit it here.</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#actions_plane&gt;div:nth(0)&gt;div#new_version_success</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#actions_plane&gt;div:nth(0)&gt;div#new_version_success&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(1)</td>
+	<td>Version: 0/1/0</td>
+</tr>
+<!--... check new version drop down.-->
+<tr>
+	<td>assertValue</td>
+	<td>css=#version&gt;option:nth(0)</td>
+	<td>0/1/1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#version&gt;option:nth(1)</td>
+	<td>0/2/0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#version&gt;option:nth(2)</td>
+	<td>1/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#version&gt;option:nth(0)</td>
+	<td>0/1/1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#version&gt;option:nth(1)</td>
+	<td>0/2/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#version&gt;option:nth(2)</td>
+	<td>1/0/0</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#actions_plane&gt;div:nth(1)&gt;img.publish</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#actions_plane&gt;div:nth(1)&gt;img.delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#actions_plane&gt;div:nth(1)&gt;img.deprecate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#duplicate_name</td>
+	<td>test stream</td>
+</tr>
+<!--Check edit fields are available.-->
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_stream_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#description</td>
+	<td>An stream for making test offers.</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#child_types tr&gt;td&gt;input.version-url</td>
+	<td>/test/stream/view/test+comments/latest/latest/latest</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#new_default_ring</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#tag_row&gt;ul.token-input-list-default&gt;li&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#stream_fields&gt;div.list-view&gt;div.items&gt;div.field-container&gt;div.inner-field-container&gt;div.offer-type-field&gt;div.row&gt;input.field-label</td>
+	<td>test-title</td>
+</tr>
+<!--Check that the meta stream has been created.-->
+<!--... Pause to allow the cooldown to take effect.-->
+<tr>
+	<td>pause</td>
+	<td>60000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/view/test stream/0/1/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#view_details&gt;tbody&gt;tr:nth(8)&gt;td</td>
+	<td>/offer/cobaltcascade.localhost/*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#view_details&gt;tbody&gt;tr:nth(8)&gt;td&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;.title&gt;.field-1</td>
+	<td>Meta conversation for the test stream stream</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-label-3</td>
+	<td>Posts in this stream</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-3</td>
+	<td>http://cobaltcascade.localhost/test/stream/offers/test stream/0/1/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-3@href</td>
+	<td>http://cobaltcascade.localhost/test/stream/offers/test%20stream/0/1/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-label-4</td>
+	<td>View stream details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-4</td>
+	<td>http://cobaltcascade.localhost/test/stream/view/test stream/0/1/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-4@href</td>
+	<td>http://cobaltcascade.localhost/test/stream/view/test%20stream/0/1/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-label-5</td>
+	<td>Description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-5</td>
+	<td>An stream for making test offers.</td>
+</tr>
+</tbody></table>
+</body>
+</html>

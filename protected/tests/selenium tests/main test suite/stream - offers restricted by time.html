@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream - offers restricted by time</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream - offers restricted by time</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--First we need to add the correct filter to the subscription.-->
+<tr>
+	<td>open</td>
+	<td>/user/streams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(0)</td>
+	<td>test stream*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(0)&gt;a.details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#edit_streams&gt;li:nth(0)&gt;div.details&gt;div:nth(0)</td>
+	<td>Full name: cobaltcascade.localhost/test/stream/json/test stream/0/0/0</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(0)&gt;div.details&gt;div:nth(3)&gt;ul#filter_options&gt;li:nth(1)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#edit_streams&gt;li:nth(0)&gt;div.details&gt;div&gt;#filter_options&gt;li:nth(1)&gt;#search_new_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#edit_streams&gt;li:nth(0)&gt;div.details&gt;div&gt;#filter_options&gt;li:nth(1)&gt;#filter_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#filter_search&gt;table#selector_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.search&gt;td.site&gt;input#site_filter</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.search&gt;td.user&gt;input#user_filter</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.search&gt;td.name&gt;input#name_filter</td>
+	<td>test offers by date</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_0&gt;td.name</td>
+	<td>test offers by date</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_0&gt;td.action&gt;a:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#edit_streams&gt;li:nth(0)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(2)</td>
+	<td>test offers by dateremovedetails</td>
+</tr>
+<!--Now go to the stream page and check the filter.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(2)</td>
+	<td>test offers by date</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;dt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar&gt;div&gt;dd:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 3 - breaks for testing when full data is requested</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offers&gt;div.offer:nth(1)&gt;div.title</td>
+	<td>test offer 2</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#offers&gt;div.offer:nth(2)&gt;div.title</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

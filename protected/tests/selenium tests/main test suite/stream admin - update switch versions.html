@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream admin - update switch versions</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream admin - update switch versions</td></tr>
+</thead><tbody>
+<!--Also tests for deprecated.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/test stream/0/0/0/update</td>
+	<td></td>
+</tr>
+<!--... test switch versions on the side nav-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#sidebar&gt;.portlet-content&gt;select#versions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#versions&gt;option:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#versions&gt;option:nth(0)</td>
+	<td>Switch versions:</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#versions&gt;option:nth(1)</td>
+	<td>0/0/1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#versions&gt;option:nth(1)</td>
+	<td>0/0/1</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#versions&gt;option:nth(2)</td>
+	<td>0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#versions&gt;option:nth(2)</td>
+	<td>0/0/0</td>
+</tr>
+<tr>
+	<td>selectAndWait</td>
+	<td>css=#versions</td>
+	<td>0/0/1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(1)</td>
+	<td>Version: 0/0/1</td>
+</tr>
+<!--Test deprecated-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(3)</td>
+	<td>Status: Deprecated</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;ul#update_stream_tabs&gt;#edit_stream_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#edit_stream_plane&gt;div.no-editing</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_stream_plane&gt;div.no-editing</td>
+	<td>Stream details are only editable if they are private. Create a new version or duplicate to return to private mode.</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#edit_stream_plane&gt;div:nth(1)</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+<?php
+/**
+ * redirect to the yii file.
+ *
+ * @license SaltNet license
+ */
+require_once (dirname(__FILE__).'/yiic.php');
+
+?>

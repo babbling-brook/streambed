@@ -1,0 +1,1188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/user/streams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(0)</td>
+	<td>test stream*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(1)</td>
+	<td>test everything stream*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(2)</td>
+	<td>test oscillating 1*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(3)</td>
+	<td>test oscillating 2*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(4)</td>
+	<td>test user stream*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)</td>
+	<td>test stream*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(6)</td>
+	<td>test stream 2*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(7)</td>
+	<td>test stream 3*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(8)</td>
+	<td>test stream 4*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(9)</td>
+	<td>test stream 5*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(10)</td>
+	<td>test stream 6*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(11)</td>
+	<td>test stream*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(12)</td>
+	<td>test stream*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(13)</td>
+	<td>test stream 7*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(14)</td>
+	<td>test stream 8*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(15)</td>
+	<td>test stream 9*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(16)</td>
+	<td>test stream 10*</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#edit_streams&gt;li:nth(17)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;a.delete</td>
+	<td>remove</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;a.details</td>
+	<td>details*</td>
+</tr>
+<!--Check details of a stream-->
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;a.details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(0)</td>
+	<td>Full name: cobaltcascade.localhost/test/stream/json/test stream/0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(1)</td>
+	<td>Description: An stream for making test offers.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div#change_version</td>
+	<td>Version: 0/0/0change version</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div#change_version&gt;a.change-version</td>
+	<td>change version</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div#change_version&gt;a.change-version@state</td>
+	<td>change</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div#change_version&gt;a.change-version@title</td>
+	<td>Change Version</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div#change_version&gt;a.change-version@data-subscription-id</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;strong</td>
+	<td>Filters:</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)@title</td>
+	<td>cobaltcascade.localhost/test/rhythm/json/test datesort/latest/latest/latest</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)@filter_id</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)</td>
+	<td>test datesortremovedetails</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)&gt;a.delete</td>
+	<td>remove</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)&gt;a.details</td>
+	<td>details</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul#filter_options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul#filter_options&gt;li:nth(0)&gt;a#suggest_new_filter</td>
+	<td>Show filter suggestions</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul#filter_options&gt;li:nth(1)&gt;a#search_new_filter</td>
+	<td>Search for a new filter</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;strong</td>
+	<td>Moderation Rings:</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings-options</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings-options&gt;li:nth(0)&gt;a#suggest_new_moderation_ring</td>
+	<td>Show moderation suggestions</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings-options&gt;li:nth(1)&gt;a#search_new_moderation_ring</td>
+	<td>Search for moderation Rings</td>
+</tr>
+<!--Change Version-->
+<tr>
+	<td>click</td>
+	<td>css=#change_version&gt;a.change-version</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#change_version&gt;a.change-version</td>
+	<td>cancel version change</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#change_version&gt;a.change-version@state</td>
+	<td>cancel</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#change_version&gt;select.select-version</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#change_version&gt;select.select-version&gt;option:nth(0)</td>
+	<td>Select a verison</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#change_version&gt;select.select-version&gt;option:nth(1)</td>
+	<td>latest/latest/latest</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#change_version&gt;select.select-version&gt;option:nth(2)</td>
+	<td>0/latest/latest</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#change_version&gt;select.select-version&gt;option:nth(3)</td>
+	<td>0/0/latest</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#change_version&gt;select.select-version&gt;option:nth(4)</td>
+	<td>0/0/1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#change_version&gt;select.select-version&gt;option:nth(5)</td>
+	<td>0/0/0</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#change_version&gt;select.select-version</td>
+	<td>0/latest/latest</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div#change_version</td>
+	<td>Version: 0/latest/latestchange version</td>
+</tr>
+<!--view filter details-->
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)&gt;a.details</td>
+	<td>details</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)&gt;div.details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)&gt;div.details&gt;div:nth(0)</td>
+	<td>Full name: cobaltcascade.localhost/test/rhythm/json/test datesort/latest/latest/latest</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)&gt;div.details&gt;div:nth(1)</td>
+	<td>Description: Sort items by date</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)&gt;div.details&gt;div.change-filter-version</td>
+	<td>Version: latest/latest/latestchange version</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=.change-filter-version&gt;a.change-version@state</td>
+	<td>change</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=.change-filter-version&gt;a.change-version@title</td>
+	<td>Change Version</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=.change-filter-version&gt;a.change-version@data-subscription-id</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)&gt;a.details</td>
+	<td>details</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)&gt;div.details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)&gt;a.details</td>
+	<td>details</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)&gt;div.details</td>
+	<td></td>
+</tr>
+<!--Change a filter version-->
+<tr>
+	<td>click</td>
+	<td>css=.change-filter-version&gt;a.change-version</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=.change-filter-version&gt;a.change-version@state</td>
+	<td>cancel</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=.change-filter-version&gt;a.change-version</td>
+	<td>cancel version change</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=.change-filter-version&gt;select.select-version</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=.change-filter-version&gt;select.select-version</td>
+	<td>0/0/0</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(0)&gt;div.details&gt;div:nth(0)</td>
+	<td>Full name: cobaltcascade.localhost/test/rhythm/json/test datesort/0/0/0</td>
+</tr>
+<!--filter suggestions-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#filter_suggestions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul#filter_options&gt;li:nth(0)</td>
+	<td>Show filter suggestions</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul#filter_options&gt;li:nth(0)&gt;a#suggest_new_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#filter_suggestions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#filter_suggestions&gt;tr:nth(0)@filter-username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#filter_suggestions&gt;tr:nth(0)@filter-domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#filter_suggestions&gt;tr:nth(0)@filter-name</td>
+	<td>test filter suggestion</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#filter_suggestions&gt;tr:nth(0)&gt;td:nth(0)</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#filter_suggestions&gt;tr:nth(0)&gt;td:nth(1)</td>
+	<td>View</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#filter_suggestions&gt;tr:nth(0)&gt;td:nth(2)</td>
+	<td>test filter suggestion</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#filter_suggestions&gt;tr:nth(0)&gt;td:nth(3)</td>
+	<td>a test filter suggestion</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#filter_suggestions&gt;tr:nth(1)@filter-username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#filter_suggestions&gt;tr:nth(1)@filter-domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#filter_suggestions&gt;tr:nth(1)@filter-name</td>
+	<td>test a second filter suggestion</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#filter_suggestions&gt;tr:nth(1)&gt;td:nth(0)</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#filter_suggestions&gt;tr:nth(1)&gt;td:nth(1)</td>
+	<td>View</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#filter_suggestions&gt;tr:nth(1)&gt;td:nth(2)</td>
+	<td>test a second filter suggestion</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#filter_suggestions&gt;tr:nth(1)&gt;td:nth(3)</td>
+	<td>a second test filter suggestion</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#filter_suggestions&gt;tr:nth(1)&gt;td:nth(0)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#filter_suggestions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(1)</td>
+	<td></td>
+</tr>
+<!--... Ensure suggestion menu reopens-->
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul#filter_options&gt;li:nth(0)&gt;a#suggest_new_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#filter_suggestions&gt;tr:nth(0)&gt;td:nth(3)</td>
+	<td>a test filter suggestion</td>
+</tr>
+<!--... Ensure new suggestion filter can be removed-->
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(1)&gt;a.delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(1)</td>
+	<td></td>
+</tr>
+<!--Search for a new filter-->
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul#filter_options&gt;li:nth(1)</td>
+	<td>Search for a new filter</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div&gt;#filter_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul#filter_options&gt;li:nth(1)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div&gt;#filter_options&gt;li:nth(1)&gt;#search_new_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div&gt;#filter_options&gt;li:nth(1)&gt;#filter_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#filter_search&gt;table#selector_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.titles&gt;td.name</td>
+	<td>Name</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.titles&gt;td.site</td>
+	<td>Site</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.titles&gt;td.user</td>
+	<td>User</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.titles&gt;td.version</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.titles&gt;td.action</td>
+	<td>Actions</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.titles&gt;td:nth(4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.titles&gt;td:nth(5)</td>
+	<td></td>
+</tr>
+<!--... filter textboxes-->
+<tr>
+	<td>assertValue</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.search&gt;td.name&gt;input#name_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.search&gt;td.site&gt;input#site_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.search&gt;td.user&gt;input#user_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.search&gt;td.version</td>
+	<td></td>
+</tr>
+<!--@todo div#help_filter needs to be div.help-filter (change in the code)-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.search&gt;td.action&gt;div#help_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.search&gt;td:nth(4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.search&gt;td:nth(5)</td>
+	<td></td>
+</tr>
+<!--... check help-->
+<tr>
+	<td>click</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.search&gt;td.action&gt;div#help_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Filter your results</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Type and press return in*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... at least two result lines should be available.-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_1</td>
+	<td></td>
+</tr>
+<!--... restrict the search to just the test user.-->
+<tr>
+	<td>type</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.search&gt;td.site&gt;input#site_filter</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.search&gt;td.user&gt;input#user_filter</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_0&gt;td.name</td>
+	<td>test a second filter suggestion</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_0&gt;td.domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_0&gt;td.user</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_0&gt;td.type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_0&gt;td.action&gt;a:nth(0)</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_0&gt;td.action&gt;a:nth(1)</td>
+	<td>View</td>
+</tr>
+<!--... test name filter-->
+<tr>
+	<td>type</td>
+	<td>css=#selector_filter&gt;thead&gt;tr.search&gt;td.name&gt;input#name_filter</td>
+	<td>rev</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_0&gt;td.name</td>
+	<td>test reverse datesort</td>
+</tr>
+<!--... add a filter-->
+<tr>
+	<td>click</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr#filter_row_0&gt;td.action&gt;a:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div&gt;#filter_options&gt;li:nth(1)&gt;#filter_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(1)</td>
+	<td>test reverse datesortremovedetails</td>
+</tr>
+<!--.. check search still opens after adding one.-->
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul#filter_options&gt;li:nth(1)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#filter_search&gt;table#selector_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul#filter_options&gt;li:nth(1)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#filter_search&gt;table#selector_filter</td>
+	<td></td>
+</tr>
+<!--Remove a filter-->
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(1)&gt;a.delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(3)&gt;ul.filters&gt;li:nth(1)</td>
+	<td></td>
+</tr>
+<!--Moderation suggestion.-->
+<tr>
+	<td>click</td>
+	<td>css=#suggest_new_moderation_ring</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings-options&gt;li&gt;div.moderation-suggestions&gt;table#moderation_suggestions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#moderation_suggestions&gt;tr:nth(0)&gt;td:nth(0)</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#moderation_suggestions&gt;tr:nth(0)&gt;td:nth(1)</td>
+	<td>View</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#moderation_suggestions&gt;tr:nth(0)&gt;td:nth(2)</td>
+	<td>test suggested ring</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#moderation_suggestions&gt;tr:nth(0)&gt;td:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#moderation_suggestions&gt;tr:nth(0)&gt;td:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#moderation_suggestions&gt;tr:nth(0)@ring-domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#moderation_suggestions&gt;tr:nth(0)@ring-name</td>
+	<td>test suggested ring</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#moderation_suggestions&gt;tr:nth(0)&gt;td:nth(2)@title</td>
+	<td>cobaltcascade.localhost/test suggested ring</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#moderation_suggestions&gt;tr:nth(2)</td>
+	<td></td>
+</tr>
+<!--... Add-->
+<tr>
+	<td>click</td>
+	<td>css=#moderation_suggestions&gt;tr:nth(0)&gt;td:nth(0)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;table#moderation_suggestions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings&gt;li:nth(0)</td>
+	<td>test suggested ringremoveview profile</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings&gt;li:nth(0)&gt;a.delete</td>
+	<td>remove</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings&gt;li:nth(0)&gt;a.details</td>
+	<td>view profile</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings&gt;li:nth(0)&gt;a.details@href</td>
+	<td>*/test suggested ring/profile</td>
+</tr>
+<!--Moderation search-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;div#moderation_ring_search&gt;table#selector_moderation_ring_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings-options&gt;li:nth(1)&gt;a#search_new_moderation_ring</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings-options&gt;li&gt;#moderation_ring_search&gt;table#selector_moderation_ring_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=table#selector_moderation_ring_search&gt;thead&gt;tr.titles&gt;td.name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_moderation_ring_search&gt;thead&gt;tr.titles&gt;td.site</td>
+	<td>Site</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_moderation_ring_search&gt;thead&gt;tr.titles&gt;td.user</td>
+	<td>User</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=table#selector_moderation_ring_search&gt;thead&gt;tr.titles&gt;td.version</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=table#selector_moderation_ring_search&gt;thead&gt;tr.titles&gt;td.type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=table#selector_moderation_ring_search&gt;thead&gt;tr.titles&gt;td.action</td>
+	<td>Actions</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=table#selector_moderation_ring_search&gt;thead&gt;tr.titles&gt;td.action</td>
+	<td>Site</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=table#selector_moderation_ring_search&gt;thead&gt;tr.titles&gt;td:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=table#selector_moderation_ring_search&gt;thead&gt;tr.titles&gt;td:nth(3)</td>
+	<td></td>
+</tr>
+<!--... filter textboxes-->
+<tr>
+	<td>assertValue</td>
+	<td>css=#selector_moderation_ring_search&gt;thead&gt;tr.search&gt;td.site&gt;input#site_moderation_ring_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#selector_moderation_ring_search&gt;thead&gt;tr.search&gt;td.user&gt;input#user_moderation_ring_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#selector_moderation_ring_search&gt;thead&gt;tr.search&gt;td.action&gt;div#help_moderation_ring_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#selector_moderation_ring_search&gt;thead&gt;tr.search&gt;td:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#selector_moderation_ring_search&gt;thead&gt;tr.search&gt;td:nth(3)</td>
+	<td></td>
+</tr>
+<!--... help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#selector_moderation_ring_search&gt;thead&gt;tr.search&gt;td.action&gt;div#help_moderation_ring_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Filter your results</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Type and press return in*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--...rows-->
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_moderation_ring_search&gt;tbody&gt;tr#moderation_ring_search_row_0&gt;td.domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_moderation_ring_search&gt;tbody&gt;tr#moderation_ring_search_row_0&gt;td.user</td>
+	<td>test ring</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_moderation_ring_search&gt;tbody&gt;tr#moderation_ring_search_row_0&gt;td.action&gt;a.action:nth(0)</td>
+	<td>Add</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_moderation_ring_search&gt;tbody&gt;tr#moderation_ring_search_row_0&gt;td.action&gt;a.action:nth(1)</td>
+	<td>View</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_moderation_ring_search&gt;tbody&gt;tr#moderation_ring_search_row_1&gt;td.domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<!--... search-->
+<tr>
+	<td>type</td>
+	<td>css=#selector_moderation_ring_search&gt;thead&gt;tr.search&gt;td.site&gt;input#site_moderation_ring_search</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#selector_moderation_ring_search&gt;thead&gt;tr.search&gt;td.user&gt;input#user_moderation_ring_search</td>
+	<td>test ring</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#selector_moderation_ring_search&gt;tbody&gt;tr#moderation_ring_search_row_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_moderation_ring_search&gt;tbody&gt;tr#moderation_ring_search_row_0&gt;td.domain</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#selector_moderation_ring_search&gt;tbody&gt;tr#moderation_ring_search_row_0&gt;td.user</td>
+	<td>test ring</td>
+</tr>
+<!--... add ring-->
+<tr>
+	<td>click</td>
+	<td>css=#selector_moderation_ring_search&gt;tbody&gt;tr#moderation_ring_search_row_0&gt;td.action&gt;a.action:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=table#selector_moderation_ring_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings&gt;li:nth(1)</td>
+	<td>test ringremoveview profile</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings&gt;li:nth(1)&gt;a.details@href</td>
+	<td>*/test ring/profile</td>
+</tr>
+<!--... ensure menu reopens-->
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings-options&gt;li:nth(1)&gt;a#search_new_moderation_ring</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings-options&gt;li&gt;#moderation_ring_search&gt;table#selector_moderation_ring_search</td>
+	<td></td>
+</tr>
+<!--... remove ring-->
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings&gt;li:nth(1)&gt;a.delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#edit_streams&gt;li:nth(5)&gt;div.details&gt;div:nth(4)&gt;ul.moderation-rings&gt;li:nth(3)</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

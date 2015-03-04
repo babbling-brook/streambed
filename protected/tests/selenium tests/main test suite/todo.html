@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>todo</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">todo</td></tr>
+</thead><tbody>
+<!--@todo need to test an offer with a relationshipscore with the test user-->
+<!--@todo sometimes getting repeat comments listed after making them on offer comment page.-->
+<!--@todo short form local login-->
+<!--@todo a profile with a photo image-->
+<!--@todo profile without a real name and dsecription-->
+<!--@todo profile without being logged on-->
+<!--@todo test kindred rhythm process is working correctly. Initial kindred data is faked so that tests work.-->
+<!--@todo try to access a private stream and filter.-->
+<!--@todo page titles-->
+<!--@todo check ring Rhythm invitation system working.-->
+<!--@todo check that ring moderation results are effecting streams.-->
+<!--@todo check that new offers created in offer trees are not shown twice (Once from the create callback and once from the update process.)-->
+<!--@todo check that pages work when using ajaxurl.-->
+<!--@todo make a test case for any user being able to edit an offer in a stream.-->
+<!--@todo make a test case for the config page-->
+<!--@todo make a test case for the snippets... also need to override them to test, probably best to do the task to put the url in th euser config-->
+<!--temporary make offer test to catch occasional hang whilst waiting for offer to be made.-->
+<tr>
+	<td>open</td>
+	<td>http://cobaltcascade.localhost/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>focus</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

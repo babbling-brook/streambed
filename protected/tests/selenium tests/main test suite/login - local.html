@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>login - local</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">login - local</td></tr>
+</thead><tbody>
+<!--Test the login and logout process locally.-->
+<!--.. ensure the user is logged out at the start-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<!--Start login tests-->
+<tr>
+	<td>open</td>
+	<td>/site/index</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:nth(0)&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li#login&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#client_login&gt;div.row&gt;label:nth(0)</td>
+	<td>Username:*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#client_login&gt;div:nth(0)@id</td>
+	<td>login_info</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#client_login&gt;div#login_info</td>
+	<td>Enter your Babbling Brook Username*</td>
+</tr>
+<!--... login help-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#client_login&gt;div#login_info&gt;span#login_help</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#client_login&gt;div:nth(1)@id</td>
+	<td>login_help_text</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#client_login&gt;#login_help_text@class</td>
+	<td>*hide*</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login_help</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#client_login&gt;#login_help_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#client_login&gt;#login_help_text</td>
+	<td>The Babbling Brook network is an open social*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login_help</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#client_login&gt;#login_help_text</td>
+	<td></td>
+</tr>
+<!--... fake local user - url form-->
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>cobaltcascade.localhost/notavaliduser325672345</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#username@class</td>
+	<td>textbox-loading</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#username@class</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#client_login&gt;div&gt;#login_error</td>
+	<td>Username not found.</td>
+</tr>
+<!--... fake local user - short form-->
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>notavaliduser325672345</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#username@class</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#client_login&gt;div&gt;#login_error</td>
+	<td>Username not found.</td>
+</tr>
+<!--... fake local user - email form-->
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>notavaliduser325672345@cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#username@class</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#client_login&gt;div&gt;#login_error</td>
+	<td>Username not found.</td>
+</tr>
+<!--... fake remote user-->
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>example.com/notavaliduser325672345</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#username@class</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#client_login&gt;div&gt;#login_error</td>
+	<td>Username not found.</td>
+</tr>
+<!--... real user short form-->
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2:nth(0)</td>
+	<td>Password</td>
+</tr>
+<tr>
+	<td>assertLocation</td>
+	<td>https*</td>
+	<td></td>
+</tr>
+<!--... real user url form-->
+<tr>
+	<td>click</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li#login&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>cobaltcascade.localhost/test</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2:nth(0)</td>
+	<td>Password</td>
+</tr>
+<tr>
+	<td>assertLocation</td>
+	<td>https*</td>
+	<td></td>
+</tr>
+<!--... real user email form-->
+<tr>
+	<td>click</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li#login&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test@cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2:nth(0)</td>
+	<td>Password</td>
+</tr>
+<tr>
+	<td>assertLocation</td>
+	<td>https*</td>
+	<td></td>
+</tr>
+<!--Password checks-->
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div&gt;div.row:nth(0)&gt;label:nth(0)@for</td>
+	<td>username</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div&gt;div.row:nth(0)&gt;label:nth(0)</td>
+	<td>Username:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div&gt;div.row:nth(0)&gt;div:nth(0)</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div&gt;div:nth(1)@id</td>
+	<td>local_site_row</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#local_site_row</td>
+	<td>Enter your password to log into your datastore.</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div&gt;div.row:nth(1)&gt;label:nth(0)@for</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div&gt;div.row:nth(1)&gt;label:nth(0)</td>
+	<td>Password:</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div&gt;div.row:nth(1)&gt;div:nth(0)&gt;input@id</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div&gt;div.row:nth(1)&gt;div:nth(1)@id</td>
+	<td>password_error</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;div&gt;div.row:nth(1)&gt;div:nth(1)</td>
+	<td>password_error</td>
+</tr>
+<!--... ... Checks that the password field is present but does not have a class attribute (is not loading)-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#password@class</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div&gt;div.row:nth(2)&gt;label:nth(0)@for</td>
+	<td>remember_me</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div&gt;div.row:nth(2)&gt;label:nth(0)</td>
+	<td>Remember Me:</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div&gt;div.row:nth(2)&gt;input@id</td>
+	<td>remember_me</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div&gt;div.row:nth(3)@class</td>
+	<td>row submit</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div&gt;div.row:nth(3)&gt;input@id</td>
+	<td>login_submit</td>
+</tr>
+<!--... wrong password-->
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>wrong</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#password@class</td>
+	<td>textbox-loading</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#password@class</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#password_error</td>
+	<td>Password is incorrect.</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#password_error</td>
+	<td></td>
+</tr>
+<!--... correct password-->
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#password@class</td>
+	<td>textbox-loading</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#sidebar_extra h3:nth(0)</td>
+	<td>test stream</td>
+</tr>
+<!--... check logout link-->
+<tr>
+	<td>assertText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout (test)</td>
+</tr>
+<!--check for a long url form of user.-->
+<tr>
+	<td>click</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div&gt;div</td>
+	<td>You have logged out</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:nth(0)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>cobaltcascade.localhost/test</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#username@class</td>
+	<td>textbox-loading</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2:nth(0)</td>
+	<td>Password</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#password@class</td>
+	<td>textbox-loading</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#sidebar_extra h3:nth(0)</td>
+	<td>test stream</td>
+</tr>
+<!--check for a short url form of user.-->
+<tr>
+	<td>click</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div&gt;div</td>
+	<td>You have logged out</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:nth(0)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#username@class</td>
+	<td>textbox-loading</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2:nth(0)</td>
+	<td>Password</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#password@class</td>
+	<td>textbox-loading</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#sidebar_extra h3:nth(0)</td>
+	<td>test stream</td>
+</tr>
+</tbody></table>
+</body>
+</html>

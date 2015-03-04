@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>errors - stream</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">errors - stream</td></tr>
+</thead><tbody>
+<!--@todo this is broken until the error system is reworked to prevent infinite loops.-->
+<!--Test that error messages appear correctly on stream pages.-->
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--test missing sort filter using broken data model in the request for the filter.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream 3/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;#message_button_0_0</td>
+	<td>Remove Filter</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;#message_button_0_1</td>
+	<td>Unsubscribe Stream</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;#message_button_0_2</td>
+	<td>Reload Page</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;#message_button_0_3</td>
+	<td>Ignore</td>
+</tr>
+<!--... ignore button-->
+<tr>
+	<td>click</td>
+	<td>css=#message_button_0_3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#messages_inner</td>
+	<td>No Messages</td>
+</tr>
+<!--... reload button-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream 3/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;#message_button_0_0</td>
+	<td>Remove Filter</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#message_button_0_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;#message_button_0_0</td>
+	<td>Remove Filter</td>
+</tr>
+<!--... remove filter button-->
+<tr>
+	<td>click</td>
+	<td>css=#message_button_0_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#messages_inner</td>
+	<td>No Messages</td>
+</tr>
+<!--... ... check that filter has been removed from the drop down.-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#sort_bar&gt;dd:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sort_bar&gt;dd:nth(0)@value</td>
+	<td>cobaltcascade.localhost/test/rhythm/json/test datesort/latest/latest/latest</td>
+</tr>
+<!--... ... check that the filter is removed after a page reload.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream 3/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#no_offers</td>
+	<td>No offers to display.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#messages_inner</td>
+	<td>No Messages</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#sort_bar&gt;dd:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sort_bar&gt;dd:nth(0)@value</td>
+	<td>cobaltcascade.localhost/test/rhythm/json/test datesort/latest/latest/latest</td>
+</tr>
+<!--... remove stream button-->
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream 3/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;#message_button_0_0</td>
+	<td>Remove Filter</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#streams&gt;li&gt;a:nth(7)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#message_button_0_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#messages_inner</td>
+	<td>No Messages</td>
+</tr>
+<!--... ... check stream removed from subscriptions.-->
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#streams&gt;li&gt;a:nth(7)</td>
+	<td></td>
+</tr>
+<!--... ... check that the stream is removed after a page reload.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream 3/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#messages_inner</td>
+	<td>No Messages</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#streams&gt;li&gt;a:nth(7)@title</td>
+	<td>cobaltcascade.localhost/test/stream/offers/test stream 4/0/0/0</td>
+</tr>
+<!--check that error message appears if the filter url is broken beacuse the domain is not a saltnet domain-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#messages_inner</td>
+	<td>No Messages</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#streams&gt;li&gt;a:nth(6)</td>
+	<td>test stream 2</td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>this.browserbot.getUserWindow().BabblingBrook.Client.User.StreamSubscriptions['7'].filters[0].url = &quot;http://example.com&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>this.browserbot.getUserWindow().BabblingBrook.Client.User.StreamSubscriptions['7'].filters[0].name= &quot;test broken filter&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#streams&gt;li&gt;a:nth(6)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#stream_title</td>
+	<td>test stream 2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;#message_button_0_0</td>
+	<td>Remove Filter</td>
+</tr>
+<!--check that error message appears if the filter url is broken beacuse the filter path is not a valid filter path.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#messages_inner</td>
+	<td>No Messages</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#streams&gt;li&gt;a:nth(6)</td>
+	<td>test stream 2</td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>this.browserbot.getUserWindow().BabblingBrook.Client.User.StreamSubscriptions['7'].filters[0].url = &quot;cobaltcascade.localhost/something/that/does/not/exist&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>this.browserbot.getUserWindow().BabblingBrook.Client.User.StreamSubscriptions['7'].filters[0].name= &quot;test broken filter&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#streams&gt;li&gt;a:nth(6)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#stream_title</td>
+	<td>test stream 2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;#message_button_0_0</td>
+	<td>Remove Filter</td>
+</tr>
+<!--check that error message appears if the filter url is broken beacuse the filter name is not valid-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#messages_inner</td>
+	<td>No Messages</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#streams&gt;li&gt;a:nth(6)</td>
+	<td>test stream 2</td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>this.browserbot.getUserWindow().BabblingBrook.Client.User.StreamSubscriptions['7'].filters[0].url = &quot;cobaltcascade.localhost/test/rhythm/json/testdoesnotexist/latest/latest/latest&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>getEval</td>
+	<td>this.browserbot.getUserWindow().BabblingBrook.Client.User.StreamSubscriptions['7'].filters[0].name= &quot;test broken filter&quot;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#streams&gt;li&gt;a:nth(6)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#stream_title</td>
+	<td>test stream 2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;#message_button_0_0</td>
+	<td>Remove Filter</td>
+</tr>
+<!--check that error message appears if the filter Rhythm contains a syntax error when it is evalled.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream 4/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;#message_button_0_0</td>
+	<td>Remove Filter</td>
+</tr>
+<!--check that error message appears if the filter Rhythm contains a runtime error in the init function.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream 5/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;#message_button_0_0</td>
+	<td>Remove Filter</td>
+</tr>
+<!--check that error message appears if the filter Rhythm contains a runtime error in the main function.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream 6/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;#message_button_0_0</td>
+	<td>Remove Filter</td>
+</tr>
+<!--check that error message appears if the filter Rhythm is raising a custom error-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream 7/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_buttons&gt;#message_button_0_0</td>
+	<td>Remove Filter</td>
+</tr>
+<!--check that error message appears if the stream data is corrupt-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream 8/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_button_0_0</td>
+	<td>Unsubscribe Stream</td>
+</tr>
+<!--check that error message appears if a moderation ring is broken-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream 9/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_button_0_0</td>
+	<td>Remove Moderation Ring</td>
+</tr>
+<!--... Check remove moderation ring button-->
+<tr>
+	<td>click</td>
+	<td>css=#message_button_0_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#messages_inner</td>
+	<td>No Messages</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream 9/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer-details&gt;.title&gt;a</td>
+	<td>test offer with broken moderation ring</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#messages_inner</td>
+	<td>No Messages</td>
+</tr>
+<!--Check that a stream error iss displayed if the stream json data is corrupt.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream 10/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_button_0_0</td>
+	<td>Unsubscribe Stream</td>
+</tr>
+<!--Click igonre to check that the form error also displays.-->
+<tr>
+	<td>click</td>
+	<td>css=#message_button_0_2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>Unable to display*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_button_1_0</td>
+	<td>Retry</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#message_button_1_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>Unable to display*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_button_2_1</td>
+	<td>Reload Page</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#message_button_2_1</td>
+	<td></td>
+</tr>
+<!--The first error should appear.-->
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_button_0_0</td>
+	<td>Unsubscribe Stream</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#message_button_0_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>Unable to display*</td>
+</tr>
+<!--Check no longer subscribed but errors still appear.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test stream 10/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>An error has occurred*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_button_0_0</td>
+	<td>Reload Page</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#message_button_0_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css= #content&gt;#messages&gt;#messages_inner</td>
+	<td>Unable to display*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#message_button_1_0</td>
+	<td>Retry</td>
+</tr>
+</tbody></table>
+</body>
+</html>

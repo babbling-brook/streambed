@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>offer - private offers</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">offer - private offers</td></tr>
+</thead><tbody>
+<!--Test that private offers work when they are child offers.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;div.actions&gt;span.reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;div.actions&gt;span.reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>test private child offer</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*textbox-cross*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.label-loading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.label-loading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*textbox-cross*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.label-loading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(0)&gt;.title</td>
+	<td>test private child offer</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(0)@class</td>
+	<td>*status-private*</td>
+</tr>
+<!--.. make a child of the child to check that they both show up.-->
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(0)&gt;.actions&gt;span.reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#offer_1_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_1_field_1_text</td>
+	<td>test second private child offer</td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-check&gt;input</td>
+	<td>click</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*textbox-cross*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.label-loading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>cobaltcascade.localhost/test2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.label-loading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*tick*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address@class</td>
+	<td>*textbox-cross*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.label-loading</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_1&gt;.input-offer-detail&gt;.private-offer&gt;.private-offer-to&gt;.private-offer-to-line:nth(0)&gt;.address-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_1 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(0)&gt;.title</td>
+	<td>test second private child offer</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(0)@class</td>
+	<td>*status-private*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>25000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(0)&gt;.actions&gt;.cooldown@class</td>
+	<td>*hide*</td>
+</tr>
+<!--... wait an extra 15 seconds to be sure the full cooldown has passed.-->
+<tr>
+	<td>pause</td>
+	<td>15000</td>
+	<td></td>
+</tr>
+<!--reload the page to check the new offer loads-->
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(1)@class</td>
+	<td>*status-private*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(1)&gt;.title</td>
+	<td>test private child offer</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)@class</td>
+	<td>*status-private*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;.title</td>
+	<td>test second private child offer</td>
+</tr>
+<!--... check that the offer hasn't loaded twice - would indicate that it was loaded in the public offers.-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(2)</td>
+	<td></td>
+</tr>
+<!--Login as test2 to check that they can also see the private offer.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(1)@class</td>
+	<td>*status-private*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(1)&gt;.title</td>
+	<td>test private child offer</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)@class</td>
+	<td>*status-private*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;.title</td>
+	<td>test second private child offer</td>
+</tr>
+<!--Login as test3 to check that the private offers are not visible.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(0)&gt;.title</td>
+	<td>test offer 16 - comment 8</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(1)</td>
+	<td>*status-private*</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)</td>
+	<td>*status-private*</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0
+    Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="en" name="language" />
+    <meta content="width=device-width" name="viewport" />
+
+    
+        <link href="/css/Shared/Reset.css" type="text/css" rel="stylesheet" />
+    
+    <link href="/css/Shared/Main.css" type="text/css" rel="stylesheet" />
+
+    <link href="/css/Shared/Layouts/ClientType/cascade/SiteFurniture.css" type="text/css" rel="stylesheet" />
+
+            <link href="/css/Public/Layouts/ClientType/cascade/SiteFurniture.css" type="text/css" rel="stylesheet" />
+    
+
+    <link href="/css/Client/Component/YiiView.css?1418898924" type="text/css" rel="stylesheet" />
+    <link href="/css/Client/Component/Tutorial.css?1418898924" type="text/css" rel="stylesheet" />
+    <link href="/css/Client/Component/SuggestionHint.css?1418898924" type="text/css" rel="stylesheet" />
+    <link href="/css/Client/Component/Selector.css?1418898924" type="text/css" rel="stylesheet" />
+    <link href="/css/Client/Component/Post.css?1418898924" type="text/css" rel="stylesheet" />
+    <link href="/css/Client/Component/MakePost.css?1418898924" type="text/css" rel="stylesheet" />
+    <link href="/css/Client/Component/ListSelector.css?1418898924" type="text/css" rel="stylesheet" />
+    <link href="/css/Client/Component/DisplaySuggestions.css?1418898924" type="text/css" rel="stylesheet" />
+    <link href="/css/Client/Component/CodeMirror.css?1418898924" type="text/css" rel="stylesheet" />
+    <link href="/css/Client/Component/Cascade.css?1418898924" type="text/css" rel="stylesheet" />
+    <link href="/css/Shared/Component/Post.css?1418898924" type="text/css" rel="stylesheet" />
+    <link href="/css/Shared/Component/MakePost.css?1418898924" type="text/css" rel="stylesheet" />
+    <link href="/css/Shared/Component/Help.css?1418898924" type="text/css" rel="stylesheet" />
+        <link href="/images/favicon.png?v=1418898924" type="image/png" rel="icon" />
+        
+    <link href="/css/Public/Public.css" type="text/css" rel="stylesheet" />
+<script src="/js/Public/Login.js" type="text/javascript"></script>
+<script src="/js/Public/Resize.js?rnd=1418898924" type="text/javascript"></script>
+<title>Cobalt Cascade - Login</title>
+</head>
+
+<body>
+
+    <div class="hide" id="login-modal">
+        <div class="ui-dialog" id="login_popup">
+            <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-draggable-handle">
+                <span class="ui-dialog-title" id="ui-id-2">Login</span>
+                <button title="" role="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-dialog-titlebar-close ui-button-icon-only" type="button">
+                    <span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
+                    <span class="ui-button-text"></span>
+                </button>
+            </div>
+            <div class="login-loading" id="modal_content">
+                <img src="/images/icons/loading.gif" />
+            </div>
+        </div>
+    </div>
+
+    <div id="page">
+
+                    <nav class="alt-text" id="top_nav">
+                <header id="header">
+                    <a title="Cobalt Cascade" href="/"><img src="/images/ui/fade-logo-small.png" /></a>
+                </header>
+                <ul id="top_nav_list">
+<li id="small_screen_menu"><a></a></li>
+<li id="about_top_nav"><a href="/site/about">About</a></li>
+<li id="login"><a href="https://cobaltcascade.localhost/site/login">Login</a></li>
+<li><a href="https://cobaltcascade.localhost/site/signup">Signup</a></li>
+</ul>            </nav>
+        
+        <div class="yellow_orange_bar"></div>
+
+
+        <nav class="alt-text" id="streams_nav">
+            <ul>
+                <li>
+                    <a title="cobaltcascade.localhost/sky/stream/posts/news/0/0/0" href="/sky/stream/news/0/0/0">
+                        news
+                    </a>
+                </li>
+                <li>
+                    <a title="cobaltcascade.localhost/sky/stream/posts/tasks/0/0/0" href="/sky/stream/tasks/0/0/0">
+                        tasks
+                    </a>
+                </li>
+                <li>
+                    <a title="cobaltcascade.localhost/sky/stream/posts/bugs/0/0/0" href="/sky/stream/bugs/0/0/0">
+                        bugs
+                    </a>
+                </li>
+                <li>
+                    <a title="cobaltcascade.localhost/sky/stream/posts/feature requests/0/0/0" href="/sky/stream/feature+requests/0/0/0">
+                        feature requests
+                    </a>
+                </li>
+                <li>
+                    <a title="cobaltcascade.localhost/sky/stream/posts/babbling brook/0/0/0" href="/sky/stream/babbling+brook/0/0/0">
+                        babbling brook
+                    </a>
+                </li>
+                <li>
+                    <a title="cobaltcascade.localhost/sky/stream/posts/cobalt meta/0/0/0" href="/sky/stream/cobalt+meta/0/0/0">
+                        cobalt meta
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+                        <article id="content">
+            <div id="sidebar_container">
+                            </div>
+            <div id="content_page">
+                
+<h2>Login</h2>
+
+<div class="content-indent" id="client_login">
+
+
+    <div id="ok_browser">
+
+        <div id="login_info" class="content-block-2 readable-text">
+            Enter your Babbling Brook Username <a src="/images/ui/help.svg" class="small-help-icon" href="/site/login#helpopen" id="login_help"></a>
+        </div>
+
+        <div class="hide" id="login_help_text">
+            <p>
+                The <a target="_blank" href="http://www.babblingbrook.net">Babbling Brook</a>
+                network is an open social network that allows you to store and use your social
+                data wherever you want. If you don't have a Babbling Brook account, then
+                <a href="/site/signup">create one</a>.
+            </p>
+            <p>
+                If your Babbling Brook network account is on this site then you can login with the short version
+                of your username.
+                For example, if your full account name is <em>yourname@cobaltcascade.localhost</em>
+                then your
+                short name is just <em>yourname</em>. You will then be prompted for your password.
+            </p>
+            <p>
+                If your Babbling Brook network account is on another site,
+                then enter your full username and you will be redirected there
+                so that you can enter your password. You will then be automatically returned to this site.
+            </p>
+        </div>
+
+        <div class="row">
+            <label for="username" class="label">
+                Username:
+            </label>
+            <div class="internal-row">
+                <input type="text" id="username" />
+            </div>
+            <div class="hide error" id="login_error"></div>
+        </div>
+
+        <div class="row submit">
+            <input type="button" value="Login" class="standard-button" id="login_submit" />
+        </div>
+
+        <div class="row">
+            Not a member? <a href="https://cobaltcascade.localhost/site/signup">Signup here</a>
+        </div>
+
+    </div>
+
+    <div class="hide content-indent" id="bad_browser">
+    <h2>Your browser is not compatible with the alpha version of Babbling Brook and Cobalt Cascade.</h2>
+    <p>You need to install the latest version of your browser to use this site.</p>
+    <p><a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a></p>
+    <p><a href="https://www.google.com/chrome/">Chrome</a></p>
+    <p><a href="http://www.opera.com/browser/">Opera</a></p>
+    <p><a href="http://windows.microsoft.com/en-GB/internet-explorer/products/ie/home">
+    Internet Explorer</a>
+    <br />If your preferred browser is Internet Explorer then you will need to upgrade to at least
+    version 10. However, this version is not available on Windows XP.
+</p></div>
+</div>
+
+<div class="hide" id="request_signup_code">
+    <div class="row larger">
+        This site is closed to new users unless you have an activation code.
+    </div>
+
+    <div class="row">
+        <label for="signup_code" class="label">
+            Activation Code:
+        </label>
+        <div class="internal-row">
+            <input type="text" id="signup_code" />
+        </div>
+        <div class="hide error" id="signup_code_error">Activation code not found.</div>
+    </div>
+
+    <div class="row submit">
+        <input type="button" value="Login" class="standard-button" id="signup_code_submit" />
+    </div>
+</div>
+
+<input type="hidden" value="true" id="login_constructor_has_run" />
+            </div>
+        </article>
+
+    </div>
+
+    
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="1409" height="819"></canvas></html>

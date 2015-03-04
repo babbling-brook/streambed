@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream admin -create</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream admin -create</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/rhythm/create</td>
+	<td></td>
+</tr>
+<!--Check initial state-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Create Rhythm</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;div.form&gt;form#rhythm_form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;p.note</td>
+	<td>Fields with * are required.</td>
+</tr>
+<!--... name field-->
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(0)&gt;label</td>
+	<td>Name *</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_form&gt;div:nth(0)&gt;input#Rhythm_name</td>
+	<td>Name *</td>
+</tr>
+<!--... help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_form&gt;div:nth(0)&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Name</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>An Rhythm name*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... description field-->
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(1)&gt;label</td>
+	<td>Description*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_form&gt;div:nth(1)&gt;textarea#RhythmExtra_description</td>
+	<td></td>
+</tr>
+<!--... help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_form&gt;div:nth(1)&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>This should describe*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... kind field-->
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;label</td>
+	<td>Category*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(0)</td>
+	<td>Choose a category:</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(1)</td>
+	<td>sort</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(1)</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(2)</td>
+	<td>kindred</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(2)</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(3)</td>
+	<td>offer group</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(3)</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(4)</td>
+	<td>stream suggestion</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(4)</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(5)</td>
+	<td>stream filter suggestion</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(5)</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(6)</td>
+	<td>user suggestion</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(6)</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(7)</td>
+	<td>ring</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(7)</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(8)</td>
+	<td>stream moderation ring suggestion</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;div.select-container&gt;select#rhythm_cats&gt;option:nth(8)</td>
+	<td>9</td>
+</tr>
+<!--... help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_form&gt;div:nth(2)&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Category</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>The category of an Rhythm*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... javascript field-->
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(3)&gt;label</td>
+	<td>Javascript code for the Rhythm*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_form&gt;div:nth(3)&gt;textarea#RhythmExtra_full</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_form&gt;div:nth(3)&gt;div.cm-s-default&gt;div&gt;textarea</td>
+	<td></td>
+</tr>
+<!--... help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_form&gt;div:nth(3)&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Javascript code for the Rhythm</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>This is your Javascript code for*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--...save button-->
+<tr>
+	<td>assertValue</td>
+	<td>css=#rhythm_form&gt;div:nth(4)&gt;input</td>
+	<td>Save</td>
+</tr>
+<!--... Side nav-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#sidebar&gt;div.portlet-decoration&gt;div.portlet-title</td>
+	<td>Operations</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(0)&gt;a</td>
+	<td>List All</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(1)&gt;a</td>
+	<td>Create</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(0)&gt;a@href</td>
+	<td>/test/rhythm/</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(1)&gt;a@href</td>
+	<td>/test/rhythm/create</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(0)&gt;a@title</td>
+	<td>View a list of all Rhythms by this user</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(1)&gt;a@title</td>
+	<td>Create a new Rhythm</td>
+</tr>
+<!--Errors-->
+<!--... name error-->
+<tr>
+	<td>type</td>
+	<td>css=#Rhythm_name</td>
+	<td>$</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_form&gt;div:nth(4)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#rhythm_form&gt;div:nth(0)&gt;div.error</td>
+	<td>Name can only contain lower case letters, digits 0 to 9 and spaces. It cannot start or end with a space and double spaces are not allowed.</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rhythm_form&gt;div:nth(0)&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#Rhythm_name</td>
+	<td>test&nbsp;&nbsp;double</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_form&gt;div:nth(4)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rhythm_form&gt;div:nth(0)&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#Rhythm_name</td>
+	<td> start space</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_form&gt;div:nth(4)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rhythm_form&gt;div:nth(0)&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#Rhythm_name</td>
+	<td>end space </td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_form&gt;div:nth(4)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rhythm_form&gt;div:nth(0)&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#Rhythm_name</td>
+	<td>test ring</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_form&gt;div:nth(4)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rhythm_form&gt;div:nth(0)&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#rhythm_form&gt;div:nth(0)&gt;div.error</td>
+	<td>You already have an Rhythm with that name. Please try another.</td>
+</tr>
+<!--... empty errors-->
+<tr>
+	<td>type</td>
+	<td>css=#Rhythm_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_form&gt;div:nth(4)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#rhythm_form&gt;div:nth(0)&gt;div.error</td>
+	<td>Please provide a name for this Rhythm</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_form&gt;div:nth(0)&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_form&gt;div:nth(1)&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(1)&gt;div.error</td>
+	<td>Description cannot be blank.</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_form&gt;div:nth(3)&gt;div.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_form&gt;div:nth(3)&gt;div.error</td>
+	<td>Javascript code for the Rhythm cannot be blank.</td>
+</tr>
+<!--Create a sort  Rhythm-->
+<tr>
+	<td>type</td>
+	<td>css=#Rhythm_name</td>
+	<td>test valid create name 8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#RhythmExtra_description</td>
+	<td>A description for the Rhythm</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#rhythm_cats</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#rhythm_form&gt;div:nth(3)&gt;div.cm-s-default&gt;div&gt;textarea</td>
+	<td>//The javascript for the Rhythm</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#rhythm_form&gt;div:nth(4)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Update Rhythm</td>
+</tr>
+<!--... Check new stream is correct.-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div:nth(0)</td>
+	<td>Name: test valid create name 8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div:nth(1)</td>
+	<td>Version: 0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div:nth(2)</td>
+	<td>Date Created: 201*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div:nth(3)</td>
+	<td>Status: Private</td>
+</tr>
+<!--Check that the meta stream has been created.-->
+<tr>
+	<td>open</td>
+	<td>/test/rhythm/view/test valid create name 8/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#view_details&gt;tbody&gt;tr:nth(7)&gt;td</td>
+	<td>/offer/cobaltcascade.localhost/*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#view_details&gt;tbody&gt;tr:nth(7)&gt;td&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;.title&gt;.field-1</td>
+	<td>Discussion about the test valid create name 8 Rhythm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-label-3</td>
+	<td>View Rhythm details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-3</td>
+	<td>http://cobaltcascade.localhost/test/rhythm/view/test valid create name 8/0/0/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-3@href</td>
+	<td>http://cobaltcascade.localhost/test/rhythm/view/test%20valid%20create%20name%208/0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-label-4</td>
+	<td>Description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-4</td>
+	<td>A description for the Rhythm</td>
+</tr>
+</tbody></table>
+</body>
+</html>

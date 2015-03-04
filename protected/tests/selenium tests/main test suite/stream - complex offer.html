@@ -1,0 +1,4636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--Trigger updates and then test that they correctly populate the page.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test everything stream/latest/latest/latest</td>
+	<td></td>
+</tr>
+<!--Wait for the main stream data to load-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#make_offer_0</td>
+	<td></td>
+</tr>
+<!--check titles-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>focus</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-1-title&gt;em</td>
+	<td>Title</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;.offer-field-container&gt;.offer-field-3-title</td>
+	<td>a required textbox:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;.offer-field-container&gt;.offer-field-4-title</td>
+	<td>A title for a link field:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;.offer-field-container&gt;.offer-field-4-link-title</td>
+	<td>a link field:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;.offer-field-container&gt;.offer-field-5-title</td>
+	<td>a checkbox:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;.offer-field-container&gt;.offer-field-6-title</td>
+	<td>a short list:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;.offer-field-container&gt;.offer-field-7-title</td>
+	<td>a long list:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;.offer-field-container&gt;.offer-field-8-title</td>
+	<td>an open list:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;.offer-field-container&gt;.offer-field-15-title</td>
+	<td>textbox with regex:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;.offer-field-container&gt;.offer-field-16-title</td>
+	<td>checkbox with default on:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;.offer-field-container&gt;.offer-field-11-title</td>
+	<td>an updown value with constraints on the offer:</td>
+</tr>
+<!--Check for text too long.-->
+<tr>
+	<td>focus</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>A test offer title that is too long (greater than 200 chars) A test offer title that is too long (greater than 200 chars) A test offer title that is too long (greater than 200 chars) 12345678901234567</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>change</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-1-title&gt;.offer-field-1-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>A test offer title that is too long (greater than 200 chars) A test offer title that is too long (greater than 200 chars) A test offer title that is too long (greater than 200 chars) 123456789012345671</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>change</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-1-title&gt;.offer-field-1-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-1-title&gt;.offer-field-1-error</td>
+	<td>Must be less than 200 characters. Currently 201</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>A test offer title that is too long (greater than 200 chars) A test offer title that is too long (greater than 200 chars) A test offer title that is too long (greater than 200 chars) 12345678901234567</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>change</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-1-title&gt;.offer-field-1-error</td>
+	<td></td>
+</tr>
+<!--Check for missing title.-->
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>change</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-1-title&gt;.offer-field-1-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-1-title&gt;.offer-field-1-error</td>
+	<td>This is a required field</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>Test everything title</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-1-title&gt;.offer-field-1-error</td>
+	<td></td>
+</tr>
+<!--Check for required textbox-->
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_3_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_3_text</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-3-title&gt;.offer-field-3-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-3-title&gt;.offer-field-3-error</td>
+	<td>This is a required field</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_3_text</td>
+	<td>some required text</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_3_text</td>
+	<td>input</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-3-title&gt;.offer-field-3-error</td>
+	<td></td>
+</tr>
+<!--Check link text too long.-->
+<tr>
+	<td>focus</td>
+	<td>css=#offer_0_field_4_text</td>
+	<td></td>
+</tr>
+<!--... Exactly the correct size - should not error-->
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_4_text</td>
+	<td>A test offer title that is too long (greater than 200 chars) A test offer title that is too long (greater than 200 chars) A test offer title that is too long (greater than 200 chars) 12345678901234567</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_4_text</td>
+	<td>change</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-4-title&gt;.offer-field-4-title-error</td>
+	<td></td>
+</tr>
+<!--... One character to many-->
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_4_text</td>
+	<td>A test offer title that is too long (greater than 200 chars) A test offer title that is too long (greater than 200 chars) A test offer title that is too long (greater than 200 chars) 123456789012345671</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_4_text</td>
+	<td>change</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-4-title&gt;.offer-field-4-title-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-4-title&gt;.offer-field-4-title-error</td>
+	<td>Must be less than 200 characters. Currently 201</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_4_text</td>
+	<td>A test offer title that is too long (greater than 200 chars) A test offer title that is too long (greater than 200 chars) A test offer title that is too long (greater than 200 chars) 12345678901234567</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_4_text</td>
+	<td>change</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-4-title&gt;.offer-field-4-title-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_4_text</td>
+	<td>A link</td>
+</tr>
+<!--Check link is converted-->
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_0 .offer-field-4-link</td>
+	<td>a-link</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0 .offer-field-4-link</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#make_offer_0 .offer-field-4-link</td>
+	<td>http://a-link</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .offer-field-4-link</td>
+	<td>http://a-link</td>
+</tr>
+<!--Check no-link title error-->
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_0 .offer-field-4-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0 .offer-field-4-link</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-4-link-title&gt;.offer-field-4-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-4-link-title&gt;.offer-field-4-error</td>
+	<td>You have entered a link title, but no link.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_0 .offer-field-4-link</td>
+	<td>a-link</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#make_offer_0 .offer-field-4-link</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container&gt;.offer-field-4-link-title&gt;.offer-field-4-error</td>
+	<td></td>
+</tr>
+<!--Check checkbox value-->
+<tr>
+	<td>assertNotChecked</td>
+	<td>css=#offer_0_field_5_checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>css=#offer_0_field_5_checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertChecked</td>
+	<td>css=#offer_0_field_5_checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>css=#offer_0_field_5_checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotChecked</td>
+	<td>css=#offer_0_field_5_checkbox</td>
+	<td></td>
+</tr>
+<!--check short list-->
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offer_0_list_6_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offer_0_list_6_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_6&gt;label.list-item[for=offer_0_field_6_list_0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#offer_0_list_6_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offer_0_list_6_error</td>
+	<td>Select exactly 2 items</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#offer_0_list_6&gt;label.list-item[for=offer_0_field_6_list_0]@aria-pressed</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#offer_0_list_6_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_6&gt;label.list-item[for=offer_0_field_6_list_1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offer_0_list_6_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#offer_0_list_6&gt;label.list-item[for=offer_0_field_6_list_1]@aria-pressed</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offer_0_list_6_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_6&gt;label.list-item[for=offer_0_field_6_list_2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#offer_0_list_6_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#offer_0_list_6&gt;label.list-item[for=offer_0_field_6_list_2]@aria-pressed</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#offer_0_list_6_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_6&gt;label.list-item[for=offer_0_field_6_list_2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offer_0_list_6_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offer_0_list_6_error</td>
+	<td></td>
+</tr>
+<!--test for long list removed for now as using same method as a short list. -->
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_7&gt;label.list-item[for=offer_0_field_7_list_2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_7&gt;label.list-item[for=offer_0_field_7_list_5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_7&gt;label.list-item[for=offer_0_field_7_list_7]</td>
+	<td></td>
+</tr>
+<!--test open list-->
+<tr>
+	<td>focus</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>test item</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>test item</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#offer_0_openlist_8_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offer_0_openlist_8_error</td>
+	<td>At least 2 and at most 4 list items must be entered.</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:nth(0)&gt;p</td>
+	<td>test item</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>second item</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>second item</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offer_0_openlist_8_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:nth(1)&gt;p</td>
+	<td>second item</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>third item</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>fourth item</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>fith item</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:last&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#offer_0_openlist_8_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:nth(1)&gt;span</td>
+	<td>x</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:nth(4)&gt;span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offer_0_openlist_8_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:nth(3)&gt;span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:nth(1)&gt;span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:nth(0)&gt;p</td>
+	<td>test item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:nth(1)&gt;p</td>
+	<td>third item</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li:nth(2)&gt;p</td>
+	<td></td>
+</tr>
+<!--Textbox with regEx-->
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .offer-field-15-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>css=#offer_0_field_15_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_15_text</td>
+	<td>not a number</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_15_text</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .offer-field-15-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0 .offer-field-15-error</td>
+	<td>The text you have entered does not pass this fields filter.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_15_text</td>
+	<td>1234567890</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .offer-field-15-error</td>
+	<td></td>
+</tr>
+<!--value with max/min-->
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .offer-field-min-11-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .offer-field-min-11-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=label[for=offer_0_field_11_value_min]</td>
+	<td>Enter a minimum value that you will accept for this offer :</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=label[for=offer_0_field_11_value_max]</td>
+	<td>Enter a maximum value that you will accept for this offer:</td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>css=#offer_0_field_11_value_min</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_11_value_min</td>
+	<td>not a number</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_11_value_min</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .offer-field-min-11-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0 .offer-field-min-11-error</td>
+	<td>The value must be a whole number.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_11_value_min</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_11_value_min</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .offer-field-min-11-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0 .offer-field-min-11-error</td>
+	<td>A minimum value must be entered.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_11_value_min</td>
+	<td>-2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_11_value_min</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .offer-field-min-11-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>css=#offer_0_field_11_value_max</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_11_value_max</td>
+	<td>not a number</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_11_value_max</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .offer-field-max-11-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0 .offer-field-max-11-error</td>
+	<td>The value must be a whole number.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_11_value_max</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_11_value_max</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .offer-field-max-11-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0 .offer-field-max-11-error</td>
+	<td>A maximum value must be entered.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_11_value_max</td>
+	<td>-6</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_11_value_max</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .offer-field-max-11-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0 .offer-field-max-11-error</td>
+	<td>The maximum value must be greater than the minimum</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_11_value_max</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_11_value_max</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .offer-field-max-11-error</td>
+	<td></td>
+</tr>
+<!--Test what happens when max and min on log scale are not factors of 10-->
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_29_value_max</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_29_value_max</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .offer-field-max-29-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0 .offer-field-max-29-error</td>
+	<td>The value must be zero or a power of 10. Eg 10, 100, 1000, -10, -100 etc</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_29_value_min</td>
+	<td>-574534</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_29_value_min</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .offer-field-min-29-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0 .offer-field-min-29-error</td>
+	<td>The value must zero or a power of 10. Eg 10, 100, 1000, -10, -100 etc</td>
+</tr>
+<!--Insert values for other constraints-->
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_13_value_max</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_13_value_max</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_13_value_min</td>
+	<td>-3</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_13_value_min</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_29_value_max</td>
+	<td>1000</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_29_value_max</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_29_value_min</td>
+	<td>-10</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_29_value_min</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_30_value_max</td>
+	<td>23</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_30_value_max</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_30_value_min</td>
+	<td>-5</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_30_value_min</td>
+	<td>blur</td>
+</tr>
+<!--Only show a max text box for star consdtraint and change text to 'how many stars'. Only allow positive numbers-->
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .offer-field-max-32-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .offer-field-min-32-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#offer_0_field_32_value_min</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=label[for=offer_0_field_32_value_min]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_32_value_max</td>
+	<td>-3</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_32_value_max</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0 .offer-field-max-32-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_0 .offer-field-max-32-error</td>
+	<td>The value must be positive.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_32_value_max</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_32_value_max</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0 .offer-field-max-32-error</td>
+	<td></td>
+</tr>
+<!--Make the offer-->
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;div.title&gt;.field-1</td>
+	<td>Test everything title</td>
+</tr>
+<!--goto the offers page and check it.-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#offers&gt;.offer:nth(0)&gt;div.title&gt;.field-1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;div.title&gt;a.field-1</td>
+	<td>Test everything title</td>
+</tr>
+<!--required textbox-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-3</td>
+	<td>a required textbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-3</td>
+	<td>some required text</td>
+</tr>
+<!--link field-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-4</td>
+	<td>a link field</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;a.field-4</td>
+	<td>A link</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;a.field-4@href</td>
+	<td>http://a-link</td>
+</tr>
+<!--checkbox-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-5</td>
+	<td>a checkbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-5</td>
+	<td>No</td>
+</tr>
+<!--short list-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-6</td>
+	<td>a short list</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-6&gt;ul&gt;li:nth(0)</td>
+	<td>first short list item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-6&gt;ul&gt;li:nth(1)</td>
+	<td>second short list item</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-6&gt;ul&gt;li:nth(2)</td>
+	<td></td>
+</tr>
+<!--long list-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-7</td>
+	<td>a long list</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-7&gt;ul&gt;li:nth(0)</td>
+	<td>long list item 11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-7&gt;ul&gt;li:nth(1)</td>
+	<td>long list item 14</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-7&gt;ul&gt;li:nth(2)</td>
+	<td>long list item 16</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-7&gt;ul&gt;li:nth(3)</td>
+	<td></td>
+</tr>
+<!--an open list-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-8</td>
+	<td>an open list</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-8&gt;ul&gt;li:nth(0)</td>
+	<td>test item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-8&gt;ul&gt;li:nth(1)</td>
+	<td>third item</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-8&gt;ul&gt;li:nth(2)</td>
+	<td></td>
+</tr>
+<!--an updown value-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-9</td>
+	<td>an updown value</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-9&gt;span.up-arrow.up-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-9&gt;span.up-arrow.up-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-9&gt;span.up-arrow.up-waiting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-9&gt;span.up-arrow.up-taken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-9@title</td>
+	<td>+1</td>
+</tr>
+<!--an updown value with constraints-->
+<!--... check no higher than +4-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-10</td>
+	<td>an updown value with constraints</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.up-arrow.up-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.up-arrow.up-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.up-arrow.up-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.up-arrow.up-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.up-arrow.up-taken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10@title</td>
+	<td>+4</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.up-arrow.up-taken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.up-arrow.up-waiting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.up-arrow.up-taken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10@title</td>
+	<td>+4</td>
+</tr>
+<!--... check no lower than -3-->
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.down-arrow.down-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.down-arrow.down-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.down-arrow.down-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.down-arrow.down-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.down-arrow.down-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.down-arrow.down-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.down-arrow.down-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.down-arrow.down-taken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10@title</td>
+	<td>-3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.down-arrow.down-taken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.down-arrow.down-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10&gt;span.down-arrow.down-taken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10@title</td>
+	<td>-3</td>
+</tr>
+<!--an updown value with constraints on the offer-->
+<!--... check no higher than +2-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-11</td>
+	<td>an updown value with constraints on the offer</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11&gt;span.up-arrow.up-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11&gt;span.up-arrow.up-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11&gt;span.up-arrow.up-taken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11@title</td>
+	<td>+2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11&gt;span.up-arrow.up-taken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11&gt;span.up-arrow.up-waiting</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11&gt;span.up-arrow.up-taken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11@title</td>
+	<td>+2</td>
+</tr>
+<!--... check no lower than -2-->
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11&gt;span.down-arrow.down-untaken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11&gt;span.down-arrow.down-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11&gt;span.down-arrow.down-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11&gt;span.down-arrow.down-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11&gt;span.down-arrow.down-taken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11@title</td>
+	<td>-2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11&gt;span.down-arrow.down-taken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11&gt;span.down-arrow.down-paused</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11&gt;span.down-arrow.down-taken</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11@title</td>
+	<td>-2</td>
+</tr>
+<!--A text box-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-12</td>
+	<td>a textbox value</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;span.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;input.text-value@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;input.text-value</td>
+	<td>not a number</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;input.text-value</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;span.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;span.error</td>
+	<td>Value is not a whole number.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;input.text-value</td>
+	<td>56</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;input.text-value</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;input.text-value@class</td>
+	<td>*waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;input.text-value@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;span.error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;input.text-value</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;input.text-value</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;input.text-value@class</td>
+	<td>*untaken*</td>
+</tr>
+<!--a textbox value with constraints on the offer-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-13</td>
+	<td>a textbox value with constraints on the offer</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;span.error</td>
+	<td>Value is to large. Must be less than 5</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value</td>
+	<td>-3</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value</td>
+	<td>-4</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;span.error</td>
+	<td>Value is to small. Must be more than -3</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value</td>
+	<td>-4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value</td>
+	<td>-2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value</td>
+	<td>blur</td>
+</tr>
+<!--A take button-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-14</td>
+	<td>a button value</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-14&gt;span.button-value@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-14&gt;span.button-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-14&gt;span.button-value@class</td>
+	<td>*waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-14&gt;span.button-value@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-14&gt;span.button-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-14&gt;span.button-value@class</td>
+	<td>*waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-14&gt;span.button-value@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-14&gt;span.button-value</td>
+	<td></td>
+</tr>
+<!--A textbox with regex-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-15</td>
+	<td>textbox with regex</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-15</td>
+	<td>1234567890</td>
+</tr>
+<!--checkbox with default on-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-16</td>
+	<td>checkbox with default on</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-16</td>
+	<td>Yes</td>
+</tr>
+<!--A linear scale value-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-17</td>
+	<td>a linear scale value</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@title</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-30,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@class</td>
+	<td>*pause*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@class</td>
+	<td>*waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} &lt;= -257 &amp;&amp; ${value} &gt;= -277</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>30,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<!--.. test a near minimum, but not so close it rounds-->
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-94,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} &lt;= -937 &amp;&amp; ${value} &gt;= -948</td>
+	<td>true</td>
+</tr>
+<!--.. test a near minimum, that is close enough to round to the max-->
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-4,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -1000</td>
+	<td>true</td>
+</tr>
+<!--.. test lest than the minimum rounds back to the minimum-->
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-10,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -1000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>100,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>90,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} &lt;= 884 &amp;&amp; ${value} &gt;= 874</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>13,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 1000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>5,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 1000</td>
+	<td>true</td>
+</tr>
+<!--Log scale -->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-18</td>
+	<td>a log scale value</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-30,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@class</td>
+	<td>*pause*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@class</td>
+	<td>*waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -542</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>30,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-94,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -714213198</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-4,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -1000000000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-10,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -1000000000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>100,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>90,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 103908630</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>13,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 1000000000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>5,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 1000000000</td>
+	<td>true</td>
+</tr>
+<!--a linear positive scale.-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-19</td>
+	<td>a linear positive scale</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 295</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 610</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 915</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>30,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 1000</td>
+	<td>true</td>
+</tr>
+<!--a linear negative scale.-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-20</td>
+	<td>a linear negative scale</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -299</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -620</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -936</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-30,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -1000</td>
+	<td>true</td>
+</tr>
+<!--a linear offset positive scale 150-250.-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-21</td>
+	<td>a linear offset positive scale 150-250</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 177</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 208</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 239</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>13,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 245</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>10,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 250</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-200,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>20,0</td>
+</tr>
+<!--a log scale value 0 - 10000.-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-22</td>
+	<td>a log scale value 0 - 10000</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 7</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} ==121</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 5924</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>13,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 8462</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>13,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 10000</td>
+	<td>true</td>
+</tr>
+<!--a log scale value -10000 0.-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-23</td>
+	<td>a log scale value -10000 0</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -52</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -1035</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-40,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -10000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-10,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -10000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>190,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-80,0</td>
+</tr>
+<!--a log scale offset value 100 - 100000-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-24</td>
+	<td>a log scale offset value 100 - 100000</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 319</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 5163</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 69391</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>13,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 89696</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>20,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 100000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-200,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>75,0</td>
+</tr>
+<!--a linear offset negative scale -150- -250-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-25</td>
+	<td>a linear offset negative scale -150- -250</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -178</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -210</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -241</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -250</td>
+	<td>true</td>
+</tr>
+<!--an uneven linear scale -100 - 250-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-26</td>
+	<td>an uneven linear scale -100 - 250</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-40,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -64</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-20,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -100</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>100,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 177</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>40,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 250</td>
+	<td>true</td>
+</tr>
+<!--a log uneven scale -100 - 10000-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-27</td>
+	<td>a log uneven scale -100 - 10000</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-40,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -32</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-21,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -100</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>56,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>100,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 644</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>45,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 10000</td>
+	<td>true</td>
+</tr>
+<!--a log scale offset value -100000 - -100-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-28</td>
+	<td>a log scale offset value -100000 - -100</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -2320</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -42995</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-35,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -100000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>190,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-50,0</td>
+</tr>
+<!--a log scale with constraints on the offer-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-29</td>
+	<td>a log scale with constraints on the offer</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-30,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -8</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>-10,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -10</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>100,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 263</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>35,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 1000</td>
+	<td>true</td>
+</tr>
+<!--a linear scale with constraints on the offer-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-30</td>
+	<td>a linear scale with constraints on the offer</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 0</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-20,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -2</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-20,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -5</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>60,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 3</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>100,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 18</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>40,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 23</td>
+	<td>true</td>
+</tr>
+<!--a stars value-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-31</td>
+	<td>a stars value</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=1]@class</td>
+	<td>*star-on*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=1]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=2]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=3]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=4]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=5]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=6]</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list@class</td>
+	<td>*waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=1]@class</td>
+	<td>*star-on*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=2]@class</td>
+	<td>*star-on*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=3]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=4]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=5]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=1]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=2]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=3]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=4]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=5]@class</td>
+	<td>*star-off*</td>
+</tr>
+<!--a stars value with constraint on the offer-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-32</td>
+	<td>a stars value with constraint on the offer</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=1]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=2]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=3]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=4]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=5]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=6]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=7]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=8]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=9]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=10]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=11]</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list@class</td>
+	<td>*taken*</td>
+</tr>
+<!--a take list value-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-33</td>
+	<td>a take list</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(0)</td>
+	<td>first take value</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(0)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;input:nth(0)@data-value</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(1)</td>
+	<td>second take value</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(1)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;input:nth(1)@data-value</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(2)</td>
+	<td>third take value</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(2)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;input:nth(2)@data-value</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]@class</td>
+	<td>*waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]@class</td>
+	<td>* taken*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(0)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(1)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(2)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<!--... check it can be untaken-->
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]@class</td>
+	<td>*waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]@class</td>
+	<td>* untaken*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(0)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(1)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(2)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<!--... check it can be retaken-->
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]@class</td>
+	<td>*waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]@class</td>
+	<td>* taken*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(0)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(1)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(2)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]@class</td>
+	<td>*waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]@class</td>
+	<td>* taken*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(0)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(1)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.value-list[data-field-id=33]&gt;label:nth(2)@class</td>
+	<td>*ui-state-active*</td>
+</tr>
+<!--reload page to check that values are correct. how to check slider possition?-->
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-9@title</td>
+	<td>+1</td>
+</tr>
+<tr>
+	<td>verifyNotAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-9&gt;.down-arrow@class</td>
+	<td>*down-taken*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-10@title</td>
+	<td>-3</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-11@title</td>
+	<td>-2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;input.text-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-12&gt;input@class</td>
+	<td>*untaken*</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input.text-value</td>
+	<td>-2</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-13&gt;input@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-14&gt;span.button-value@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 1000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 1000000000 </td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 1000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -1000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 156</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 10000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -41</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 623</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -250</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 250</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 10000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -359</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 1000</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == 23</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=1]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=2]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=3]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=4]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-31&gt;div.stars-list&gt;span.star[data-star-id=5]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=1]@class</td>
+	<td>*star-on*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=2]@class</td>
+	<td>*star-on*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=3]@class</td>
+	<td>*star-on*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=4]@class</td>
+	<td>*star-on*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=5]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=6]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=7]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=8]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=9]@class</td>
+	<td>*star-off*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-32&gt;div.stars-list&gt;span.star[data-star-id=10]@class</td>
+	<td>*star-off*</td>
+</tr>
+<!--... compare the leftpossition of the page container with the left possition of slider to get a relative offeset that is allways the same regardless of window size.-->
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#page</td>
+	<td>pageleft</td>
+</tr>
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-17&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>pos</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars[&quot;pos&quot;] - storedVars[&quot;pageleft&quot;]</td>
+	<td>238</td>
+</tr>
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-18&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>pos</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars[&quot;pos&quot;] - storedVars[&quot;pageleft&quot;]</td>
+	<td>238</td>
+</tr>
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-19&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>pos</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars[&quot;pos&quot;] - storedVars[&quot;pageleft&quot;]</td>
+	<td>238</td>
+</tr>
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-20&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>pos</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars[&quot;pos&quot;] - storedVars[&quot;pageleft&quot;]</td>
+	<td>41</td>
+</tr>
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-21&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>pos</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars[&quot;pos&quot;] - storedVars[&quot;pageleft&quot;]</td>
+	<td>62</td>
+</tr>
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-22&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>pos</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars[&quot;pos&quot;] - storedVars[&quot;pageleft&quot;]</td>
+	<td>238</td>
+</tr>
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-23&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>pos</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars[&quot;pos&quot;] - storedVars[&quot;pageleft&quot;]</td>
+	<td>143</td>
+</tr>
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-24&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>pos</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars[&quot;pos&quot;] - storedVars[&quot;pageleft&quot;]</td>
+	<td>121</td>
+</tr>
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-25&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>pos</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars[&quot;pos&quot;] - storedVars[&quot;pageleft&quot;]</td>
+	<td>41</td>
+</tr>
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-26&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>pos</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars[&quot;pos&quot;] - storedVars[&quot;pageleft&quot;]</td>
+	<td>238</td>
+</tr>
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-27&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>pos</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars[&quot;pos&quot;] - storedVars[&quot;pageleft&quot;]</td>
+	<td>238</td>
+</tr>
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-28&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>pos</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars[&quot;pos&quot;] - storedVars[&quot;pageleft&quot;]</td>
+	<td>171</td>
+</tr>
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-29&gt;div.logarithmic&gt;a.ui-slider-handle</td>
+	<td>pos</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars[&quot;pos&quot;] - storedVars[&quot;pageleft&quot;]</td>
+	<td>238</td>
+</tr>
+<tr>
+	<td>storeElementPositionLeft</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-30&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>pos</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars[&quot;pos&quot;] - storedVars[&quot;pageleft&quot;]</td>
+	<td>238</td>
+</tr>
+<!--Make a complex offer comment-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;.actions&gt;.reply</td>
+	<td>reply</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;.actions&gt;.reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>a comment title</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>a comment title</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_3_text</td>
+	<td>some text</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_4_text</td>
+	<td>an example link</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_0 .offer-field-4-link</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_field_5_checkbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_6 .list-item:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_6 .list-item:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_7 .list-item:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_7 .list-item:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offer_0_list_7 .list-item:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li&gt;input</td>
+	<td>list item 1</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li&gt;input</td>
+	<td>list item 2</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_openlist_8&gt;ul&gt;li&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_11_value_min</td>
+	<td>-2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_11_value_max</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_13_value_min</td>
+	<td>-3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_13_value_max</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_15_text</td>
+	<td>567</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_29_value_min</td>
+	<td>-10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_29_value_max</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_30_value_min</td>
+	<td>-5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_30_value_max</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_32_value_max</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.title&gt;.field-1</td>
+	<td>a comment title</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-3</td>
+	<td>a required textbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-3</td>
+	<td>some text</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-4</td>
+	<td>a link field</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-4</td>
+	<td>an example link</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-5</td>
+	<td>a checkbox</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-5</td>
+	<td>Yes</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-6</td>
+	<td>a short list</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-6&gt;ul&gt;li:nth(0)</td>
+	<td>first short list item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-6&gt;ul&gt;li:nth(1)</td>
+	<td>second short list item</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-7</td>
+	<td>a long list</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-7&gt;ul&gt;li:nth(0)</td>
+	<td>long list item 10</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-7&gt;ul&gt;li:nth(1)</td>
+	<td>long list item 11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-7&gt;ul&gt;li:nth(2)</td>
+	<td>long list item 12</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-8</td>
+	<td>an open list</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-8&gt;ul&gt;li:nth(0)</td>
+	<td>list item 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-8&gt;ul&gt;li:nth(1)</td>
+	<td>list item 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-9</td>
+	<td>an updown value</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-9&gt;.down-arrow@class</td>
+	<td>*down-untaken*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-9&gt;.down-arrow</td>
+	<td>an updown value</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-9&gt;.down-arrow@class</td>
+	<td>*down-taken*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-10</td>
+	<td>an updown value with constraints</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-11</td>
+	<td>an updown value with constraints on the offer</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-12</td>
+	<td>a textbox value</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-12&gt;input</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-12&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-12&gt;input@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-13</td>
+	<td>a textbox value with constraints on the offer</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-14</td>
+	<td>a button value</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-14&gt;.button-value</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-14&gt;.button-value@class</td>
+	<td>*taken*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-15</td>
+	<td>textbox with regex</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-15</td>
+	<td>567</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-16</td>
+	<td>checkbox with default on</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-16</td>
+	<td>Yes</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-17</td>
+	<td>a linear scale value</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-17&gt;div.linear&gt;a.ui-slider-handle</td>
+	<td>-40,0</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-17&gt;div.linear@class</td>
+	<td>* taken*</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-17&gt;div.linear@title</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>${value} == -369</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-18</td>
+	<td>a log scale value</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-19</td>
+	<td>a linear positive scale</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-20</td>
+	<td>a linear negative scale</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-21</td>
+	<td>a linear offset positive scale 150-250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-22</td>
+	<td>a log scale value 0 - 10000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-23</td>
+	<td>a log scale value -10000 0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-24</td>
+	<td>a log scale offset value 100 - 100000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-25</td>
+	<td>a linear offset negative scale -150- -250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-26</td>
+	<td>an uneven linear scale -100 - 250</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-27</td>
+	<td>a log uneven scale -100 - 10000</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-28</td>
+	<td>a log scale offset value -100000 - -100</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-29</td>
+	<td>a log scale with constraints on the offer</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-30</td>
+	<td>a linear scale with constraints on the offer</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-31</td>
+	<td>a stars value</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-31&gt;div.stars-list&gt;span.star[data-star-id=2]</td>
+	<td>a stars value</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-31&gt;div.stars-list@class</td>
+	<td>* taken*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container&gt;.field-label-32</td>
+	<td>a stars value with constraint on the offer</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-31</td>
+	<td>a stars value</td>
+</tr>
+</tbody></table>
+</body>
+</html>

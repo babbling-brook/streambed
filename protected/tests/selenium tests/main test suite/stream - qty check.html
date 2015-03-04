@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>offers stream qty</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">offers stream qty</td></tr>
+</thead><tbody>
+<!--Test that the correct test offer data is returned in a test stream-->
+<!--Log in to the main test account.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--Open the test stream-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#sort_bar dt[value='']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#sort_bar dt[value='cobaltcascade.localhost/test/rhythm/json/test datesort/latest/latest/latest']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#sort_bar dd[value='cobaltcascade.localhost/test/rhythm/json/test datesort/latest/latest/latest']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#sort_bar dd[value='cobaltcascade.localhost/test/rhythm/json/test reverse datesort/latest/latest/latest']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#offers_footer #next_page:not(.hide) a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#offers_footer #prev_page.hide a</td>
+	<td></td>
+</tr>
+<!--Test 'next page and 'Prev page' buttons-->
+<!--... test offer 5 is filtered out due to the test moderation Rhythm.-->
+<tr>
+	<td>click</td>
+	<td>css=#offers_footer #next_page a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 7</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(4)&gt;div.title</td>
+	<td>test offer 21</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#offers_footer #next_page:not(.hide) a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#offers_footer #prev_page:not(.hide) a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers_footer #next_page a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 22</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(4)&gt;div.title</td>
+	<td>test offer 27</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#offers_footer #next_page:not(.hide) a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#offers_footer #prev_page:not(.hide) a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers_footer #next_page a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 28</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(4)&gt;div.title</td>
+	<td>test offer 32</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#offers_footer #next_page:not(.hide) a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#offers_footer #prev_page:not(.hide) a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers_footer #next_page a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 33</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(4)&gt;div.title</td>
+	<td>test offer 37</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#offers_footer #next_page.hide a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#offers_footer #prev_page:not(.hide) a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers_footer #prev_page a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 28</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(4)&gt;div.title</td>
+	<td>test offer 32</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#offers_footer #next_page:not(.hide) a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#offers_footer #prev_page:not(.hide) a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers_footer #prev_page a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers_footer #prev_page a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#offers_footer #prev_page a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 1</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(4)&gt;div.title</td>
+	<td>test offer 6</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#offers_footer #next_page:not(.hide) a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#offers_footer #prev_page.hide a</td>
+	<td></td>
+</tr>
+<!--Test filter drop down.-->
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar dt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#sort_bar dd[value='cobaltcascade.localhost/test/rhythm/json/test reverse datesort/latest/latest/latest']</td>
+	<td>*display: block*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#sort_bar dd[value='cobaltcascade.localhost/test/rhythm/json/test reverse datesort/latest/latest/latest']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 37</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers&gt;div.offer:nth(4)&gt;div.title</td>
+	<td>test offer 33</td>
+</tr>
+</tbody></table>
+</body>
+</html>

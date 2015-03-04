@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>offer - comment switches</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">offer - comment switches</td></tr>
+</thead><tbody>
+<!--Test the switches to collapse tree branches.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--... make sure they have all loaded first-->
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)@data-offer-id</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)@data-offer-id</td>
+	<td>47</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)@data-offer-id</td>
+	<td>48</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)@data-offer-id</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)@data-offer-id</td>
+	<td>14</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)@data-offer-id</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)@data-offer-id</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(2)@data-offer-id</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(3)@data-offer-id</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)@data-offer-id</td>
+	<td>13</td>
+</tr>
+<!--... close first switch-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.switch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.switch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.child-arrows</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.username-intro</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.time-ago</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.kindred-message:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.username:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.kindred-message:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.kindred-score</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.revision</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;ul.children</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.new-offers-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)</td>
+	<td></td>
+</tr>
+<!--... open first switch-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.switch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.switch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.time-ago</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.kindred-message:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.username:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.kindred-message:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.kindred-score</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.info&gt;.revision</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer-content-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;.offer_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;ul.children</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)</td>
+	<td></td>
+</tr>
+<!--... close nested switch-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.switch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.kindred-message:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.username:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.kindred-message:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.kindred-score</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.revision</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.offer-content-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.offer_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;ul.children</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.new-offers-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;ul.children</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li&gt;.info&gt;.switch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.switch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.switch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.kindred-message:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.username:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.kindred-message:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.kindred-score</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.revision</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.offer-content-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.offer_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;ul.children</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.new-offers-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;ul.children</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li&gt;.child-arrows</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)</td>
+	<td></td>
+</tr>
+<!--... open nested switch-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li&gt;.info&gt;.switch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li&gt;.info&gt;.switch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.switch</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.kindred-message:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.username:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.kindred-message:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.kindred-score</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.info&gt;.revision</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.offer-content-container</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.actions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.offer_error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;ul.children</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;.new-offers-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li:nth(0)&gt;ul.children</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children(0)&gt;li&gt;.info&gt;.switch</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

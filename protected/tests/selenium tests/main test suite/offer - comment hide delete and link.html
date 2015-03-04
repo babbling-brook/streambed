@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>offer - comment hide</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">offer - comment hide</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;div.actions&gt;span.reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children &gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<!--Check the hide button. Only check it is present, functionality tested in stream tests.-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;.actions&gt;span.hide-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;.actions&gt;span.hide-offer</td>
+	<td>hide</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;.actions&gt;span.hide-offer@class</td>
+	<td>*link*</td>
+</tr>
+<!--Check the delete link is present. Testing is done in the stream delete test.-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;.actions&gt;.delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;.actions&gt;.delete@class</td>
+	<td>*link*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;.actions&gt;.delete</td>
+	<td>delete</td>
+</tr>
+<!--Check the context link is present.-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;.actions&gt;a.link-to-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;.actions&gt;a.link-to-offer</td>
+	<td>link</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;.actions&gt;a.link-to-offer@href</td>
+	<td>/offer/cobaltcascade.localhost/14</td>
+</tr>
+</tbody></table>
+</body>
+</html>

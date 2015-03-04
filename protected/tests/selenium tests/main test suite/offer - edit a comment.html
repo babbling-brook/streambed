@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>offer - edit a comment</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">offer - edit a comment</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#root_offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<!--test edit-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;div.actions&gt;span.edit</td>
+	<td>edit</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;div.actions&gt;span.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;ul.children &gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;.edit-offer&gt;.make-offer&gt;.input-offer-title</td>
+	<td>Edit offer</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;.edit-offer&gt;#make_offer_0&gt;.input-offer-detail&gt;.offer-field-container&gt;.offer-text-field</td>
+	<td>test offer 14 - comment 6</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;.edit-offer&gt;#make_offer_0&gt;.input-offer-detail&gt;.make-offer-actions&gt;button.cancel-offer</td>
+	<td>Cancel edit</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;.edit-offer&gt;#make_offer_0&gt;.input-offer-detail&gt;.make-offer-actions&gt;button.cancel-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;.edit-offer&gt;#make_offer_0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<!--Make an edit-->
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;div.actions&gt;span.edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;.edit-offer&gt;.make-offer&gt;.input-offer-title</td>
+	<td>Edit offer</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;.edit-offer&gt;#make_offer_1&gt;.input-offer-detail&gt;.offer-field-container&gt;.offer-text-field</td>
+	<td>test offer 14 - comment 6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_1_field_1_text</td>
+	<td>edited test offer 14</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;.edit-offer&gt;#make_offer_1&gt;.input-offer-detail&gt;.make-offer-actions&gt;button.create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;.edit-offer&gt;#make_offer_1&gt;.input-offer-detail&gt;.make-offer-actions&gt;button.create-offer</td>
+	<td>Edit offer</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;.edit-offer&gt;#make_offer_1&gt;.input-offer-detail&gt;.make-offer-actions&gt;button.create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;.edit-offer&gt;#make_offer_1@class</td>
+	<td>*block-loading*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;div.title&gt;span.field-1</td>
+	<td>edited test offer 14</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;.edit-offer&gt;#make_offer_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;div</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<!--Check revision is showing.-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;div.info&gt;span.revision&gt;.revision-title</td>
+	<td>Revision</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;div.info&gt;span.revision&gt;.revision-content</td>
+	<td>2</td>
+</tr>
+<!--... Can't check if viisble because it is hidden in the title. So check that the hide class has been removed.-->
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;div.info&gt;span.revision@class</td>
+	<td>revision</td>
+</tr>
+<!--Ensure that the check updated version does not show up after an update-->
+<tr>
+	<td>pause</td>
+	<td>22000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;div.actions&gt;.update</td>
+	<td></td>
+</tr>
+<!--Reload page to check that revision info still shows-->
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;div.info&gt;span.revision&gt;.revision-title</td>
+	<td>Revision</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;div.info&gt;span.revision&gt;.revision-content</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)&gt;ul.children&gt;li:nth(0)&gt;div.info&gt;span.revision@class</td>
+	<td>revision</td>
+</tr>
+</tbody></table>
+</body>
+</html>

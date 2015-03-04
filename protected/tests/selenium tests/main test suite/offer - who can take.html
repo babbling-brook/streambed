@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>offer - who can take</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">offer - who can take</td></tr>
+</thead><tbody>
+<!--Tests the settings for who_can_take on value fields in streams.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/127</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-3&gt;span.up-arrow@class</td>
+	<td>*up-untaken*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-3&gt;span.up-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-3&gt;span.up-arrow@class</td>
+	<td>*waiting*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-3&gt;span.up-arrow@class</td>
+	<td>*up-taken*</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-4</td>
+	<td>everyone can see this</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-4</td>
+	<td>Ensure this textfield appears in the correct place.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-5</td>
+	<td>Ensure anyone can take this one</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-5</td>
+	<td></td>
+</tr>
+<!--logout and test with user test2-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/127</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#root_offer&gt;div.top-value&gt;div.field-2&gt;span.up-arrow@class</td>
+	<td>*up-untaken*</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-4</td>
+	<td>everyone can see this</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-4</td>
+	<td>Ensure this textfield appears in the correct place.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;span.field-label-5</td>
+	<td>Ensure anyone can take this one</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.offer-content-container&gt;div.field-5</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

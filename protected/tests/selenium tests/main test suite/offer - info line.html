@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>New Test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Test</td></tr>
+</thead><tbody>
+<!--Check the info line is mostly hidden unless moused over.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<!--Check the main offer-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.username:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.username:nth(0)</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.username:nth(0)@title</td>
+	<td>Made by : cobaltcascade.localhost/test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.username:nth(0)@href</td>
+	<td>/test</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.username-intro</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.username-intro</td>
+	<td>Made by</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.time-ago</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.time-ago</td>
+	<td>* Years Ago</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.time-ago@title</td>
+	<td>Wed Nov 09 2011 12:00:00 *</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.kindred-message:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.kindred-message:nth(0)</td>
+	<td>Your kindred rating with</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.username:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.username:nth(1)</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.username:nth(1)@title</td>
+	<td>Made by : cobaltcascade.localhost/test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.username:nth(1)@href</td>
+	<td>/test</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.kindred-message:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.kindred-message:nth(1)</td>
+	<td>is</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.kindred-score</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.kindred-score</td>
+	<td>∞</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;.info&gt;.revision</td>
+	<td></td>
+</tr>
+<!--Check a child offer-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.username:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.username:nth(0)</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.username:nth(0)@title</td>
+	<td>Made by : cobaltcascade.localhost/test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.username:nth(0)@href</td>
+	<td>/test</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.username-intro</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.username-intro</td>
+	<td>Made by</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.time-ago</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.time-ago</td>
+	<td>* Years Ago</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.time-ago@title</td>
+	<td>Sun Nov 13 2011 12:00:00 GMT+0000 *</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.kindred-message:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.kindred-message:nth(0)</td>
+	<td>Your kindred rating with</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.username:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.username:nth(1)</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.username:nth(1)@title</td>
+	<td>Made by : cobaltcascade.localhost/test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.username:nth(1)@href</td>
+	<td>/test</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.kindred-message:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.kindred-message:nth(1)</td>
+	<td>is</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.kindred-score</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.kindred-score</td>
+	<td>∞</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#tree_root&gt;li.offer&gt;ul.children&gt;li.offer:nth(0)&gt;.info&gt;.revision</td>
+	<td></td>
+</tr>
+<!--Selenium ide can't produce a hover event. When moving to WebDriver this can be implenented to test that items become visible on hover of the info element.-->
+</tbody></table>
+</body>
+</html>

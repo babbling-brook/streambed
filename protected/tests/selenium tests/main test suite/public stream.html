@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>public stream</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">public stream</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test%20stream/0/0/0</td>
+	<td></td>
+</tr>
+<!--Test side nav-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;#sidebar&gt;#sidebar_extra&gt;li:nth(0)&gt;h3&gt;a</td>
+	<td>test stream</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;#sidebar&gt;#sidebar_extra&gt;dl#sort_bar&gt;dt</td>
+	<td>Login to sort</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;#sidebar&gt;#sidebar_extra&gt;li:nth(0)&gt;h3@title</td>
+	<td>Owned by : cobaltcascade.localhost/test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;#sidebar&gt;#sidebar_extra&gt;li:nth(1)</td>
+	<td>An stream for making test offers.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;#sidebar&gt;#sidebar_extra&gt;li:nth(2)&gt;a</td>
+	<td>Subscribe</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;#sidebar&gt;#sidebar_extra&gt;li:nth(2)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<!--Test top offer-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 5</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(0)&gt;div.title&gt;a@href</td>
+	<td>/offer/cobaltcascade.localhost/5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(0)&gt;div.info&gt;a.username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(0)&gt;div.info&gt;a.username@title</td>
+	<td>Made by*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(0)&gt;div.info&gt;a.username@href</td>
+	<td>*/test</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(0)&gt;div.actions&gt;a.link-to-offer</td>
+	<td>comments</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(0)&gt;div.actions&gt;a.link-to-offer@href</td>
+	<td>/offer/cobaltcascade.localhost/5</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(0)&gt;div.top-value&gt;div.updown&gt;span.up-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(0)&gt;div.top-value&gt;div.updown&gt;span.down-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(0)&gt;div.top-value&gt;div.updown&gt;span.up-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(0)&gt;div.top-value&gt;div.updown&gt;span.down-arrow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#modal_content&gt;h2</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#login-modal&gt;#login-popup&gt;#login_close</td>
+	<td></td>
+</tr>
+<!--Assert offer order-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(0)&gt;div.title</td>
+	<td>test offer 5</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(1)&gt;div.title</td>
+	<td>test offer 37</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(2)&gt;div.title</td>
+	<td>test offer 36</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(3)&gt;div.title</td>
+	<td>test offer 35</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(4)&gt;div.title</td>
+	<td>test offer 34</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(5)&gt;div.title</td>
+	<td>test offer 33</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(6)&gt;div.title</td>
+	<td>test offer 32</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(7)&gt;div.title</td>
+	<td>test offer 31</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(8)&gt;div.title</td>
+	<td>test offer 30</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(9)&gt;div.title</td>
+	<td>test offer 29</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(10)&gt;div.title</td>
+	<td>test offer 28</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(11)&gt;div.title</td>
+	<td>test offer 27</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(12)&gt;div.title</td>
+	<td>test offer 26</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(13)&gt;div.title</td>
+	<td>test offer 25</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(14)&gt;div.title</td>
+	<td>test offer 24</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(15)&gt;div.title</td>
+	<td>test offer 22</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(16)&gt;div.title</td>
+	<td>test offer 21</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(17)&gt;div.title</td>
+	<td>test offer 8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(18)&gt;div.title</td>
+	<td>test offer 3 - breaks for testing when full data is requested</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(19)&gt;div.title</td>
+	<td>test offer 2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(20)&gt;div.title</td>
+	<td>test offer 1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(21)&gt;div.title</td>
+	<td>test offer 19</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(22)&gt;div.title</td>
+	<td>test offer 7</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(23)&gt;div.title</td>
+	<td>test offer 6</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(24)&gt;div.title</td>
+	<td>test offer 4</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.content-indent&gt;#offers&gt;div.offer:nth(25)&gt;div.title</td>
+	<td>test offer 20</td>
+</tr>
+</tbody></table>
+</body>
+</html>

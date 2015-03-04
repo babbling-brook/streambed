@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream - link as top field</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream - link as top field</td></tr>
+</thead><tbody>
+<!--Open a user stream in the normal stream view and test error messages when creating an offer.-->
+<!--Log in to the main test account.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--This also tests stream offers that have a link for a title.-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/offers/test link in title/latest/latest/latest</td>
+	<td></td>
+</tr>
+<!--test a valid new offer with a link-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td></td>
+</tr>
+<!--... ensure the link field and title is not visible when the form loads.-->
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container:nth(0)&gt;input.offer-field-1-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container:nth(0)&gt;input.offer-field-1-link</td>
+	<td></td>
+</tr>
+<!--... open the form and check they are now visible.-->
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>focus</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container:nth(0)&gt;input.offer-field-1-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container:nth(0)&gt;input.offer-field-1-link</td>
+	<td></td>
+</tr>
+<!--... create an offer-->
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_1_text</td>
+	<td>A link title</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#make_offer_0&gt;div.input-offer-detail&gt;div.offer-field-container:nth(0)&gt;input.offer-field-1-link</td>
+	<td>http://example.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#offer_0_field_3_text</td>
+	<td>extra text</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_0 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a</td>
+	<td>A link title</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#offers div.offer:nth(0)&gt;div.title&gt;a@href</td>
+	<td>http://example.com</td>
+</tr>
+<!--... ... check that the link fields have been turned back off in the new offer form.-->
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#offer_1_field_1_text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_1&gt;div.input-offer-detail&gt;div.offer-field-container:nth(0)&gt;input.offer-field-1-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_1&gt;div.input-offer-detail&gt;div.offer-field-container:nth(0)&gt;input.offer-field-1-link</td>
+	<td></td>
+</tr>
+<!--check error messages when creating a link offer.-->
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#make_offer_1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#offer_1_field_1_text</td>
+	<td>focus</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#make_offer_1 .create-offer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#make_offer_1 .offer-field-1-title&gt;.offer-field-1-title-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#make_offer_1 .offer-field-1-link-title&gt;.offer-field-1-error</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#make_offer_1 .offer-field-1-link-title&gt;.offer-field-1-error</td>
+	<td>This is a required field</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#make_offer_1 .offer-submit-error</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

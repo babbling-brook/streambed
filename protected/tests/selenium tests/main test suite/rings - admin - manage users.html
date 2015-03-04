@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>rings - admin - manage users</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">rings - admin - manage users</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test ring/ring/ban</td>
+	<td></td>
+</tr>
+<!--Check everything present.-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Ban users from the test ring Ring</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;div#ban_ring_members</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;div.summary</td>
+	<td>Displaying 1-2 of 2 result(s)</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;thead&gt;tr&gt;th#ban_ring_members_c0</td>
+	<td>Domain</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;thead&gt;tr&gt;th#ban_ring_members_c0&gt;a@href</td>
+	<td>/test+ring/ring/ban?UserRing_sort=domain</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;thead&gt;tr&gt;th#ban_ring_members_c1</td>
+	<td>Name</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;thead&gt;tr&gt;th#ban_ring_members_c1&gt;a@href</td>
+	<td>/test+ring/ring/ban?UserRing_sort=username</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;thead&gt;tr&gt;th#ban_ring_members_c2</td>
+	<td>Ban User</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;thead&gt;tr&gt;th#ban_ring_members_c3</td>
+	<td>Reinstate</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#ban_ring_members&gt;table&gt;thead&gt;tr.filters&gt;td:nth(0)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#ban_ring_members&gt;table&gt;thead&gt;tr.filters&gt;td:nth(1)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)&gt;td:nth(0)</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)&gt;td:nth(0)@class</td>
+	<td>domain</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)@class</td>
+	<td>username</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)&gt;td:nth(2)&gt;a</td>
+	<td>Ban</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)&gt;td:nth(2)@class</td>
+	<td>ban</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)&gt;td:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)&gt;td:nth(3)@class</td>
+	<td>reinstate</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)@class</td>
+	<td>*banned*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(0)</td>
+	<td>cobaltcascade.localhost</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(0)@class</td>
+	<td>domain</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(1)</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(1)@class</td>
+	<td>username</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(2)&gt;a</td>
+	<td>Ban</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(2)@class</td>
+	<td>ban</td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)@class</td>
+	<td>*banned*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(3)@class</td>
+	<td>reinstate</td>
+</tr>
+<!--Check help-->
+<tr>
+	<td>click</td>
+	<td>css=#ban_ring_members&gt;table&gt;thead&gt;tr.filters&gt;td:nth(3)&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Ban Users</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Select a user*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--Check search-->
+<tr>
+	<td>type</td>
+	<td>css=#ban_ring_members&gt;table&gt;thead&gt;tr.filters&gt;td:nth(0)&gt;input</td>
+	<td>testsomerandomdomain-523df4</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#ban_ring_members@class</td>
+	<td>*grid-view-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#ban_ring_members@class</td>
+	<td>*grid-view-loading*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)&gt;td:nth(0)</td>
+	<td>No results found.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#ban_ring_members&gt;table&gt;thead&gt;tr.filters&gt;td:nth(0)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(1)</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#ban_ring_members&gt;table&gt;thead&gt;tr.filters&gt;td:nth(1)&gt;input</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)</td>
+	<td>test2</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#ban_ring_members&gt;table&gt;thead&gt;tr.filters&gt;td:nth(1)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(1)</td>
+	<td>test2</td>
+</tr>
+<!--Check ban with ajax and reinstate - not sure why the page reload is needed, without it the click does not register.-->
+<tr>
+	<td>open</td>
+	<td>/test ring/ring/ban</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(2)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)@class</td>
+	<td>*banned*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)@class</td>
+	<td>*banned*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(3)&gt;a</td>
+	<td>Reinstate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(3)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)@class</td>
+	<td>*banned*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(2)&gt;a</td>
+	<td>Ban</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(3)</td>
+	<td></td>
+</tr>
+<!--Check ban with page reload and reinstate-->
+<tr>
+	<td>click</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(2)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test ring/ring/ban</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(0)@class</td>
+	<td>*banned*</td>
+</tr>
+<tr>
+	<td>waitForAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)@class</td>
+	<td>*banned*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(3)&gt;a</td>
+	<td>Reinstate</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(3)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test ring/ring/ban</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)@class</td>
+	<td>*banned*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(2)&gt;a</td>
+	<td>Ban</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#ban_ring_members&gt;table&gt;tbody&gt;tr:nth(1)&gt;td:nth(3)</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

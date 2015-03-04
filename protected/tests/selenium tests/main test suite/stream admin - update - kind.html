@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream admin - update - kind</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream admin - update - kind</td></tr>
+</thead><tbody>
+<!--Updating an stream with a kind of user.-->
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#Stream_name</td>
+	<td>test kind is user</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#StreamExtra_description</td>
+	<td>some description</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#Stream_kind</td>
+	<td>52</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=div.buttons&gt;input</td>
+	<td></td>
+</tr>
+<!--check fields are link and main value-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container</td>
+	<td>link*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div#stream_main&gt;div#no_stream_fields</td>
+	<td>Stream fields are not editable if the kind of stream is set to 'user'.</td>
+</tr>
+<!--check that add new field button is not present-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#add_new_field</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

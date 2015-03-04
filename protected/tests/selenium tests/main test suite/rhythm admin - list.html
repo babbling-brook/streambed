@@ -1,0 +1,1272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream admin -list</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream admin -list</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/rhythm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;h2</td>
+	<td>List of your Rhythms</td>
+</tr>
+<!--Check initial state-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;div#rhythm_grid</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#rhythm_grid&gt;div.summary</td>
+	<td>Displaying 1-10 of 20 result(s)</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;div#rhythm_grid&gt;table.items</td>
+	<td></td>
+</tr>
+<!--... The table title row-->
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr&gt;th#rhythm_grid_c0&gt;a</td>
+	<td>Name</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr&gt;th#rhythm_grid_c0&gt;a@href</td>
+	<td>/test/rhythm/index?RhythmExtra_sort=name</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr&gt;th#rhythm_grid_c1&gt;a</td>
+	<td>Version</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr&gt;th#rhythm_grid_c1&gt;a@href</td>
+	<td>/test/rhythm/index?RhythmExtra_sort=version</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr&gt;th#rhythm_grid_c2&gt;a</td>
+	<td>Date Created</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr&gt;th#rhythm_grid_c2&gt;a@href</td>
+	<td>/test/rhythm/index?RhythmExtra_sort=date_created</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr&gt;th#rhythm_grid_c3&gt;a</td>
+	<td>Status</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr&gt;th#rhythm_grid_c3&gt;a@href</td>
+	<td>/test/rhythm/index?RhythmExtra_sort=status_id</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr&gt;th#rhythm_grid_c4&gt;a</td>
+	<td>Category</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr&gt;th#rhythm_grid_c4&gt;a@href</td>
+	<td>/test/rhythm/index?RhythmExtra_sort=category</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr&gt;th#rhythm_grid_c5</td>
+	<td>Actions</td>
+</tr>
+<!--... The table search row-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(0)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(0)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(0)&gt;input@name</td>
+	<td>Rhythm[name]</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(1)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(1)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(1)&gt;input@name</td>
+	<td>Rhythm[version]</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(2)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(2)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(2)&gt;input@name</td>
+	<td>Rhythm[date_created]</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(3)&gt;select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(3)&gt;select@name</td>
+	<td>Rhythm[status_id]</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(3)&gt;select&gt;option:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(3)&gt;select&gt;option:nth(1)</td>
+	<td>Private</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(3)&gt;select&gt;option:nth(2)</td>
+	<td>Public</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(3)&gt;select&gt;option:nth(3)</td>
+	<td>Deprecated</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(4)&gt;select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(4)&gt;select@name</td>
+	<td>Rhythm[category]</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(4)&gt;select&gt;option:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(4)&gt;select&gt;option:nth(1)</td>
+	<td>sort</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(4)&gt;select&gt;option:nth(2)</td>
+	<td>kindred</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(4)&gt;select&gt;option:nth(3)</td>
+	<td>offer group</td>
+</tr>
+<!--... help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(5)&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Filter your results</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Type and press*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... The table result rows-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(5)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(6)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(7)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(8)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(9)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(10)</td>
+	<td></td>
+</tr>
+<!--... The pager-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;div.pager</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;div.pager</td>
+	<td>Go to page:*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(0)&gt;a</td>
+	<td>First</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(0)@class</td>
+	<td>*first*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(0)&gt;a@href</td>
+	<td>/test/rhythm/index</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(0)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(1)&gt;a</td>
+	<td>Previous</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(1)&gt;a@href</td>
+	<td>/test/rhythm/index</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(1)@class</td>
+	<td>*previous*</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(1)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(2)&gt;a</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(2)&gt;a@href</td>
+	<td>/test/rhythm/index</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(2)@class</td>
+	<td>*page*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(2)@class</td>
+	<td>*selected*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(2)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(3)&gt;a</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(3)&gt;a@href</td>
+	<td>/test/rhythm/index?RhythmExtra_page=2</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(3)@class</td>
+	<td>*page*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(3)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(4)&gt;a</td>
+	<td>Next</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(4)&gt;a@href</td>
+	<td>/test/rhythm/index?RhythmExtra_page=2</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(4)@class</td>
+	<td>*next*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(4)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(5)&gt;a</td>
+	<td>Last</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(5)&gt;a@href</td>
+	<td>/test/rhythm/index?RhythmExtra_page=2</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(5)@class</td>
+	<td>*last*</td>
+</tr>
+<!--... side menu-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#sidebar&gt;div.portlet-decoration&gt;div.portlet-title</td>
+	<td>Operations</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(0)&gt;a</td>
+	<td>List All</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(1)&gt;a</td>
+	<td>Create</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(0)&gt;a@href</td>
+	<td>/test/rhythm/</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(1)&gt;a@href</td>
+	<td>/test/rhythm/create</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(0)&gt;a@title</td>
+	<td>View a list of all Rhythms by this user</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(1)&gt;a@title</td>
+	<td>Create a new Rhythm</td>
+</tr>
+<!--... table results - page 1-->
+<!--... first row-->
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td.cgvname</td>
+	<td>test a second filter suggestion</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td.cgvname&gt;a@href</td>
+	<td>/test/rhythm/view/test+a+second+filter+suggestion/0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)</td>
+	<td>0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(2)</td>
+	<td>2011-11-07</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(3)</td>
+	<td>Public</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(4)</td>
+	<td>sort</td>
+</tr>
+<!--... ... buttons-->
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(0)@class</td>
+	<td>*button*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(0)@class</td>
+	<td>*publish*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(0)@title</td>
+	<td>Publish</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(0)@src</td>
+	<td>/images/ui/publish.svg</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(1)@class</td>
+	<td>*button*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(1)@class</td>
+	<td>*deprecate*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(1)@title</td>
+	<td>Deprecate</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(1)@src</td>
+	<td>/images/ui/deprecate.svg</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(2)@class</td>
+	<td>*button*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(2)@class</td>
+	<td>*delete*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(2)@title</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(5)&gt;img:nth(2)@src</td>
+	<td>/images/ui/delete.svg</td>
+</tr>
+<!--... second row-->
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(1)&gt;td.cgvname</td>
+	<td>test broken filter</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(1)&gt;td.cgvname&gt;a@href</td>
+	<td>/test/rhythm/view/test+broken+filter/0/0/3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(1)&gt;td:nth(1)</td>
+	<td>0/0/3</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(1)&gt;td:nth(2)</td>
+	<td>2011-11-07</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(1)&gt;td:nth(3)</td>
+	<td>Public</td>
+</tr>
+<!--... ... buttons-->
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(1)&gt;td:nth(5)&gt;img:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(1)&gt;td:nth(5)&gt;img:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(1)&gt;td:nth(5)&gt;img:nth(2)</td>
+	<td></td>
+</tr>
+<!--... 4th row - public-->
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(3)&gt;td.cgvname</td>
+	<td>test broken filter</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(3)&gt;td.cgvname&gt;a@href</td>
+	<td>/test/rhythm/view/test+broken+filter/0/0/1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(3)&gt;td:nth(1)</td>
+	<td>0/0/1</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(3)&gt;td:nth(2)</td>
+	<td>2011-11-07</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(3)&gt;td:nth(3)</td>
+	<td>Public</td>
+</tr>
+<!--... ... buttons-->
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(5)&gt;td:nth(5)&gt;img:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(5)&gt;td:nth(5)&gt;img:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(5)&gt;td:nth(5)&gt;img:nth(2)</td>
+	<td></td>
+</tr>
+<!--Paging-->
+<!--... 2nd page-->
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(3)&gt;a</td>
+	<td></td>
+</tr>
+<!--... first row-->
+<tr>
+	<td>waitForText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td.cgvname</td>
+	<td>test moderation suggestion</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td.cgvname&gt;a@href</td>
+	<td>/test/rhythm/view/test+moderation+suggestion/0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(1)</td>
+	<td>0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(2)</td>
+	<td>2011-11-07</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td:nth(3)</td>
+	<td>Public</td>
+</tr>
+<!--... ... buttons-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(0)@class</td>
+	<td>*button*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(0)@class</td>
+	<td>*publish*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(0)@title</td>
+	<td>Publish</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(0)@src</td>
+	<td>/images/ui/publish.svg</td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(1)@class</td>
+	<td>*button*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(1)@class</td>
+	<td>*deprecate*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(1)@title</td>
+	<td>Deprecate</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(1)@src</td>
+	<td>/images/ui/deprecate.svg</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(2)@class</td>
+	<td>*button*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(2)@class</td>
+	<td>*delete*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(2)@title</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(2)@src</td>
+	<td>/images/ui/delete.svg</td>
+</tr>
+<!--... check other rows exist-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(5)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(6)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(7)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(8)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(9)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(10)</td>
+	<td></td>
+</tr>
+<!--... ... ninth row is a depricted version. test the button.-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(8)&gt;td:nth(5)&gt;img:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(8)&gt;td:nth(5)&gt;img:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(8)&gt;td:nth(5)&gt;img:nth(2)</td>
+	<td></td>
+</tr>
+<!--... Check page buttons are correct-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(0)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(1)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(2)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(3)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(4)&gt;a</td>
+	<td></td>
+</tr>
+<!--Previous button-->
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(1)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td.cgvname</td>
+	<td>test a second filter suggestion</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(9)</td>
+	<td></td>
+</tr>
+<!--Name filter-->
+<tr>
+	<td>type</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(0)&gt;input</td>
+	<td>test stream</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(0)&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#rhythm_grid@class</td>
+	<td>*grid-view-loading*</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#rhythm_grid@class</td>
+	<td>*gird-view-loading*</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td.cgvname</td>
+	<td>test stream filter suggestion rhythm</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(1)&gt;td.cgvname</td>
+	<td>test stream suggestion</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td.cgvname</td>
+	<td>test stream suggestion rhythm</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(3)&gt;td.cgvname</td>
+	<td>test stream suggestion with data source</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(4)&gt;td.cgvname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#rhythm_grid&gt;div.pager</td>
+	<td></td>
+</tr>
+<!--Version filter-->
+<!--... not sure why the pause is needed. Part yii ajax-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(0)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(0)&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#rhythm_grid@class</td>
+	<td>*gird-view-loading*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td></td>
+	<td>3000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(1)&gt;input</td>
+	<td>0/0/1</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(1)&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#rhythm_grid@class</td>
+	<td>*gird-view-loading*</td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(3)&gt;td.cgvname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td.cgvname</td>
+	<td>test suggest user</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#rhythm_grid&gt;div.pager</td>
+	<td></td>
+</tr>
+<!--Date create filter-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(1)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(1)&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#rhythm_grid@class</td>
+	<td>*gird-view-loading*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(2)&gt;input</td>
+	<td>2011-11-08</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(2)&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#rhythm_grid@class</td>
+	<td>*gird-view-loading*</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td.cgvname</td>
+	<td>test datesort</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(1)&gt;td.cgvname</td>
+	<td>test reverse datesort</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td.cgvname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#rhythm_grid&gt;div.pager</td>
+	<td></td>
+</tr>
+<!--Status filter-->
+<tr>
+	<td>pause</td>
+	<td>3000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(2)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(2)&gt;input</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>waitForNotAttribute</td>
+	<td>css=#rhythm_grid@class</td>
+	<td>*gird-view-loading*</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(3)&gt;select</td>
+	<td>Private</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td.cgvname</td>
+	<td>test kindred rhythm2</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(1)&gt;td.cgvname</td>
+	<td>test ring</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td.cgvname</td>
+	<td>test ring</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(3)&gt;td.cgvname</td>
+	<td>test stream filter suggestion rhythm</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(4)&gt;td.cgvname</td>
+	<td>test stream suggestion rhythm</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(5)&gt;td.cgvname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(3)&gt;select</td>
+	<td>Public</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td.cgvname</td>
+	<td>test a second filter suggestion</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(9)&gt;td.cgvname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(10)&gt;td.cgvname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(3)&gt;select</td>
+	<td>Deprecated</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td.cgvname</td>
+	<td>test suggest user</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(1)&gt;td.cgvname</td>
+	<td></td>
+</tr>
+<!--Action buttons-->
+<tr>
+	<td>select</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;thead&gt;tr.filters&gt;td:nth(3)&gt;select</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(0)&gt;td.cgvname</td>
+	<td>test a second filter suggestion</td>
+</tr>
+<!--... publish-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(8)&gt;td:nth(5)&gt;img:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(8)&gt;td:nth(5)&gt;img:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(8)&gt;td:nth(5)&gt;img:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(8)&gt;td:nth(5)&gt;img:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(8)&gt;td:nth(5)&gt;img:nth(2)</td>
+	<td></td>
+</tr>
+<!--... deprecate-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(0)</td>
+	<td></td>
+</tr>
+<!--... delete-->
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_grid&gt;div.pager&gt;ul.yiiPager&gt;li:nth(3)&gt;a</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(2)&gt;td:nth(5)&gt;img:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(8)&gt;td:nth(5)&gt;img:nth(2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementNotPresent</td>
+	<td>css=#rhythm_grid&gt;table.items&gt;tbody&gt;tr:nth(10)</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>public profile</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">public profile</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;h2:nth(0)</td>
+	<td>Profile for test</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div#profile&gt;div.profile-photo&gt;img.profile-photo@src</td>
+	<td>/images/user/profile-large/test.png</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;div#profile&gt;div.profile-photo&gt;img.profile-photo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#profile&gt;h3#real_name</td>
+	<td>Real Name:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#profile&gt;div#name_content</td>
+	<td>Someone Somewhere</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#profile&gt;h3#about</td>
+	<td>About Me:</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#profile&gt;div#about_content</td>
+	<td>Would rather not say.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#profile&gt;div#details</td>
+	<td>Login to see relationships.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#profile&gt;div#details&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div#profile&gt;div#details&gt;a@href</td>
+	<td>/site/login</td>
+</tr>
+<!--Test defaults for real name and about me.-->
+<tr>
+	<td>open</td>
+	<td>/test2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#profile&gt;div#name_content</td>
+	<td>This user has not entered their real name.</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div#profile&gt;div#about_content</td>
+	<td>This user has not entered any details.</td>
+</tr>
+</tbody></table>
+</body>
+</html>

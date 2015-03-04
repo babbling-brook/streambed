@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream admin -create</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream admin -create</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/create</td>
+	<td></td>
+</tr>
+<!--Check initial state-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Create Stream</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;div.form&gt;form#stream_form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#stream_form&gt;p.note</td>
+	<td>Fields with * are required.</td>
+</tr>
+<!--... name field-->
+<tr>
+	<td>assertText</td>
+	<td>css=#stream_form&gt;div:nth(0)&gt;label</td>
+	<td>Name *</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#stream_form&gt;div:nth(0)&gt;input#Stream_name</td>
+	<td>Name *</td>
+</tr>
+<!--... help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#stream_form&gt;div:nth(0)&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Name</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Your stream*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... description field-->
+<tr>
+	<td>assertText</td>
+	<td>css=#stream_form&gt;div:nth(1)&gt;label</td>
+	<td>Description*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#stream_form&gt;div:nth(1)&gt;textarea#StreamExtra_description</td>
+	<td></td>
+</tr>
+<!--... help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#stream_form&gt;div:nth(1)&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>This should describe*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... kind field-->
+<tr>
+	<td>assertText</td>
+	<td>css=#stream_form&gt;div:nth(2)&gt;label</td>
+	<td>Select the kind of stream*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#stream_form&gt;div:nth(2)&gt;select#Stream_kind</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#stream_form&gt;div:nth(2)&gt;select#Stream_kind&gt;option:nth(0)</td>
+	<td>standard</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#stream_form&gt;div:nth(2)&gt;select#Stream_kind&gt;option:nth(0)</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#stream_form&gt;div:nth(2)&gt;select#Stream_kind&gt;option:nth(1)</td>
+	<td>user</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#stream_form&gt;div:nth(2)&gt;select#Stream_kind&gt;option:nth(1)</td>
+	<td>52</td>
+</tr>
+<!--... help icon-->
+<tr>
+	<td>click</td>
+	<td>css=#stream_form&gt;div:nth(2)&gt;label&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Kind</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Some streams*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--... fields note and button-->
+<tr>
+	<td>assertText</td>
+	<td>css=#stream_form&gt;div:nth(3)</td>
+	<td>Fields <br /> Fields can be added to the stream once it has been created.</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>css=#stream_form&gt;div:nth(4)&gt;input</td>
+	<td>Create</td>
+</tr>
+<!--... Side nav-->
+<tr>
+	<td>assertVisible</td>
+	<td>css=#sidebar&gt;div.portlet-decoration&gt;div.portlet-title</td>
+	<td>Operations</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(0)&gt;a</td>
+	<td>List</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(1)&gt;a</td>
+	<td>Create</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(0)&gt;a@href</td>
+	<td>/test/stream/</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(1)&gt;a@href</td>
+	<td>/test/stream/create</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(0)&gt;a@title</td>
+	<td>View a list of all streams by this user</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(1)&gt;a@title</td>
+	<td>Create a new stream</td>
+</tr>
+<!--Errors-->
+<!--... name error-->
+<tr>
+	<td>type</td>
+	<td>css=#Stream_name</td>
+	<td>$</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#stream_form&gt;div:nth(4)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#stream_form&gt;div:nth(1)&gt;div.errorMessage</td>
+	<td>Name can only contain lower case letters, digits 0 to 9 and spaces.It cannot start or end with a space and double spaces are not allowed.</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#stream_form&gt;div:nth(1)&gt;div.errorMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#Stream_name</td>
+	<td>test&nbsp;&nbsp;double</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#Stream_name</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#stream_form&gt;div:nth(5)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td>2000</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#stream_form&gt;div:nth(1)&gt;div.errorMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#Stream_name</td>
+	<td> start space</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#Stream_name</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#stream_form&gt;div:nth(5)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td>2000</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#stream_form&gt;div:nth(1)&gt;div.errorMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#Stream_name</td>
+	<td>end space </td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#Stream_name</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#stream_form&gt;div:nth(5)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td>2000</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#stream_form&gt;div:nth(1)&gt;div.errorMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#Stream_name</td>
+	<td>test stream</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=#Stream_name</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#stream_form&gt;div:nth(5)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td>2000</td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#stream_form&gt;div:nth(1)&gt;div.errorMessage</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#stream_form&gt;div:nth(1)&gt;div.errorMessage</td>
+	<td>You already have an stream with that name. Please try another.</td>
+</tr>
+<!--Create a standard stream-->
+<tr>
+	<td>type</td>
+	<td>css=#Stream_name</td>
+	<td>test valid create name 8</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#StreamExtra_description</td>
+	<td>A description. so. some more ... . some more ... . some more ... . some more ... . some more ... . some more ... . some more ... . some more ... . some more ... . some more ... . some more ... me more ... </td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#stream_form&gt;div:nth(5)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Update Stream</td>
+</tr>
+<!--... Check new stream is correct.-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(0)</td>
+	<td>Name: test valid create name 8</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(1)</td>
+	<td>Version: 0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(2)</td>
+	<td>Date Created: 201*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(3)</td>
+	<td>Status: Private</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(4)</td>
+	<td>Kind of Stream: standard</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#stream_fields&gt;div.list-view&gt;div.items&gt;div:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#stream_fields&gt;div.list-view&gt;div.items&gt;div:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#stream_fields&gt;div.list-view&gt;div.items&gt;div:nth(2)</td>
+	<td></td>
+</tr>
+<!--Check that the meta stream has been created.-->
+<!--... Need to pause for the cooldown to take effect.-->
+<tr>
+	<td>pause</td>
+	<td>60000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/stream/view/test valid create name 8/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#view_details&gt;tbody&gt;tr:nth(8)&gt;td</td>
+	<td>/offer/cobaltcascade.localhost/*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#view_details&gt;tbody&gt;tr:nth(8)&gt;td&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;.title&gt;.field-1</td>
+	<td>Meta conversation for the test valid create name 8 stream</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-label-3</td>
+	<td>Posts in this stream</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-3</td>
+	<td>http://cobaltcascade.localhost/test/stream/offers/test valid create name 8/0/0/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-3@href</td>
+	<td>http://cobaltcascade.localhost/test/stream/offers/test%20valid%20create%20name%208/0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-label-4</td>
+	<td>View stream details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-4</td>
+	<td>http://cobaltcascade.localhost/test/stream/view/test valid create name 8/0/0/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-4@href</td>
+	<td>http://cobaltcascade.localhost/test/stream/view/test%20valid%20create%20name%208/0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-label-5</td>
+	<td>Description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-5</td>
+	<td>A description. so. some more ... . some more ... .*</td>
+</tr>
+<!--Create a user stream-->
+<tr>
+	<td>open</td>
+	<td>/test/stream/create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#Stream_name</td>
+	<td>test valid user stream</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#Stream_kind</td>
+	<td>user</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#stream_form&gt;div:nth(4)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Update Stream</td>
+</tr>
+<!--... Check new stream is correct.-->
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(0)</td>
+	<td>Name: test valid user stream</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(1)</td>
+	<td>Version: 0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(2)</td>
+	<td>Date Created: 201*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(3)</td>
+	<td>Status: Private</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;div:nth(4)</td>
+	<td>Kind of Stream: user</td>
+</tr>
+<!--check fields are link and main value-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=div.field-container</td>
+	<td>link*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit_fields_tab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=div#stream_form&gt;div#edit_fields_plane&gt;div#no_stream_fields</td>
+	<td>Stream fields are not editable if the kind of stream is set to 'user'.</td>
+</tr>
+<!--check that add new field button is not present-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#add_new_field</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

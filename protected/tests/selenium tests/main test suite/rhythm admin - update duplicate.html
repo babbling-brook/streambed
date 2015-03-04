@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>stream admin - update duplicate</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">stream admin - update duplicate</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test/rhythm/test+kindred+rhythm1/0/0/0/update</td>
+	<td></td>
+</tr>
+<!--New name-->
+<tr>
+	<td>type</td>
+	<td>css=#duplicate_name</td>
+	<td>test rhythm dupe</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#duplicate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div:nth(6)&gt;div#duplicate_success</td>
+	<td>Rhythm duplicated. Edit it here.</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div:nth(6)&gt;div#duplicate_success&gt;a@href</td>
+	<td>/test/rhythm/test rhythm dupe/0/0/0/update</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div:nth(6)&gt;div#duplicate_success&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div:nth(0)</td>
+	<td>Name: test rhythm dupe</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div:nth(1)</td>
+	<td>Version: 0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div:nth(2)</td>
+	<td>Date Created: *</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div:nth(3)</td>
+	<td>Status: Private</td>
+</tr>
+<!--Check edit fields are available.-->
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=#content&gt;div.form:nth(0)&gt;form&gt;div#no_editing</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#RhythmExtra_description@disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#RhythmExtra_description</td>
+	<td>The first test kindred rhythm</td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=#RhythmExtra_full@disabled</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>window.BabblingBrook.Client.Component.CodeMirror.getValue();</td>
+	<td>function(){BabblingBrook.Kindred.setScore(5,sa*</td>
+</tr>
+<!--Check that the meta stream has been created.-->
+<tr>
+	<td>open</td>
+	<td>/test/rhythm/view/test rhythm dupe/0/0/0</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#view_details&gt;tbody&gt;tr:nth(7)&gt;td</td>
+	<td>/offer/cobaltcascade.localhost/*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#view_details&gt;tbody&gt;tr:nth(7)&gt;td&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;.title&gt;.field-1</td>
+	<td>Discussion about the test rhythm dupe Rhythm</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-label-3</td>
+	<td>View Rhythm details</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-3</td>
+	<td>http://cobaltcascade.localhost/test/rhythm/view/test rhythm dupe/0/0/0</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-3@href</td>
+	<td>http://cobaltcascade.localhost/test/rhythm/view/test%20rhythm%20dupe/0/0/0</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-label-4</td>
+	<td>Description</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;.offer-content-container&gt;.field-4</td>
+	<td>The first test kindred rhythm</td>
+</tr>
+</tbody></table>
+</body>
+</html>

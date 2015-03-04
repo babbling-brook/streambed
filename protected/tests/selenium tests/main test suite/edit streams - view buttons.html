@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>edit streams - view buttons</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">edit streams - view buttons</td></tr>
+</thead><tbody>
+<!--Check that the view links in the various search and suggestion options work. Tested seperately as have to repeatedly leave the page in order to check the link works due to callbacks.-->
+<!--Tested seperately as have to repeatedly leave the page in order to check the link works due to callbacks.-->
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<!--Filter suggestion view link-->
+<tr>
+	<td>open</td>
+	<td>/user/streams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#edit_streams&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(0)&gt;a.details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#suggest_new_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#suggest_new_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#filter_suggestions&gt;tr:nth(0)&gt;td:nth(1)&gt;a.view-suggestion-filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#filter_suggestions&gt;tr:nth(0)&gt;td:nth(1)&gt;a.view-suggestion-filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2</td>
+	<td>View Rhythm</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#view_details&gt;tbody&gt;tr:nth(0)&gt;td</td>
+	<td>test filter suggestion</td>
+</tr>
+<!--Filter search view link-->
+<tr>
+	<td>open</td>
+	<td>/user/streams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#edit_streams&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(0)&gt;a.details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#search_new_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#search_new_filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr:nth(0)&gt;td:nth(4)&gt;a:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#selector_filter&gt;tbody&gt;tr:nth(0)&gt;td:nth(4)&gt;a:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2</td>
+	<td>View Rhythm</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#view_details&gt;tbody&gt;tr:nth(0)&gt;td</td>
+	<td>test a second filter suggestion</td>
+</tr>
+<!--Moderation suggestions view link-->
+<tr>
+	<td>open</td>
+	<td>/user/streams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#edit_streams&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(0)&gt;a.details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#suggest_new_moderation_ring</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#suggest_new_moderation_ring</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#moderation_suggestions&gt;tr:nth(0)&gt;td:nth(1)&gt;a.view-suggestion-filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#moderation_suggestions&gt;tr:nth(0)&gt;td:nth(1)&gt;a.view-suggestion-filter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Ring profile for test suggested ring</td>
+</tr>
+<!--Moderation search view link-->
+<tr>
+	<td>open</td>
+	<td>/user/streams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#edit_streams&gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#edit_streams&gt;li:nth(0)&gt;a.details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#search_new_moderation_ring</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#search_new_moderation_ring</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#selector_moderation_ring_search&gt;tbody&gt;tr:nth(0)&gt;td:nth(2)&gt;a:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#selector_moderation_ring_search&gt;tbody&gt;tr:nth(0)&gt;td:nth(2)&gt;a:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Ring profile for test ring</td>
+</tr>
+<!--Stream suggestions view link-->
+<tr>
+	<td>open</td>
+	<td>/user/streams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#stream_suggestions&gt;tr:nth(0)&gt;td:nth(1)&gt;a:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#stream_suggestions&gt;tr:nth(0)&gt;td:nth(1)&gt;a:nth(0)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2</td>
+	<td>View Stream</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#view_details&gt;tbody&gt;tr:nth(0)&gt;td</td>
+	<td>test suggested stream</td>
+</tr>
+<!--Stream search view link-->
+<tr>
+	<td>open</td>
+	<td>/user/streams</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#choose_stream&gt;li&gt;a.search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#choose_stream&gt;li&gt;a.search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#selector_stream&gt;tbody&gt;tr:nth(0)&gt;td:nth(4)&gt;a:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#selector_stream&gt;tbody&gt;tr:nth(0)&gt;td:nth(4)&gt;a:nth(1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2</td>
+	<td>View Stream</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#view_details&gt;tbody&gt;tr:nth(0)&gt;td</td>
+	<td>comments</td>
+</tr>
+</tbody></table>
+</body>
+</html>

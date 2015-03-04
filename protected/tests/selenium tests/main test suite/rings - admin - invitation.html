@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>rings - admin - invitation</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">rings - admin - invitation</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/test ring/ring/update</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=#RingForm_admin_type</td>
+	<td>By invitation</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=form#create_ring&gt;div:nth(11)&gt;input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Update Ring test ring</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#sidebar&gt;div.portlet-content&gt;ul&gt;li:nth(4)&gt;a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;h2</td>
+	<td>Send an invitation</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;#send_invitation&gt;div:nth(0)</td>
+	<td>Send an invitation to join the test ring Ring as a admin*</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;#send_invitation&gt;form&gt;div.form&gt;div.row&gt;label</td>
+	<td>User to send an invitation to*</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;#send_invitation&gt;form&gt;div.form&gt;div.row&gt;input#invite</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#content&gt;#send_invitation&gt;form&gt;div.form&gt;div.row&gt;a#select_user</td>
+	<td>select</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#content&gt;#send_invitation&gt;form&gt;div.form&gt;div.row&gt;input#invite</td>
+	<td>test_not_a_user</td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=#content&gt;#send_invitation&gt;form&gt;div.form&gt;div.row&gt;input#send</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;#send_invitation&gt;form&gt;div.form&gt;div.row&gt;input#send</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;#send_invitation&gt;form&gt;div.form&gt;div.row&gt;div#user_error</td>
+	<td>Not a valid user. Please try again.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#content&gt;#send_invitation&gt;form&gt;div.form&gt;div.row&gt;input#invite</td>
+	<td>cobaltcascade.localhost/test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;#send_invitation&gt;form&gt;div.form&gt;div.row&gt;input#send</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;#send_invitation&gt;form&gt;div.form&gt;div.row&gt;div#user_error</td>
+	<td>This user is already an administrator of this ring.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#invite</td>
+	<td>cobaltcascade.localhost/test3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;#send_invitation&gt;form&gt;div.form&gt;div.row&gt;input#send</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#content&gt;#send_invitation&gt;form&gt;div.form&gt;div.row&gt;span.success</td>
+	<td>Invitation sent to cobaltcascade.localhost/test3</td>
+</tr>
+<!--... invite help-->
+<tr>
+	<td>click</td>
+	<td>css=#content&gt;#send_invitation&gt;div&gt;span.help-icon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar</td>
+	<td>Invite Administrator</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-content</td>
+	<td>Enter the full username*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=body&gt;.ui-dialog&gt;.ui-dialog-titlebar&gt;a.ui-dialog-titlebar-close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=body&gt;.ui-dialog</td>
+	<td></td>
+</tr>
+<!--@todo test the invitation when personal messaging built-->
+</tbody></table>
+</body>
+</html>

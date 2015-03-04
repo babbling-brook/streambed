@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cobaltcascade.localhost/" />
+<title>offer comment updates</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">offer comment updates</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/site/logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#top_nav&gt;ul&gt;li&gt;a</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/site/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#login_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#username</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#client_login&gt;div.submit&gt;input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>css=#password_constructor_has_run</td>
+	<td>true</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=#password</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input#login_submit</td>
+	<td>Login</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=#page&gt;#top_nav&gt;ul&gt;li:last&gt;a</td>
+	<td>Logout *</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/tests/restore</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/offer/cobaltcascade.localhost/1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;ul.children&gt;li.offer:nth(1)&gt;ul.children&gt;li.offer:nth(0)&gt;ul.children &gt;li:nth(0)</td>
+	<td></td>
+</tr>
+<!--Check updates not present-->
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=.offer[data-offer-id=40]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=.offer[data-offer-id=38]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=.offer[data-offer-id=43]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=.offer[data-offer-id=42]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=.offer[data-offer-id=45]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=.offer[data-offer-id=46]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=.offer[data-offer-id=44]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=.offer[data-offer-id=41]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=.offer[data-offer-id=49]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementNotPresent</td>
+	<td>css=.offer[data-offer-id=39]</td>
+	<td></td>
+</tr>
+<!--trigger updates-->
+<tr>
+	<td>runScript</td>
+	<td>$.post('/tests/TriggerCommentsUpdateTest',{},function(data){console.debug('posted');});</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForVisible</td>
+	<td>css=#root_offer&gt;div.new-offers-link&gt;span.show-new-offers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;div.new-offers-link&gt;span.show-new-offers</td>
+	<td>show new posts</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;div.new-offers-link&gt;span.show-new-offers@class</td>
+	<td>*link*</td>
+</tr>
+<!--Check comments have not been added already-->
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=40]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=38]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=43]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=42]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=45]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=46]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=44]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=41]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=49]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=39]</td>
+	<td></td>
+</tr>
+<!--Show the top child offers-->
+<tr>
+	<td>click</td>
+	<td>css=#root_offer&gt;div.new-offers-link&gt;span.show-new-offers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=40]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=38]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=39]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=43]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=42]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=45]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=46]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=44]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=41]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=49]</td>
+	<td></td>
+</tr>
+<!--Show nested offers.-->
+<tr>
+	<td>click</td>
+	<td>css=.offer[data-offer-id=48]&gt;div.new-offers-link&gt;span.show-new-offers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=40]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=38]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=39]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=49]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=43]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=42]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=45]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=46]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=44]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=41]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.offer[data-offer-id=10]&gt;div.new-offers-link&gt;span.show-new-offers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=40]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=38]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=39]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=49]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=43]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=42]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=41]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=45]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=46]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=44]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.offer[data-offer-id=14]&gt;div.new-offers-link&gt;span.show-new-offers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=40]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=38]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=39]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=49]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=43]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=42]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=41]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=45]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=44]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertNotVisible</td>
+	<td>css=.offer[data-offer-id=46]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=.offer[data-offer-id=16]&gt;div.new-offers-link&gt;span.show-new-offers</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=40]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=38]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=39]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=49]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=43]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=42]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=41]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=45]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=44]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertVisible</td>
+	<td>css=.offer[data-offer-id=46]</td>
+	<td></td>
+</tr>
+<!--Check that everything is in the right place-->
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)@data-offer-id</td>
+	<td>40</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(1)@data-offer-id</td>
+	<td>38</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(2)@data-offer-id</td>
+	<td>39</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(3)@data-offer-id</td>
+	<td>9</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(3)&gt;ul.children&gt;li:nth(0)@data-offer-id</td>
+	<td>47</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(3)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)@data-offer-id</td>
+	<td>48</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(3)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)&gt;ul.children&gt;li:nth(0)@data-offer-id</td>
+	<td>49</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)@data-offer-id</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)&gt;ul.children&gt;li:nth(0)@data-offer-id</td>
+	<td>43</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)&gt;ul.children&gt;li:nth(1)@data-offer-id</td>
+	<td>42</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)&gt;ul.children&gt;li:nth(2)@data-offer-id</td>
+	<td>41</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)&gt;ul.children&gt;li:nth(3)@data-offer-id</td>
+	<td>14</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)&gt;ul.children&gt;li:nth(3)&gt;ul.children&gt;li:nth(0)@data-offer-id</td>
+	<td>45</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)&gt;ul.children&gt;li:nth(3)&gt;ul.children&gt;li:nth(1)@data-offer-id</td>
+	<td>44</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)&gt;ul.children&gt;li:nth(3)&gt;ul.children&gt;li:nth(2)@data-offer-id</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)&gt;ul.children&gt;li:nth(3)&gt;ul.children&gt;li:nth(2)&gt;ul.children&gt;li:nth(0)@data-offer-id</td>
+	<td>46</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(4)&gt;ul.children&gt;li:nth(4)@data-offer-id</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(5)@data-offer-id</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(6)@data-offer-id</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(7)@data-offer-id</td>
+	<td>13</td>
+</tr>
+<!--Check that the content of an offer update is correct.-->
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;div.title&gt;.field-1</td>
+	<td>test offer 40 - comment 11</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>css=#root_offer&gt;ul.children&gt;li:nth(0)&gt;div.info&gt;a.username</td>
+	<td>test</td>
+</tr>
+</tbody></table>
+</body>
+</html>
