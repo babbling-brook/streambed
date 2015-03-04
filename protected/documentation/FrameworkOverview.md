@@ -15,7 +15,7 @@ Javascript is using a homebrew framework that is essentially based on the classi
 
 ### File structure
 
-'''
+```
 /assets                         // This is a yii folder which is not being used. Just leave it alone.
 
 /css                            // All CSS is in here except for theme CSS (/themes/[them-name]/css).
@@ -205,4 +205,4 @@ Javascript is using a homebrew framework that is essentially based on the classi
                                     // is not included.
 
 /index.php                          // Bootstrap script. The is the access point for all server side code.
-'''
+```
