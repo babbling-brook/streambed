@@ -199,6 +199,12 @@ The databases and base data will be created.
 
 Now go to http://streambed.localhost and the site should load.
 
+One last task to do. The self signed SSL certificates are loaded in hidden iframes which causes the bad certificate warnings to be hidden. To resolve this go to each sub domain and permanently accept the ssl certificate:
+
+* https://streambed.localhost
+* https://domus.streambed.localhost
+* https://scientia.streambed.localhost
+
 
 ### Further documentation
 
