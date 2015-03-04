@@ -54,7 +54,7 @@ return
                 'host' => 'localhost',
                 'dbname' => 'streambed',
                 'emulatePrepare' => true,
-                'username' => '',
+                'username' => 'ddd',
                 'password' => '',
                 'charset' => 'utf8',
                 'tablePrefix' => '',
