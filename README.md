@@ -90,7 +90,7 @@ From this base domain you will need to setup your hosts file to direct the follo
 #### Apache
 
 Apache will need setting up to direct these to the installation folder.
-Here is an example virtual host.
+Here is an example virtual host for the base domain. Duplicate this for each subdomain.
 ```
 <VirtualHost *:80>
   # Admin email, Server Name (domain name), and any aliases
@@ -161,18 +161,19 @@ You need to enter the details three times; one for each database connection.
 
 The following three databases will be created. If you want to change the names of these databases you can edit them in
 /protected/config/server.php
-
+```
 streambed
 streambed_test
 streambed_log
+```
 
 ### Ready to roll
 
-You should now be ready to roll. Go to streambed.localhost/site/setup
+You should now be ready to roll. Go to http://streambed.localhost/site/setup
 
 The databases and base data will be created.
 
-Now go to streambed.localhost and the site should load.
+Now go to http://streambed.localhost and the site should load.
 
 
 ### Further documentation
@@ -184,8 +185,8 @@ project. Refer to this when ever you want to find out where something is or wher
 
 ##### Coding conventions
 
-There is a [full set of coding conventions](/protected/documentation/coding_conventions) and [a guide to using PHP CodeSniffer](/protected/documentation/CodeSniffer.md) for automated detections of bad code.
+There is a [full set of coding conventions](/protected/documentation/coding_conventions) and [a guide to using PHP CodeSniffer](/protected/documentation/coding_conventions/code_sniffer_standards/setting_up_code_sniffer.md) for automated detections of bad code.
 
 ##### Testing
 
-There is [an overview of testing procedures here](/protected/documentation/Testing).
+There is [an overview of testing procedures here](/protected/documentation/Testing.md).
