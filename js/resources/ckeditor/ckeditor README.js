@@ -17,7 +17,7 @@
  * > sudo git config --global user.name "YOUR GIT USERNAME"
  * > sudo git config --global user.email "YOUR GIT EMAIL ADDRESS"
  *
- * Fork the CKEditor github project from the Babbling Brook CKEDitor fork at https://github.com/skywickenden/ckeditor-dev/
+ * Fork the CKEditor github project from the Babbling Brook CKEDitor fork at https://github.com/babbling-brook/ckeditor-dev/
  *
  * (Make a new skin and commit it to your fork)
  *
