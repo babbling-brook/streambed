@@ -101,6 +101,15 @@ Here is an example virtual host for the base domain. Duplicate this for each sub
   DirectoryIndex index.php
   DocumentRoot "/path/to/project/root/"
 
+	<Directory "/path/to/project/root/">
+		SSLOptions +StdEnvVars
+		Options Indexes FollowSymLinks
+		Order Deny,Allow
+		Deny from all
+		Allow from cobaltcascade.localhost
+		AllowOverride All
+	</Directory>  
+
   # Log file locations
   LogLevel warn
   ErrorLog  "/path/to/log/folder/log/error.log"
