@@ -99,14 +99,30 @@ Here is an example virtual host for the base domain. Duplicate this for each sub
 
   # Index file and Document Root (where the public files are located)
   DirectoryIndex index.php
-  DocumentRoot /path/to/project/root/
+  DocumentRoot "/path/to/project/root/"
+
+  <Directory "/path/to/project/root/">
+    SSLOptions +StdEnvVars
+    Options Indexes FollowSymLinks
+    Order Deny,Allow
+    Allow from all
+    AllowOverride All
+  </Directory>  
 
   # Log file locations
   LogLevel warn
-  ErrorLog  /path/to/log/folder/log/error.log
-  CustomLog /path/to/log/folder/access.log combined
+  ErrorLog  "/path/to/log/folder/log/error.log"
+  CustomLog "/path/to/log/folder/access.log combined"
 </VirtualHost>
 ```
+
+Notes: 
+
+If you already have any Apache VirtualHost settings that point directly at 127.0.0.1 then you will need to use
+```
+<VirtualHost 127.0.0.1:80>
+```
+If you have multiple sites running on Apache then you will want to tighten the security of the Directory Allow directive.
 
 #### SSL certificates.
 
@@ -123,15 +139,15 @@ Apache config files will also need creating for them. EG
 
   # Index file and Document Root (where the public files are located)
   DirectoryIndex index.php
-  DocumentRoot /path/to/project/root/
+  DocumentRoot "/path/to/project/root/"
 
   # Log file locations
   LogLevel warn
-  ErrorLog  /path/to/log/folder/log/error.log
-  CustomLog /path/to/log/folder/access.log combined
+  ErrorLog  "/path/to/log/folder/log/error.log"
+  CustomLog "/path/to/log/folder/access.log" combined
 
-  SSLCertificateFile /etc/apache2/ssl/streambed.localhost.cert
-  SSLCertificateKeyFile /etc/apache2/ssl/streambed.localhost.key
+  SSLCertificateFile "/path/to/certificate/streambed.localhost.cert"
+  SSLCertificateKeyFile "/path/to/key/streambed.localhost.key"
 </VirtualHost>
 ```
 
