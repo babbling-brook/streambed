@@ -1,0 +1,2 @@
+"object"!=typeof BabblingBrook.Client.Page.ManageRhythm&&(BabblingBrook.Client.Page.ManageRhythm={}),BabblingBrook.Client.Page.ManageRhythm.View=function(){"use strict";return{construct:function(){BabblingBrook.Client.Component.CodeMirror.create()}}}(),jQuery(function(){"use strict";BabblingBrook.Client.Page.ManageRhythm.View.construct()});
+//# sourceMappingURL=/js/Minified/Client/Page/ManageRhythm/View.js.map

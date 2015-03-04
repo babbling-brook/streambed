@@ -1,0 +1,2 @@
+window.onload=function(){var e=document.getElementById("client_domain").value,t=document.getElementById("secret").value,n=document.getElementById("remember_time").value,m="https://"+e+"/site/loggedin?secret="+t+"&remember_time="+n;window.location=m};
+//# sourceMappingURL=/js/Minified/Public/Redirect.js.map

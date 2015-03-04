@@ -1,0 +1,2 @@
+BabblingBrook.Client.Page.Mail.GlobalSent=function(){"use strict";return{construct:function(){BabblingBrook.Client.Page.Mail.changeType("global_sent_private")}}}(),jQuery(function(){"use strict";BabblingBrook.Client.Page.Mail.GlobalSent.construct()});
+//# sourceMappingURL=/js/Minified/Client/Page/Mail/GlobalSent.js.map

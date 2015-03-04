@@ -1,0 +1,2 @@
+BabblingBrook.Client.Page.Mail.GlobalInbox=function(){"use strict";return{construct:function(){BabblingBrook.Client.Page.Mail.changeType("global_all")}}}(),jQuery(function(){"use strict";BabblingBrook.Client.Page.Mail.GlobalInbox.construct()});
+//# sourceMappingURL=/js/Minified/Client/Page/Mail/GlobalInbox.js.map

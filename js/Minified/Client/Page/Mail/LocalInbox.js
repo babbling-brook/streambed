@@ -1,0 +1,2 @@
+BabblingBrook.Client.Page.Mail.LocalInbox=function(){"use strict";return{construct:function(){BabblingBrook.Client.Page.Mail.changeType("local_all")}}}(),jQuery(function(){"use strict";BabblingBrook.Client.Page.Mail.LocalInbox.construct()});
+//# sourceMappingURL=/js/Minified/Client/Page/Mail/LocalInbox.js.map

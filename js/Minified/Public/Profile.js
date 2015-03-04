@@ -1,0 +1,2 @@
+"object"!=typeof BabblingBrook&&(BabblingBrook={}),"object"!=typeof BabblingBrook.Public&&(BabblingBrook.Public={}),BabblingBrook.Public.Login=function(){"use strict";return{construct:function(){}}}(),window.onload=function(){BabblingBrook.Public.Login.construct(),BabblingBrook.Public.Resize.construct()};
+//# sourceMappingURL=/js/Minified/Public/Profile.js.map

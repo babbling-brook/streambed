@@ -1,0 +1,2 @@
+BabblingBrook.Client.Page.Mail.Thread=function(){"use strict";return{construct:function(){}}}(),jQuery(function(){"use strict";BabblingBrook.Client.Page.Mail.Thread.construct()});
+//# sourceMappingURL=/js/Minified/Client/Page/Mail/Thread.js.map
