@@ -1,0 +1,51 @@
+/**
+ * Copyright 2015 Sky Wickenden
+ * 
+ * This file is part of StreamBed.
+ * An implementation of the Babbling Brook Protocol.
+ * 
+ * StreamBed is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option any later version.
+ * 
+ * StreamBed is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+/* Styles for public post tree pages
+ * See shared/tree.css for styles shared between this and the authenticated user version of this page.
+ * See authenticated/pages/tree.css for styles shared between this and the authenticated user version of this page.
+*/
+
+#tree_root {
+    overflow: auto;
+}
+
+.post>.title>a {
+    text-decoration: none;
+    font-size: 2em;
+    color: #3c4c78;
+}
+
+
+#tree_root .children .info {
+    visibility: visible;
+}
+
+li.post {
+    margin-top: 1em;
+}
+
+li.closed>div, li.closed>ul {
+    display: none;
+}
+
+li.closed>div.info {
+    display: block;
+}

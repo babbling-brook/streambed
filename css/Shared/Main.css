@@ -1,0 +1,371 @@
+/**
+ * Copyright 2015 Sky Wickenden
+ *
+ * This file is part of StreamBed.
+ * An implementation of the Babbling Brook Protocol.
+ *
+ * StreamBed is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option any later version.
+ *
+ * StreamBed is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+/* Generic css loaded by both public and authenticated pages. */
+
+
+html {
+    height:100%;    /* Required so that the body and article can also be set to 100%. */
+}
+
+body {
+    font-size: 110%; /* 14px */
+    color: #2d2d2d;
+    font-family: "Noto Sans", Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+    height:100%;     /* Required so that the article can also be set to 100%. */
+}
+
+article {
+    margin: 1em;
+    min-height: 100%;    /* Required so that floats are not cut off if the page has no content. */
+}
+
+/* Apply to anything that needs the text to not become to wide that it is unreadable. */
+.readable-text {
+    max-width: 38em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a, .link { /* .link Makes any element appear as if it is a link */
+    text-decoration: none;
+    color: #1d4173;
+    cursor: pointer;
+}
+
+a:visited, .link:visited {
+    color: #1d4173;
+}
+
+a:hover, .link:hover {
+    color: #4B72A7;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+code, .code {
+    display: block;
+    padding: 0.5em;
+    background-color: #F2F7FF;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #A3CAFF;
+    font-family: monospace;
+    white-space: pre;
+}
+
+/* Used to style the display of error text. Change font size with class larger if needed. */
+.error, .errorMessage {
+    color: #dd2200;
+}
+
+/* Override the red error color on input fields - this should be the body color */
+input.error {
+    color: #2D2D2D;
+}
+
+/* Apply to elements that should have white text and links. */
+.alt-text, .alt-text a , .alt-text .link{
+    color: #fff;
+    text-decoration: none;
+}
+
+.alt-text a:hover, .alt-text .link:hover {
+    color: #c7d7e1;
+}
+
+/* Used to add a margin to the bottom of a bock of content. */
+.end {
+    margin-bottom: 1em;
+    display: block;
+}
+
+/* Gives blank lines at least 1 line height. */
+.line {
+    min-height: 1.1em;
+}
+
+/* For when a line needs to be guaranteed a little more space. */
+.large-line {
+    min-height: 1.5em;
+}
+
+/* An arbritary width for a span to indicate that something is there. */
+.something {
+    display: inline-block;
+    min-width: 5em;
+    min-height: 1.1em;
+}
+
+/* Generic paging spacers */
+.page-links a{
+    margin: 0 0.5em;
+}
+.page-links a:first-child{
+    margin-left: 0;
+}
+
+
+/* Hides any displayed elements. Used instead of inline display:none;
+   Don't use !important when other styles over ride this. Instead recreate hide in that style sheet.
+*/
+.hide {
+    display : none;
+}
+
+/* Hide while still taking up space. */
+.hidden {
+    visibility:hidden;
+}
+
+/* Reshow an element that has been hidden with a visibility style. */
+.visible {
+    visibility:visible;
+}
+
+/* Float to the left */
+.left {
+    float: left;
+    margin-right: 1em;
+}
+
+/* Used to highlight a label when text follows on in the same line. */
+.inline-label {
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Styles a div as a disabled textbox entry*/
+.disabled {
+    font-weight: bold;
+    color: #555;
+}
+
+.hint {
+    font-size: 0.75em;
+}
+
+/* A standard button. <input>, <button> and <a> elements can be restyled with this. */
+.standard-button {
+    background-color: #4f76aa;
+    border-color: #476a99 #476a99 #3b587f #3b587f;
+    border-radius: 0.25em;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.2);
+    line-height: 1em;
+    display: inline-block;
+    padding: 0.35em 1em;
+    margin: 0 2em 0 0;
+    color: #ffffff;
+    cursor: pointer;
+    text-shadow: -1px 0 rgba(255, 255, 255, 0.125), 0 1px rgba(255, 255, 255, 0.125), 1px 0 rgba(255, 255, 255, 0.125), 0 -1px rgba(255, 255, 255, 0.125);
+}
+.standard-button:hover {
+    background-color: #355A8C;
+}
+.standard-button.hide {
+    display: none;
+}
+
+/* spacing for a standard block of content */
+.content-block {
+    min-height: 1.5em;
+    overflow: hidden;
+    margin-top: 1.5em;
+    font-size: 1.2em;
+}
+
+/* spacing for a standard block of content. Includes space for block-loading to be applied. */
+.padded-content-block {
+    min-height: 2.5em;
+    overflow: hidden;
+    margin-top: 1.5em;
+    padding: 1em;
+    border-radius: 0.25em;
+    border: 2px solid transparent;
+}
+
+/* spacing for a standard block of content with a background colour */
+.content-block-2 {
+    min-height: 1.5em;
+    overflow: hidden;
+    margin: 2em 0;
+    padding: 1em 2em;
+    border-radius: 0.25em;
+    border: 2px solid transparent;
+    background-color: #C8D8FF;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset, 0px 1px 2px rgba(0, 25, 55, 0.5);
+}
+
+
+/* spacing for a standard block of content with a background colour */
+#modal_content .content-block-2 {
+    min-height: 1em;
+    overflow: visible;
+    margin: 1em 0 0 0;
+    padding: 0;
+    border-radius: 0;
+    border: 2px solid transparent;
+    background-color: #C8D8FF;
+    box-shadow: none;
+    border-width: 0;
+}
+
+#modal_content h2 {
+    display: none;
+}
+
+/* spacing for a standard block of content with a secondary background colour */
+.content-block-3 {
+    background-color: #A6C0FF;
+    border: solid 2px transparent;
+    border-radius: 0.25em;
+    padding: 1em;
+    max-width: 48em;
+    min-width: 28em;
+    margin: 1em 0;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset, 0px 1px 2px rgba(0, 25, 55, 0.5);
+}
+
+/* Applies rounded borders to other content blocks. */
+.round-borders {
+    border-radius: 0.25em;
+}
+
+/* Used in combination with content-block-2 */
+.less-content-margin {
+    margin: 1em 0;
+}
+
+/* Used in combination with content-block-2 to make the top margin smaller. */
+.less-top-margin {
+    margin-top: 1em;
+}
+
+/* Used in combination with content-block-2 to remove the top margin. */
+.no-top-margin {
+    margin-top: 0;
+}
+
+/* Used to add a standard bottom margin to a block element */
+.bottom-margin {
+    margin-bottom: 1em;
+}
+
+/* Used to add a standard bottom padding to a block element */
+.bottom-padding {
+    padding-bottom: 1em;
+}
+
+.clear {
+    clear: both;
+}
+
+/* Standard larger text size used throughout the site */
+.larger {
+    font-size: 1.2em;
+}
+
+/* Make images look like buttons */
+.image-button
+{
+    cursor: pointer;
+}
+
+/* Used when a new sub content block is needed within an existing row class in forms. */
+.internal-row {
+    margin: 0.25em 0;
+}
+
+/* sub heading */
+h3 {
+    margin-top: 2.5em;
+    font-size: 1.5em;
+}
+
+h3.no-top {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+@media only screen and (max-width : 1300px) {
+    #content.page-loading:after {
+        top: -1em;
+    }
+
+    article#content {
+        margin: 0;
+    }
+
+    #content h2 {
+        margin: 0.25em 0.5em 0.25em 0.5em;
+    }
+
+    .content-indent {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
+
+.textbox-loading, .button-loading {
+    border: 1px solid #ff9400;
+    animation-duration: 1s;
+    animation-name: textbox-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: webkit-textbox-loading;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-user-select: none;
+}
+
+@keyframes textbox-loading {
+    0% {
+        border: 1px solid #ff9400;
+    } 50% {
+        border: 1px solid #FFF000;
+    } 100% {
+        border: 1px solid #ff9400;
+    }
+}
+
+@-webkit-keyframes webkit-textbox-loading {
+    0% {
+        border: 1px solid #ff9400;
+    } 50% {
+        border: 1px solid #FFF000;
+    } 100% {
+        border: 1px solid #ff9400;
+    }
+}

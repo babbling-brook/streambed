@@ -1,0 +1,193 @@
+/**
+ * Copyright 2015 Sky Wickenden
+ * 
+ * This file is part of StreamBed.
+ * An implementation of the Babbling Brook Protocol.
+ * 
+ * StreamBed is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option any later version.
+ * 
+ * StreamBed is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+/**
+ * Styles for the js/Client/ListSelector feature.
+ */
+
+table.list-selector {
+    border-collapse: separate;
+    border-spacing: 0;
+    position: relative;
+    table-layout: fixed;
+}
+
+table.list-selector>tbody {
+    position: relative;
+}
+
+table.list-selector.block-loading {
+    border-radius : 0.25em;
+}
+
+table.list-selector td {
+    padding-left: 1em;
+}
+
+table.list-selector>tbody>tr>td {
+   height :2em;
+}
+
+table.list-selector>thead>tr>td {
+    background-color: #B4C2E6;
+    font-weight: bold;
+}
+
+table.list-selector>thead>tr>td:first-child {
+    border-top-left-radius: 0.25em;
+    padding: 1.25em 0 0.5em 2em;
+}
+
+table.list-selector>thead>tr>td:last-child {
+    border-top-right-radius: 0.25em;
+    padding: 0 2em 0 1em;
+}
+
+table.list-selector>tbody>tr>td {
+    background-color: #C8D8FF;
+    vertical-align: middle;
+    padding: 0.125em 0 0.125em 1em;
+}
+
+table.list-selector>tbody>tr>td:first-child {
+    padding: 0.125em 0 0.125em 2em;
+    min-width: 8em;
+    max-width: 50em;
+}
+
+table.list-selector>tbody>tr:first-child>td {
+    padding-top: 0.5em;
+}
+
+table.list-selector>tbody>tr>td:last-child {
+    padding: 0 2em 0 1em;
+    width: 4.5em;
+}
+
+table.list-selector>tfoot>tr>td {
+    background-color: #C8D8FF;
+    padding: 1em 0 1em 1em;
+    vertical-align: middle;
+}
+
+table.list-selector>tfoot>tr>td:first-child {
+    padding: 1em 0 1em 2em;
+}
+
+table.list-selector>tfoot>tr.last-row>td:first-child {
+    border-bottom-left-radius: 0.25em;
+}
+
+table.list-selector>tfoot>tr.last-row>td:first-child {
+    border-bottom-left-radius: 0.25em;
+    padding: 1em 0 1em 2em;
+}
+
+table.list-selector>tfoot>tr.last-row>td:last-child {
+    border-bottom-right-radius: 0.25em;
+}
+
+table.list-selector>tfoot>tr.error>td {
+    padding: 0 0 1em 2em;
+}
+
+table.list-selector>tfoot>tr.error>td:first-child {
+    padding: 0 0 1em 2em;
+}
+
+table.list-selector>tfoot>tr#default_rhythm_search_row>td {
+    padding : 0;
+}
+
+table.list-selector>tfoot>tr#default_rhythm_search_row>td>div.block-loading {
+    padding : 1em;
+    margin : 0 2em 1em 2em;
+    border-radius : 0.25em;
+}
+
+table.list-selector .ui-sortable-placeholder {
+    visibility :visible !important;
+}
+
+table.list-selector .ui-sortable-helper td {
+    background-color: #B7CDFF;
+}
+
+table.list-selector .list-selector-change-version select {
+    width: auto;
+}
+
+table.list-selector .list-selector-change-version {
+    width: 12em;
+}
+
+table.list-selector table.selector {
+    background-color: #B4C2E6;
+    padding : 1em;
+    border-color: #B4C2E6;
+    border-style: solid;
+    border-width: 2px;
+}
+
+table.list-selector>tfoot>tr.list-selector-search-row>td:first-child {
+    padding : 1em;
+}
+
+table.list-selector img.grid_icon.image-button {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+table.list-selector .move-icon {
+    width: auto;
+    height: 1em;
+}
+
+table.list-selector .move-icon:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width : 1300px) {
+    table.list-selector > thead > tr > td:first-child,
+    table.list-selector > thead > tr > td:last-child,
+    table.list-selector > tfoot > tr.last-row > td:first-child,
+    table.list-selector > tfoot > tr.last-row > td:last-child {
+        border-radius: 0;
+    }
+
+    table.list-selector td,
+    table.list-selector > thead > tr > td:last-child{
+        padding-left : 0.5em;
+    }
+
+    table.list-selector > thead > tr > td:first-child,
+    table.list-selector > tbody > tr > td:first-child,
+    table.list-selector > tfoot > tr > td:first-child,
+    table.list-selector > tfoot > tr.last-row > td:first-child {
+        padding-left : 0.5em;
+    }
+
+    table.list-selector > thead > tr > td:last-child,
+    table.list-selector > tbody > tr > td:last-child,
+    table.list-selector > tfoot > tr > td:last-child,
+    table.list-selector > tfoot > tr.last-row > td:last-child {
+        padding-right : 0.5em;
+    }
+}

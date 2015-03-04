@@ -1,0 +1,161 @@
+/**
+ * Copyright 2015 Sky Wickenden
+ * 
+ * This file is part of StreamBed.
+ * An implementation of the Babbling Brook Protocol.
+ * 
+ * StreamBed is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option any later version.
+ * 
+ * StreamBed is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+/*
+ * Styles for displayin the tree of posts for logged in users.
+ * See /shared/tree.css for styles shared between this and the public version of this page.
+ */
+
+/* Child post styles */
+
+#loading_main_post, #tree_root #loading_children {
+    margin: 2em;
+    overflow: auto;
+    border-radius: 0.25em;
+    padding: 1em 2em;
+}
+
+#tree_root ul.post.children {
+    margin-left: 2.5%;   /* Allows margin to stretch for smaller displays */
+    margin-top: 0;
+}
+
+#tree_root .post {
+    margin-bottom: 0;   /* Remove the margin from the normal post css */
+}
+
+#tree_root .child-post {
+    margin-top: 5px;
+}
+
+#tree_root .post>.info {
+    color: #555;
+}
+
+#tree_root ul.post.children .title{
+    margin-top: 0.5em;
+}
+
+#tree_root .children .info {
+    visibility: hidden;
+}
+
+#tree_root .children .info:hover {
+    visibility: visible;
+}
+
+#tree_root .children .username-intro,
+#tree_root .children .username-intro + .username, .children .switch,
+#tree_root .children .info .update{
+    visibility: visible;
+}
+
+#tree_root .post.status-deleted>.top-value>.field>span {
+    opacity:0.5;
+    cursor: default;
+}
+
+#tree_root .post .switch-off {
+    display:none;
+}
+
+#tree_root .post .switch {
+    width: 15px;
+    height: 15px;
+    background-image: url('/images/ui/close-comment.png');
+    background-repeat: no-repeat;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    margin-top: 1px;
+    cursor: pointer;
+}
+
+#tree_root .post .switch-flipped.switch {
+    background-image: url('/images/ui/open-comment.png');
+
+}
+
+#tree_root .textbox-field {
+    display: inline-block;
+    max-width: 37em;
+}
+
+#tree_root .actions {
+    min-height: 1.25em;
+}
+
+#tree_root .reply-post>.make-post, .edit-post>.make-post {
+    margin: 0.5em 0 3em 0;
+    background-color: #C8D8FF;
+    padding: 2em;
+    border-radius: 0.25em;
+}
+
+#tree_root .edit-post, #tree_root .reply-post {
+    overflow: auto;
+}
+
+#tree_root .post-field-1-title>em, #tree_root .post-field-1-title>.field-label-seperator {
+    display: none;
+}
+
+/* Content area of post */
+#tree_root .post-content-container>.field {
+    display: inline-block;
+    clear: both;
+    margin-bottom: 1em;
+}
+
+#tree_root .post-content-container>* {
+}
+
+#tree_root ul.post.children .post-content-container{
+    margin-bottom: 0.5em;
+}
+
+#tree_root .field-label{
+    font-weight: bold;
+    margin-top: 0.375em;
+    display: block;
+}
+
+#tree_root .post-field-title>.field-label {
+    display: inline-block;
+}
+
+/* Styles for post trees that are shared between public and suthenticated pages
+ * See authenticated/pages/tree.css for styles shared between this and the authenticated user version of this page.
+*/
+
+#tree_root {
+    margin: 1em;
+}
+
+.post>.title>a {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: #3c4c78;
+}
+
+#tree_root .post-content-container>.updown {
+    min-height: 2.25em;
+    font-size: 1em;
+}

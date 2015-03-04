@@ -1,0 +1,28 @@
+/* Styles associated with the edit profile page. */
+
+.help-icon {
+    width: 1.1em;
+    height: 1.1em;
+}
+
+#profile_image {
+    width: 5em;
+    height: 5em;
+}
+
+#new_profile_image {
+    height: 5em;
+    /* For some reason 5em does looks a little below the center. */
+    line-height: 4.7em;
+    border: solid 2px #4B72A7;
+    border-radius: 0.25em;
+    width: 32.25em;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    overflow:hidden;
+}
+
+.QqFileuploader-upload-drop-area-active+.QqFileuploader-upload-button {
+    display: none;
+}

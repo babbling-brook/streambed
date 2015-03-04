@@ -1,0 +1,262 @@
+/**
+ * Copyright 2015 Sky Wickenden
+ * 
+ * This file is part of StreamBed.
+ * An implementation of the Babbling Brook Protocol.
+ * 
+ * StreamBed is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option any later version.
+ * 
+ * StreamBed is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+/**
+ * Generic styles used to display a single instance of any post.
+ */
+
+.post>.title>a:visited {
+    text-decoration: none;
+    color: #4c629a;
+}
+
+/* The untaken styles are in shared/post.css */
+.up-paused {
+    background: url(/images/ui/up-arrow-paused.png) no-repeat;
+}
+
+.down-paused {
+    background: url(/images/ui/down-arrow-paused.png) no-repeat;
+    margin: 0.25em 0 0 0;
+}
+
+/* Waiting arrow on a white background */
+.up-waiting {
+    background: linear-gradient(to top,  #FF9400, #FFF000, #FF9400);
+    background-size: cover;
+    position: relative;
+    animation-duration: 0.7s;
+    animation-name: up-arrow-waiting;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 0.7s;
+    -webkit-animation-name: webkit-up-arrow-waiting;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+.up-waiting:after {
+    content: '';
+    background: url(/images/ui/up-arrow-waiting-top.png) no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 1.875em;
+    height: 1.3em;
+}
+
+.new-post .up-waiting:after, .content-block-2 .up-waiting:after  {
+    background: url(/images/ui/up-arrow-waiting-top-blue.png) no-repeat;
+    background-size: cover;
+}
+
+@keyframes up-arrow-waiting {
+    0% {
+        background: linear-gradient(to top,  #FF9400, #FFF000, #FF9400);
+        background-size: cover;
+    } 100% {
+        background: linear-gradient(to top,  #FF9400, #FFF000, #FF9400) 0 -1.25em repeat;
+        background-size: cover;
+    }
+}
+
+@-webkit-keyframes webkit-up-arrow-waiting {
+    0% {
+        background: linear-gradient(to top,  #FF9400, #FFF000, #FF9400);
+        background-size: cover;
+    } 100% {
+        background: linear-gradient(to top,  #FF9400, #FFF000, #FF9400) 0 -1.25em repeat;
+        background-size: cover;
+    }
+}
+
+.down-waiting {
+    background: linear-gradient(to top,  #FF9400,  #FFF000, #FF9400) 0 0 repeat;
+    background-size: cover;
+    position: relative;
+    animation-duration: 0.7s;
+    animation-name: down-arrow-waiting;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 0.7s;
+    -webkit-animation-name: webkit-down-arrow-waiting;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+.down-waiting:after {
+    content: '';
+    background: url(/images/ui/down-arrow-waiting-top.png) no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 1.875em;
+    height: 1.3em;
+}
+
+
+.new-post .down-waiting:after, .content-block-2 .down-waiting:after {
+    background: url(/images/ui/down-arrow-waiting-top-blue.png) no-repeat;
+    background-size: cover;
+}
+
+@keyframes down-arrow-waiting {
+    0% {
+        background: linear-gradient(to top,  #FF9400, #FFF000, #FF9400);
+        background-size: cover;
+    } 100% {
+        background: linear-gradient(to top,  #FF9400, #FFF000, #FF9400) 0 1.25em repeat;
+        background-size: cover;
+    }
+}
+
+@-webkit-keyframes webkit-down-arrow-waiting {
+    0% {
+        background: linear-gradient(to top,  #FF9400, #FFF000, #FF9400);
+        background-size: cover;
+    } 100% {
+        background: linear-gradient(to top,  #FF9400, #FFF000, #FF9400) 0 1.25em repeat;
+        background-size: cover;
+    }
+}
+
+.up-taken {
+    background: url(/images/ui/up-arrow-taken.png) no-repeat;
+}
+
+.down-taken {
+    background: url(/images/ui/down-arrow-taken.png) no-repeat;
+    margin: 0.25em 0 0 0;
+}
+
+/* This class is duplicated in shared/post.css because it must .*/
+/* be after the background is applied in other classes.*/
+.up-arrow, .down-arrow {
+    background-size: cover;
+    width: 1.875em;
+    height: 1.3em;
+    display: inline-block;
+    clear: both;
+    float: left;
+    cursor: pointer;
+}
+
+/* Cancel the left margin of the new posts link so that it appears in line with the arrows. */
+.post>div.new-posts-link {
+    margin: 0;
+    height: 1em;
+}
+
+.cascade-new-top img, .new-posts-link img {
+    width: 1em;
+    height: 1em;
+    margin: 0 0.5em;
+}
+
+.new-post-hide {
+    display: none;
+}
+
+.hide-new-revision {
+    display: none;
+}
+
+
+
+.moderation-submenu>ul {
+    position: absolute;
+    border-radius: 0 0.25em 0.25em 0.25em;
+    border: #fff solid 1px;
+    border-top: 0;
+    background-color: #A6C0FF;
+    z-index: 100;
+    margin-left: -0.5em;
+    margin-top: 0.25em;
+}
+.moderation-submenu>ul {
+    padding: 0.5em;
+    padding-bottom: 0.85em;
+    white-space: nowrap;
+}
+
+.moderation-submenu {
+    height: 1.25em;
+    display: inline-block;
+    position: relative;
+}
+
+.moderation-submenu.open {
+    background-color: #A6C0FF;
+}
+
+/* extend the hight of the shadow */
+.moderation-submenu.open>span:before {
+    content: ' ';
+    position: absolute;
+    top: -0.35em;
+    left: 0;
+    right: 0;
+    height: 0.35em;
+    background-color: #A6C0FF;
+    border-radius: 0.25em 0.25em 0 0;
+    border: #fff solid 1px;
+    border-bottom: 0;
+}
+
+/* match the white border of the drop down */
+.moderation-submenu.open:after {
+    content: ' ';
+    position: absolute;
+    background-color: #fff;
+    left: 0;
+    width: 1px;
+    top: 0;
+    bottom: 0;
+}
+.moderation-submenu.open:before {
+    content: ' ';
+    position: absolute;
+    background-color: #fff;
+    right: 0;
+    width: 1px;
+    top: 0;
+    bottom: 0;
+}
+
+
+/* The .post .link is neccessary for the styles to ovride the post defaults. */
+.post .moderation-submenu .ring-untaken {
+    color: #757575;
+
+}
+
+.moderation-submenu .ring-waiting {
+    color: #ff9400;
+    animation-duration: 1s;
+    animation-name: text-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.post .moderation-submenu .ring-taken {
+    color: #254E84;
+}
+
+.reply-streams>li {
+    padding: 0.25em 0;
+}

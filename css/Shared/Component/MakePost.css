@@ -1,0 +1,164 @@
+/**
+ * Copyright 2015 Sky Wickenden
+ * 
+ * This file is part of StreamBed.
+ * An implementation of the Babbling Brook Protocol.
+ * 
+ * StreamBed is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option any later version.
+ * 
+ * StreamBed is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+/* Styles associated with taking posts.
+ * Arrow styles are in the main post style sheets.
+ */
+
+/* Linear and logarythmic scales */
+.slider {
+    display: block;
+    width: 201px; /* Must be an odd value. */
+}
+
+.linear, .logarithmic{
+    width: 201px; /* Must be an odd value. */
+    border-radius: 0.25em;
+    font-size: 1.4em;
+    height: 0.8em;
+    position: relative;
+    margin-top: 0.25em;
+}
+
+.linear>span, .logarithmic>span {
+    border: 1px solid #4B72A7;
+    border-radius: 0.25em;
+    color: #555555;
+    margin-left: -0.55em;
+    top: -0.2em;
+    height: 1em;
+    position: absolute;
+    width: 1.1em;
+    z-index: 2;
+    background-color: #C8D8FF;
+}
+
+.linear-value{
+    border-width:0px;
+    padding:0 10px;
+}
+
+.linear.paused, .text-value.paused, .logarithmic.paused{
+    border: 2px solid #FF9400;
+}
+
+.linear.waiting, .text-value.waiting, .logarithmic.waiting, .value-list.waiting {
+    border: 2px solid #ff9400;
+    animation-duration: 1s;
+    animation-name: block-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.linear.untaken, .text-value.untaken, .logarithmic.untaken {
+    border: 2px solid #95BBD9;
+}
+
+.linear.taken, .text-value.taken, .logarithmic.taken {
+    border: 2px solid #4B72A7;
+}
+
+.value-list.taken, .value-list.untaken {
+    border: 2px solid transparent;
+}
+
+.linear.taken, .logarithmic.taken {
+    background-color: #4B72A7;
+}
+
+.linear.untaken, .logarithmic.untaken {
+    background-color: #95BBD9;
+}
+
+.linear.paused, .logarithmic.paused {
+    background-color: #ff9400;
+}
+
+.linear.waiting, .logarithmic.waiting {
+    background-color: #ff9400;
+}
+
+.linear.waiting>a, .logarithmic.waiting>a {
+    border: 1px solid #FFF000;
+}
+
+
+/* stars */
+
+.stars{
+    height: 20px;
+}
+
+.star{
+    background: url('/images/ui/star-clear.svg') no-repeat;
+    background-size: contain;
+    padding-left: 20px;
+    height: 20px;
+    margin-right: 3px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.star-on{
+    background: url('/images/ui/star-full.svg') no-repeat;
+    background-size: contain;
+}
+
+.stars>.waiting>.star-on{
+    background: url('/images/ui/star-waiting.svg') no-repeat;
+    background-size: contain;
+}
+
+.stars>.waiting>.star-off{
+    background: url('/images/ui/star-clear.svg') no-repeat;
+    background-size: contain;
+}
+
+
+/* Button value */
+
+.button-value{
+    display: inline-block;
+    border-radius: 0.25em;
+    padding:0.25em 0.5em;
+    cursor: pointer;
+}
+
+.button-value.waiting{
+    background-color: #FFF000;
+    border: 2px solid;
+    border-color: #ff9400;
+    animation-duration: 1s;
+    animation-name: block-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.button-value.taken{
+    border: 2px inset;
+    border-color: #31588c;
+    background-color: #4B72A7;
+}
+
+.button-value.untaken{
+    border: 2px outset;
+    border-color: #6f9cbf;
+    background-color: #95BBD9;
+}

@@ -1,0 +1,725 @@
+/**
+ * Copyright 2015 Sky Wickenden
+ *
+ * This file is part of StreamBed.
+ * An implementation of the Babbling Brook Protocol.
+ *
+ * StreamBed is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option any later version.
+ *
+ * StreamBed is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+/* Sitewide classes that are only used on authenticated pages */
+
+/* Displays messages to the user in all authenticated pages. */
+#messages {
+    padding : 1em 5em 1em 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background-color: #c8d8ff;
+    border-radius: 0.25em;
+    overflow: auto;
+    position: relative;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #c8d8ff;
+}
+
+#messages.message-error {
+    border-color: #ff4444;
+}
+
+/* Used offscreen to crop message text. */
+#message_crop {
+    position: absolute;
+    background-color: #FFF000;
+   /* left: -10000px;*/
+}
+
+#message_buttons {
+    min-height: 1.7em;
+}
+
+.message-button-more {
+    margin: 0;
+    float: right;
+}
+
+#messages_inner {
+}
+
+#report_bug {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3em;
+    bottom: 0;
+    background-color: #a6c0ff;
+    background-image: url('/images/ui/ladybird-blue.png');
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border-top-right-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
+}
+
+#report_bug:hover {
+    background-image: url('/images/ui/ladybird.png');
+
+}
+
+.ui-dialog[aria-labelledby=ui-dialog-title-bug_post_container] {
+    position: absolute;
+}
+
+label.error {
+    color: #2d2d2d;
+}
+
+
+/* Ajax loading styles
+.ajax {
+    background: url(/images/ui/loading-phaser.png);
+    background-repeat: repeat-x;
+    background-position: 0px 0px;
+}*/
+
+.text-loading {
+    color: #ff9400;
+    animation-duration: 1s;
+    animation-name: text-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: text-loading;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+@keyframes text-loading {
+    0% {
+        color: #ff9400;
+    } 50% {
+        color: #ffcf00;
+    } 100% {
+        color: #ff9400;
+    }
+}
+
+
+@-webkit-keyframes text-loading {
+    0% {
+        color: #ff9400;
+    } 50% {
+        color: #ffcf00;
+    } 100% {
+        color: #ff9400;
+    }
+}
+
+.block-loading, .grid-view-loading {
+    border: 2px solid #ff9400;
+    animation-duration: 1s;
+    animation-name: block-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: block-loading;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+/*
+.table-block-loading tr:first-child>td{
+    border-top: 2px solid #ff9400;
+    animation-duration: 1s;
+    animation-name: block-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: block-loading;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+.table-block-loading tr>td:first-child{
+    border-left: 2px solid #ff9400;
+    animation-duration: 1s;
+    animation-name: block-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: block-loading;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+.table-block-loading tr:first-child>td:first-child{
+    border-top: 2px solid #ff9400;
+    border-top-left-radius: 2em;
+    animation-duration: 1s;
+    animation-name: block-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: block-loading;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}*/
+
+@keyframes block-loading {
+    0% {
+        border: 2px solid #ff9400;
+    } 50% {
+        border: 2px solid #FFF000;
+    } 100% {
+        border: 2px solid #ff9400;
+    }
+}
+
+@-webkit-keyframes block-loading {
+    0% {
+        border: 2px solid #ff9400;
+    } 50% {
+        border: 2px solid #FFF000;
+    } 100% {
+        border: 2px solid #ff9400;
+    }
+}
+
+.side-loading {
+    border: 2px solid #ff9400;
+    border-width: 0 2px;
+    animation-duration: 1s;
+    animation-name: side-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: side-loading;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+
+}
+
+@keyframes side-loading {
+    0% {
+        border: 2px solid #ff9400;
+        border-width: 0 2px;
+    } 50% {
+        border: 2px solid #FFF000;
+        border-width: 0 2px;
+    } 100% {
+        border: 2px solid #ff9400;
+        border-width: 0 2px;
+    }
+}
+
+@-webkit-keyframes side-loading {
+    0% {
+        border: 2px solid #ff9400;
+        border-width: 0 2px;
+    } 50% {
+        border: 2px solid #FFF000;
+        border-width: 0 2px;
+    } 100% {
+        border: 2px solid #ff9400;
+        border-width: 0 2px;
+    }
+}
+
+.side-and-bottom-loading {
+    border: 2px solid #ff9400;
+    border-width: 0 2px;
+    animation-duration: 1s;
+    animation-name: side-and-bottom-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: side-and-bottom-loading;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+
+}
+
+@keyframes side-and-bottom-loading {
+    0% {
+        border: 2px solid #ff9400;
+        border-width: 0 2px 2px 2px;
+    } 50% {
+        border: 2px solid #FFF000;
+        border-width: 0 2px 2px 2px;
+    } 100% {
+        border: 2px solid #ff9400;
+        border-width: 0 2px 2px 2px;
+    }
+}
+
+@-webkit-keyframes side-and-bottom-loading {
+    0% {
+        border: 2px solid #ff9400;
+        border-width: 0 2px 2px 2px;
+    } 50% {
+        border: 2px solid #FFF000;
+        border-width: 0 2px 2px 2px;
+    } 100% {
+        border: 2px solid #ff9400;
+        border-width: 0 2px 2px 2px;
+    }
+}
+
+#content.page-loading:before {
+    content: '';
+    position: absolute;
+    top: -2em;
+    left: 17em;
+    height: 2em;
+    width: 8.5em;
+    background-image: linear-gradient(to left, white, rgba(255,255,255,0));
+    /* this prevents clicks through to the content in ie9 or 10 while the page is loading. */
+    pointer-events: none;
+    z-index: 40;
+}
+
+/*  Attatching this to the streams_nav and moving it further down the page is a terrible hack that
+    someday will kick me where it hurts, but it works and allows for semantic HTML. Ohh well.
+    Can only have one :after and one :before on an element. */
+#streams_nav:before {
+    content: '';
+    position: absolute;
+    top: 31em;
+    left: 0em;
+    width: 1em;
+    height: 12em;
+    background-image: linear-gradient(to top, white, rgba(255,255,255,0));
+    /* this prevents clicks through to the content in ie9 or t10 while the page is loading. */
+    pointer-events: none;
+    z-index: 41;
+}
+
+#content.page-loading:after {
+    content: '';
+    width: 25em;
+    position: absolute;
+    top: -2em;
+    height: 25em;
+    left: -1em;
+    /* this prevents clicks through to the content in ie9 or t10 while the page is loading. */
+    pointer-events: none;
+    z-index: 35;
+    border: 0 solid #ff9400;
+    border-width: 4px 0 0 4px;
+    animation-duration: 1s;
+    animation-name: page-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: webkit-page-loading;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+@keyframes page-loading {
+    0% {
+        border: 2px solid #ff9400;
+    border-width: 4px 0 0 4px;
+    } 50% {
+        border: 2px solid #FFF000;
+    border-width: 4px 0 0 4px;
+    } 100% {
+        border: 2px solid #ff9400;
+    border-width: 4px 0 0 4px;
+    }
+}
+
+@-webkit-keyframes webkit-page-loading {
+    0% {
+        border: 2px solid #ff9400;
+    border-width: 4px 0 0 4px;
+    } 50% {
+        border: 2px solid #FFF000;
+    border-width: 4px 0 0 4px;
+    } 100% {
+        border: 2px solid #ff9400;
+    border-width: 4px 0 0 4px;
+    }
+}
+
+.error-loading-page {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ff0000;
+}
+
+/* Standard style for indicating that a line of content is loading.*/
+.line-loading {
+    min-height: 1em;
+    min-width: 15em;
+    border-radius: 0.25em;
+}
+
+#messages_inner>.snippet-post {
+    margin-bottom: 0;
+}
+
+#messages_inner>.snippet-post>.title {
+    margin-bottom: 0;
+}
+
+#messages_inner>.snippet-post>.title>a {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+#messages_inner>.snippet-post>.top-value>.updown>.up-arrow,
+#messages_inner>.snippet-post>.top-value>.updown>.down-arrow {
+
+}
+
+#messages_full {
+    margin-bottom: 1em;
+}
+
+#messages_full .post>.info {
+    color: #555;
+}
+
+#messages_full .post .field-label {
+    margin-top: 0.25em;
+}
+
+#messages_full .post .info,
+#messages_full .post .field-label,
+#messages_full .post .field {
+    margin-bottom: 0.5em;
+    display: block;
+}
+
+#messages_full .post .field-label {
+    font-weight: bold;
+}
+
+#messages_full .post .actions {
+    margin-top: 0.5em;
+}
+
+@media only screen and (max-width : 1300px) {
+    #sidebar #sidebar_open{
+        position: absolute;
+        display: block;
+        right: 24px;
+        top: 10px;
+        background-image:  url("/images/ui/open-arrow.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 35px;
+        height: 25px;
+        cursor: pointer;
+        height: 2.2em;    /*  final height is caculated in javascript */
+    }
+
+    #sidebar #sidebar_open.open{
+        transform: rotate(180deg);
+    }
+
+    #messages {
+        margin: 1em;
+    }
+
+    #content.page-loading:before {
+        background: none;
+    }
+
+    #content.page-loading:after {
+        top: 0;
+        width: 100%;
+        left: 0;
+        border-width: 4px 0 0 0;
+    }
+
+    #streams_nav:before {
+        top: 36em;
+    }
+}
+
+.post>div>.private-message {
+    display: none;
+}
+
+.post.status-private>div>.private-message {
+    visibility: visible;
+    display: inline-block;
+    color: #004ECC;
+}
+
+.cascade-new-top {
+    min-height: 1.5em;
+}
+
+.cascade-dummy-post {
+    border-radius: 0.25em;
+    height: 4em;
+    margin-bottom: 1.5em;
+    max-width: 40em;
+}
+
+.cascade .new-post {
+    border-radius: 0.25em;
+    background: linear-gradient(to right, #DDE7FF, white, white);
+}
+
+.client-param-label {
+    display: block;
+    font-weight: bold;
+    padding-top: 0.5em;
+}
+
+.client-param-row>input {
+    width: 15em;
+}
+
+div.client-param-row>.suggestion-hints-container {
+    display: inline;
+}
+
+.client-param-apply {
+    margin-top: 0.5em;
+}
+
+/* Hide very high sort values */
+.high-sort>div>span.sort-score-intro {
+    display: none;
+}
+
+.grid-button {
+    height: 1.5em;
+    width: 1.5em;
+    cursor: pointer;
+}
+
+
+/* waiting for ajax request on this row.*/
+table tr.row-loading td {
+    border-top: 1px solid #ff9400;
+    border-bottom: 1px solid #ff9400;
+    animation-duration: 1s;
+    animation-name: table-row-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+table tr.row-loading td:first-child {
+    border-left: 1px solid #ff9400;
+    border-radius: 0.25em 0 0 0.25em;
+    animation-duration: 1s;
+    animation-name: table-row-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+table tr.row-loading td:last-child {
+    border-right: 1px solid #ff9400;
+    border-radius: 0 0.25em 0.25em 0;
+    animation-duration: 1s;
+    animation-name: table-row-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+table tr.row-loading td {
+    border-top: 1px solid #ff9400;
+    border-bottom: 1px solid #ff9400;
+    animation-duration: 1s;
+    animation-name: table-row-loading;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes table-row-loading {
+    0% {
+        border: 1px solid #ff9400;
+    } 50% {
+        border: 1px solid #FFF000;
+    } 100% {
+        border: 1px solid #ff9400;
+    }
+}
+
+@-webkit-keyframes table-row-loading {
+    0% {
+        border: 1px solid #ff9400;
+    } 50% {
+        border: 1px solid #FFF000;
+    } 100% {
+        border: 1px solid #ff9400;
+    }
+}
+
+#tutorial_placement {
+    line-height: normal;
+}
+
+/** Form css **/
+/* Generic form classes */
+
+input:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border: 1px solid #139ff7;
+    border-top-color: #1392e9;
+}
+
+div.form>form>div {
+    overflow: auto;
+    min-width: 430px;
+    max-width: 57em;
+}
+
+div.form>form>.maxwide {
+    max-width: 100em;
+}
+
+div.form .row {
+    padding: 0.5em 0;
+    font-size: 1.2em;
+}
+
+div.form input[type='text'] {
+    width: 25%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+div.form input[type='text']:disabled {
+    background-color: #C8D8FF;
+}
+
+div.form label {
+    width: 15em;
+    display: inline-block;
+}
+
+div.form .block-label {
+    display: block;
+    margin-bottom: 0.25em;
+}
+
+div.form .block {
+    display: block;
+}
+/*
+div.form .select-container {
+    width: 25%;
+    height: 1.75em;
+    overflow: hidden;
+    background: url(/images/ui/select-arrow.svg) no-repeat right #fff;
+    background-size: 1.35em;
+    border: 1px solid #ccc;
+    display: inline-block;
+    border: 1px solid;
+    border-color: #4B72A7 #b2cde3 #b2cde3 #4B72A7;
+    border-radius: 0.5em;
+    -moz-box-sizing: border-box;
+}
+
+div.form select {
+    width: 120%;
+    border: none;
+    padding: 0.25em;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-appearance: none;
+    background: transparent;
+} */
+
+div.form select {
+    border: 1px solid;
+    border-color: #4B72A7 #b2cde3 #b2cde3 #4B72A7;
+    border-radius: 0.25em 0.25em 0 0;
+    background: #fff;
+    padding: 0.25em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset;
+}
+
+textbox.empty, input.empty  {
+    color: #298dcd;
+}
+
+textbox.textbox-tick, input.textbox-tick {
+    background: #fff url('/images/ui/tick.svg') no-repeat right;
+    background-size: 1.25em 1.25em;
+    background-position: top right;
+}
+
+textbox.textbox-cross, input.textbox-cross {
+    background: #fff url('/images/ui/cross.svg') no-repeat right;
+    background-size: 1.25em 1.25em;
+    background-position: top right;
+}
+
+textarea {
+    border: 1px solid;
+    border-color: #4B72A7 #b2cde3 #b2cde3 #4B72A7;
+    border-radius: 0.25em;
+    background: #fff;
+    padding: 0.25em;
+}
+
+.errorSummary {
+    display: none;
+}
+
+select.select-loading {
+    background-color: #FFC200;
+}
+
+/* Hides shos an option when the select has select-loading applied  */
+select>option.option-loading {
+    display: none;
+}
+select.select-loading>option.option-loading {
+    display: inline-block;
+}
+select.select-loading>option.option-title {
+    display: none;
+}
+
+table tr.row-error td {
+    border-top: 1px solid #ff0000;
+    border-bottom: 1px solid #ff0000;
+}
+
+table tr.row-error td:first-child {
+    border-left: 1px solid #ff0000;
+    border-radius: 0.25em 0 0 0.25em;
+}
+
+table tr.row-error td:last-child {
+    border-right: 1px solid #ff0000;
+    border-radius: 0 0.25em 0.25em 0;
+}
+
+.sidebar-param-help-icon {
+    display: inline-block;
+}
+
+.sidebar-params>div {
+    display: inline-block;
+}
+
+.sidebar-params .help-icon {
+    background-image: url("/images/ui/help-dark.png");
+}
+
+.sidebar-params .help-icon:hover {
+    background-image: url("/images/ui/help-hover.png");
+}

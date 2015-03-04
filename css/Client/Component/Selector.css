@@ -1,0 +1,241 @@
+/**
+ * Copyright 2015 Sky Wickenden
+ * 
+ * This file is part of StreamBed.
+ * An implementation of the Babbling Brook Protocol.
+ * 
+ * StreamBed is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option any later version.
+ * 
+ * StreamBed is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+/*
+    Styles associated with the selector.js module.
+*/
+table.selector {
+    border-radius: 0.25em;
+    border-collapse: separate;
+    border: 2px solid transparent;
+    border-spacing: 0;
+    background-color: #C8D8FF;
+    padding: 1em;
+    background: #B4C2E6;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+table.selector-2 {
+    background: #C8D8FF;
+}
+
+table.selector td {
+    padding: 0.25em 1em;
+    white-space:nowrap;
+}
+
+table.selector tr:first-child{
+    padding-left: 0;
+}
+
+table.selector tr:last-child{
+    padding-right: 0;
+}
+
+table.selector tr.titles td {
+    font-weight: bold;
+}
+
+table.selector tr.search td {
+    vertical-align: middle;
+    height: 3em;
+}
+
+table.selector tr.search td.action .help-icon {
+    vertical-align: 0.2em;
+}
+
+table.selector input[type="text"] {
+    width: 100%;
+    min-width: 8em;
+}
+
+table.selector tbody td.action a{
+    padding-right: 1em;
+}
+
+table.selector tbody td {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    vertical-align: top;
+    line-height: 1em;
+}
+
+table.selector tbody td:first-child {
+    border-left: 1px solid transparent;
+    border-radius: 0.25em 0 0 0.25em;
+}
+
+table.selector tbody td:last-child {
+    border-right: 1px solid transparent;
+    border-radius: 0 0.25em 0.25em 0;
+}
+
+table.selector tbody tr:hover td {
+    border-top: 1px solid #97abdc;
+    border-bottom: 1px solid #97abdc;
+}
+
+table.selector tbody tr:hover td:first-child {
+    border-left: 1px solid #97abdc;
+    border-radius: 0.25em 0 0 0.25em;
+}
+
+table.selector tbody tr:hover td:last-child {
+    border-right: 1px solid #97abdc;
+    border-radius: 0 0.25em 0.25em 0;
+}
+
+table.selector tbody tr.block-loading td {
+    border-top: 1px solid #ff9400;
+    border-bottom: 1px solid #ff9400;
+    animation-duration: 1s;
+    animation-name: ajax-table-border;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+table.selector tbody tr.block-loading td:first-child {
+    border-left: 1px solid #ff9400;
+    border-radius: 0.25em 0 0 0.25em;
+    animation-duration: 1s;
+    animation-name: ajax-table-border;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+table.selector tbody tr.block-loading td:last-child {
+    border-right: 1px solid #ff9400;
+    border-radius: 0 0.25em 0.25em 0;
+    animation-duration: 1s;
+    animation-name: ajax-table-border;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: ajax-table-border;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+@keyframes ajax-table-border {
+    0% {
+        border: 1px solid #ff9400;
+    } 50% {
+        border: 1px solid #FFF000;
+    } 100% {
+        border: 1px solid #ff9400;
+    }
+}
+
+@-webkit-keyframes ajax-table-border {
+    0% {
+        border: 1px solid #ff9400;
+    } 50% {
+        border: 1px solid #FFF000;
+    } 100% {
+        border: 1px solid #ff9400;
+    }
+}
+
+@media only screen and (max-width : 1300px) {
+    table.selector {
+       padding: 0.5em;
+       border-radius: 0.25em;
+    }
+
+    table.selector td {
+        padding: 0.25em 0.5em;
+    }
+}
+
+table.selector tfoot td {
+    text-align: right;
+    font-weight: bold;
+}
+
+table.selector tfoot td a, table.selector tfoot td .page-number {
+    margin-right : 2em;
+}
+
+table.selector tfoot td a:last-child{
+    margin-right : 0;
+}
+
+table.selector .pale{
+    color: #85A5D3;
+    cursor: default;
+}
+
+table.selector .search select {
+    border-radius : 0.25em;
+    border-color: #4b72a7 #b2cde3 #b2cde3 #4b72a7;
+    border-width: 1px;
+    font-size: 0.875em;
+    padding: 0.25em;
+    border-style: solid;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) inset;
+}
+
+table.selector thead tr.titles .name,
+table.selector thead tr.titles .domain,
+table.selector thead tr.titles .username,
+table.selector thead tr.titles .version,
+table.selector thead tr.titles .status,
+table.selector thead tr.titles .stream-kind,
+table.selector thead tr.titles .ring-ban,
+table.selector thead tr.titles .user-type {
+    color: #1D4173;
+}
+
+table.selector thead tr.titles .name:hover,
+table.selector thead tr.titles .domain:hover,
+table.selector thead tr.titles .username:hover,
+table.selector thead tr.titles .version:hover,
+table.selector thead tr.titles .status:hover,
+table.selector thead tr.titles .stream-kind:hover,
+table.selector thead tr.titles .ring-ban:hover,
+table.selector thead tr.titles .user-type:hover {
+    color: #4B72A7;
+    cursor: pointer;
+}
+
+table.selector .column-sort {
+    height: 0.75em;
+    width: 1.5em;
+    background-size: 1.5em 0.75em;
+    display: inline-block;
+    margin-left: 0.5em;
+}
+
+table.selector .sort-down {
+    background-image: url('/images/ui/sort-down.png');
+}
+
+table.selector thead tr.titles td:hover .sort-down {
+    background-image: url('/images/ui/sort-down-over.png');
+}
+
+table.selector .sort-up {
+    background-image: url('/images/ui/sort-up.png');
+}
+
+table.selector thead tr.titles td:hover .sort-up {
+    background-image: url('/images/ui/sort-up-over.png');
+}

@@ -1,0 +1,43 @@
+.QqFileuploader-upload-file {
+
+}
+
+.QqFileuploader-upload-spinner {
+    width: 16px;
+    height: 16px;
+    background: url('/images/icons/loading.gif');
+    display : block;
+}
+
+.QqFileuploader-upload-size {
+
+}
+
+.QqFileuploader-upload-cancel {
+
+}
+
+
+.QqFileuploader-upload-button {
+
+}
+
+.QqFileuploader-upload-drop-area {
+
+}
+
+.QqFileuploader-upload-drop-area-active {
+
+}
+
+.QqFileuploader-upload-list {
+
+}
+
+.QqFileuploader-upload-success {
+
+}
+
+.QqFileuploader-upload-fail {
+
+}

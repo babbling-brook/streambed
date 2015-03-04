@@ -1,0 +1,126 @@
+/**
+ * Copyright 2015 Sky Wickenden
+ * 
+ * This file is part of StreamBed.
+ * An implementation of the Babbling Brook Protocol.
+ * 
+ * StreamBed is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option any later version.
+ * 
+ * StreamBed is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+/* Shared styles for all posts */
+.post {
+    margin-bottom: 0.5em;
+    clear: left;
+}
+
+.post>div {
+    margin: 0 0 0 2.3em;
+}
+
+.post>.top-value {
+    margin: 0;
+    float: left;
+    padding: 0.25em 0 0 0;
+}
+
+/* Info link styling */
+.post a, .post a:visited, .post .link, .post .link:visited, .cascade-new-top .link, .cascade-new-top .link:visited  {
+    text-decoration: none;
+    color: #3c4c78;
+    font-weight: bold;
+}
+
+.post .title, .post .info{
+    margin-bottom: 0.25em;
+}
+
+.post .info > * {
+    font-size: 0.875em;
+}
+
+.post>.actions>a, .post>.actions>span  {
+    padding: 0 0.5em;
+}
+
+/* Remove the padding from the first visible list element */
+.post>.actions>:first-child, .post>.actions>.hide + :not(.hide) {
+    padding: 0 0.5em 0 0;
+}
+.post>.actions>:not(.hide) ~ :not(.hide) {
+    padding: 0 0.5em;
+}
+
+.post>.actions>:first-child  {
+    margin-left:0;
+}
+
+/* The other up and down styles are in stream/post.css */
+.up-untaken {
+    background: url(/images/ui/up-arrow-untaken.png) no-repeat;
+}
+
+.down-untaken {
+    background: url(/images/ui/down-arrow-untaken.png) no-repeat;
+}
+
+.down-arrow {
+    margin: 0.25em 0 0 0;
+}
+
+/* This class is duplicated in post/post.css because it must .*/
+/* be after the background is applied in other classes.*/
+.up-arrow, .down-arrow {
+    -webkit-background-size: cover, cover;
+    background-size: cover, cover;
+    width: 1.8em;   /* Slightly short due to pixel rounding bug in chrome */
+    height: 1.25em;
+    display: inline-block;
+    clear: both;
+    float: left;
+    cursor: pointer;
+}
+
+
+.post>.post-thumbnail-container {
+    float: left;
+    margin: 0 0.5em 0.5em 0.5em;
+    height: 80px;
+    width: 107px;
+    display: block;
+}
+
+
+.post > .post-thumbnail-container.edit-hide {
+    display: none;
+}
+
+.post>.post-thumbnail-container.hide {
+    display : none;
+}
+
+.post>.post-thumbnail-container.large-thumbnail {
+    width: 500px;
+    height: 375px;
+    margin-bottom : 0.5em;
+}
+
+.post>.post-thumbnail-container.large-thumbnail>img {
+    width: 500px;
+    height: 375px;
+}
+
+.post>.post-thumbnail-container.large-thumbnail.block-loading>img {
+    width: 496px;
+    height: 371px;
+}

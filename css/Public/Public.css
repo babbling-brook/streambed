@@ -1,0 +1,124 @@
+/**
+ * Copyright 2015 Sky Wickenden
+ * 
+ * This file is part of StreamBed.
+ * An implementation of the Babbling Brook Protocol.
+ * 
+ * StreamBed is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option any later version.
+ * 
+ * StreamBed is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+/* Shared public styles */
+label {
+    display: block;
+    font-weight: bold;
+}
+
+.row {
+    margin-top: 1em;
+}
+
+p {
+    margin: 0.5em 0;
+}
+/*
+
+li.subpost.closed > .content {
+    display : none;
+}
+
+#post_tree li.subpost.closed > h3 > .switch {
+    background: url('/images/icons/switch.png') 2px 2px no-repeat;
+} */
+
+
+/** login popup **/
+/* Styles associated with the public login popup */
+
+.login-modal-show {
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 101;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+}
+
+#login_close {
+     background: url('/images/ui/close-transparent-background.svg');
+     background-size: contain;
+     right: 1em;
+     top: 1em;
+     width: 1.8em;
+     height: 1.8em;
+     position: absolute;
+     cursor: pointer;
+}
+
+#login_popup {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 102;
+    margin-top: -15em;
+    width: 25em;
+    margin-left: -18em;
+}
+
+.login-loading {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 600px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#modal_content h2 {
+    font-size: 2em;
+}
+
+#modal_content .content-indent {
+    margin: 0;
+}
+
+#login_popup #username{
+    width: 97%;
+}
+
+#signup_form input[type='text'],
+#signup_form input[type='password'],
+#client_login input[type='text'],
+#password_page input[type='password'] {
+    width: 25em;
+}
+
+@media only screen and (max-width : 1300px) {
+    #login_popup {
+        background-color: #fff;
+        border: 1px solid #4b72a7;
+        border-radius: 0;
+        height: 100%;
+        left: 0;
+        margin-left: 0;
+        margin-top: 0;
+        padding: 2em;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1002;
+    }
+}

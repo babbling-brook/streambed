@@ -1,0 +1,14 @@
+/* Css for viewing stream details. */
+.field-title {
+    padding-top: 0.5em;
+}
+
+.field-title>span {
+    font-size: 1.2em;
+}
+
+
+#field_list .view{
+    font-size: 1.2em;
+    padding: 0.25em 0;
+}

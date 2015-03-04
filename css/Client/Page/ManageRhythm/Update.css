@@ -1,0 +1,98 @@
+/* Styles for both create and update pages. (They are mostly shared)*/
+
+#rhythm_form label {
+    display: block;
+    margin-bottom: 0.25em;
+    white-space: nowrap;
+}
+
+#rhythm_form input[type='text'] {
+    display: block;
+    width: 406px;
+    margin-bottom: 0.25em;
+    white-space: nowrap;
+}
+
+#rhythm_form input[type='submit'], #rhythm_form input[type='button'] {
+    display: block;
+    margin-bottom: 0.25em;
+    white-space: nowrap;
+}
+
+#rhythm_form label .help-icon {
+    height: 1.1em;
+    width: 1.1em;
+    margin-left: 0.5em;
+}
+
+#RhythmExtra_description {
+    max-width: 50em;
+    min-width: 400px;
+    width: 400px;
+    min-height: 8em;
+}
+
+#rhythm_form .select-container {
+    width: 410px;
+    display: block;
+    margin-bottom: 0.25em;
+    white-space: nowrap;
+}
+
+#rhythm_form select {
+    width: 30em;
+}
+
+#rhythm_form #rhythm_cats {
+    width: 430px;
+}
+
+h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#rhythm_form img.publish, #rhythm_form img.deprecate, #rhythm_form img.delete {
+    height: 2.5em;
+    width: 2.5em;
+    cursor: pointer;
+}
+
+.CodeMirror.cm-s-disabled {
+    color: #808080;
+}
+
+input#open_new_parameter.hide {
+    display: none;
+}
+
+table#rhythm_parameters {
+    width: 100%;
+}
+
+table#rhythm_parameters>thead>tr>td {
+    padding-bottom: 0.25em;
+}
+
+.rhythm-param-name {
+    width: 30%;
+    vertical-align: top;
+}
+
+#rhythm_form .rhythm-param-name>input[type="text"] {
+    width: 90%;
+}
+
+.rhythm-param-hint {
+    width: 50%;
+    vertical-align: top;
+}
+
+#rhythm_form .rhythm-param-hint>textarea {
+    height: 1.6em;
+    width: 90%;
+}
+
+.rhythm-param-action {
+    vertical-align: middle;
+}

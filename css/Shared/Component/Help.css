@@ -1,0 +1,97 @@
+/**
+ * Copyright 2015 Sky Wickenden
+ * 
+ * This file is part of StreamBed.
+ * An implementation of the Babbling Brook Protocol.
+ * 
+ * StreamBed is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option any later version.
+ * 
+ * StreamBed is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+/* Css related to the help pop up. */
+
+.ui-dialog {
+    background-color: #C8D8FF;
+    border: 2px solid #fff ;
+    border-radius: 5px;
+    padding: 1em 1.5em;
+    box-shadow: 1em 1em 0.5em #75808f;
+}
+
+.ui-dialog-titlebar {
+    cursor: move;
+    background-color: #628bc1;
+    border-radius: 0.25em 0.25em 0 0;
+    padding: 0.25em 0.25em 0.25em 2em;
+    line-height: 2em;
+    margin: -1em -1.5em 0 -1.5em;
+    color: #fff;
+}
+
+.ui-dialog-title {
+    text-shadow: -1px 0 rgba(180,194,230,.25), 0 1px rgba(180,194,230,.25), 1px 0 rgba(180,194,230,.25), 0 -1px rgba(180,194,230,.25);
+}
+
+.ui-dialog-titlebar>.ui-dialog-titlebar-close {
+    border: 0;
+    background-color: #628bc1;
+    background-image: url('/images/ui/close.png');
+    width: 1.8em;
+    height: 1.8em;
+    background-size: contain;
+    color:transparent;
+    position:absolute;
+    top: 0.5em;
+    right: 0.5em;
+    margin-top: 0.125em;
+    margin-right: 0.125em;
+    cursor: pointer;
+}
+
+.ui-dialog-content {
+    padding: 1.5em 0.5em;
+}
+
+.help-icon, .fake-help-icon {
+    background-image: url('/images/ui/help.png');
+    background-size: contain;
+    padding-left:10px;
+    vertical-align: bottom;
+    cursor: pointer;
+    width: 1.5em;
+    height: 1.5em;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.small-help-icon {
+    background-image: url('/images/ui/help.png');
+    background-size: contain;
+    padding-left:10px;
+    vertical-align: bottom;
+    cursor: pointer;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.help-icon:hover, .small-help-icon:hover, .fake-help-icon:hover {
+    background-image: url('/images/ui/help-hover.png');
+    background-repeat: no-repeat;
+}
+
+.smaller-icon {
+    width: 1.1em;
+    height: 1.1em;
+}

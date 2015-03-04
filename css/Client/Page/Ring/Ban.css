@@ -1,0 +1,21 @@
+/* Styles for the ring user ban page */
+
+#ban_ring_members .banned{
+    background : #ff8888;
+}
+
+#ban_ring_members_c0 {
+    width: 30%;
+}
+
+#ban_ring_members_c1 {
+    width: 30%;
+}
+
+#ban_ring_members_c2 {
+    width: 20%;
+}
+
+#ban_ring_members_c3 {
+    width: 20%;
+}

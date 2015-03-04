@@ -1,0 +1,36 @@
+/* Styles for a rings admin page for updating a ring. */
+
+#update_ring div.form label, #create_ring div.form label {
+    width: 25%;
+    display: block;
+    margin-bottom: 0.25em;
+}
+
+#update_ring .search, #create_ring .search  {
+    position: relative;
+}
+
+#update_ring .search a, #create_ring .search a{
+    position: absolute;
+    left: -5em;
+    top: 2em;
+    font-size: 0.875em;
+    white-space: nowrap;
+}
+
+#update_ring .extra-height, #create_ring .extra-height {
+    min-height: 5em;
+}
+
+#update_ring .select-container, #create_ring>div>input[type='text'] {
+    width: 65%;
+}
+
+#update_ring .selector, #create_ring .selector  {
+    margin-bottom: 2em;
+    max-width: 67em;
+}
+
+#current_admins {
+    margin-bottom: 2em;
+}

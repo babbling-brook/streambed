@@ -1,0 +1,323 @@
+/**
+ * Copyright 2015 Sky Wickenden
+ *
+ * This file is part of StreamBed.
+ * An implementation of the Babbling Brook Protocol.
+ *
+ * StreamBed is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option any later version.
+ *
+ * StreamBed is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+/* Minimised and open post form */
+.input-post-detail > div.post-field-container:first-child {
+    display: block;
+}
+
+.make-post.block-loading {
+    border-radius: 0.25em;
+    margin-top: 1em;
+}
+
+.make-post.make-stream-post.block-loading {
+    margin-top: 2em;
+}
+
+/* Hide the form details until it has loaded. */
+.block-loading>.input-post-detail input{
+}
+
+
+
+.input-post-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.post-field-container, .private-post{
+   margin: 0 0 1em 0;
+}
+
+.post-field-container.minimised {
+    margin: 0;
+}
+
+.post-field-container.minimised textarea {
+    color: #3C4C78;
+    font-style: italic;
+}
+
+.make-post textarea{
+    padding: 0.35em;
+}
+
+.make-post input[type='text'] {
+    display: block;
+}
+
+/* Need to re-implement the hide class (Used on the star value field). */
+.make-post input[type="text"].hide {
+    display: none;
+}
+
+.input-post-detail {
+    line-height: 150%;
+}
+
+.input-post-detail>button.minimised, .input-post-detail > div.minimised {
+    display: none;
+}
+
+.input-post-detail>.post-field-container.minimised>.post-field-1-title {
+    display: none;
+}
+
+.input-post-detail .post-field-1-title {
+    margin-top: 0.5em;
+}
+
+.full-width-input {
+    overflow: hidden;
+}
+
+.post-text-field {
+    width: 99%;
+    height: 2em;
+    -moz-box-sizing: border-box;
+    resize: horizontal;
+}
+
+.post-link-text {
+    width: 99%;
+    -moz-box-sizing: border-box;
+}
+
+/* short list styles use the ui list pluggin */
+.ui-helper-hidden {
+    display: none;
+}
+
+.ui-helper-hidden-accessible {
+    position: absolute;
+    left: -99999999px;
+}
+
+.ui-button { display: inline-block; position: relative; padding: 0; margin-right: .1em; text-decoration: none !important; cursor: pointer; text-align: center; zoom: 1; overflow: visible; } /* the overflow property removes extra width in IE */
+
+.small-list .ui-buttonset, .value-list.ui-buttonset {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid;
+    border-color: #7da4c4;
+    border-radius: 0.25em;
+    display: inline-block;
+}
+
+.small-list .ui-button-text, .value-list .ui-button-text {
+    display: block;
+    line-height: 2.2em;
+    padding: 0 1em;
+    font-size: 0.875em;
+}
+
+.small-list .ui-state-default, .value-list .ui-state-default {
+    border: 1px solid;
+    border-color: #4B72A7 #b2cde3 #b2cde3 #4B72A7;
+    background: #b6cbff;
+    min-height: 2em;
+    display: block;
+    min-width: 15em;
+}
+
+.small-list .ui-state-active, .value-list .ui-state-active {
+    border-color: #b2cde3 #4B72A7 #4B72A7 #b2cde3;
+    background: #eef3ff;
+    font-weight: normal;
+}
+
+.small-list .ui-corner-left, .value-list .ui-corner-left {   /* This is top */
+    border-radius: 0.25em 0.25em 0 0;
+}
+
+.small-list .ui-corner-right, .value-list .ui-corner-right  { /* This is bottom */
+    border-radius: 0 0 0.25em 0.25em;
+}
+
+/* Display of errors */
+.make-post .error {
+    margin: 0.5em 0 1em 0;
+    display: inline;
+}
+
+.make-post-errors .error {
+    display: block;
+    margin: 0;
+}
+
+/* Need to reinstate the hide class so that it overrrides '.make-post .error' */
+.make-post .error.hide {
+    display: none;
+}
+
+.address-error {
+    margin: 0.25em 0 0.5em 0;
+}
+
+/* Private posts */
+.make-post .address {
+    width: 25em;
+    margin: 0.5em 0 0 0;
+}
+
+.make-post .private-post {
+    margin-top: 1em;
+}
+
+.private-post-check>input {
+    display: inline-block;
+}
+
+.make-post .private-post-to-line {
+}
+
+.reply-location {
+    position: relative;
+}
+
+.private-post-suggestions {
+    position: absolute;
+    border: 1px solid #4B72A7;
+    border-width: 0 1px 1px 1px;
+    border-radius: 0 0 0.25em 0.25em;
+    z-index: 10;
+    background-color: #b6d5ed;
+    padding: 0 0 0.5em 0;
+    cursor: pointer;
+    overflow: visible;
+}
+
+.private-post-suggestions-line {
+    padding: 0 0.5em;
+    font-size: 0.75em;
+    cursor: pointer;
+    color: #333333;
+}
+
+.private-post-suggestions-line.selected, .private-post-suggestions-line:hover {
+    background-color: #c8d8ff;
+    color: #000;
+    cursor: pointer;
+}
+
+/* Actions on the post (Make/Cancel) */
+.make-post-actions {
+    margin-top: 1em;
+}
+
+.create-post {
+    margin-right: 1em;
+}
+
+.cancel-post {
+    float: right;
+}
+
+.edit-hide {
+    display: none;
+}
+
+.link-thumbnail-container {
+    margin: 0.25em 1em 0.25em 0
+}
+
+.make-post .thumbnail-container {
+    display: inline-block;
+    margin-right: 0.5em;
+}
+
+.link-thumbnail-initial_message {
+}
+
+.make-post .all-thumbs {
+    height: 80px;
+    display: inline-block;
+}
+
+.make-post .more-thumbs {
+    display: inline-block;
+}
+
+
+.make-post .block-loading .all-thumbs {
+    display: none;
+    display: inline-block;
+}
+
+.make-post .thumbnails-loading {
+    padding: 1em;
+    border-radius: 0.25em;
+    height: 80px;
+    display: inline-block;
+}
+
+.make-post .thumbnail-container, .make-post .default_thumnail{
+    border-width: 2px;
+    border-color: transparent;
+    border-style: solid;
+    vertical-align: top;
+    height: 84px;
+}
+
+.make-post .link-thumbnail-container .selected-thumb {
+    border-color : #ffff00;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.default_thumnail {
+    display: inline-block;
+    margin-right: 0.5em;
+    cursor:pointer;
+}
+
+
+.make-post .more-thumbs {
+    height: 80px;
+    width : 48px;
+    background-image: url('/images/ui/forward-arrow.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.make-post .more-thumbs:hover, .make-post .back-thumbs:hover, .make-post .thumbnail-container canvas:hover{
+    cursor:pointer;
+}
+
+.make-post  .back-thumbs {
+    height: 80px;
+    width : 48px;
+    background-image: url('/images/ui/back-arrow.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-right: 1em;
+}
+
+
+
+
+
+.make-post .hide {
+    display : none;
+}

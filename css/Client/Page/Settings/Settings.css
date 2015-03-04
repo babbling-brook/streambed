@@ -1,0 +1,56 @@
+#config_options>.row {
+    margin-bottom: 1.5em;
+}
+
+#config_options>.row>label {
+    display: block;
+    margin-bottom: 0.25em;
+    width: 38em;
+}
+
+#config_options>.row>.config-row-error {
+    width: 38em;
+    margin-top: 0.5em;
+}
+
+#config_options>.row>.search + .config-row-error {
+    margin-top: 1.5em;
+}
+
+#config_options>.row>.config-selector {
+    margin-top: 1.5em;
+    font-size: 0.875em;
+}
+
+#config_options>.row>.help-icon {
+    margin-left: 0.5em;
+}
+
+#config_options>.row>input[type="text"] {
+    width: 40em;
+}
+
+#config_options>.row>input[type="text"].custom {
+    font-weight: bold;
+}
+
+#config_options>.row>.search {
+    position: relative;
+}
+
+#config_options>.row>.search>a {
+    font-size: 0.875em;
+    left: -5em;
+    position: absolute;
+    top: 2em;
+    white-space: nowrap;
+}
+
+
+div.form table.selector thead input[type="text"] {
+    width : 100%;
+}
+
+div.form table.selector {
+    width :auto;
+}
