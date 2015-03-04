@@ -99,12 +99,12 @@ Here is an example virtual host for the base domain. Duplicate this for each sub
 
   # Index file and Document Root (where the public files are located)
   DirectoryIndex index.php
-  DocumentRoot /path/to/project/root/
+  DocumentRoot "/path/to/project/root/"
 
   # Log file locations
   LogLevel warn
-  ErrorLog  /path/to/log/folder/log/error.log
-  CustomLog /path/to/log/folder/access.log combined
+  ErrorLog  "/path/to/log/folder/log/error.log"
+  CustomLog "/path/to/log/folder/access.log combined"
 </VirtualHost>
 ```
 
