@@ -90,7 +90,7 @@ From this base domain you will need to setup your hosts file to direct the follo
 #### Apache
 
 Apache will need setting up to direct these to the installation folder.
-Here is an example virtual host for the base domain. Duplicate this for each subdomain.
+Here is an example virtual host for the base domain.
 ```
 <VirtualHost *:80>
   # Admin email, Server Name (domain name), and any aliases
@@ -130,7 +130,7 @@ SSL certificates will need creating and installing for streambed.localhost, domu
 
 Self signed certificates are fine for dev work. (You may need to use the --ignore-certificate-errors command line flag in Chrome).
 
-Apache config files will also need creating for them. EG
+Apache config files will also need creating for them. A seperate vituralhost will need creating for each certificate, E.G:
 ```
 <VirtualHost *:443>
   # Admin email, Server Name (domain name), and any aliases
@@ -140,6 +140,14 @@ Apache config files will also need creating for them. EG
   # Index file and Document Root (where the public files are located)
   DirectoryIndex index.php
   DocumentRoot "/path/to/project/root/"
+
+  <Directory "/path/to/project/root/">
+    SSLOptions +StdEnvVars
+    Options Indexes FollowSymLinks
+    Order Deny,Allow
+    Allow from all
+    AllowOverride All
+  </Directory>  
 
   # Log file locations
   LogLevel warn
