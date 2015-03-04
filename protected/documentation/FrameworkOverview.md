@@ -193,7 +193,7 @@ Javascript is using a homebrew framework that is essentially based on the classi
 /protected/views/Client/Core        // HTML templates for /js/Client/Core modules.
 /protected/views/Client/Layouts     // Site furniture views.
 /protected/views/Client/Layouts/ClientType     
-                                    // Site furniture views that are for a specific type of client website.
+                                    // Site furniture views that are for a specific type of client.
 /protected/views/Client/Page        // Views for specific pages.
 
 /protected/views/Domus              // Views for the domus sub domain of datastores.
@@ -203,7 +203,7 @@ Javascript is using a homebrew framework that is essentially based on the classi
                                     // (also see /protected/views/Shared)
 /protected/views/Public/Layouts     // Site furniture views.
 /protected/views/Public/Layouts/ClientType     
-                                    // Site furniture views that are for a specific type of client website.
+                                    // Site furniture views that are for a specific type of client.
 /protected/views/Public/Page        // Views for specific pages.
 /protected/views/Ring               // Views for the ring sub domain of datastores.
 /protected/views/Scientia           // Views for the scientia sub domain of datastores.
@@ -211,7 +211,7 @@ Javascript is using a homebrew framework that is essentially based on the classi
                                     // authenticated and unauthenticated users.
 /protected/views/Shared/Layouts     // Site furniture views.
 /protected/views/Shared/Layouts/ClientType     
-                                    // Site furniture views that are for a specific type of client website.
+                                    // Site furniture views that are for a specific type of clien.
 /protected/views/Shared/Page        // Views for specific pages.
 /protected/views/Suggestion         // Views for the suggestion sub domain of datastores.
 
@@ -229,5 +229,5 @@ Javascript is using a homebrew framework that is essentially based on the classi
 /themes/[theme-name]/views          // Theme views. If the path and filename match a base view file 
                                     // then the base file is not included.
 
-/index.php                          // Bootstrap script. The is the access point for all server side code.
+/index.php                          // Bootstrap script. The access point for all server side code.
 ```
