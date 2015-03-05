@@ -208,9 +208,13 @@ One last task to do. The self signed SSL certificates are loaded in hidden ifram
 
 ### Further documentation
 
+##### Protocol
+
+See [babblingbrook.net/page/docs](http://babblingbrook.net/page/docs) for documentation on the protocol.
+
 ##### Framework overview
 
-The [framework overview](/protected/documentation/FrameworkOverview.md) explains the overall structure of the
+Almost all classes and methods have doc comments. The [framework overview](/protected/documentation/FrameworkOverview.md) explains the overall structure of the
 project. Refer to this when ever you want to find out where something is or where to put something.
 
 ##### Coding conventions
