@@ -108,7 +108,6 @@ BabblingBrook.Client.Component.ValueSetup.Arrows = function () {
             up_class = 'up-untaken';
             down_class = 'down-untaken';
         }
-console.debug(status);
         if (take_value > 0) {
             up_class = 'up-taken';
             down_class = 'down-untaken';
@@ -196,7 +195,6 @@ console.debug(status);
             post.takes[data.field_id].value = data.value;
             post.takes[data.field_id].tmp_take = 0;
             var jq_field = jQuery('>div>div[data-field-id=' + data.field_id + ']', jq_post);
-console.debug(jq_field.length);
             // Photowall posts
             if (jq_field.length === 0) {
                 jq_field = jQuery('>div>div>div[data-field-id=' + data.field_id + ']', jq_post);

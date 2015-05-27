@@ -46,7 +46,6 @@ BabblingBrook.Client.Component.Resize = (function () {
     };
 
     var onSideNavResized = function () {
-console.debug('resize');
         if (jQuery('body').width() < 1024 && jQuery('#sidebar_open').hasClass('hide') === true) {
             jQuery('#sidebar_open').removeClass('hide');
             jQuery('#sidebar_extra').addClass('sidebar-hide');
