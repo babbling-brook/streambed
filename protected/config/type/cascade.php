@@ -108,6 +108,52 @@ return
                 array(
                     'domain' => HOST,
                     'username' => 'sky',
+                    'name' => 'beautiful',
+                    'version' => array(
+                        'major' => 'latest',
+                        'minor' => 'latest',
+                        'patch' => 'latest',
+                    ),
+                    'filters' => array(
+                        array(
+                            'domain' => HOST,
+                            'username' => 'sky',
+                            'name' => 'skys priority',
+                            'version' => array(
+                                'major' => 'latest',
+                                'minor' => 'latest',
+                                'patch' => 'latest',
+                            ),
+                            'locked' => true,
+                        ),
+                        array(
+                            'domain' => HOST,
+                            'username' => 'sky',
+                            'name' => 'newest',
+                            'version' => array(
+                                'major' => 'latest',
+                                'minor' => 'latest',
+                                'patch' => 'latest',
+                            ),
+                            'locked' => true,
+                        ),
+                        array(
+                            'domain' => HOST,
+                            'username' => 'sky',
+                            'name' => 'oldest',
+                            'version' => array(
+                                'major' => 'latest',
+                                'minor' => 'latest',
+                                'patch' => 'latest',
+                            ),
+                            'locked' => false,
+                        ),
+                    ),
+                    'locked' => true,
+                ),
+                array(
+                    'domain' => HOST,
+                    'username' => 'sky',
                     'name' => 'news',
                     'version' => array(
                         'major' => 'latest',
