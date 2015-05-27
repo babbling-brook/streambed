@@ -57,9 +57,48 @@ BabblingBrook.Public.Stream = (function () {
         }
     };
 
+    var onSidebarOpenerClicked = function () {
+        var dom_sidebar_opener = document.getElementById('sidebar_open');
+        var dom_description = document.querySelector('#sidebar .description');
+        if (dom_sidebar_opener.classList.contains('openable-button') === true) {
+            dom_description.classList.add('description-open');
+        } else {
+            dom_description.classList.remove('description-open');
+        }
+
+        //dom_filter_details.classList.toggle('hide');
+        dom_sidebar_opener.classList.toggle('openable-button');
+        dom_sidebar_opener.classList.toggle('closable-button');
+    };
+
+    var isOverflowed = function(element){
+        return element.scrollWidth > element.clientWidth;
+    }
+
+    var resize = function () {
+        var dom_sidebar_opener = document.getElementById('sidebar_open');
+        var dom_description = document.querySelector('#sidebar .description');
+        var dom_sidebar_opener = document.getElementById('sidebar_open');
+        if (isOverflowed(dom_description) === false) {
+            dom_sidebar_opener.classList.add('hide');
+        } else {
+            dom_sidebar_opener.classList.remove('hide')
+        }
+    };
+
     return {
 
         construct : function () {
+
+            var image_stream = document.getElementById('image_stream').value;
+            if (image_stream === 'true') {
+                document.getElementById('stream_container').removeAttribute("class");
+                jQuery("#stream_container").justifiedGallery({
+                    rowHeight : 250,
+                    margins : 5,
+                    captions : true
+                });
+            }
 
             var login_click_elements = [
                 'up-arrow',
@@ -67,19 +106,33 @@ BabblingBrook.Public.Stream = (function () {
                 'subscribe',
                 'make-post',
                 'login_to_sort',
+                'sorted',
             ];
             BabblingBrook.Public.Library.modalLogin(login_click_elements);
 
-            sort_bar_title = document.getElementById('sort_bar_title');
-            sort_bar_options = document.getElementById('sort_bar_options');
-            document.onclick = onDocumentClicked;
-            document.getElementById('sort_bar_title').onclick = onSortClicked;
+            if (sort_bar_title === null) {
+                sort_bar_title = document.getElementById('sort_bar_title');
+                sort_bar_options = document.getElementById('sort_bar_options');
+                document.onclick = onDocumentClicked;
+                sort_bar_title.onclick = onSortClicked;
+            }
 
-        }
+            var dom_sidebar_opener = document.getElementById('sidebar_open');
+            dom_sidebar_opener.addEventListener('click', onSidebarOpenerClicked);
+
+            resize();
+
+        },
+
+        resize : resize
     };
 }());
 
 window.onload = function() {
     BabblingBrook.Public.Stream.construct();
-    BabblingBrook.Public.Resize.construct();
+    if (typeof BabblingBrook.Public.Resize !== 'undefined') {
+        BabblingBrook.Public.Resize.construct();
+    }
+
+
 }

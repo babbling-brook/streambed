@@ -46,6 +46,17 @@ li.subpost.closed > .content {
 /* Styles associated with the public login popup */
 
 .login-modal-show {
+
+}
+
+.login-modal-fade {
+    opacity: 0;
+    display: none;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;    
     background: rgba(255, 255, 255, 0.6);
     z-index: 101;
     height: 100%;
@@ -53,7 +64,6 @@ li.subpost.closed > .content {
     position: fixed;
     top: 0px;
     left: 0px;
-
 }
 
 #login_close {
@@ -106,7 +116,7 @@ li.subpost.closed > .content {
     width: 25em;
 }
 
-@media only screen and (max-width : 1300px) {
+@media only screen and (max-width : 1024px) {
     #login_popup {
         background-color: #fff;
         border: 1px solid #4b72a7;
@@ -120,5 +130,21 @@ li.subpost.closed > .content {
         top: 0;
         width: 100%;
         z-index: 1002;
+    }
+    
+    .ui-dialog-titlebar > .ui-dialog-titlebar-close {    
+        margin-top: 2.2em;
+        margin-right: 2.2em;
+        width: 3em;
+        height: 3em;
+    }
+    
+    .ui-dialog-titlebar {
+        margin: 0;
+        border-radius: 0;
+    }
+    
+    #modal_content .content-block-2 {
+        background-color: #fff;
     }
 }

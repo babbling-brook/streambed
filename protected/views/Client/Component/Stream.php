@@ -1,20 +1,20 @@
 <?php
 /**
  * Copyright 2015 Sky Wickenden
- * 
+ *
  * This file is part of StreamBed.
  * An implementation of the Babbling Brook Protocol.
- * 
+ *
  * StreamBed is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * at your option any later version.
- * 
+ *
  * StreamBed is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
  */
@@ -79,6 +79,47 @@
         </div>
         <div class="new-posts-link hidden">
             <span class="link"><img src="/images/ui/add-fat.svg" />show new posts</span>
+        </div>
+    </div>
+</div>
+
+<div id="stream_photowall_template">
+    <div class="post photowall-post">
+        <a alt="" href="" class="post-thumbnail-container hide">
+            <img class="post-thumbnail stream-image" title="" src="" />
+        </a>
+        <div class="caption stream-image-links">
+
+            <div class="top-value">
+                <div class="field-2 field"></div>
+            </div>
+            <div class="title">
+                <a class="field-1 field block-loading" target="_blank" data-post-link="true"></a>
+            </div>
+            <div class="info">
+                <span class="username-intro">Made by</span> <a class="username"></a>.
+                <time class="time-ago"></time>.
+                <span class="kindred-intro">
+                    Your kindred rating with <a class="username"></a> is <span class="kindred-score"></span>.
+                </span>
+                <span class="sort-score-intro">The sort score is <span class="sort-score"></span>.</span>
+            </div>
+            <div class="actions">
+                <a class="link-to-post">
+                    Comments
+                    (<span class="child-count"></span>)
+                </a>
+
+                <span class="hide-post link">hide</span>
+
+                <span
+                    class="cooldown hide"
+                    title="This post will not be made public until the cooldown has finished">
+                    cooldown
+                </span>
+                <span class="cooldown-time"></span>
+                <span class="post-loading hide"></span>
+            </div>
         </div>
     </div>
 </div>

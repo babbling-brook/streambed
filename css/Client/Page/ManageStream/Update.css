@@ -94,7 +94,7 @@ input[type="text"]#new_moderation_ring  {
 }
 
 #fields_container {
-    background-color: #C8D8FF;
+    background-color: #d8e3ff;
     border-radius: 0.25em;
     padding: 2em;
     margin-top: 1em;
@@ -154,7 +154,7 @@ h3 {
     font-weight: bold;
     height: 4em;
     border-radius: 0.25em 0.25em 0 0;
-    background: linear-gradient(to bottom, #C8D8FF 0%, #C8D8FF 50%, #ffffff 100%) repeat scroll 0 0 transparent;
+    background: linear-gradient(to bottom, #d8e3ff 0%, #d8e3ff 50%, #ffffff 100%) repeat scroll 0 0 transparent;
 }
 
 #update_stream_tabs>li {
@@ -171,7 +171,7 @@ h3 {
 }
 
 #update_stream_tabs>li.active {
-    background: linear-gradient(to bottom, #8ba9f4 0%, #C8D8FF 50%, #ffffff 100%) repeat scroll 0 0 transparent;
+    background: linear-gradient(to bottom, #8ba9f4 0%, #d8e3ff 50%, #ffffff 100%) repeat scroll 0 0 transparent;
 }
 
 #add_new_field img {

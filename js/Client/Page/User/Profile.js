@@ -387,7 +387,7 @@ BabblingBrook.Client.Page.User.Profile = (function () {
                 .attr('title', stream_url + '\nClick to view comments on this user tag.')
                 .text(stream.name)
                 .removeClass('hide')
-                .attr('href', '/post/' + post.domain + '/' + post.post_id);
+                .attr('href', '/postwithtree/' + post.domain + '/' + post.post_id);
             jQuery('.tag-name-no-link', jq_tag).remove();
         }
 
@@ -482,7 +482,7 @@ BabblingBrook.Client.Page.User.Profile = (function () {
                 .attr('title', stream_url + ' Click to view comments on this user tag.')
                 .text(stream.name)
                 .removeClass('hide')
-                .attr('href', '/post/' + post.domain + '/' + post.post_id);
+                .attr('href', '/postwithtree/' + post.domain + '/' + post.post_id);
             jQuery('.tag-name-no-link', jq_all_tags).remove();
         }
 

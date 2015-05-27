@@ -98,7 +98,7 @@ BabblingBrook.Client.Component.BugTree = (function () {
             jQuery('>div.post-content-container>.field-7', jq_post).replaceWith(jq_bug_status.children());
             jQuery('.field-7' ,jq_post).html(jq_line_loading.children());
 
-            var user_post_take_url = post.domain + '/post/' + post.domain + '/' +
+            var user_post_take_url = post.domain + '/postwithtree/' + post.domain + '/' +
                     post.post_id + '/usertake/' +
                     BabblingBrook.Client.CustomConfig.bug_stream_domain +
                         '/' + BabblingBrook.Client.CustomConfig.bug_stream_username;

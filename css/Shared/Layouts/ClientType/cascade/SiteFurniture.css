@@ -32,7 +32,7 @@ body {
 
 #content {
     position: relative;
-    margin: 0em 0em 3em 1em;
+    margin: 0em 0em 3em 0em;
     overflow: hidden; /* Needed to prevent collapsing margins of this and the message container. */
 }
 
@@ -117,11 +117,9 @@ body {
 
 #streams_nav {
  /*   padding: 0.25em 1em 0.25em 1em; */
-    background-color: #4b72a7;
-    background: linear-gradient(20deg, #557bae, #4b72a7);
+    background-color: #355a8c;
     font-size: 0.875em;
     min-height: 2.25em;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset, 0px 1px 2px rgba(0, 25, 55, 0.5);
 }
 
 #streams_nav>ul>li {
@@ -155,7 +153,7 @@ ul#streams_more {
     position: absolute;
     right: -1em;
     top: 2.1em;
-    background-color: #4C73A8;
+    background-color: #355A8C;
     padding: 0 2em 2em 2em;
     border-bottom-left-radius: 0.25em;
     z-index: 150;
@@ -294,23 +292,22 @@ ul.list3>li {
     display: inline-block;
 }
 
-#sidebar #sidebar_open {
-    display: none;
+#sidebar {
+    background-color: #d8e3ff;
+    color: #23233a;
+    position: relative;
+    margin: 0em 0em 2em 2em;
 }
 
-#sidebar {
+#sidebar.sidebar-side {
     float: right;
     width: 25%;
     min-width: 20em;
-    background-color: #a6c0ff;
-    background: linear-gradient(90deg, #b9cdff, #a6c0ff);
     padding: 1em 1.75em;
-    color: #23233a;
     border-bottom-left-radius: 0.25em;
-    margin: 0em 0em 2em 2em;
-    position: relative;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
+
+
 
 #sidebar h3, .portlet-title {
     font-size: 2em;
@@ -339,10 +336,11 @@ ul.list3>li {
     margin-bottom: 1em;
 }
 
-#sidebar .description {
+#sidebar.sidebar-side .description {
     text-align: justify;
     margin: 1em 0 0 0;
 }
+
 
 #sidebar_loading_title {
     padding: 0.5em;
@@ -434,14 +432,20 @@ li.sidebar-link.subscribe.hide, li.sidebar-link.unsubscribe.hide {
     color: #fff;
 }
 /* Sort drop down for the sidebar */
-#sort_bar {
+#sidebar #sort_bar {
     font-weight: bold;
     position: relative;
     height: 2em;
 }
 
-#sort_bar dt{
-    background: #4F76AA;
+#sidebar.sidebar-side #sort_bar {
+    vertical-align: top;
+    margin-top: 0.4em;
+    margin-bottom: 1em;
+}
+
+#sidebar.sidebar-side #sort_bar dt{
+    background: #355a8c;
     display: block;
     border: 1px solid #4B72A7;
     border-radius: 0.25em;
@@ -451,6 +455,7 @@ li.sidebar-link.subscribe.hide, li.sidebar-link.unsubscribe.hide {
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.2)
 }
 
+
 #sort_bar dt.active{
     border-bottom-width: 0;
 }
@@ -459,9 +464,12 @@ li.sidebar-link.subscribe.hide, li.sidebar-link.unsubscribe.hide {
     color: #fff;
 }
 
-#sort_bar dt:after {
+#sidebar #sort_bar dt:after {
     content: ' ';
     background: url(/images/ui/rhythm-selector-down-arrow.svg) no-repeat;
+}
+
+#sidebar.sidebar-side #sort_bar dt:after {
     position: absolute;
     top: 0.70em;
     right: 0em;
@@ -536,6 +544,249 @@ li.sidebar-link.subscribe.hide, li.sidebar-link.unsubscribe.hide {
     font-weight: bold;
 }
 
+#sidebar_extra {
+    margin-bottom: 1em;
+}
+
+
+#sidebar > div {
+    margin: 0;
+}
+
+#sidebar .portlet-content, #sidebar .operations {
+    display: inline-block;
+}
+
+#sidebar .operations {
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+}
+
+#sidebar .sidebar-link.hide {
+    display: none;
+}
+
+#sidebar .operations li a {
+    padding: 0.5em 1em;
+    line-height: 1em;
+    float: none;
+    display: inline-block;
+    padding: 0.45em 0 0 0.5em;
+}
+
+#sidebar .sidebar-link a {
+    padding: 0.45em 0 0 0.5em;
+    display: inline-block;
+}
+
+#sidebar_extra.sidebar-hide .portlet-decoration,
+#sidebar_extra.sidebar-hide .filter-details,
+#sidebar_extra.sidebar-hide .restricted,
+#sidebar_extra.sidebar-hide .client-params,
+#sidebar_extra.sidebar-hide .subscribe,
+#sidebar_extra.sidebar-hide .sidebar-link {
+    display: none;
+}
+
+#sidebar #sidebar_extra:not(.sidebar-hide) .description {
+    white-space: normal;
+}
+
+/*
+#sidebar .operations li:not(.spacer):after, #sidebar .operations li:not(.spacer) {
+    background : none;
+    border-width : 0;
+    display : inline-block;
+    width : auto;
+}
+*/
+#sidebar #stream_spacer_operation {
+    display: none;
+}
+
+#sidebar #sidebar_loading {
+    display: none;
+}
+
+/******* These styles are duplicated below in the media query - where all side navs are displayed as top navs  *******/
+#sidebar.sidebar-top #sort_bar dt:after {
+    float: right;
+    height: 1em;
+    margin-left: 0.5em;
+    margin-top: 0.25em;
+    width: 1.4em;
+}
+
+#sidebar.sidebar-top #sidebar_extra {
+    max-width: 35em;
+}
+
+#sidebar.sidebar-top {
+    width: 100%;
+    margin: 0;
+    padding: 0.5em 5em 0.5em 2em;;
+}
+
+#sidebar.sidebar-top .title, #sidebar.sidebar-top .title h3{
+    display: inline-block;
+}
+#sidebar.sidebar-top h3 {
+    font-size: 2.5em;
+    margin: 0 0.5em 0.25em 0;
+    min-height: 1em;
+}
+#sidebar.sidebar-top .description {
+    text-align: justify;
+    margin: 0;
+    font-size: 0.875em;
+    max-width: 37em;    /* 0.875 * width of of sidebar_extra - reqired for ellipsis to show */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    min-height: 2em;
+    margin-right: 3em;
+    position: relative;
+    padding-bottom: 0.25em; /* Prevents cutoff of uner the line letters due to overflow: hidden.*/
+}
+
+#sidebar.sidebar-top #sidebar_description_wrapper {
+    margin: 0;
+    max-width: 40em;    /* 0.875 * width of of sidebar_extra - reqired for ellipsis to show */
+    min-height: 2em;
+    position: relative;
+}
+
+#sidebar.sidebar-top .description.description-open {
+    overflow: visible;
+    white-space: normal;
+}
+
+#sidebar.sidebar-top #sidebar_open {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    background-color: #355A8C;
+    height: 2em;
+}
+#sidebar.sidebar-top #sort_bar {
+    display: inline-block;
+    float: right;
+    margin-top: 0.125em;
+    margin-bottom: 1em;
+}
+
+#sidebar.sidebar-top #sort_bar dt{
+    background: #355a8c;
+    display: inline-block;
+    border: 1px solid #4B72A7;
+    border-radius: 0.25em;
+    cursor: pointer;
+    padding: 0.4em;
+    color: #fff;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.2)
+}
+/******* END duplicated styles  *******/
+
+@media only screen and (max-width : 1024px) {
+    #sidebar.sidebar-side {
+        float: none;
+    }
+    
+    #sidebar.sidebar-side #sort_bar dt:after {
+        float: right;
+        height: 1em;
+        margin-left: 0.5em;
+        margin-top: 0.25em;
+        width: 1.4em;
+        
+        position: relative;
+        top: 0;
+    }    
+    
+    #sidebar.sidebar-side #sidebar_extra {
+        max-width: 35em;
+    }    
+    
+    #sidebar.sidebar-side {
+        width: 100%;
+        margin: 0;
+        padding: 0.5em 5em 0.5em 2em;;
+    }
+
+    #sidebar.sidebar-side .title, #sidebar.sidebar-side .title h3{
+        display: inline-block;
+    }
+    #sidebar.sidebar-side h3 {
+        font-size: 2.5em;
+        margin: 0 0.5em 0.25em 0;
+        min-height: 1em;
+    }
+    #sidebar.sidebar-side .description {
+        text-align: justify;
+        margin: 0;
+        font-size: 0.875em;
+        max-width: 40em;    /* 0.875 * width of of sidebar_extra - reqired for ellipsis to show */
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        min-height: 2em;
+        margin-right: 3em;
+        position: relative;
+    }
+    
+    #sidebar.sidebar-side #sidebar_description_wrapper {
+        margin: 0;
+        max-width: 40em;    /* 0.875 * width of of sidebar_extra - reqired for ellipsis to show */
+        min-height: 2em;
+        position: relative;
+    }
+
+    #sidebar.sidebar-side .description.description-open {
+        overflow: visible;
+        white-space: normal;
+    }
+
+    #sidebar.sidebar-side #sidebar_open {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 0;
+        background-color: #355A8C;
+        height: 2em;
+    }
+    #sidebar.sidebar-side #sort_bar {
+        display: inline-block;
+        float: right;
+        margin-top: 0.125em;
+        margin-bottom: 1em;
+    }
+
+    #sidebar.sidebar-side #sort_bar dt{
+        background: #355a8c;
+        display: inline-block;
+        border: 1px solid #4B72A7;
+        border-radius: 0.25em;
+        cursor: pointer;
+        padding: 0.4em;
+        color: #fff;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.2)
+    }    
+    
+}
+
+
+@media only screen and (max-width : 800px) {
+    #sidebar.sidebar-top #sort_bar, #sidebar.sidebar-side #sort_bar {
+        display: block;
+        float: none;
+        margin-top: 0.125em;
+        margin-bottom: 1em;
+    } 
+}
+
+
+
 /* Override styles for small screens. */
 
 #top_nav li#small_screen_menu {
@@ -566,116 +817,29 @@ input[type='text'], textarea, input[type='password'] {
     #content {
         overflow : auto;
     }
-
-    #sidebar_extra {
-        margin-bottom: 1em;
-    }
-
-    #sidebar:not(.sidebar-show) .filter-details:not(.sidebar-show), #sidebar .description:not(.sidebar-show) {
-        display: none;
-    }
-
-    #sidebar {
-        float: none;
-        width: 100%;
-        margin: 0;
-        padding: 0.5em 5em 0.5em 2em;;
-        border-radius: 0;
-        poition: relative;
-    }
-    #sidebar > div {
-        margin: 0;
-    }
-
-    #sidebar:not(.sidebar-show) .portlet-decoration {
-        display: none;
-    }
-
-    #sidebar .portlet-content, #sidebar .operations {
-        display: inline-block;
-    }
-
-    #sidebar .operations {
-        margin-left: -0.5em;
-        margin-right: -0.5em;
-    }
-
-    #sidebar .sidebar-link:after, #sidebar .operations li:after{
-        display: none;
-    }
-
-    #sidebar .sidebar-link.hide {
-        display: none;
-    }
-
-    #sidebar .operations li a {
-        padding: 0.5em 1em;
-        line-height: 1em;
-        float: right;
-    }
-
-    #sidebar .sidebar-link a {
-        padding: 0.5em 0;
-        display: inline;
-    }
-
-    #sidebar .sidebar-link {
-        line-height: 1em;
-        border-width: 0;
-        background: none;
-    }
-
-    #sidebar .sidebar-link:not(.sidebar-show) {
-        display: none;
-        background: none;
-    }
-
-    #sidebar .operations li a{
-        float: none;
-        display : inline;
-    }
-
-    #sidebar .operations li:not(.spacer):after, #sidebar .operations li:not(.spacer) {
-        background : none;
-        border-width : 0;
-        display : inline-block;
-        width : auto;
-    }
-
-    #sidebar #stream_spacer_operation, #sidebar #side_bar_switch_versions {
-        display: none;
-    }
-
-    #sidebar #versions {
-        margin-left: 0.7em;
-    }
-
-    #sidebar  #sort_bar {
-        margin-bottom: 0.5em;
-    }
-
-    #sidebar #sidebar_loading {
-        display: none;
-    }
-
+    
     #top_nav #top_nav_list li:not(.small-screen-menu) {
         display: none;
     }
 
     #top_nav #top_nav_list li#small_screen_menu {
         display: block;
-        background-image: url("/images/ui/open-arrow.png");
+        background: url(/images/ui/rhythm-selector-down-arrow.svg) no-repeat;
         background-position: center center;
         background-repeat: no-repeat;
         padding : 0;
         width: 25px;
         height: 25px;
         position: absolute;
-        right: 28px;
+        right: 1em;
         top: 5px;
         width: 25px;
         cursor: pointer;
         z-index: 102;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #5D7BA3;
+        border-radius: 0.25em;
     }
 
     #top_nav #top_nav_list.small-screen-menu li#small_screen_menu {

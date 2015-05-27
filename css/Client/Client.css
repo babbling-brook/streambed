@@ -25,13 +25,13 @@
     padding : 1em 5em 1em 2em;
     margin-top: 2em;
     margin-bottom: 2em;
-    background-color: #c8d8ff;
+    background-color: #d8e3ff;
     border-radius: 0.25em;
     overflow: auto;
     position: relative;
     border-width: 2px;
     border-style: solid;
-    border-color: #c8d8ff;
+    border-color: #d8e3ff;
 }
 
 #messages.message-error {
@@ -412,7 +412,7 @@ label.error {
 
 @media only screen and (max-width : 1300px) {
     #sidebar #sidebar_open{
-        position: absolute;
+  /*      position: absolute;
         display: block;
         right: 24px;
         top: 10px;
@@ -600,7 +600,7 @@ div.form input[type='text'] {
 }
 
 div.form input[type='text']:disabled {
-    background-color: #C8D8FF;
+    background-color: #d8e3ff;
 }
 
 div.form label {

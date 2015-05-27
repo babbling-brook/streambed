@@ -289,6 +289,27 @@ BabblingBrook.Client.Component.LinkThumbnails = (function () {
         selectThumbnail(post_row);
     };
 
+
+    var convertImageToProportionalCanvas = function (image, thumb_height) {
+        // Work out if we need to crop vertically or horizontally.
+        var scale;
+        scale = image.height / thumb_height;
+        var thumb_width = image.width / scale;
+
+        var canvas = document.createElement("canvas");
+        canvas.width = thumb_width;
+        canvas.height = thumb_height;
+        var context = canvas.getContext("2d");
+        context.drawImage(
+            image,
+            0,
+            0,
+            thumb_width,
+            thumb_height
+        );
+        return canvas;
+    };
+
     /**
      * Calls the callback to select a thumbnail.
      *
@@ -304,11 +325,14 @@ BabblingBrook.Client.Component.LinkThumbnails = (function () {
         var image = post_row.all_images[post_row.selected];
         var small_canvas = convertImageToCroppedCanvas(image, small_thumbnail_width, small_thumbnail_height);
         var large_canvas = convertImageToCroppedCanvas(image, large_thumbnail_width, large_thumbnail_height);
+        var proportional_large_canvas = convertImageToProportionalCanvas(image, large_thumbnail_height);
 
         var small_base64 = small_canvas.toDataURL("image/png");
         small_base64 = small_base64.substring(small_base64.indexOf(','));
         var large_base64 = large_canvas.toDataURL("image/png");
         large_base64 = large_base64.substring(large_base64.indexOf(','));
+        var proportional_large_base64 = proportional_large_canvas.toDataURL("image/png");
+        proportional_large_base64 = proportional_large_base64.substring(proportional_large_base64.indexOf(','));
 
         var url = post_row.all_thumb_urls[post_row.selected];
         if (url.substring(0,5) === 'data:') {
@@ -319,7 +343,8 @@ BabblingBrook.Client.Component.LinkThumbnails = (function () {
             post_row.row_id,
             url,
             small_base64,
-            large_base64
+            large_base64,
+            proportional_large_base64
         );
     }
 

@@ -81,7 +81,7 @@ BabblingBrook.Public.Password = (function () {
                 document.getElementById('remote_site_row').classList.remove('hide');
             }
 
-            document.getElementById('login_submit').onclick = function() {
+            document.getElementById('password_submit').onclick = function() {
                 document.forms["password"].submit();
 //                var dom_password = document.getElementById('password');
 //                var http_request = new XMLHttpRequest();

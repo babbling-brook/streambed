@@ -32,6 +32,21 @@ if (typeof BabblingBrook.Public !== 'object') {
 BabblingBrook.Public.Post = (function () {
     'use strict';
 
+    var resize = function () {
+        var dom_sidebar_opener = document.getElementById('sidebar_open');
+        var dom_description = document.querySelector('#sidebar .description');
+        var dom_sidebar_opener = document.getElementById('sidebar_open');
+        if (isOverflowed(dom_description) === false) {
+            dom_sidebar_opener.classList.add('hide');
+        } else {
+            dom_sidebar_opener.classList.remove('hide')
+        }
+    };
+
+    var isOverflowed = function(element){
+        return element.scrollWidth > element.clientWidth;
+    }
+
     return {
 
         construct : function () {
@@ -62,11 +77,16 @@ BabblingBrook.Public.Post = (function () {
             ];
             BabblingBrook.Public.Library.modalLogin(login_click_elements);
 
-        }
+            resize();
+        },
+
+        resize : resize
     };
 }());
 
 window.onload = function() {
     BabblingBrook.Public.Post.construct();
-    BabblingBrook.Public.Resize.construct();
+    if (typeof BabblingBrook.Public.Resize !== 'undefined') {
+        BabblingBrook.Public.Resize.construct();
+    }
 }

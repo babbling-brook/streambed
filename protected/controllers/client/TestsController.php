@@ -61,22 +61,25 @@ class TestsController extends Controller
             array(
                 'allow', // Admin access
                 'actions' => array(
-                    "index",
-                    "DeleteTestData",
-
-                    "Restore",
-
-                    "TestLocalStorage",
-                    "Javascript",
-                    "Domusiframe",
-                    "Scientiaiframe",
-                    "Suggestioniframe",
-                    "Kindrediframe",
-                    "Filteriframe",
-                    "SetupStreamUpdateTest",
-                    "TriggerStreamUpdateTest",
-                    "TriggerCommentsUpdateTest",
-                    "TriggerCommentsEditTest",
+                    'index',
+                    
+                    'JavascriptAll',
+                    
+                    
+                    'DeleteTestData',
+                    'Restore',
+                    'Jasmine',
+                    'TestLocalStorage',
+                    'Javascript',
+                    'Domusiframe',
+                    'Scientiaiframe',
+                    'Suggestioniframe',
+                    'Kindrediframe',
+                    'Filteriframe',
+                    'SetupStreamUpdateTest',
+                    'TriggerStreamUpdateTest',
+                    'TriggerCommentsUpdateTest',
+                    'TriggerCommentsEditTest',
                 ),
                 'expression' => 'Yii::app()->user->isadmin()',
             ),
@@ -105,7 +108,7 @@ class TestsController extends Controller
      */
     public function actionDeleteTestData() {
         TestData::deleteTestData();
-        echo ("Test data has been deleted.");
+        echo ('Test data has been deleted.');
     }
 
     /**
@@ -118,7 +121,7 @@ class TestsController extends Controller
      */
     public function actionRestore() {
         TestData::restore();
-        echo ("Test data has been reset.");
+        echo ('Test data has been reset.');
     }
 
     /**
@@ -127,8 +130,26 @@ class TestsController extends Controller
      * @return void
      */
     public function actionJavascript() {
-        $this->render('/Client/Admin/Tests/Javascript');
+        $this->render('/Client/Page/Tests/javascript');
     }
+
+    /**
+     * JavaScript Tests.
+     *
+     * @return void
+     */
+    public function actionJavascriptAll() {
+        $this->render('/Client/Page/Tests/Jasmine/all');
+    }    
+
+    /**
+     * JavaScript Tests.
+     *
+     * @return void
+     */
+    public function actionJasmine() {
+        $this->render('/Client/Admin/Tests/Jasmine');
+    }    
 
     /**
      * Domus iframe.
@@ -191,11 +212,11 @@ class TestsController extends Controller
     public function actionSuggestionTestData() {
 
         $data = array(
-            "name" => "test suggested stream",
-            "domain" => "cobaltcascade.localhost",
-            "username" => "test",
-            "version" => "latest/latest/latest",
-            "type" => "stream",
+            'name' => 'test suggested stream',
+            'domain' => 'cobaltcascade.localhost',
+            'username' => 'test',
+            'version' => 'latest/latest/latest',
+            'type' => 'stream',
         );
         echo JSON::encode($data);
     }
@@ -207,7 +228,7 @@ class TestsController extends Controller
      */
     public function actionSetupStreamUpdateTest() {
         TestData::setupStreamUpdateTest();
-        echo ("Test data has been set up for an update.");
+        echo ('Test data has been set up for an update.');
     }
 
     /**
@@ -217,7 +238,7 @@ class TestsController extends Controller
      */
     public function actionTriggerStreamUpdateTest() {
         TestData::triggerStreamUpdateTest();
-        echo ("Test posts have been set live.");
+        echo ('Test posts have been set live.');
     }
 
     /**

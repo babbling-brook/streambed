@@ -1,20 +1,20 @@
 <?php
 /**
  * Copyright 2015 Sky Wickenden
- * 
+ *
  * This file is part of StreamBed.
  * An implementation of the Babbling Brook Protocol.
- * 
+ *
  * StreamBed is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * at your option any later version.
- * 
+ *
  * StreamBed is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
  */
@@ -246,7 +246,7 @@
 <div id="level_VOTE_COMMENTS_template">
     <div>
         <div class="tutorial-location hide"
-             data-location="/post/<?php echo HOST; ?>/<?php echo Yii::app()->params['tutorial_post_id']; ?>"></div>
+             data-location="/postwithtree/<?php echo HOST; ?>/<?php echo Yii::app()->params['tutorial_post_id']; ?>"></div>
         <p>
             Comments can also be voted on to create connections with the users who made the comments.
         </p>
@@ -264,7 +264,7 @@
 <div id="level_MAKE_COMMENT_template">
     <div>
         <div class="tutorial-location hide"
-             data-location="/post/<?php echo HOST; ?>/<?php echo Yii::app()->params['tutorial_post_id']; ?>"></div>
+             data-location="/postwithtree/<?php echo HOST; ?>/<?php echo Yii::app()->params['tutorial_post_id']; ?>"></div>
         <p>
             You can now make your own comments.
         </p>
@@ -285,7 +285,7 @@
 <div id="level_EDIT_COMMENT_template">
     <div>
         <div class="tutorial-location hide"
-             data-location="/post/<?php echo HOST; ?>/<?php echo Yii::app()->params['tutorial_post_id']; ?>"></div>
+             data-location="/postwithtree/<?php echo HOST; ?>/<?php echo Yii::app()->params['tutorial_post_id']; ?>"></div>
         <p>
             Now you have a comment it can be edited or deleted.
         </p>
@@ -314,7 +314,7 @@
 <div id="level_LINK_COMMENTS_template">
     <div>
         <div class="tutorial-location hide"
-             data-location="/post/<?php echo HOST; ?>/<?php echo Yii::app()->params['tutorial_post_id']; ?>"></div>
+             data-location="/postwithtree/<?php echo HOST; ?>/<?php echo Yii::app()->params['tutorial_post_id']; ?>"></div>
         <p>
             All comments are also posts with their own page.
             You can click on the 'link' button under the comment to go there.
@@ -789,7 +789,7 @@
 <div id="level_PRIVATE_POSTS_template">
     <div>
         <div class="tutorial-location hide"
-             data-location="/post/<?php echo HOST; ?>/<?php echo Yii::app()->params['tutorial_post_id']; ?>"></div>
+             data-location="/postwithtree/<?php echo HOST; ?>/<?php echo Yii::app()->params['tutorial_post_id']; ?>"></div>
         <p>
             You can make private as well as public posts.
         </p>
@@ -822,7 +822,7 @@
 <div id="level_READ_PRIVATE_POSTS_template">
     <div>
         <div class="tutorial-location hide"
-             data-location="/post/<?php echo HOST; ?>/<?php echo Yii::app()->params['tutorial_post_id']; ?>"></div>
+             data-location="/postwithtree/<?php echo HOST; ?>/<?php echo Yii::app()->params['tutorial_post_id']; ?>"></div>
         <p>
             You can read your private posts by clicking on the 'Posts' link at the top of the page.
         </p>

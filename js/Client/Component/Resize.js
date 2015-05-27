@@ -39,11 +39,25 @@ BabblingBrook.Client.Component.Resize = (function () {
      */
     var setupSideBarButton = function () {
         jQuery('body').on('click', '#sidebar_open', function () {
-            jQuery('#sidebar_open').toggleClass('open');
-            jQuery('#sidebar .description, #sidebar .filter-details, #sidebar .sidebar-link')
-                .toggleClass('sidebar-show');
+            jQuery('#sidebar_open').toggleClass('openable-button closable-button');
+            jQuery('#sidebar_extra').toggleClass('sidebar-hide');
             return false;
         });
+    };
+
+    var onSideNavResized = function () {
+console.debug('resize');
+        if (jQuery('body').width() < 1024 && jQuery('#sidebar_open').hasClass('hide') === true) {
+            jQuery('#sidebar_open').removeClass('hide');
+            jQuery('#sidebar_extra').addClass('sidebar-hide');
+        } else if (jQuery('body').width() >= 1024
+            && jQuery('#sidebar_open').hasClass('hide') === false
+            && jQuery('#sidebar').hasClass('sidebar-top') === false
+        ) {
+            jQuery('#sidebar_open').addClass('hide');
+        } else  if (jQuery('body').width() >= 1024 && jQuery('#sidebar').hasClass('sidebar-top') === false) {
+            jQuery('#sidebar_extra').removeClass('sidebar-hide');
+        }
     };
 
     /**
@@ -68,6 +82,7 @@ BabblingBrook.Client.Component.Resize = (function () {
      */
     var callResizeTests = function () {
         BabblingBrook.Client.Component.StreamNav.reshow();
+        onSideNavResized();
     };
 
     return {

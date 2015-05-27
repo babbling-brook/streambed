@@ -434,7 +434,7 @@ BabblingBrook.Client.Component.SuggestionMessage = (function () {
             .attr('href', 'http://' + stream_url)
             .attr('title', stream_url)
             .text(stream.name);
-        var url = suggestion.domain + '/post/' + suggestion.domain + '/' + meta_data.meta_post_id;
+        var url = suggestion.domain + '/postwithtree/' + suggestion.domain + '/' + meta_data.meta_post_id;
         jQuery('a.suggestion-message', jq_message)
             .attr('href', 'http://' + url)
             .attr('title', url)

@@ -380,7 +380,6 @@ BabblingBrook.Test = (function () {
                 jQuery.each(tests, function (j, test) {
 
                     var nested_error = '';
-
                     if (jQuery.inArray(test, valid_types) === -1) {
                         error = ' Passed in type ( ' + test + ' ) is not a valid type.';
                         return false;    // @escape the jQuery.each function.
@@ -428,7 +427,6 @@ BabblingBrook.Test = (function () {
                     if (test === 'uint' && !isUInt(v[0])) {
                         nested_error += error_part + 'unsigned integer (uint). ';
                     }
-
                     if (test === 'int' && !isInt(v[0])) {
                         nested_error += error_part + 'integer (int). ';
                     }

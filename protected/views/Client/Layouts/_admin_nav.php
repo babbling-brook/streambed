@@ -32,7 +32,7 @@ $this->widget(
             array('label' => 'Minify', 'url' => '/site/admin/minify'),
             array('label' => 'Categories', 'url' => '/site/admin/cat/admin'),
             array('label' => 'Stream RegEx', 'url' => '/site/admin/streamregex/admin'),
-            array('label' => 'Tests', 'url' => '/tests/index'),
+            array('label' => 'Tests', 'url' => '/site/tests/index'),
             array('label' => 'Signup Codes', 'url' => '/site/admin/signupcodes/index'),
             array('label' => 'Export User', 'url' => '/site/admin/exportuser'),
         ),

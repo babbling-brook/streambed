@@ -25,13 +25,13 @@
 }
 
 .post>div {
-    margin: 0 0 0 2.3em;
+    margin: 0 0 0 1em;
 }
 
-.post>.top-value {
+.post .top-value {
     margin: 0;
     float: left;
-    padding: 0.25em 0 0 0;
+    padding: 0 0 0 0;
 }
 
 /* Info link styling */
@@ -45,9 +45,11 @@
     margin-bottom: 0.25em;
 }
 
+/*
 .post .info > * {
     font-size: 0.875em;
 }
+*/
 
 .post>.actions>a, .post>.actions>span  {
     padding: 0 0.5em;
@@ -68,10 +70,23 @@
 /* The other up and down styles are in stream/post.css */
 .up-untaken {
     background: url(/images/ui/up-arrow-untaken.png) no-repeat;
+    background-size: cover, cover;
 }
 
 .down-untaken {
     background: url(/images/ui/down-arrow-untaken.png) no-repeat;
+    background-size: cover, cover;
+}
+
+/* The other up and down styles are in stream/post.css */
+.caption .up-untaken {
+    background: url(/images/ui/up-arrow-white.png) no-repeat;
+    background-size: cover, cover;
+}
+
+.caption  .down-untaken {
+    background: url(/images/ui/down-arrow-white.png) no-repeat;
+    background-size: cover, cover;
 }
 
 .down-arrow {
@@ -89,6 +104,11 @@
     clear: both;
     float: left;
     cursor: pointer;
+}
+
+.caption .up-arrow, .caption .down-arrow {
+    width: 3em;
+    height: 2em;
 }
 
 
@@ -123,4 +143,38 @@
 .post>.post-thumbnail-container.large-thumbnail.block-loading>img {
     width: 496px;
     height: 371px;
+}
+
+.post>div.top-post-image {
+    display: inline-block;
+    min-width: 25em;
+    margin-bottom: 1.5em;
+}
+
+.top-post-content {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 1em;
+    width: 100%;
+    min-width: 25em;
+    max-width: 30em;
+}
+
+.post:not(.photowall-post) .first-row, 
+.post:not(.photowall-post) .info, 
+.post:not(.photowall-post) .post-content-container, 
+.post:not(.photowall-post) .actions,
+.post:not(.photowall-post) .title {
+    margin-left: 2.3em;
+}
+
+
+
+.post .first-row {
+    margin-left: 2.0444em;
+    font-size: 1.125em;
+}
+
+.top-post-content .info {
+    margin-top: 0.5em;
 }

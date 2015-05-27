@@ -74,6 +74,8 @@ $base_url = Yii::app()->request->baseUrl;
         <?php
     } else {
         ?>
+        <script type="text/javascript" src="/js/resources/underscore.js"></script>
+        <script type="text/javascript" src="/js/resources/backbone.js"></script>
         <script type="text/javascript" src="/js/resources/jquery.js"></script>
         <script type="text/javascript" src="/js/resources/json2.js"></script>
         <script type="text/javascript" src="/js/jquery_pluggins/jquery-ui.js"></script>

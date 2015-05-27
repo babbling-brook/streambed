@@ -1,22 +1,22 @@
 /**
  * Copyright 2015 Sky Wickenden
- * 
+ *
  * This file is part of StreamBed.
  * An implementation of the Babbling Brook Protocol.
- * 
+ *
  * StreamBed is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * at your option any later version.
- * 
+ *
  * StreamBed is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
- * 
+ *
  * @fileOverview A library of models that are used for testing data as it is passed between domains.
  * @author Sky Wickenden
  */
@@ -1595,6 +1595,8 @@ BabblingBrook.Models = (function () {
          * @param {string} stream.status Valid values are 'private', 'public' and 'deprecated'.
          * @param {string} stream.post_mode Describes who can submit posts to this stream.
          * @param {object[]} stream.fields Fields of the stream. See BabblingBrook.Models.streamFields for details.
+         * @param {string} stream.presentation_type The recomented presentation method for this stream.
+         *      Valid values are 'photowall' and 'list'.
          * @param {string} [error_message]
          *
          * @return boolean
@@ -1621,7 +1623,8 @@ BabblingBrook.Models = (function () {
                     [stream.description, 'string'],
                     [stream.status, 'string'],
                     [stream.post_mode, 'string'],
-                    [stream.fields, 'array']
+                    [stream.fields, 'array'],
+                    [stream.presentation_type, 'string']
                 ],
                 error_message
             );
@@ -1644,7 +1647,7 @@ BabblingBrook.Models = (function () {
                 'deprecated'
             ];
             if (jQuery.inArray(stream.status, status) === -1) {
-                BabblingBrook.TestErrors.reportError(error_message + ' stream.status not valid : ' + status);
+                BabblingBrook.TestErrors.reportError(error_message + ' stream.status not valid : ' + stream.status);
                 return false;
             }
 
@@ -1655,6 +1658,17 @@ BabblingBrook.Models = (function () {
             if (jQuery.inArray(stream.post_mode, post_mode) === -1) {
                 BabblingBrook.TestErrors.reportError(
                     error_message + ' stream.post_mode not valid : ' + stream.post_mode
+                );
+                return false;
+            }
+
+            var presentation_types = [
+                'list',
+                'photowall'
+            ];
+            if (jQuery.inArray(stream.presentation_type, presentation_types) === -1) {
+                BabblingBrook.TestErrors.reportError(
+                    error_message + ' stream.presentation_mode not valid : ' + stream.presentation_type
                 );
                 return false;
             }

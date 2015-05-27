@@ -153,16 +153,69 @@ BabblingBrook.Public.Login = (function () {
         window.location = href;
     };
 
+    var onLoginClicked = function (form_selector) {
+        var username_element = document.querySelector(form_selector + ' #username');
+        username = username_element.value;
+        var error_element = document.querySelector(form_selector + ' #login_error');
+        var username = '';
+        var http_request = new XMLHttpRequest();
+
+        // Store the current location so that the logged in user can be redirected back to this location
+        // - The login request might be from the modal login feature.
+        var return_location = encodeURI(window.location.href);
+        if(window.location.pathname.substr(0,11) === '/site/login') {
+            return_location = '';
+        }
+
+        error_element.className = 'hide';
+        username_element.className = 'textbox-loading';
+
+        /**
+         * Callback for checking a usernames validity.
+         */
+        http_request.onreadystatechange = function() {
+            if (http_request.readyState === 4) {
+                if (http_request.status !== 200) {
+                    console.error('Error whilst checking a username is valid.');
+                    return;
+                }
+
+                var response_data = http_request.responseText;
+                if (response_data.substr(0, 19) !== '&&&BABBLINGBROOK&&&') {
+                    throw 'JSON response data does not have a valid token to prevent JSON hijacking.';
+                }
+                var json_string = response_data.substr(19);
+                var response = JSON.parse(json_string);
+
+                if (response.exists === true) {
+                    if (response.signup_code_status === false) {
+                        askForSignupCode(username, return_location);
+                    } else {
+                        redirectToDomus(username, return_location);
+                    }
+
+                } else {
+                    var error_message = 'Username not found.'
+                    if (typeof response.error_message === 'string') {
+                        error_message = response.error_message;
+                    }
+                    error_element.innerHTML = error_message;
+                    username_element.className = '';
+                    error_element.className = 'error';
+                }
+            }
+
+        };
+        http_request.open('POST', '/site/logincheckusername', true);
+        http_request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        username = username_element.value;
+        http_request.send('full_username=' + username);
+    };
+
     /**
      * Setup the login form.
      */
     var setupLogin = function() {
-
-        // Username has changed
-        var username_element = document.getElementById('username');
-        var error_element = document.getElementById('login_error');
-        var username = '';
-        var http_request = new XMLHttpRequest();
 
         var hash = window.location.hash.substring(1);
         if (hash === 'helpopen') {
@@ -170,62 +223,11 @@ BabblingBrook.Public.Login = (function () {
             dom_help_text.className = 'content-block-2 readable-text';
         }
 
-
-        document.getElementById('login_submit').onclick = function() {
-
-            username = username_element.value;
-
-            // Store the current location so that the logged in user can be redirected back to this location
-            // - The login request might be from the modal login feature.
-            var return_location = encodeURI(window.location.href);
-            if(window.location.pathname.substr(0,11) === '/site/login') {
-                return_location = '';
-            }
-
-            error_element.className = 'hide';
-            username_element.className = 'textbox-loading';
-
-            /**
-             * Callback for checking a usernames validity.
-             */
-            http_request.onreadystatechange = function() {
-                if (http_request.readyState === 4) {
-                    if (http_request.status !== 200) {
-                        console.error('Error whilst checking a username is valid.');
-                        return;
-                    }
-
-                    var response_data = http_request.responseText;
-                    if (response_data.substr(0, 19) !== '&&&BABBLINGBROOK&&&') {
-                        throw 'JSON response data does not have a valid token to prevent JSON hijacking.';
-                    }
-                    var json_string = response_data.substr(19);
-                    var response = JSON.parse(json_string);
-
-                    if (response.exists === true) {
-                        if (response.signup_code_status === false) {
-                            askForSignupCode(username, return_location);
-                        } else {
-                            redirectToDomus(username, return_location);
-                        }
-
-                    } else {
-                        var error_message = 'Username not found.'
-                        if (typeof response.error_message === 'string') {
-                            error_message = response.error_message;
-                        }
-                        error_element.innerHTML = error_message;
-                        username_element.className = '';
-                        error_element.className = 'error';
-                    }
-                }
-
-            };
-            http_request.open('POST', '/site/logincheckusername', true);
-            http_request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            username = username_element.value;
-            http_request.send('full_username=' + username);
-        };
+        var dom_main_login_button = document.querySelector('#content .loggin-button');
+        if (dom_main_login_button !== null) {
+            dom_main_login_button.onclick = onLoginClicked.bind(null, '#content');
+        }
+        document.querySelector('#login-modal .loggin-button').onclick = onLoginClicked.bind(null, '#login-modal');
 
     };
 
@@ -258,7 +260,6 @@ BabblingBrook.Public.Login = (function () {
          * return void
          */
         construct : function () {
-
             if(cross_browser() === false) {
                 var ok_browser = document.getElementById('ok_browser')
                 ok_browser.parentNode.removeChild(ok_browser);

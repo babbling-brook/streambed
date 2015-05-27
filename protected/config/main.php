@@ -80,9 +80,9 @@ return
                     'gii/<controller:\w+>' => 'gii/<controller>',
                     'gii/<controller:\w+>/<action:\w+>' => 'gii/<controller>/<action>',
 
-                    'page/<view>' => 'Site/Page',                                     // Static pages.
+                    'site/tests/<action>' => 'Tests/<action>',                             // Test controller.
 
-                    'tests/<action>' => 'Tests/<action>',                             // Test controller.
+                    'page/<view>' => 'Site/Page',                                     // Static pages.
 
                     'site/<action>' => 'Site/<action>',                               // Site controller.
                     'site/tag/<action>' => 'Tag/<action>',                            // Tag actions.
@@ -101,8 +101,9 @@ return
 
                                                                         // The take value by a single user on an post.
                     'post/<domain>/<post_id>/usertake/<user_domain>/<username>' => 'Post/UserTake',
-                    'post/<domain>/<post_id>/<action>' => 'Post/<action>',           // Any action on an post.
-                    'post/<domain>/<post_id>' => 'Post/Post',                       // View an post.
+                    'post/<domain>/<post_id>/<action>' => 'Post/<action>',            // Any action on an post.
+                    'post/<domain>/<post_id>' => 'Post/Post',                         // View an post.
+                    'postwithtree/<post_domain>/<post_id>' => 'Post/PostWithTree',         // View an post.
 
                     'cache/<action>/<type>/<site>/<user>/<name>/'
                         . '<version_major:\d+|latest>/<version_minor:\d+|latest>/<version_patch:\d+|latest>' =>

@@ -1,20 +1,20 @@
 <?php
 /**
  * Copyright 2015 Sky Wickenden
- * 
+ *
  * This file is part of StreamBed.
  * An implementation of the Babbling Brook Protocol.
- * 
+ *
  * StreamBed is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * at your option any later version.
- * 
+ *
  * StreamBed is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
  */
@@ -102,15 +102,15 @@ class DateHelper
         $output = (1 === $count) ? '1 ' . $chunks[$i][1] : $count . ' ' . $chunks[$i][2];
 
         // Step two: the second chunk
-        if ($i + 2 < $j) {
-            $seconds2 = $chunks[$i + 1][0];
-
-            $count2 = floor(($since - ($seconds * $count)) / $seconds2);
-            if ((int)$count2 !== 0) {
-                $output .=  ' and ';
-                $output .=  (1 === $count2) ? '1 ' . $chunks[$i + 1][1] : $count2 . ' ' . $chunks[$i + 1][2];
-            }
-        }
+//        if ($i + 2 < $j) {
+//            $seconds2 = $chunks[$i + 1][0];
+//
+//            $count2 = floor(($since - ($seconds * $count)) / $seconds2);
+//            if ((int)$count2 !== 0) {
+//                $output .=  ' and ';
+//                $output .=  (1 === $count2) ? '1 ' . $chunks[$i + 1][1] : $count2 . ' ' . $chunks[$i + 1][2];
+//            }
+//        }
 
         if ((int)trim($output) === false) {
             $output = '0 seconds';

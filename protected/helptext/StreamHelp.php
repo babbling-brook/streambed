@@ -1,20 +1,20 @@
 <?php
 /**
  * Copyright 2015 Sky Wickenden
- * 
+ *
  * This file is part of StreamBed.
  * An implementation of the Babbling Brook Protocol.
- * 
+ *
  * StreamBed is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * at your option any later version.
- * 
+ *
  * StreamBed is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
  */
@@ -77,6 +77,25 @@ class StreamHelp extends Help
         $title = "Description";
         $description = "
             <p>This should describe the purpose of your stream in plain english.</p>";
+        return $this->dialogue->inline($title, $description);
+    }
+
+    /**
+     * Presentation type help.
+     *
+     * @return string Help tags.
+     */
+    public function presentationType() {
+        $title = "Presentation Type";
+        $description = "
+            <p>
+                This selects the default presentation type for this stream. Client sites do not have to obay this
+                option. It provides an indication of how the posts are expected to be displayed.
+            </p>
+            <ul>
+                <li><strong>list</strong>. A simple list of posts.</li>
+                <li><strong>photowall</strong>. A wall of images.</li>
+            </ul>";
         return $this->dialogue->inline($title, $description);
     }
 

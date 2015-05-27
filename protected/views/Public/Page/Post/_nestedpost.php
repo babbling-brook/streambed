@@ -1,20 +1,20 @@
 <?php
 /**
  * Copyright 2015 Sky Wickenden
- * 
+ *
  * This file is part of StreamBed.
  * An implementation of the Babbling Brook Protocol.
- * 
+ *
  * StreamBed is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * at your option any later version.
- * 
+ *
  * StreamBed is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
  */
@@ -33,11 +33,12 @@
 $stream_url = "/" . $stream['username'] . '/stream/posts/'
     . $stream['name'] . "/" . $stream['version'];
 $post_username = $post['domain'] . '/' . $post['username'];
-$post_url = '/post/' . $post['domain'] . "/" . $post['post_id'];
+$post_url = '/postwithtree/' . $post['domain'] . "/" . $post['post_id'];
 $post_time = date('l \t\h\e jS \o\f F Y \a\t H:i:s \G\M\T', $post['timestamp']);
 $post_time_ago = DateHelper::timeSince($post['timestamp']);
 $title = "";
 $title_link = $post_url;
+$show_thumbnail = false;
 if (isset($post['title']) === true) {
     $title = $post['title'];
 } else if (empty($post['content']) === false && isset($post['content'][1]['text']) === true) {
@@ -45,39 +46,55 @@ if (isset($post['title']) === true) {
 } else if (empty($post['content']) === false && isset($post['content'][1]['link_title']) === true) {
     $title = $post['content'][1]['link_title'];
     $title_link = $post['content'][1]['link'];
+    $show_thumbnail = true;
 }
 
 ?>
-<li class='post'>
-    <div class="top-value">
-        <div class="field-2 field updown take">
-            <span class="up-arrow up-untaken"></span>
-            <span class="down-arrow down-untaken"></span>
-        </div>
-    </div>
+<li class="post">
     <?php if ($type === 'main') { ?>
-        <?php $title_class='title'; ?>
-        <?php if ((int)$stream['fields'][1]['max_size'] > 200) { ?>
-            <?php $title_class = 'larger readable-text'; ?>
-        <?php }?>
-
-        <div class="<?php echo $title_class; ?>">
-            <?php  if ($title_class === 'title') { ?>
-            <a href="<?php echo $title_link; ?>">
-            <?php } ?>
-                <?php echo $title; ?>
-            <?php  if ($title_class === 'title') { ?>
-            </a>
-            <?php } ?>
-        </div>
-        <div class="info">
-            <?php // @fixme $post_username is only for users on this site. needs converting to work cross domain. ?>
-            Made by <a title="<?php echo $post_username; ?>" href="/<?php echo $post['username']; ?>" class="user">
-                <?php echo $post['username']; ?>
-            </a>
-            <span class="time" title="<?php echo $post_time; ?>"><?php echo $post_time_ago; ?> ago</span>
-        </div>
+        <?php if ($show_thumbnail === true) { ?>
+            <?php $top_post_content_class = 'top-post-content'; ?>
+            <div class="top-post-image">
+                <img src="/images/user/<?php echo $post['domain']; ?>/<?php echo $post['username']; ?>/post/thumbnails/large-proportional/<?php echo $post['post_id']; ?>/1.png" />
+            </div>
+        <?php } else {
+            $top_post_content_class = '';
+        }?>
+        <div class="<?php echo $top_post_content_class; ?> content-block-2">
+            <div class="top-value">
+                <div class="field-2 field updown take">
+                    <span class="up-arrow up-untaken"></span>
+                    <span class="down-arrow down-untaken"></span>
+                </div>
+            </div>
+            <?php $title_class='title'; ?>
+            <?php if ((int)$stream['fields'][1]['max_size'] > 200) { ?>
+                <?php $title_class = 'readable-text'; ?>
+            <?php }?>
+            <div class="first-row <?php echo $title_class; ?>">
+                <?php  if ($title_class === 'title') { ?>
+                <a href="<?php echo $title_link; ?>">
+                <?php } ?>
+                    <?php echo $title; ?>
+                <?php  if ($title_class === 'title') { ?>
+                </a>
+                <?php } ?>
+            </div>
+            <div class="info">
+                <?php // @fixme $post_username is only for users on this site. needs converting to work cross domain. ?>
+                Made by <a title="<?php echo $post_username; ?>" href="/<?php echo $post['username']; ?>" class="user">
+                    <?php echo $post['username']; ?>
+                </a>
+                <span class="time" title="<?php echo $post_time; ?>"><?php echo $post_time_ago; ?> ago</span>
+            </div>
+        <?php // the top-post-content div is closed below. ?>
     <?php } else if ($type === 'tree') { ?>
+        <div class="top-value">
+            <div class="field-2 field updown take">
+                <span class="up-arrow up-untaken"></span>
+                <span class="down-arrow down-untaken"></span>
+            </div>
+        </div>
         <div class="info">
             <span class="switch"></span>
             Made by <a title="<?php echo $post_username; ?>" href="/<?php echo $post['username']; ?>" class="user">
@@ -181,7 +198,7 @@ if (isset($post['title']) === true) {
 
                         case "list":
                             $content = '<div>Login to view status</div>';
-                            // @task See http://cobaltcascade.net/post/cobaltcascade.net/10219
+                            // @task See http://cobaltcascade.net/postwithtree/cobaltcascade.net/10219
         //                    $content = '<div class="value-list take field untaken ui-buttonset">';
         //                    foreach($field['value_list'] as $list_item) {
         //                        $content .= '<div>' . $list_item['name'] . '</div>';
@@ -216,6 +233,10 @@ if (isset($post['title']) === true) {
                 default:
                     throw new Exception("Post field type not found : " . $field['type']);
             }
+            if ($field['type'] === 'textbox' && $content === '') {
+                continue;
+            }
+
             $field_div = '<span class="field-label field-label-' . $key . '">' . $label . '</span>';
             $field_div .= '<div class="field-' . $key . ' field ' . $field_class . '">' . $content . '</div>';
 
@@ -228,7 +249,7 @@ if (isset($post['title']) === true) {
         <a class="link-to-post" href="<?php echo $title_link; ?>">link</a>
         <?php
         if (isset($parent_post) === true) {
-            $parent_url = '/post/' . $parent_post['domain'] . "/" . $parent_post['post_id'];
+            $parent_url = '/postwithtree/' . $parent_post['domain'] . "/" . $parent_post['post_id'];
             ?>
             <a class="link" href="<?php echo $parent_url; ?>">parent</a>
             <?php
@@ -236,6 +257,11 @@ if (isset($post['title']) === true) {
         ?>
         <a class="reply link">reply</a>
     </div>
+
+    <?php if ($type === 'main') { ?>
+        <?php // closes the top-post-content div ?>
+        </div>
+    <?php } ?>
 
     <ul class="children post">
         <?php

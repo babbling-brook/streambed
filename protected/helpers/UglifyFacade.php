@@ -80,7 +80,7 @@ class UglifyFacade
     private static function generateFileListForMainOrThemeDirectory($folder_path, $in_array, $not_array) {
         $theme_folder_path = self::$js_theme_root . $folder_path;
         $main_folder_path = self::$js_root . $folder_path;
-
+echo ($folder_path . '<br>');
         $theme_files = array();
         $js_files = array();
         if (file_exists($theme_folder_path) === true) {
@@ -124,6 +124,13 @@ class UglifyFacade
             if (substr($filename, -3) !== '.js') {
                 continue;
             }
+
+            // Skip backbone files for now.
+            if (strpos($file_object->getPathname(), 'Backbone') > 0) {
+echo ('!!');
+                continue;
+            }
+
             $file_without_extension = substr($filename, 0, strpos($filename, '.'));
             if (isset($not_array) === true && in_array($file_without_extension, $not_array) === true) {
                 continue;

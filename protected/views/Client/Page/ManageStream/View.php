@@ -1,20 +1,20 @@
 <?php
 /**
  * Copyright 2015 Sky Wickenden
- * 
+ *
  * This file is part of StreamBed.
  * An implementation of the Babbling Brook Protocol.
- * 
+ *
  * StreamBed is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * at your option any later version.
- * 
+ *
  * StreamBed is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
  */
@@ -68,7 +68,7 @@ foreach ($default_rings as $ring) {
         . "</a></br>";
 }
 $default_ring_lines = substr($default_ring_lines, 0, strlen($default_ring_lines) - 5);
-$meta_url = '/post/' . Yii::app()->params['host'] . '/' . $model->extra->meta_post_id;
+$meta_url = '/postwithtree/' . Yii::app()->params['host'] . '/' . $model->extra->meta_post_id;
 
 $this->widget(
     'zii.widgets.CDetailView',

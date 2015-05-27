@@ -1,20 +1,20 @@
 <?php
 /**
  * Copyright 2015 Sky Wickenden
- * 
+ *
  * This file is part of StreamBed.
  * An implementation of the Babbling Brook Protocol.
- * 
+ *
  * StreamBed is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * at your option any later version.
- * 
+ *
  * StreamBed is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
  */
@@ -26,6 +26,16 @@
 $cs = Yii::app()->getClientScript();
 $this->renderPartial('/Shared/Layouts/_page_js', array('page' => 'Stream/Stream'));
 $this->renderPartial('/Shared/Layouts/_page_css', array('page' => 'Stream/Stream'));
+
+
+$cs = Yii::app()->getClientScript();
+$cs->registerScriptFile(
+    Yii::app()->baseUrl . '/js/Minified/resources/jquery.justifiedGallery.min.js' . $this->js_version_number
+);
+//$cs->registerScriptFile(
+//    Yii::app()->baseUrl . '/js/resources/Justified-Gallery-3.5.4/js/justifiedGallery.js' . $this->js_version_number
+//);
+$cs->registerCssFile(Yii::app()->baseUrl . '/css/Minified/Libraries/justifiedGallery.min.css');
 
 $this->renderPartial('/Shared/Page/Stream/_side_description');
 

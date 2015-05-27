@@ -45,3 +45,52 @@
     border-radius: 0.25em;
     width: 10em;
 }
+
+.stream-image-links {
+    position: absolute;
+    background-color: rgba(29, 41, 73, 0.75);
+    width: 100%;
+    padding: 1em;
+    color: #fff;
+   /* visibility: hidden; */
+}
+
+.stream-image:hover ~ .stream-image-links,
+.stream-image-links:hover,
+.justified-gallery .post-thumbnail-container ~ .stream-image-links{
+    visibility: visible;
+}
+
+#stream_container .caption .title {
+    font-size: 1.75em;
+    height: 1em;
+    overflow: hidden;
+    padding: 0 0.5em 0.25em 0.5em;
+    margin-top: 0.25em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#stream_container .caption a, #stream_container .link {
+    color: #B2C8FF;
+}
+
+#stream_container .caption a:hover, #stream_container .link:hover {
+    color: #fff;
+}
+
+#stream_container .caption .actions>a, #stream_container .caption .actions>span {
+    margin-right: 2em;
+}
+
+#stream_container .caption .info {
+    padding: 0.5em 1em 0em 4em;
+}
+
+#stream_container .caption .actions {
+    padding: 0.5em 1em 1em 4em;
+}
+
+#posts.justified-gallery > div > .caption {
+    padding-left: 1em;
+}

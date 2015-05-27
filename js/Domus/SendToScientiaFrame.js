@@ -46,6 +46,13 @@ BabblingBrook.Domus.SendToScientiaFrame = (function () {
      */
     var create = function (domain, domain_id, https) {
 
+
+/************    !! IMPORTANT  !! ***************
+ * This is a temporary insecure hack to prevent use of https.
+ ************************************************
+ */
+        https = false;
+
         var protocol = 'http://';
         if (https) {
             protocol = 'https://';
@@ -78,6 +85,13 @@ BabblingBrook.Domus.SendToScientiaFrame = (function () {
          * @param {function} [timeout] A millisecnd timestamp for whne this request should timeout.
          */
         sendMessage : function (domain, action, data, https, success, error, timeout) {
+
+/************    !! IMPORTANT  !! ***************
+ * This is a temporary insecure hack to prevent use of https.
+ ************************************************
+ */
+        https = false;
+        
             if (typeof domain !== 'string') {
                 console.error(domain, action, data, https);
                 console.error('domain invlaid when trying to send to scientia domain.');

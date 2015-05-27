@@ -211,6 +211,12 @@ BabblingBrook.Domus.Interact = (function () {
      * @return void
      */
     var postMessage = function (data, domain, request_uuid, action, successCallback, errorCallback, https, timeout) {
+/************    !! IMPORTANT  !! ***************
+ * This is a temporary insecure hack to prevent use of https.
+ ************************************************
+ */
+        https = false;
+
         if (typeof timeout === 'undefined') {
             timeout = parseInt(Math.round(new Date().getTime())) + 25000;
         }

@@ -86,7 +86,7 @@ BabblingBrook.Client.Component.ReportBug = (function () {
     var onBugPostCreated = function (jq_bug_dialog, post) {
         jQuery('.ui-dialog #bug_post_container .make-post').remove();
         var jq_bug_submitted = jQuery('#bug_submitted_template').html();
-        var new_post_link = '/post/' + post.domain + '/' + post.post_id;
+        var new_post_link = '/postwithtree/' + post.domain + '/' + post.post_id;
         jQuery('.ui-dialog #bug_post_container').append(jq_bug_submitted);
         jQuery('.ui-dialog #bug_post_container #submitted_bug_link').attr('href', new_post_link)
     };

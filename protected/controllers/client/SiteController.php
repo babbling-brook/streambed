@@ -120,28 +120,75 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays the home page as a stream for unauthenticatedusers.
+     *
+     * @return void
+     */
+    private function displayPublicHomePageAsStream() {
+        $stream = Yii::app()->params['home_page_stream'];
+        $controller = new StreamController('stream');
+        $controller->actionPosts(
+            $stream['username'],
+            $stream['name'],
+            $stream['version']['major'],
+            $stream['version']['minor'],
+            $stream['version']['patch'],
+            '1',
+            $stream['rhythm']['domain'],
+            $stream['rhythm']['username'],
+            $stream['rhythm']['name'],
+            $stream['rhythm']['version']['major'],
+            $stream['rhythm']['version']['minor'],
+            $stream['rhythm']['version']['patch']
+        );
+    }
+
+    /**
+     * Displays the home page as a stream for unauthenticatedusers.
+     *
+     * @return void
+     */
+    private function displayPublicHomePageAsPostWithTree() {
+        $post_location = Yii::app()->params['home_page_post'];
+        $controller = new PostController('post');
+        $controller->actionPostWithTree($post_location['post_id'], $post_location['domain']);
+    }
+
+    /**
+     * Displays the home page as a stream for unauthenticatedusers.
+     *
+     * @return void
+     */
+    private function displayPublicHomePageAsPost() {
+        $post_location = Yii::app()->params['home_page_post'];
+        $controller = new PostController('post');
+        $controller->actionPost($post_location['post_id'], $post_location['domain']);
+    }
+
+    /**
      * Site home page.
      *
      * @return void
      */
     public function actionIndex() {
         if (Yii::app()->user->isGuest === true) {
-            $stream = Yii::app()->params['home_page_stream'];
-            $controller = new StreamController('stream');
-            $controller->actionPosts(
-                $stream['username'],
-                $stream['name'],
-                $stream['version']['major'],
-                $stream['version']['minor'],
-                $stream['version']['patch'],
-                '1',
-                $stream['rhythm']['domain'],
-                $stream['rhythm']['username'],
-                $stream['rhythm']['name'],
-                $stream['rhythm']['version']['major'],
-                $stream['rhythm']['version']['minor'],
-                $stream['rhythm']['version']['patch']
-            );
+            switch (Yii::app()->params['home_page_type']) {
+                case 'stream':
+                    $this->displayPublicHomePageAsStream();
+                    break;
+
+                case 'post_with_tree':
+                    $this->displayPublicHomePageAsPostWithTree();
+                    break;
+
+                case 'post':
+                    $this->displayPublicHomePageAsPost();
+                    break;
+
+                default:
+                    throw new CHttpException(500, 'home_page_type is invalid. Please set it in the config');
+            }
+
         } else {
             $this->render('/Client/Page/Home');
         }
@@ -398,7 +445,7 @@ class SiteController extends Controller
         $this->redirectToSecure();
         // Attatch the js here so that it does not get downloaded for modal requests.
         $cs = Yii::app()->getClientScript();
-        $cs->registerScriptFile(Yii::app()->baseUrl . '/js/Public/Login.js');
+        //$cs->registerScriptFile(Yii::app()->baseUrl . '/js/Public/Login.js');
         $this->render('/Public/Page/Site/Login');
     }
 

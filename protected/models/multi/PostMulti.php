@@ -1,20 +1,20 @@
 <?php
 /**
  * Copyright 2015 Sky Wickenden
- * 
+ *
  * This file is part of StreamBed.
  * An implementation of the Babbling Brook Protocol.
- * 
+ *
  * StreamBed is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * at your option any later version.
- * 
+ *
  * StreamBed is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
  */
@@ -173,6 +173,18 @@ class PostMulti
                                 );
                                 if ($png_valid === false) {
                                     $errors[] = "'link' large thumbnail is not a valid base64 PNG string : "
+                                        . $t_field['display_order'];
+                                }
+                            }
+
+                            if (array_key_exists('link_thumbnail_large_proportional_base64', $field) === true
+                                && strlen($field['link_thumbnail_large_proportional_base64']) > 0
+                            ) {
+                                $png_valid = ImageHelper::checkPNGFromBase64StringIsValid(
+                                    $field['link_thumbnail_large_proportional_base64']
+                                );
+                                if ($png_valid === false) {
+                                    $errors[] = "'link' large proportional thumbnail is not a valid base64 PNG string : "
                                         . $t_field['display_order'];
                                 }
                             }
@@ -616,6 +628,32 @@ class PostMulti
                     }
                 }
 
+                if (isset($field['link_thumbnail_large_proportional_base64']) === true
+                    && strlen($field['link_thumbnail_large_proportional_base64']) > 0
+                ) {
+                    // Post fields are currently 1 based rather than 0;
+                    $png_valid = ImageHelper::createPNGFromBase64String(
+                        $field['link_thumbnail_large_proportional_base64'],
+                        'user/' . Yii::app()->user->getDomain() . '/'. Yii::app()->user->getName()
+                            . '/post/thumbnails/large-proportional/' . $post_id . '/',
+                        $key + 1 . '.png'
+                    );
+                    if ($png_valid === false) {
+                        throw new Exception('Post image thumbnail failed to save.');
+                    }
+                } else {
+                    // Need to check for guest due to meta posts being made for new users causing
+                    // errors due to not being logged in yet.
+                    if (Yii::app()->user->isGuest === false) {
+                        $large_image_file = dirname(Yii::app()->request->scriptFile) . '/images/user/'
+                            . Yii::app()->user->getDomain() . '/'. Yii::app()->user->getName()
+                            . '/post/thumbnails/large-proportional/' . $post_id . '/' . ($key + 1) . '.png';
+                        if (file_exists($large_image_file) === true) {
+                            unlink($large_image_file);
+                        }
+                    }
+                }
+
                 if (LookupHelper::getID('stream_field.field_type', 'openlist') === (int)$field['field_type']
                     && isset($field['selected']) === true
                 ) {
@@ -683,13 +721,15 @@ class PostMulti
      *
      * @param integer $post_id The id of the post we are fetching.
      * @param integer|string [$revision='latest'] The revision of the post to fetch. Defaults to latest.
+     * @param string [domain] The home domain of the post. If not included then assumed that the post is local.
      *
      * @return array
      */
-    public static function getPost($post_id, $revision='latest') {
+    public static function getPost($post_id, $revision='latest', $domain=null) {
 
-        if ($revision === 'latest') {
-            $revision = Post::getLatestRevisionNumber($post_id);
+        $site_id = Yii::app()->params['site_id'];
+        if (isset($domain) === true) {
+            $site_id = Site::getSiteId($domain);
         }
 
         $sql = "
@@ -722,21 +762,31 @@ class PostMulti
                 LEFT JOIN stream_child
                     ON stream_extra.stream_extra_id = stream_child.parent_id
             WHERE
-                post.post_id = :post_id
+                post.site_post_id = :post_id
+                AND post.site_id = :site_id
                 AND (post.date_created < :cooldown OR post.user_id = :user_id)";
         $command = Yii::app()->db->createCommand($sql);
         $command->bindValue(':post_id', $post_id, PDO::PARAM_INT);
+        $command->bindValue(':site_id', $site_id, PDO::PARAM_INT);
         $command->bindValue(':user_id', Yii::app()->user->getId(), PDO::PARAM_INT);
         $cooldown = date('Y-m-d H:i:s', time() - Yii::app()->params['post_cooldown']);
         $command->bindValue(':cooldown', $cooldown, PDO::PARAM_STR);
 
         $post_details = $command->queryRow();
-        // Manually adding revision, it is faster than making an extra table join
-        $post_details['revision'] = $revision;
 
         if ($post_details === false) {
-            return 'GetPost_not_found';
+            if ($domain !== HOST) {
+                // @todo fetch from the hosts domain.
+            } else  {
+                return 'GetPost_not_found';
+            }
         }
+
+        // Manually adding revision, it is faster than making an extra table join
+        if ($revision === 'latest') {
+            $revision = Post::getLatestRevisionNumber($post_id);
+        }
+        $post_details['revision'] = $revision;
 
         $post_details['status'] = LookupHelper::getValue($post_details['status']);
         // Only the creator and recipeent can see private posts.

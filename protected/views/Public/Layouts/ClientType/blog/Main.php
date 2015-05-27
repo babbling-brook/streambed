@@ -1,20 +1,20 @@
 <?php
 /**
  * Copyright 2015 Sky Wickenden
- * 
+ *
  * This file is part of StreamBed.
  * An implementation of the Babbling Brook Protocol.
- * 
+ *
  * StreamBed is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * at your option any later version.
- * 
+ *
  * StreamBed is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
  */
@@ -32,7 +32,7 @@
     <meta name="viewport" content="width=device-width">
 
     <?php
-    $this->renderPartial('/Shared/Layouts/_page_js', array('page' => 'Resize'));
+    //$this->renderPartial('/Shared/Layouts/_page_js', array('page' => 'Resize'));
     ?>
 
     <?php
@@ -57,7 +57,7 @@
 
 <body>
 
-    <div id="login-modal" class="hide">
+    <div id="login-modal" class="login-modal-fade">
         <div id="login_popup" class="ui-dialog">
             <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-draggable-handle">
                 <span id="ui-id-2" class="ui-dialog-title">Login</span>
@@ -69,34 +69,34 @@
                     <span class="ui-button-text"></span>
                 </button>
             </div>
-            <div id="modal_content" class="login-loading" >
-                <img src="/images/icons/loading.gif">
+            <div id="modal_content">
+                <?php $this->renderPartial('/Public/Page/Site/Login'); ?>
             </div>
         </div>
     </div>
 
-<header>
-
-    <div id="nav-corner-colour">
-        <nav id="mainmenu">
-            <ul id="yw0">
-                <li><a href="/page/docs/index">Developers</a></li>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/journal">Journal</a></li>
-                <li><a href="/page/overview">Theory</a></li>
-            </ul>
-        </nav>
-    </div>
-
-    <div id="logo">
-        <a href="/">
-            <img src="/images/site-furniture/babbling-brook-logo-v5.png" id="image_logo">
-        </a>
-        <div>
-                A new framework that enables any website to take part in a shared social networking platform
+    <header>
+        <div id="nav-corner-colour">
+            <nav id="mainmenu">
+                <ul id="yw0">
+                    <li><a href="/">Main</a></li>
+                    <li><a href="/">Menu</a></li>
+                    <li><a href="/">Items</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
-</header><!-- header -->
+
+        <div id="logo">
+            <h1>
+                <a href="/">
+                    The site name
+                </a>
+            </h1>
+            <h4 id="site_description">
+                    A blog that uses Babbling Brook
+            </h4>
+        </div>
+    </header>
 
     <div id="page">
 

@@ -60,6 +60,32 @@ BabblingBrook.Client.Page.ManageStream.Edit = (function () {
     };
 
     /**
+     * Click event for updating the description.
+     */
+    var setupUpdatePresentationType = function () {
+        jQuery('#presentation_type').change(function () {
+            jQuery('#presentation_type').addClass('textbox-loading');
+            // Currently a client request but due for conversion to a domus domain
+            // request when streams are managed through the domus domain.
+            var url = BabblingBrook.Library.changeUrlAction(window.location.pathname, 'UpdatePresentationType');
+            BabblingBrook.Library.post(
+                url,
+                {
+                    presentation_type : jQuery('#presentation_type').val()
+                },
+                function (data) {
+                    if (typeof data.error !== 'undefined') {
+                        jQuery('#presentation_type_error').html(data.error).removeClass('hide');
+                    } else {
+                        jQuery('#presentation_type_error').html('').addClass('hide');
+                    }
+                    jQuery('#presentation_type').removeClass('textbox-loading');
+                }
+            );
+        });
+    };
+
+    /**
      * Setup the form for amending the default filter rhythms in a stream.
      *
      * @returns {void}
@@ -140,6 +166,7 @@ BabblingBrook.Client.Page.ManageStream.Edit = (function () {
 
         construct : function () {
             setupUpdateDescription();
+            setupUpdatePresentationType();
             setupChildStreams();
             setupDefaultSortRhythms();
             setupDefaultModerationRings();

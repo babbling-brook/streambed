@@ -21,7 +21,7 @@
 /* Styles for streams that are only applied to the public version */
 
 #make_post {
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
 #make_post>input {
@@ -30,6 +30,6 @@
     color: #3C4C78;
 }
 
-#posts {
-    margin: 2em 0;
+#stream_container {
+    margin: 1em 0;
 }

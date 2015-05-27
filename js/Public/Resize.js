@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
  *
- * @fileOverview Public stream page functionality
+ * @fileOverview Public page resize functionality.
  * @author Sky Wickenden
  */
 
@@ -35,7 +35,12 @@ BabblingBrook.Public.Resize = (function () {
     var timer;
 
     var callResizeTests = function () {
-
+        if (typeof BabblingBrook.Public.Stream !== 'undefined') {
+             BabblingBrook.Public.Stream.resize();
+        }
+        if (typeof BabblingBrook.Public.Post !== 'undefined') {
+             BabblingBrook.Public.Post.resize();
+        }
     };
 
     /**
@@ -44,16 +49,19 @@ BabblingBrook.Public.Resize = (function () {
      * @returns {undefined}
      */
     var setupTopNavButton = function () {
-        document.getElementById('small_screen_menu').onclick = function () {
-            document.getElementById('top_nav_list').classList.toggle('small-screen-menu');
-            var list_items = document.getElementById('top_nav_list');
-            for (var i = 0; i < list_items.childNodes.length; i++) {
-                if (list_items.childNodes[i].tagName === 'LI' && list_items.childNodes[i].id !== 'small_screen_menu') {
-                    list_items.childNodes[i].classList.toggle('small-screen-menu');
+        var small_screen_menu = document.getElementById('small_screen_menu');
+        if (small_screen_menu !== null) {
+            small_screen_menu.onclick = function () {
+                document.getElementById('top_nav_list').classList.toggle('small-screen-menu');
+                var list_items = document.getElementById('top_nav_list');
+                for (var i = 0; i < list_items.childNodes.length; i++) {
+                    if (list_items.childNodes[i].tagName === 'LI' && list_items.childNodes[i].id !== 'small_screen_menu') {
+                        list_items.childNodes[i].classList.toggle('small-screen-menu');
+                    }
                 }
-            }
-            return false;
-        };
+                return false;
+            };
+        }
     };
 
     return {

@@ -334,7 +334,7 @@ BabblingBrook.Client.Component.StreamSideBar = (function () {
                  .attr('title', 'Owned by: ' + stream_data.domain + '/' + stream_data.username)
                  .text(stream_data.name)
                  .attr('href', 'http://' + stream_url);
-             jQuery('#sidebar_extra>.description').text(stream_data.description);
+             jQuery('#sidebar_extra .description').text(stream_data.description);
 
              jQuery('#sort_bar>dt').addClass('block-loading');
 

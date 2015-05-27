@@ -1,1 +1,1 @@
-{"version":3,"sources":["..//Client/Page/Mail/Thread.js"],"names":["BabblingBrook","Client","Page","Mail","Thread","construct","jQuery"],"mappings":"AAYAA,cAAcC,OAAOC,KAAKC,KAAKC,OAAU,WACrC,YAEA,QAEIC,UAAY,iBAOpBC,OAAO,WACH,YACAN,eAAcC,OAAOC,KAAKC,KAAKC,OAAOC"}
+{"version":3,"sources":["..//Client/Page/Mail/Thread.js"],"names":["BabblingBrook","Client","Page","Mail","Thread","construct","jQuery"],"mappings":"AA8BAA,cAAcC,OAAOC,KAAKC,KAAKC,OAAU,WACrC,YAEA,QAEIC,UAAY,iBAOpBC,OAAO,WACH,YACAN,eAAcC,OAAOC,KAAKC,KAAKC,OAAOC"}

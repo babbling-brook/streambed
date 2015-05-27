@@ -36,6 +36,12 @@ $level_data = UserLevel::getLevel(Yii::app()->user->id);
     if (typeof BabblingBrook.Client.Core !== 'object') {
         BabblingBrook.Client.Core = {};
     }
+    if (typeof BabblingBrook.Client.BackboneModel !== 'object') {
+        BabblingBrook.Client.BackboneModel = {};
+    }
+    if (typeof BabblingBrook.Client.Object !== 'object') {
+        BabblingBrook.Backbone = {};
+    }
     if (typeof BabblingBrook.Client.Page !== 'object') {
         BabblingBrook.Client.Page = {};
     }

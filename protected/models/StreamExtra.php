@@ -1,20 +1,20 @@
 <?php
 /**
  * Copyright 2015 Sky Wickenden
- * 
+ *
  * This file is part of StreamBed.
  * An implementation of the Babbling Brook Protocol.
- * 
+ *
  * StreamBed is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * at your option any later version.
- * 
+ *
  * StreamBed is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
  */
@@ -93,6 +93,22 @@ class StreamExtra extends CActiveRecord
     public $meta_post_id;
 
     /**
+     * What is the preferred way in which this stream should be presented. See lookup table for details
+     *
+     * @var integer
+     */
+    public $presentation_type_id;
+
+    /**
+     * The string version of presentation_type_id. This is not a table column.
+     *
+     * Converted to presentation_type_id during validation.
+     *
+     * @var integer
+     */
+    public $presentation_type;
+
+    /**
      * Returns the parent model.
      *
      * @param type $className The name of this class.
@@ -125,11 +141,16 @@ class StreamExtra extends CActiveRecord
         return array(
             array('stream_id, version_id', 'required', 'except' => 'composite'),
             array('description, status_id, edit_mode', 'required'),
-            array('version_id, status_id, group_period, post_mode, meta_post_id, edit_mode', 'length', 'max' => 10),
+            array(
+                'version_id, status_id, group_period, post_mode, meta_post_id, edit_mode, presentation_type_id',
+                'length',
+                'max' => 10
+            ),
             array('status_id', 'ruleStatus'),
             array('status_id', 'ruleGroupPeriod'),
             array('status_id', 'rulePostMode'),
             array('status_id', 'ruleEditMode'),
+            array('presentation_type_id', 'rulePresentationType'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('stream_extra_id, date_created, description, version_id, status_id', 'safe', 'on' => 'search'),
@@ -186,6 +207,23 @@ class StreamExtra extends CActiveRecord
         $valid = LookupHelper::validId('stream_extra.edit_mode', $this->edit_mode, false);
         if ($valid === false) {
             $this->addError('edit_mode', 'Edit Mode is not a valid value. ' . $this->edit_mode);
+        }
+    }
+
+    /**
+     * A rule to check that the edit mode value is valid.
+     *
+     * @return void
+     */
+    public function rulePresentationType() {
+        $is_valid_type = LookupHelper::valid('stream_extra.presentation_type_id', $this->presentation_type);
+        if ($is_valid_type === false) {
+             $this->addError('presentation_type_id', 'Not a valid presentation type.');
+        } else {
+            $this->presentation_type_id = LookupHelper::getID(
+                'stream_extra.presentation_type_id',
+                $this->presentation_type
+            );
         }
     }
 

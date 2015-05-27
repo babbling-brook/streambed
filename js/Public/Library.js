@@ -92,45 +92,25 @@ BabblingBrook.Public.Library = (function () {
      */
     var loginCallback = function() {
         var login_modal = document.getElementById('login-modal');
-        login_modal.className = 'login-modal-show';
+        login_modal.className = 'login-modal-fade';
+        login_modal.style.display  = 'block';
+        // If this isn't in a timeout, then it doesn't trigger.
+        // Probably something to do with applying the block at the same time.
+        setTimeout(function() {
+            login_modal.style.opacity  = '1';
+            BabblingBrook.Public.Login.construct();
+        }, 10);
 
         document.querySelector('.ui-dialog-titlebar-close').onclick = function () {
-            login_modal.className = 'hide';
+            login_modal.style.opacity  = '0';
+            // When the fade has finished, hide the invisible div that prevents clicks.
+            setTimeout(function() {
+                login_modal.className = 'hide';
+                login_modal.removeAttribute('style');
+            }, 200);
         };
 
-        var fileref = document.createElement('script');
-        fileref.setAttribute('type','text/javascript');
-        fileref.setAttribute('src', '/js/Public/Login.js?4');
-        document.getElementsByTagName('head')[0].appendChild(fileref);
 
-        // When the script has loaded we need to run the constructor as the window onload event has
-        // already fired.
-        var login_html = '';
-        var onLoad = function () {
-            if (login_html.length > 0 && typeof BabblingBrook.Public.Login !== 'undefined') {
-                document.getElementById('modal_content').innerHTML = login_html;
-                BabblingBrook.Public.Login.construct();
-            } else {
-                setTimeout(onLoad, 10);
-            }
-        };
-        onLoad();
-
-        /**
-         * Callback for Loading the login form.
-         */
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState === 4) {
-                if (xmlhttp.status !== 200) {
-                    console.error('Error whilst loading login form.');
-                    return false;
-                }
-                document.getElementById('modal_content').className = '';
-                login_html = xmlhttp.responseText;
-            }
-        };
-        xmlhttp.open('POST', '/site/modallogin', true);
-        xmlhttp.send();
         return false;
     }
 
@@ -160,14 +140,6 @@ BabblingBrook.Public.Library = (function () {
          * @return void
          */
         modalLogin : function(click_classes) {
-            // Detect which kind of XMLHttpRequest object is available.
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            if (typeof window.XMLHttpRequest !== 'undefined' && window.XMLHttpRequest !== null) {
-                xmlhttp = new XMLHttpRequest();
-            } else { // code for IE6
-                xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
-            }
-
             // Attatch click events to all modal login triggers.
             // Use The fast method for modern brrowsers.
             BabblingBrook.Public.Library.classClick(click_classes, loginCallback);

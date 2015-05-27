@@ -1,20 +1,20 @@
 <?php
 /**
  * Copyright 2015 Sky Wickenden
- * 
+ *
  * This file is part of StreamBed.
  * An implementation of the Babbling Brook Protocol.
- * 
+ *
  * StreamBed is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * at your option any later version.
- * 
+ *
  * StreamBed is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
  */
@@ -93,7 +93,8 @@ class StreamController extends Controller
                     Update,
                     Edit,
                     EditFields,
-                    UpdateDescription',
+                    UpdateDescription,
+                    UpdatePresentationType',
                 'data_type' => 'stream',
                 'version_type' => 'stream',
             ),
@@ -104,6 +105,7 @@ class StreamController extends Controller
                 'application.filters.OwnerFilter
                     + Update,
                     UpdateDescription,
+                    UpdatePresentationType,
                     Edit,
                     EditFields,
                     Delete'
@@ -114,7 +116,8 @@ class StreamController extends Controller
                     Update,
                     Edit,
                     EditFields,
-                    UpdateDescription',
+                    UpdateDescription,
+                    UpdatePresentationType',
                 'data_type' => 'stream',
             ),
         );
@@ -149,6 +152,7 @@ class StreamController extends Controller
                     'Edit',
                     'EditFields',
                     'UpdateDescription',
+                    'UpdatePresentationType',
                     'NewVersion',
                     'delete',
                     'ChangeStatus',
@@ -334,8 +338,20 @@ class StreamController extends Controller
 
         $rhythms = StreamPublicRhythm::getRhythmsStoredForStream($stream->extra->stream_extra_id);
 
+        $presentation_type = LookupHelper::getValue($stream->extra->presentation_type_id);
+        $view = '/Public/Page/Stream/List';
+
+        switch ($presentation_type) {
+            case 'list':
+                $view = '/Public/Page/Stream/List';
+                break;
+            case 'photowall':
+                $view = '/Public/Page/Stream/Photowall';
+                break;
+        }
+
         $this->render(
-            '/Public/Page/Stream/Stream',
+            $view,
             array(
                 'stream' => $stream,
                 'posts' => $posts,
@@ -1669,6 +1685,30 @@ class StreamController extends Controller
             $json['error'] =  $error;
         } else {
             $error = false;
+        }
+        echo JSON::encode($json);
+    }
+
+    /**
+     * Updates thedescription for a stream.
+     *
+     * @param $p_presentation_type The new presentation type for this stream.
+     *
+     * @return void
+     */
+    public function actionUpdatePresentationType($p_presentation_type) {
+        if ((int)$this->model->extra->status_id !== StatusHelper::getID('private')) {
+            throw new CHttpException(403, 'The requested page is forbidden.');
+        }
+
+        $json = array();
+        $this->model->extra->presentation_type = $p_presentation_type;
+        $this->model->extra->save();
+        $error = $this->model->extra->getError('presentation_type_id');
+        if ($error !== null) {
+            $json['error'] = $error;
+        } else {
+            $json['success'] = true;
         }
         echo JSON::encode($json);
     }

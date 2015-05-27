@@ -364,7 +364,7 @@ BabblingBrook.Client.Component.MakePost = function (insertCallback, cancelCallba
             if (typeof post === 'object') {
                 var original_thumb_url = 'http://' + BabblingBrook.Client.User.domain +
                     '/images/user/' + BabblingBrook.Client.User.domain + '/' +
-                    BabblingBrook.Client.User.username + '/post/thumbnails/large/' + post.post_id +
+                    BabblingBrook.Client.User.username + '/postwithtree/thumbnails/large/' + post.post_id +
                     '/' + row_id + '.png';
             }
             BabblingBrook.Client.Component.LinkThumbnails.addRow(
@@ -395,17 +395,20 @@ BabblingBrook.Client.Component.MakePost = function (insertCallback, cancelCallba
      * @param {string} thumb_url The url of the original image used to generate the thumnnail.
      * @param {string} small_base64 A png string of the small generated thumbnail.
      * @param {string} large_base64 A png string of the large generated thumbnail.
+     * @param {string} large_proportional_base64 A png string of the large proportional generated thumbnail.
      *
      */
-    var onThumbnailSelected = function (row_id, thumb_url, small_base64, large_base64) {
+    var onThumbnailSelected = function (row_id, thumb_url, small_base64, large_base64, large_proportional_base64) {
         if (typeof thumb_url === 'undefined') {
             jQuery('.post-field-' + row_id + '-link-thumbnail-url').val('');
             jQuery('.post-field-' + row_id + '-link-small-thumbnail-base16').val('');
             jQuery('.post-field-' + row_id + '-link-large-thumbnail-base16').val('');
+            jQuery('.post-field-' + row_id + '-link-large-proportional-thumbnail-base16').val('');
         } else {
             jQuery('.post-field-' + row_id + '-link-thumbnail-url').val(thumb_url);
             jQuery('.post-field-' + row_id + '-link-small-thumbnail-base16').val(small_base64);
             jQuery('.post-field-' + row_id + '-link-large-thumbnail-base16').val(large_base64);
+            jQuery('.post-field-' + row_id + '-link-large-proportional-thumbnail-base16').val(large_proportional_base64);
         }
     };
 
@@ -507,6 +510,8 @@ BabblingBrook.Client.Component.MakePost = function (insertCallback, cancelCallba
             .addClass('post-field-' + row_id + '-link-small-thumbnail-base16');
         jQuery('.large-thumbnail-base16', jq_linktitle)
             .addClass('post-field-' + row_id + '-link-large-thumbnail-base16');
+        jQuery('.large-proportional-thumbnail-base16', jq_linktitle)
+            .addClass('post-field-' + row_id + '-link-large-proportional-thumbnail-base16');
 
         jq_element.prepend(jq_linktitle);
 
@@ -1143,6 +1148,8 @@ BabblingBrook.Client.Component.MakePost = function (insertCallback, cancelCallba
                         jQuery(dom_id + ' .post-field-' + i + '-link-small-thumbnail-base16').val();
                     field.link_thumbnail_large_base64 =
                         jQuery(dom_id + ' .post-field-' + i + '-link-large-thumbnail-base16').val();
+                    field.link_thumbnail_large_proportional_base64 =
+                        jQuery(dom_id + ' .post-field-' + i + '-link-large-proportional-thumbnail-base16').val();
                     break;
 
                 case 'checkbox':

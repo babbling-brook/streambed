@@ -1,3 +1,4 @@
+<?php
 /**
  * Copyright 2015 Sky Wickenden
  * 
@@ -18,20 +19,21 @@
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
  */
 
-body
-{
-	margin: 0;
-	padding: 0;
-	color: #445;
-    font-size: 1.5em;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	background: #d9e0e9;
-}
+$cs = Yii::app()->getClientScript();
+if (Yii::app()->params['minify'] === true) {
+    $cs->registerCssFile(Yii::app()->baseUrl . '/css/Minified/Public/css.css');
 
-a {
-    text-decoration: none;
-}
+} else {
+    $this->renderPartial('/Shared/Layouts/_all_types_css');
+    $this->renderPartial('/Client/Layouts/_all_component_css');
 
-a:hover {
-    color: #2689FF;
+    $css_root = realpath(Yii::app()->basePath . "/../css") . '/';
+    $css_theme_root = Yii::getPathOfAlias('webroot') . Yii::app()->theme->baseUrl . '/css/';
+
+    if (file_exists($css_theme_root . 'Public/Public.css') === true) {
+        $cs->registerCssFile(Yii::app()->theme->baseUrl . '/Public/Public.css');
+    } else if (file_exists($css_root . 'Public/Public.css') === true) {
+        $cs->registerCssFile(Yii::app()->baseUrl . '/css/Public/Public.css');
+    }
 }
+?>

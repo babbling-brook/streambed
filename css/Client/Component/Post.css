@@ -32,13 +32,23 @@
     background: url(/images/ui/up-arrow-paused.png) no-repeat;
 }
 
+.caption .up-paused {
+    background: url(/images/ui/up-arrow-paused-white.png) no-repeat;
+    background-size: cover, cover;
+}
+
 .down-paused {
     background: url(/images/ui/down-arrow-paused.png) no-repeat;
     margin: 0.25em 0 0 0;
 }
 
+.caption .down-paused {
+    background: url(/images/ui/down-arrow-paused-white.png) no-repeat;
+    background-size: cover, cover;
+}
+
 /* Waiting arrow on a white background */
-.up-waiting {
+.post:not(.photowall-post)  .up-waiting {
     background: linear-gradient(to top,  #FF9400, #FFF000, #FF9400);
     background-size: cover;
     position: relative;
@@ -52,7 +62,7 @@
     -webkit-animation-timing-function: linear;
 }
 
-.up-waiting:after {
+.post:not(.photowall-post) .up-waiting:after {
     content: '';
     background: url(/images/ui/up-arrow-waiting-top.png) no-repeat;
     background-size: cover;
@@ -86,7 +96,7 @@
     }
 }
 
-.down-waiting {
+.post:not(.photowall-post) .down-waiting {
     background: linear-gradient(to top,  #FF9400,  #FFF000, #FF9400) 0 0 repeat;
     background-size: cover;
     position: relative;
@@ -100,7 +110,7 @@
     -webkit-animation-timing-function: linear;
 }
 
-.down-waiting:after {
+.post:not(.photowall-post) .down-waiting:after {
     content: '';
     background: url(/images/ui/down-arrow-waiting-top.png) no-repeat;
     background-size: cover;
@@ -135,6 +145,16 @@
     }
 }
 
+.photowall-post .down-waiting {
+    background: url(/images/ui/down-arrow-waiting-white.png) no-repeat;
+    background-size: cover, cover;
+}
+
+.photowall-post .up-waiting {
+    background: url(/images/ui/up-arrow-waiting-white.png) no-repeat;
+    background-size: cover, cover;
+}
+
 .up-taken {
     background: url(/images/ui/up-arrow-taken.png) no-repeat;
 }
@@ -142,6 +162,17 @@
 .down-taken {
     background: url(/images/ui/down-arrow-taken.png) no-repeat;
     margin: 0.25em 0 0 0;
+}
+
+
+.photowall-post .down-taken {
+    background: url(/images/ui/down-arrow-taken-white.png) no-repeat;
+    background-size: cover, cover;
+}
+
+.photowall-post .up-taken {
+    background: url(/images/ui/up-arrow-taken-white.png) no-repeat;
+    background-size: cover, cover;
 }
 
 /* This class is duplicated in shared/post.css because it must .*/

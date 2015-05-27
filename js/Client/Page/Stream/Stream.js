@@ -39,11 +39,19 @@ BabblingBrook.Client.Page.Stream.Stream = (function () {
      */
     var post_template_path = '#post_stream_template>.post';
 
+    var post_photowall_template_path = '#stream_photowall_template>.post';
+
     /**
-     * An instance of the DisplayCascade class used for displaying the posts.
+     * An instance of a DisplayStream class used for displaying the posts.
      * @type object
      */
-    var cascade;
+    var stream_display;
+
+    /*
+     * The presentation type of the current stream.
+     * @type string
+     */
+    var presentation_type;
 
     /**
      * @type {object} The current filters available to the user in the filter drop down.
@@ -177,14 +185,7 @@ BabblingBrook.Client.Page.Stream.Stream = (function () {
      */
     var onParamSearch = function (params) {
         jq_stream_posts.empty();
-        cascade = new BabblingBrook.Client.Component.Cascade(
-            jq_stream_posts,
-            post_template_path,
-            sortStreamForFilter.bind(null, true, params),
-            undefined,
-            undefined,
-            onPostDisplayed
-        );
+        displayPresentationType();
     }
 
     /**
@@ -213,7 +214,7 @@ BabblingBrook.Client.Page.Stream.Stream = (function () {
      * Renders the first set of returned results.
      *
      * @param {function} onPostsReady Callback to call once the posts have been sorted.
-     *      Used by DisplayCascade.
+     *      Used by the class that inherits from the StreamDisplay class.
      * @param {object} data
      * @param {object[]} data.posts See BabblingBrook.Models.posts for a full definition.
      * @param {object} data.sort_request See BabblingBrook.Models.sortRequest for a full definition.
@@ -235,7 +236,7 @@ BabblingBrook.Client.Page.Stream.Stream = (function () {
                 onPostsReady(data.posts);
                 registerForUpdateRequests(data.sort_request);
             } else {
-                cascade.update(data.posts);
+                stream_display.update(data.posts);
             }
 
             jq_stream_posts.removeClass('block-loading');
@@ -298,20 +299,24 @@ BabblingBrook.Client.Page.Stream.Stream = (function () {
      * @return void
      */
     var insertNewPost = function(post) {
-        post.stream_name = BabblingBrook.Library.normaliseResourceName(post.stream_name);
-        stream.name = BabblingBrook.Library.normaliseResourceName(stream.name);
-        if (post.stream_domain === stream.domain
-            && post.stream_username === stream.username
-            && post.stream_name === stream.name
-        ) {
-            cascade.update([post], true);
-            // Recreate the make post form.
-            var make_post = new BabblingBrook.Client.Component.MakePost(insertNewPost, onCancelPost);
-            jQuery('.make-post').html('');
-            var stream_json_url = BabblingBrook.Library.changeUrlAction(stream_url, 'json');
-            make_post.setupNewPost(stream_json_url, jQuery('.make-post'), 'minimised');
-
+        if (presentation_type === 'photowall') {
+            stream_display.insertPost(post);
+        } else {
+            post.stream_name = BabblingBrook.Library.normaliseResourceName(post.stream_name);
+            stream.name = BabblingBrook.Library.normaliseResourceName(stream.name);
+            if (post.stream_domain === stream.domain
+                && post.stream_username === stream.username
+                && post.stream_name === stream.name
+            ) {
+                stream_display.update([post], true);
+            }
         }
+
+        // Recreate the make post form.
+        var make_post = new BabblingBrook.Client.Component.MakePost(insertNewPost, onCancelPost);
+        jQuery('.make-post').html('');
+        var stream_json_url = BabblingBrook.Library.changeUrlAction(stream_url, 'json');
+        make_post.setupNewPost(stream_json_url, jQuery('.make-post'), 'minimised');
     };
 
     /**
@@ -336,6 +341,47 @@ BabblingBrook.Client.Page.Stream.Stream = (function () {
     };
 
     /**
+     * Display the stream depending on the presentation type.
+     *
+     * @return void
+     */
+    var displayPresentationType = function () {
+        switch (presentation_type) {
+            case 'photowall':
+                createPhotoWall();
+                break;
+
+            case 'list':
+                createCascade();
+                break;
+
+            default:
+                throw 'Invalid stream presentation type :' + presentation_type;
+        }
+    };
+
+    var createCascade = function () {
+        stream_display = new BabblingBrook.Client.Component.Cascade(
+            jq_stream_posts,
+            post_template_path,
+            sortStreamForFilter.bind(null, true, undefined),
+            undefined,
+            undefined,
+            onPostDisplayed
+        );
+    };
+
+    var createPhotoWall = function () {
+        jQuery('#stream_container').empty().addClass('block-loading');
+        jQuery('#content_page').addClass('photowall-content');
+        stream_display = new BabblingBrook.Client.Component.Photowall(
+            jq_stream_posts,
+            post_photowall_template_path,
+            sortStreamForFilter.bind(null, true, undefined)
+        );
+    };
+
+    /**
      * Callback for when the filter rhythm has been changed and the pages results need updating.
      *
      * @param {object} filter A BabblingBrook.Models.rhythmName object that points to the selectd filter.
@@ -348,14 +394,7 @@ BabblingBrook.Client.Page.Stream.Stream = (function () {
         // Change the url
         updateStreamUrlForFilter(filter_url);
 
-        cascade = new BabblingBrook.Client.Component.Cascade(
-            jq_stream_posts,
-            post_template_path,
-            sortStreamForFilter.bind(null, true, undefined),
-            undefined,
-            undefined,
-            onPostDisplayed
-        );
+        displayPresentationType();
     }
 
 
@@ -372,6 +411,26 @@ BabblingBrook.Client.Page.Stream.Stream = (function () {
         stream_url = BabblingBrook.Library.makeStreamUrl(stream, '');
     };
 
+    var setSideBarType = function () {
+        switch (presentation_type) {
+            case 'photowall':
+                jQuery('#sidebar').addClass('sidebar-top').removeClass('sidebar-side');
+                jQuery('#sidebar_extra').addClass('sidebar-hide');
+                jQuery('#sidebar_open').removeClass('hide');
+                break;
+
+            case 'list':
+                jQuery('#sidebar').addClass('sidebar-side').removeClass('sidebar-top');
+                jQuery('#sidebar_extra').removeClass('sidebar-hide');
+                jQuery('#sidebar_open').addClass('hide');
+                break;
+
+            default:
+                throw 'Invalid stream presentation type :' + presentation_type;
+        }
+        BabblingBrook.Client.Component.Resize.retest();
+    };
+
     /**
      * Load the stream data
      *
@@ -385,10 +444,13 @@ BabblingBrook.Client.Page.Stream.Stream = (function () {
             stream.name,
             BabblingBrook.Library.makeVersionString(stream.version),
             function (stream_data) {
-
                 if (stream_data.default_rhythms.length < 1) {
-                    stream_data.default_rhythms = BabblingBrook.Client.ClientConfig.default_sort_filters
+                    stream_data.default_rhythms = BabblingBrook.Client.ClientConfig.default_sort_filters;
                 }
+
+                presentation_type = stream_data.presentation_type
+                setSideBarType();
+
                 current_filters = stream_data.default_rhythms;
                 for (var i in current_filters) {
                     var version = current_filters[i].version;
@@ -403,14 +465,8 @@ BabblingBrook.Client.Page.Stream.Stream = (function () {
                 setupFilters();
                 BabblingBrook.Client.Component.StreamSideBar.onFiltersLoaded(current_filters, onFilterChanged, onParamSearch);
 
-                cascade = new BabblingBrook.Client.Component.Cascade(
-                    jq_stream_posts,
-                    post_template_path,
-                    sortStreamForFilter.bind(null, true, undefined),
-                    undefined,
-                    undefined,
-                    onPostDisplayed
-                );
+                displayPresentationType();
+
                 sortStreamForAllFilters();
             },
             streamRequestErrorCallback.bind(null, stream_json_url)
@@ -523,7 +579,7 @@ BabblingBrook.Client.Page.Stream.Stream = (function () {
      * @param {boolean} Should this sort request replace the results on the page when it returns.
      * @param {object} params Any client paramaters that should be passed to the sort request.
      * @param {function} onPostsReady Callback to call once the posts have been sorted.
-     *      Used by DisplayCascade.
+     *      Used by the class that inherits from the DisplayStream class.
      * @param {type} filter A standard BabblingBrook.Models.rhythmName object.
      *
      * @returns void}

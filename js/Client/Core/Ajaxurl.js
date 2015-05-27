@@ -217,6 +217,7 @@ BabblingBrook.Client.Core.Ajaxurl = (function () {
         if (typeof updateUrl === 'undefined') {
             updateUrl = true;
         }
+        jQuery('#content_page').attr('class','');
         BabblingBrook.Client.Core.Ajaxurl.showPageLoading();
         // Fetch the results via jQuery
 //        if (postData) {

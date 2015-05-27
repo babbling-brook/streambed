@@ -23,19 +23,18 @@
  * View for testing the sites javascript.
  */
 
-$this->layout='blank';
 $cs = Yii::app()->getClientScript();
-$cs->registerScriptFile(Yii::app()->baseUrl . '/js/salt.jquery.js');
-$cs->registerScriptFile(Yii::app()->baseUrl . '/js/json2.js');
- // Creates an empty console object. Removing console messages.
-$cs->registerScriptFile(Yii::app()->baseUrl . '/js/tests/qunit.js');
-$cs->registerScriptFile(Yii::app()->baseUrl . '/js/tests/tests.js');
-$cs->registerScriptFile(Yii::app()->baseUrl . '/js/Shared/LocalStorage.js' . $this->js_version_number);
-$cs->registerCssFile(Yii::app()->baseUrl . '/css/tests/qunit.css');
-?>
+$cs->registerScriptFile(Yii::app()->baseUrl . '/js/Client/Tests/All.js');
+$cs->registerScriptFile(Yii::app()->baseUrl . '/js/Client/BackboneModel/Test.js');
 
-<h1 id="qunit-header">JavaScript Tests</h1>
-<h2 id="qunit-banner"></h2>
-<div id="qunit-testrunner-toolbar"></div>
-<h2 id="qunit-userAgent"></h2>
-<ol id="qunit-tests"></ol>
+?>
+<h2 >JavaScript Tests </h2>
+<div id="sandbox"></div>
+<div class="content-indent">
+    <ul>
+        <li>
+            <a class="open_blank_target" href="/site/tests/javascriptall">Run all tests</a>
+        </li>
+    </ul>
+
+</div>

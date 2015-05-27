@@ -104,7 +104,7 @@
 
 #tree_root .reply-post>.make-post, .edit-post>.make-post {
     margin: 0.5em 0 3em 0;
-    background-color: #C8D8FF;
+    background-color: #d8e3ff;
     padding: 2em;
     border-radius: 0.25em;
 }
@@ -158,4 +158,10 @@
 #tree_root .post-content-container>.updown {
     min-height: 2.25em;
     font-size: 1em;
+}
+
+@media only screen and (max-width : 1024px) {
+    #tree_root {
+        margin: 0 1em 1em 0;
+    }   
 }

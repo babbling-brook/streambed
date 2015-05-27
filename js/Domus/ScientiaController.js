@@ -76,6 +76,11 @@ BabblingBrook.Domus.ScientiaController = (function () {
             if (data.protocol === 'https:') {
                 https = true;
             }
+/************    !! IMPORTANT  !! ***************
+ * This is a temporary insecure hack to prevent use of https.
+ ************************************************
+ */
+            https = false;
 
             var domain_id = BabblingBrook.Domus.SendToScientiaFrame.convertDomainToId(data.domain, https);
             BabblingBrook.Domus.Loaded.setScientiaDomainLoaded(domain_id);

@@ -25,6 +25,25 @@ if (typeof BabblingBrook.Client.Component.ValueSetup !== 'object') {
     BabblingBrook.Client.Component.ValueSetup = {};
 };
 
+// preload images
+var img1 = new Image("/images/ui/up-arrow.png");
+var img2 = new Image("/images/ui/down-arrow.png");
+var img3 = new Image("/images/ui/up-arrow-waiting.png");
+var img4 = new Image("/images/ui/down-arrow-waiting.png");
+var img5 = new Image("/images/ui/up-arrow-paused.png");
+var img6 = new Image("/images/ui/down-arrow-paused.png");
+var img7 = new Image("/images/ui/up-arrow-taken.png");
+var img8 = new Image("/images/ui/down-arrow-taken.png");
+
+var img11 = new Image("/images/ui/up-arrow-white.png");
+var img12 = new Image("/images/ui/down-arrow-white.png");
+var img13 = new Image("/images/ui/up-arrow-waiting-white.png");
+var img14 = new Image("/images/ui/down-arrow-waiting-white.png");
+var img15 = new Image("/images/ui/up-arrow-paused-white.png");
+var img16 = new Image("/images/ui/down-arrow-paused-white.png");
+var img17 = new Image("/images/ui/up-arrow-taken-white.png");
+var img18 = new Image("/images/ui/down-arrow-taken-white.png");
+
 
 // @fixme This wrapper is a cludge to prevent the Value class from being overwritten.
 // Needs a more elegant solution (prototypes)
@@ -89,7 +108,7 @@ BabblingBrook.Client.Component.ValueSetup.Arrows = function () {
             up_class = 'up-untaken';
             down_class = 'down-untaken';
         }
-
+console.debug(status);
         if (take_value > 0) {
             up_class = 'up-taken';
             down_class = 'down-untaken';
@@ -177,6 +196,11 @@ BabblingBrook.Client.Component.ValueSetup.Arrows = function () {
             post.takes[data.field_id].value = data.value;
             post.takes[data.field_id].tmp_take = 0;
             var jq_field = jQuery('>div>div[data-field-id=' + data.field_id + ']', jq_post);
+console.debug(jq_field.length);
+            // Photowall posts
+            if (jq_field.length === 0) {
+                jq_field = jQuery('>div>div>div[data-field-id=' + data.field_id + ']', jq_post);
+            }
             var take_status = 'untaken';
             if (data.value !== 0) {
                 take_status = 'taken';
@@ -202,11 +226,12 @@ BabblingBrook.Client.Component.ValueSetup.Arrows = function () {
      * The click event for an updown value button.
      *
      * @param {string} value The amount to change the take by. +1 for up, -1 for down.
+     * @param {boolean} has_caption Arrows in captions have an additional div layer.
      * @param {object} event The click event.
      *
      * @return void
      */
-    BabblingBrook.Client.Component.Value.Arrows.ArrowEvent = function (value, event) {
+    BabblingBrook.Client.Component.Value.Arrows.ArrowEvent = function (value, has_caption, event) {
         'use strict';
         var jq_arrow = jQuery(event.currentTarget);
         var direction = 'up';
@@ -218,10 +243,12 @@ BabblingBrook.Client.Component.ValueSetup.Arrows = function () {
             return;
         }
         var jq_post = jq_arrow.parent().parent().parent();
+        if (typeof has_caption !== "undefined" && has_caption === true) {
+            jq_post = jq_post.parent();
+        }
         var post_id =  jq_post.attr('data-post-id');
         var post_domain =  jq_post.attr('data-post-domain');
         var field_id =  jq_arrow.parent().attr('data-field-id');
-
         var onPostFetched = function (post) {
 
             if (post.status === 'deleted') {
@@ -308,12 +335,22 @@ BabblingBrook.Client.Component.ValueSetup.Arrows = function () {
         jQuery(document).on(
             'click',
             '.post>div>.updown>.up-arrow',
-            BabblingBrook.Client.Component.Value.Arrows.ArrowEvent.bind(null, 1)
+            BabblingBrook.Client.Component.Value.Arrows.ArrowEvent.bind(null, 1, false)
         );
         jQuery(document).on(
             'click',
             '.post>div>.updown>.down-arrow',
-            BabblingBrook.Client.Component.Value.Arrows.ArrowEvent.bind(null, -1)
+            BabblingBrook.Client.Component.Value.Arrows.ArrowEvent.bind(null, -1, false)
+        );
+        jQuery(document).on(
+            'click',
+            '.post>div.caption>div>.updown>.up-arrow',
+            BabblingBrook.Client.Component.Value.Arrows.ArrowEvent.bind(null, 1, true)
+        );
+        jQuery(document).on(
+            'click',
+            '.post>div.caption>div>.updown>.down-arrow',
+            BabblingBrook.Client.Component.Value.Arrows.ArrowEvent.bind(null, -1, true)
         );
     };
 

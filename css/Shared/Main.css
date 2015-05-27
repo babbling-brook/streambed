@@ -197,6 +197,33 @@ input.error {
     display: none;
 }
 
+
+.openable-button {   
+    min-height: 1.5em;
+}
+
+.openable-button:after {
+    content: ' ';
+    background: url(/images/ui/openable-button-arrow.svg) no-repeat;
+    height: 1em;
+    padding-right: 0.25em;
+    position: absolute;
+    right: 0;
+    top: 0.5em;
+    width: 1.5em;
+}
+
+.closable-button:after {
+    content: ' ';
+    background: url(/images/ui/closable-button-arrow.svg) no-repeat;
+    height: 1em;
+    padding-right: 0.25em;
+    position: absolute;
+    right: 0;
+    top: 0.5em;
+    width: 1.5em;
+}
+
 /* spacing for a standard block of content */
 .content-block {
     min-height: 1.5em;
@@ -219,12 +246,11 @@ input.error {
 .content-block-2 {
     min-height: 1.5em;
     overflow: hidden;
-    margin: 2em 0;
+    margin: 1em 0;
     padding: 1em 2em;
     border-radius: 0.25em;
     border: 2px solid transparent;
-    background-color: #C8D8FF;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset, 0px 1px 2px rgba(0, 25, 55, 0.5);
+    background-color: #d8e3ff;
 }
 
 
@@ -236,7 +262,7 @@ input.error {
     padding: 0;
     border-radius: 0;
     border: 2px solid transparent;
-    background-color: #C8D8FF;
+    background-color: #d8e3ff;
     box-shadow: none;
     border-width: 0;
 }

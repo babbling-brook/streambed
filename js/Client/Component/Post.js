@@ -34,7 +34,7 @@
  * @param {object} jq_location A jQuery object pointing to the location to insert the post into the page.
  *      This jQuery element will be replaced with the real post - it needs a dummy location.
  *      An child posts in ul.children will be preserved. Any other data will be removed.
- * @param {object} [jq_template] A jQuery DOM object representing the template to use when displaying an post.
+ * @param {object} [jq_template] A jQuery DOM object representing the template to use when displaying a post.
  *      For a html example see the templates section of /views/layouts/main.php for the default template.
  *      The template contains three levels. The top level is a div that contains the post. It must have a
  *      class called 'post'.
@@ -122,11 +122,12 @@
  * @param {boolean} [show_empty=true] If a field is empty should the label be displayed
  * @param {object} [reload_images=false] Should image thumbnails be reloaded.
  * @param {function} [onReplied] A callback for after a post has been written in response to this post.
+ * @param {string} [thumbnail_type] The type of thumbnail to use. Valid values 'landscape' and 'proportional'
  *
  * @return void
  */
 BabblingBrook.Client.Component.Post = function (post, jq_location, jq_template, reply_path,
-        jq_reply_template, displayCallback, update, slide, show_empty, reload_images, onReplied
+        jq_reply_template, displayCallback, update, slide, show_empty, reload_images, onReplied, thumbnail_type
 ) {
     'use strict';
     /**
@@ -340,7 +341,7 @@ BabblingBrook.Client.Component.Post = function (post, jq_location, jq_template, 
             .html(content)
             .addClass('textbox-field');
         if (post_link === true) {
-            jq_field.attr('href', '/post/' + post.stream_domain + '/' + post.post_id);
+            jq_field.attr('href', '/postwithtree/' + post.stream_domain + '/' + post.post_id);
         }
 
         // If the first field is longer than 200 characters then display it as text rather than a link to the post
@@ -384,8 +385,14 @@ BabblingBrook.Client.Component.Post = function (post, jq_location, jq_template, 
             if (typeof reload_images === 'boolean' && reload_images === true) {
                 image_reload_extension = '?' + Math.floor(Math.random() * 10000);
             }
-            var src = 'http://' + post.domain + '/images/user/' + post.domain + '/' + post.username +
-                '/post/thumbnails/small/' + post.post_id + '/' + field_id + '.png' + image_reload_extension;
+            var src;
+            if (thumbnail_type === 'proportional') {
+                src = 'http://' + post.domain + '/images/user/' + post.domain + '/' + post.username +
+                    '/post/thumbnails/large-proportional/' + post.post_id + '/' + field_id + '.png' + image_reload_extension;
+            } else {
+                src = 'http://' + post.domain + '/images/user/' + post.domain + '/' + post.username +
+                    '/post/thumbnails/small/' + post.post_id + '/' + field_id + '.png' + image_reload_extension;
+            }
             jq_thumbnail.attr('src', src);
 
             jq_thumbnail_container
@@ -720,7 +727,7 @@ BabblingBrook.Client.Component.Post = function (post, jq_location, jq_template, 
         if (jq_link_to_post.text() === 'link' && BabblingBrook.Settings.feature_switches['LINK_COMMENTS'] === false) {
             jq_link_to_post.addClass('hide');
         }
-        jq_link_to_post.attr('href', '/post/' + post.domain + '/' + post.post_id);
+        jq_link_to_post.attr('href', '/postwithtree/' + post.domain + '/' + post.post_id);
     };
 
     /**
@@ -952,7 +959,7 @@ BabblingBrook.Client.Component.Post = function (post, jq_location, jq_template, 
             // Only show the link if the parent is not already present.
             if (jq_parent_post.length < 1) {
                 jq_link_to_parent
-                    .attr('href','/post/' + post.domain + '/' + post.parent_id)
+                    .attr('href','/postwithtree/' + post.domain + '/' + post.parent_id)
                     .removeClass('hide');
             } else {
                 jq_link_to_parent.addClass('hide');
@@ -969,7 +976,7 @@ BabblingBrook.Client.Component.Post = function (post, jq_location, jq_template, 
             // Only show the link if the top parent is not already present.
             if (jq_top_parent_post.length < 1) {
                 jq_link_to_full_thread
-                    .attr('href','/post/' + post.domain + '/' + post.top_parent_id)
+                    .attr('href', '/postwithtree/' + post.domain + '/' + post.top_parent_id)
                     .removeClass('hide');
             } else {
                 jq_link_to_full_thread.addClass('hide');

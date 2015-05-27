@@ -43,29 +43,7 @@ http://<?php echo HOST; ?>/tests/Restore
     </p>
     <ul>
         <li>
-            <a href="TestLocalStorage">Test Local Storage</a>
-        </li>
-        <li>
-            <a href="/tests/javascript">JavaScript Tests</a>
-        </li>
-        <li>
-            <a href="/tests/domusiframe">Somus iframe Tests</a>
-        </li>
-        <li>
-            <a href="/tests/scientiaiframe">Scientia iframe Tests</a>
-        </li>
-        <li>
-            <a href="http://domus.<?php echo Yii::app()->params['host'] ;?>/tests/filteriframe">Filter iframe Tests</a>
-        </li>
-        <li>
-            <a href="http://domus.<?php echo Yii::app()->params['host'] ;?>/tests/suggestioniframe">
-                Suggestion iframe Tests
-            </a>
-        </li>
-        <li>
-            <a href="http://domus.<?php echo Yii::app()->params['host'] ;?>/tests/kindrediframe">
-                Kindred iframe Tests
-            </a>
+            <a href="/site/tests/javascript">Javascript Tests</a>
         </li>
     </ul>
 </div>

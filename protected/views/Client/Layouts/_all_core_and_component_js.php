@@ -23,6 +23,7 @@
 
 // shared files
 HTMLHelper::includeNativeOrTheme('/js/Shared', 'js');
+HTMLHelper::includeNativeOrTheme('/js/Shared/Backbone', 'js');
 HTMLHelper::includeNativeOrTheme('/js/Client/Core', 'js');
 HTMLHelper::includeNativeOrTheme('/js/Client/Component', 'js');
 HTMLHelper::includeNativeOrTheme('/js/Client/User', 'js');

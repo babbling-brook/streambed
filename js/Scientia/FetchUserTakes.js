@@ -59,7 +59,6 @@ BabblingBrook.FetchUserTakes = (function () {
                 errorCallback('scientia_test_get_user_takes_block_number');
                 return;
             }
-
             var url = BabblingBrook.Library.changeUrlAction(request.stream_url, 'GetUserTakeBlockNumber');
             url = window.location.protocol + '//scientia.' + url;
             BabblingBrook.Library.get(

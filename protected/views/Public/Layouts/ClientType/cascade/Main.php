@@ -1,20 +1,20 @@
 <?php
 /**
  * Copyright 2015 Sky Wickenden
- * 
+ *
  * This file is part of StreamBed.
  * An implementation of the Babbling Brook Protocol.
- * 
+ *
  * StreamBed is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * at your option any later version.
- * 
+ *
  * StreamBed is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with StreamBed.  If not, see <http://www.gnu.org/licenses/>
  */
@@ -34,6 +34,7 @@
     <?php
     $this->renderPartial('/Shared/Layouts/_page_js', array('page' => 'Resize'));
     ?>
+    <script src="/js/Public/Login.js<?php echo $this->js_version_number; ?>" type="text/javascript"></script>
 
     <?php
     // this must be included before the <title> tag to ensure they appear before the page specifc css.
@@ -57,7 +58,7 @@
 
 <body>
 
-    <div id="login-modal" class="hide">
+    <div id="login-modal" class="login-modal-fade">
         <div id="login_popup" class="ui-dialog">
             <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-draggable-handle">
                 <span id="ui-id-2" class="ui-dialog-title">Login</span>
@@ -69,8 +70,8 @@
                     <span class="ui-button-text"></span>
                 </button>
             </div>
-            <div id="modal_content" class="login-loading" >
-                <img src="/images/icons/loading.gif">
+            <div id="modal_content">
+                <?php $this->renderPartial('/Public/Page/Site/Login'); ?>
             </div>
         </div>
     </div>
