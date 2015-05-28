@@ -394,7 +394,7 @@ BabblingBrook.Client.Component.Post = function (post, jq_location, jq_template, 
                     '/post/thumbnails/small/' + post.post_id + '/' + field_id + '.png' + image_reload_extension;
             }
             jq_thumbnail.attr('src', src);
-
+console.debug(src);
             jq_thumbnail_container
                 .attr('href', post.content[field_id].link)
                 .removeClass('hide');

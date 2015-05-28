@@ -86,7 +86,13 @@ BabblingBrook.Client.Component.Photowall = function (jq_location, post_template_
             jQuery(post_template_path).clone(),
             undefined,
             undefined,
-            function () {
+            function (jq_post, post) {
+                var missing_thumbnail_src = '/images/ui/post-thumbnail-not-found.png';
+                if (jq_post.find('.post-thumbnail').attr('src') === '') {
+                    jq_post.find('.post-thumbnail').attr('src', missing_thumbnail_src);
+                    jq_post.find('.post-thumbnail-container').removeClass('hide');
+                }
+                console.debug(post_ready_count);
                 post_ready_count++;
             },
             false,
