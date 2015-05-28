@@ -43,6 +43,7 @@
     padding-right: 1em;
 }
 
-.important-hide {
-    display: none !important;
+#stream_loading_container.block-loading {
+    min-height: 250px;
+    border-radius: 0.5em;
 }

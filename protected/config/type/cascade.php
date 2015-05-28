@@ -149,7 +149,7 @@ return
                             'locked' => false,
                         ),
                     ),
-                    'locked' => true,
+                    'locked' => false,
                 ),
                 array(
                     'domain' => HOST,

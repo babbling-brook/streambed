@@ -40,8 +40,15 @@ BabblingBrook.Client.Component.Photowall = function (jq_location, post_template_
 ) {
     'use strict';
 
-    var post_ready_count = 0;
+    jq_location
+        .removeClass('block-loading')
+        .empty()
+        .append(jQuery('#stream_photowall_container_template>div').clone());
+    jq_location = jQuery('#photowall_container');
 
+    jQuery('#content_page').addClass('photowall-content');
+
+    var post_ready_count = 0;
     var makeJustifiedGalery = function () {
         jq_location.justifiedGallery({
             rowHeight : 250,
@@ -52,6 +59,8 @@ BabblingBrook.Client.Component.Photowall = function (jq_location, post_template_
                 nonVisibleOpacity : 0.0
             }
         }).on('jg.complete', function (e) {
+            jQuery('#stream_loading_container').removeClass('block-loading');
+            jQuery('#photowall_container').removeClass('hidden');
         });
         var container_right_margin = jq_location.css('margin-left');
         container_right_margin = container_right_margin.substr(0, container_right_margin.length -2);

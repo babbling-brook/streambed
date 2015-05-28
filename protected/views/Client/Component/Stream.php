@@ -123,3 +123,11 @@
         </div>
     </div>
 </div>
+
+
+<div id="stream_photowall_container_template">
+    <div id="stream_loading_container" class="block-loading">
+        <div id="photowall_container" class="hidden">
+        </div>
+    </div>
+</div>

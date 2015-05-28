@@ -372,8 +372,6 @@ BabblingBrook.Client.Page.Stream.Stream = (function () {
     };
 
     var createPhotoWall = function () {
-        jQuery('#stream_container').empty().addClass('block-loading');
-        jQuery('#content_page').addClass('photowall-content');
         stream_display = new BabblingBrook.Client.Component.Photowall(
             jq_stream_posts,
             post_photowall_template_path,
