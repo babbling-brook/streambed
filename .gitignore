@@ -9,3 +9,5 @@ protected/log/
 !protected/log/.gitignore
 nbproject
 working_notes.php
+images/tmp/*
+images/user/*
