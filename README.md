@@ -69,6 +69,7 @@ sudo chmod 770 folder-location
 /js/Minified/Client
 /js/Minified/Public
 /images/user
+/images/tmp
 ```
 
 #### Domains and Hosts file
