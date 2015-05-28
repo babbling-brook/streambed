@@ -38,7 +38,7 @@ $this->widget(
                 'label' => 'Tutorials',
                 'url' => '',
                 'itemOptions' => array('id' => 'show_tutorial'),
-                'visible' => !Yii::app()->user->isGuest,
+                'visible' => !Yii::app()->user->isGuest && Yii::app()->params['show_tutorial'],
             ),
             array(
                 'label' => 'About',

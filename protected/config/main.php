@@ -181,6 +181,8 @@ return
             // Is this a website a datastore (i.e. can users sign up for accounts here.)
             'babbling_store' => true,
 
+            'show_tutorial' => false,
+
             'db_type' => 'MySql',
 
             // Time to remember that a user has logged in. In seconds 60 * 60 * 24 * 30 = 30 days

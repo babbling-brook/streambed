@@ -1464,6 +1464,10 @@ BabblingBrook.Client.Component.Tutorial = (function () {
             if (window.location.pathname === '/site/logout') {
                 return;
             }
+console.debug(BabblingBrook.Client.ClientConfig.show_tutorial);
+            if (BabblingBrook.Client.ClientConfig.show_tutorial === false) {
+                return;
+            }
 
             BabblingBrook.Client.Core.Loaded.onUserLoaded(function () {
                 jQuery('#show_tutorial>a').click(reshowTutorial.bind(null, false));
