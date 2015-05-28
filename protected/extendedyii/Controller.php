@@ -443,7 +443,9 @@ class Controller extends CController
      * @return void
      */
     public function ensureSSL() {
-        if (intval($_SERVER['HTTPS']) === 1) /* Apache */ {
+        if (Yii::app()->params['https_on'] === false) {
+            return;
+        } else if (intval($_SERVER['HTTPS']) === 1) /* Apache */ {
             return;
         } else if ($_SERVER['HTTPS'] === 'on') /* IIS */ {
             return;

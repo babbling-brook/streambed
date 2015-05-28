@@ -119,6 +119,9 @@ return
 
             'minify' => false,
 
+            // this is not fully implemented. Some https features need commenting out in javascript.
+            'https_on' => false,
+
             // If this is set then local storage will be flushed on page load.
             'flush_localstorage_version' => time(),  // use time() to flush on every refresh
 
