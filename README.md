@@ -60,6 +60,14 @@ This automaticaly recalls 'sails lift' whenever there is a change.
 
 Files and folders that are not monitored are found in .nodemonignore
 
+### Testing
+
+The test suite uses Mocha.
+
+```
+npm install -g mocha
+```
+
 ## End of experimental notes
 
 This is an implementation of the [Babbling Brook protocol](http://babblingbrook.net), used for creating a shared social networking experience where anyone can host social data and any kind of social networking website can be developed.
