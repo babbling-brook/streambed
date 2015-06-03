@@ -21,4 +21,15 @@ module.exports = {
   //   connection: 'someMongodbServer'
   // }
 
+  connections : {
+    mysql_main: {
+      adapter: 'sails-mysql',
+      host: 'localhost',
+      port: 3306,
+      user: '',
+      password: '',
+      database: 'streambed'
+    }
+  }
+
 };

@@ -1,5 +1,5 @@
 /**
- * Production environment settings
+ * Test environment settings
  *
  * This file can include shared settings for a production environment,
  * such as API keys or remote database passwords.  If you're using
@@ -11,6 +11,17 @@
  */
 
 module.exports = {
+
+  connections : {
+    mysql_main: {
+      adapter: 'sails-mysql',
+      host: 'localhost',
+      port: 3306,
+      user: '',               // Enter the username of your database user for the test database.
+      password: '',           // Enter the password of your database user for the test database.
+      database: 'streambed_test'
+    }
+  }
 
   /***************************************************************************
    * Set the default database connection for models in the production        *
