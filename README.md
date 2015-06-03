@@ -1,5 +1,9 @@
 # StreamBed
 
+## Experimental
+
+This is an experimental version of streambed in which the php code is being refactored into js using node.
+
 This is an implementation of the [Babbling Brook protocol](http://babblingbrook.net), used for creating a shared social networking experience where anyone can host social data and any kind of social networking website can be developed.
 
 See [babblingbrook.net/page/docs](http://babblingbrook.net/page/docs) for documentation on the protocol.
