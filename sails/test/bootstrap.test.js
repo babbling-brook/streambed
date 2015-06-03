@@ -6,8 +6,11 @@ var Sails = require('sails'),
   sails;
 
 before(function(done) {
+  this.timeout(5000);
+
   Sails.lift({
     // configuration for testing purposes
+    environment: 'test',
   }, function(err, server) {
     sails = server;
     if (err) return done(err);
@@ -18,5 +21,5 @@ before(function(done) {
 
 after(function(done) {
   // here you can clear fixtures, etc.
-  sails.lower(done);
+  Sails.lower(done);
 });
