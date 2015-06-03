@@ -70,6 +70,12 @@ The test suite uses Mocha.
 npm install -g mocha
 ```
 
+Also, the [Should](https://github.com/shouldjs/should.js) assertion library needs to be installed.
+
+```
+npm install should --save-dev
+```
+
 Once this is done then all tests can be run with
 
 ```
