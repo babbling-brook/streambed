@@ -11,9 +11,17 @@ module.exports = {
    * `scientia/rhythmController.get()`
    */
   get: function (req, res) {
-    return res.json({
-      todo: 'get() is not implemented yet!'
-    });
+
+     RhythmModel
+      .findOne({ where: { name : req.param('name') }})
+      .then(function (a) {
+        console.log(a.rhythm_id);
+
+        return res.json({
+          rhythm_id : a.rhythm_id,
+          todo: 'get() is not implemented yet!'
+        });
+      });
   }
 };
 
