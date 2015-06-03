@@ -6,7 +6,26 @@ This is an experimental version of streambed in which the php code is being refa
 
 ### Sails setup
 
-Copy config/local-example.js into a new file called config/local.js. This is used to store local config settings and will not be committed to the repository.
+All sails files are found in the 'sails' folder.
+
+Copy sails/config/local-example.js into a new file called sails/config/local.js. This is used to store local config settings and will not be committed to the repository.
+
+### Starting sails
+
+Open a terminal or command prompt and cd into the root of the project.
+Then cd into the sails directory with
+
+```
+cd sails
+```
+
+Now, to start the sails server type
+
+```
+sails lift
+```
+
+Sails will be available on localhost:1337 (or any domain in the hosts file that points to 127.0.0.1).
 
 ## End of experimental notes
 
