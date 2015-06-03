@@ -68,6 +68,13 @@ The test suite uses Mocha.
 npm install -g mocha
 ```
 
+Once this is done then all tests can be run with
+
+```
+npm test
+```
+See [the Mocha website](http://mochajs.org) and the [Sails testing docs](http://sailsjs.org/#!/documentation/concepts/Testing) for more info. 
+
 ## End of experimental notes
 
 This is an implementation of the [Babbling Brook protocol](http://babblingbrook.net), used for creating a shared social networking experience where anyone can host social data and any kind of social networking website can be developed.
