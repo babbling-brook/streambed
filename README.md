@@ -27,6 +27,22 @@ sails lift
 
 Sails will be available on localhost:1337 (or any domain in the hosts file that points to 127.0.0.1).
 
+### Auto restart of sails on code change
+
+Sails needs restarting whenever there is a code change. This can be automated by installing nodemon
+
+```
+npm install -g nodemon
+```
+
+Then run nodemon with
+
+```
+nodemon -w api -w config
+```
+
+Files and folders that are not monitored are found in .nodemonignore
+
 ## End of experimental notes
 
 This is an implementation of the [Babbling Brook protocol](http://babblingbrook.net), used for creating a shared social networking experience where anyone can host social data and any kind of social networking website can be developed.
