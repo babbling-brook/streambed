@@ -26,11 +26,13 @@ npm -install sails-mysql
 
 Sails needs configuring for your local installation.
 
-Copy sails/config/local-example.js into a new file called sails/config/local.js. This is used to store local config settings and will not be committed to the repository.
+Copy config/env/development-example.js into a new file called config/env/development.js. This is used to store local config settings and will not be committed to the repository.
 
-Create a MySql user and edit the connection details in config/local.js to match this user.
+Create a MySql user and edit the connection details in config/env/development.js to match this user.
 
 (If you already have a database called streambed then you can edit the database name in config/local.js).
+
+Repeat this for config/env/test.js.
 
 
 ### Starting sails
