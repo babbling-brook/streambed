@@ -4,6 +4,12 @@
 
 This is an experimental version of streambed in which the php code is being refactored into js using node.
 
+### Sails setup
+
+Copy config/local-example.js into a new file called config/local.js. This is used to store local config settings and will not be committed to the repository.
+
+## End of experimental notes
+
 This is an implementation of the [Babbling Brook protocol](http://babblingbrook.net), used for creating a shared social networking experience where anyone can host social data and any kind of social networking website can be developed.
 
 See [babblingbrook.net/page/docs](http://babblingbrook.net/page/docs) for documentation on the protocol.
