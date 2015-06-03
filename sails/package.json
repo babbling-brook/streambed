@@ -26,7 +26,7 @@
   "scripts": {
     "debug": "node debug app.js",
     "start": "node app.js",
-    "test": "mocha test/bootstrap.test.js test/unit/**/*.test.js"
+    "test": "mocha -require should test/bootstrap.test.js test/unit/**/*.test.js"
   },
   "main": "app.js",
   "repository": {
@@ -34,5 +34,8 @@
     "url": "git://github.com/anonymous node/sails user/sails.git"
   },
   "author": "anonymous node/sails user",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "should": "^6.0.3"
+  }
 }
