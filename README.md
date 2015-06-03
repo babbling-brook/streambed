@@ -4,22 +4,38 @@
 
 This is an experimental version of streambed in which the php code is being refactored into js using node.
 
+### Location
+
+All sails commands should be run from the sails directory. It is found in the root directory of the project.
+
+```
+cd /path/to/streambed/sails
+```
+
+All further sails file references assume that you are in this directory.
+
+### Database adapter
+
+The correct database adapter needs installing.
+
+```
+npm -install sails-mysql
+```
+
 ### Sails setup
 
-All sails files are found in the 'sails' folder.
+Sails needs configuring for your local installation.
 
 Copy sails/config/local-example.js into a new file called sails/config/local.js. This is used to store local config settings and will not be committed to the repository.
 
+Create a MySql user and edit the connection details in config/local.js to match this user.
+
+(If you already have a database called streambed then you can edit the database name in config/local.js).
+
+
 ### Starting sails
 
-Open a terminal or command prompt and cd into the root of the project.
-Then cd into the sails directory with
-
-```
-cd sails
-```
-
-Now, to start the sails server type
+To start the sails server type
 
 ```
 sails lift
@@ -40,6 +56,7 @@ Then run nodemon with
 ```
 nodemon -w api -w config
 ```
+This automaticaly recalls 'sails lift' whenever there is a change.
 
 Files and folders that are not monitored are found in .nodemonignore
 
