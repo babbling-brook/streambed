@@ -70,7 +70,7 @@ The test suite uses Mocha.
 npm install -g mocha
 ```
 
-Also, the [Should](https://github.com/shouldjs/should.js) assertion library needs to be installed.
+Also, the [Should](https://github.com/shouldjs/should.js) ([API](http://shouldjs.github.io/#assertion-keys)) assertion library needs to be installed. 
 
 ```
 npm install should --save-dev
