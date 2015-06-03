@@ -34,7 +34,8 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +46,8 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+
+  '/scientia/:username/client/sitedata' : 'scientia/ClientController.siteData',
+  'GET /scientia/:username/rhythm/:name/:major/:minor/:patch' : 'scientia/RhythmController.get'
 
 };

@@ -946,7 +946,7 @@ BabblingBrook.Scientia.Controller = (function () {
                 meta_data.onError('scientia_test_get_rhythm');
                 return;
             }
-
+console.debug(url);
             // Use a cached rhythm if a full version is requested. Otherwise only use the
             // cached rhythm if it is recent.
             var cached_rhythm_object = BabblingBrook.Scientia.Cache.getItem('rhythm', url);
@@ -1352,7 +1352,12 @@ BabblingBrook.Scientia.Controller = (function () {
                 meta_data.onError('scientia_fetch_client_user_data_test');
                 return;
             }
+            // Old php url.
             var url = '/' + request_data.username + '/getuserclientdata';
+
+            // New node url.
+           //var url = 'scientia/' + request_data.username + '/client/sitedata';
+
             delete request_data.username;
 
             BabblingBrook.Library.post(
