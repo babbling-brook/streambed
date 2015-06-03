@@ -26,7 +26,7 @@
   "scripts": {
     "debug": "node debug app.js",
     "start": "node app.js",
-    "test": "mocha -require should test/bootstrap.test.js test/unit/**/*.test.js"
+    "test": "mocha -r should test/bootstrap.test.js test/unit/**/*.test.js"
   },
   "main": "app.js",
   "repository": {
