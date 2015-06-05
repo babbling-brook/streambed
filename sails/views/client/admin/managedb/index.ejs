@@ -1,0 +1,28 @@
+<h3>
+    Remove all records for a table row. Including all dependent records.
+</h3>
+<%=req.host %>
+<ul>
+    <li>
+        <label class="" for="remove_site_domain">
+            Remove all data for a domain.
+        </label>
+        <div>
+            <input id="remove_site_domain" type="text">
+            <button class="delete-rows" data-url="/site/admin/managedb/deletesiterows">Delete</button>
+        </div>
+        <div class="warning">This will remove all users and user data for this domain.</div>
+    </li>
+</ul>
+
+<div id="confirmation_container" class="hide">
+    <p>
+        You are going to : <span id="confirm_description"></span>
+    </p>
+    <p>Please wait and then confirm : <span id="confirm_seconds"> </span> seconds</p>
+    <p>
+        <button id="confirm_delete_row" disabled>Confirm deletion</button>
+    </p>
+</div>
+
+<script type="text/javascript" src="http://<%= req.host %>/js/Client/Admin/ManageDB/DeleteRows.js"></script>

@@ -47,7 +47,15 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/scientia/:username/client/sitedata' : 'scientia/ClientController.siteData',
-  'GET /scientia/:username/rhythm/:name/:major/:minor/:patch' : 'scientia/RhythmController.get'
+  /****************************** SCIENTIA ROUTES ***************************/
+  '/scientia/:username/client/sitedata' : 'scientia/Client.siteData',
+  'GET /scientia/:username/rhythm/:name/:major/:minor/:patch' : 'scientia/Rhythm.get',
+
+
+  /****************************** CLIENT ROUTES ***************************/
+  '/site/admin/managedb' : 'client/admin/ManageDB.index',
+  '/site/admin/managedb/index' : 'client/admin/ManageDB.index',
+  '/site/admin/managedb/deletesiterows' : 'client/admin/ManageDB.deleteSiteRows'
+  //'/site/admin/managedb/:action' : 'client/admin/ManageDB:index'
 
 };

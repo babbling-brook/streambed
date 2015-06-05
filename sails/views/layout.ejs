@@ -31,6 +31,27 @@
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
+    
+    <link rel="stylesheet" href="http://<%= req.host %>/css/Shared/Reset.css" />
+    <link rel="stylesheet" href="http://<%= req.host %>/css/Shared/Main.css" />
+    <link rel="stylesheet" href="http://<%= req.host %>/css/Shared/Layouts/ClientType/cascade/SiteFurniture.css" />
+    <link rel="stylesheet" href="http://<%= req.host %>/css/Client/Layouts/ClientType/cascade/SiteFurniture.css" />
+    <link rel="stylesheet" href="http://<%= req.host %>/css/Client/Client.css" />
+    
+    <script>
+        if (typeof BabblingBrook !== 'object') {
+            BabblingBrook = {};
+        }
+        if (typeof BabblingBrook.Client !== 'object') {
+            BabblingBrook.Client = {};
+        }
+        if (typeof BabblingBrook.Client.Admin !== 'object') {
+            BabblingBrook.Client.Admin = {};
+        }
+    </script>
+    <script type="text/javascript" src="http://<%= req.host %>/js/resources/jquery.js"></script>
+    <script type="text/javascript" src="http://<%= req.host %>/js/Shared/Library.js"></script>
+    
   </head>
 
   <body>
