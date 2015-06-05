@@ -1626,7 +1626,11 @@ BabblingBrook.Library = (function () {
                     );
                     return;
                 }
-            } else if (typeof BabblingBrook.Client !== 'undefined') {
+            } else if (typeof BabblingBrook.Client !== 'undefined'
+                && typeof BabblingBrook.Client.User !== 'undefined'
+                && typeof BabblingBrook.Client.User.Config !== 'undefined'
+                && typeof BabblingBrook.Client.User.Config.ajax_timeout !== 'undefined'
+            ) {
                 settings.timeout = BabblingBrook.Client.User.Config.ajax_timeout;
             } else {
                 settings.timeout = 30000;
