@@ -2,8 +2,8 @@
  * Lifts Sails before testing comenses.
  */
 
-var Sails = require('sails'),
-  sails;
+var Sails = require('sails');
+var sails;
 
 before(function(done) {
   this.timeout(5000);
@@ -13,13 +13,14 @@ before(function(done) {
     environment: 'test',
   }, function(err, server) {
     sails = server;
-    if (err) return done(err);
-    // here you can load fixtures, etc.
+    if (err) {
+      return done(err);
+    }
+
     done(err, sails);
   });
 });
 
 after(function(done) {
-  // here you can clear fixtures, etc.
   Sails.lower(done);
 });

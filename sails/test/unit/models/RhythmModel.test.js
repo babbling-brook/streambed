@@ -1,4 +1,3 @@
-//var should = require("should");
 describe.only('RhythmModel', function() {
 
   describe('#find()', function() {
